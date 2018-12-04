@@ -11549,6 +11549,16 @@ export namespace AWS.CloudWatch.Alarm {
          */
         MetricName?: C.CFString;
         /**
+         * List of MetricDataQuery property types
+
+         *
+         * Specifies the metric data to return.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarm-metrics
+         */
+        Metrics?: C.CFList<AWS.CloudWatch.Alarm.MetricDataQuery>;
+        /**
          * String
 
          *
@@ -11654,6 +11664,161 @@ export namespace AWS.CloudWatch.Alarm {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html#cfn-cloudwatch-alarm-dimension-value
          */
         Value: C.CFString;
+    }
+}
+export namespace AWS.CloudWatch.Alarm {
+    export interface Metric {
+        /**
+         * List of Dimension property types
+
+         *
+         * The dimensions for the metric. You can specify a maximum of 10
+ items.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-dimensions
+         */
+        Dimensions?: C.CFList<AWS.CloudWatch.Alarm.Dimension>;
+        /**
+         * String
+
+         *
+         * The name of the metric.
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-metricname
+         */
+        MetricName?: C.CFString;
+        /**
+         * String
+
+         *
+         * The namespace of the metric.
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metric.html#cfn-cloudwatch-alarm-metric-namespace
+         */
+        Namespace?: C.CFString;
+    }
+}
+export namespace AWS.CloudWatch.Alarm {
+    export interface MetricDataQuery {
+        /**
+         * String
+
+         *
+         * The math expression to be performed on the returned data, if this structure is performing
+ a math expression. For more information about metric math expressions, see Metric Math Syntax and Functions in the Amazon CloudWatch User Guide.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-expression
+         */
+        Expression?: C.CFString;
+        /**
+         * String
+
+         *
+         * A short name used to tie this structure to the results in the response. This name
+ must be unique within a single call to GetMetricData. If you are performing math expressions on this set of data, this name represents
+ that data and can serve as a variable in the mathematical expression. The valid characters
+ are letters, numbers, and underscore. The first character must be a lowercase letter.
+ 
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-id
+         */
+        Id: C.CFString;
+        /**
+         * String
+
+         *
+         * A human-readable label for this metric or expression. This is especially useful if
+ this is an expression, so that you know what the value represents. If the metric or
+ expression is shown in a CloudWatch dashboard widget, the label is shown. If Label is omitted, CloudWatch generates a default.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-label
+         */
+        Label?: C.CFString;
+        /**
+         *
+         *
+         * The metric to be returned, along with statistics, period, and units. Use this parameter
+ only if this structure is performing a data retrieval and not performing a math expression
+ on the returned data.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-metricstat
+         */
+        MetricStat?: AWS.CloudWatch.Alarm.MetricStat;
+        /**
+         * Boolean
+
+         *
+         * Indicates whether to return the time stamps and raw data values of this metric. If
+ you are performing this call just to do math expressions and do not also need the
+ raw data returned, you can specify False. If you omit this, the default of True is used.
+ 
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-returndata
+         */
+        ReturnData?: C.CFBoolean;
+    }
+}
+export namespace AWS.CloudWatch.Alarm {
+    export interface MetricStat {
+        /**
+         * Metric
+         *
+         * The metric to return, including the metric name, namespace, and
+ dimensions.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-metric
+         */
+        Metric: AWS.CloudWatch.Alarm.Metric;
+        /**
+         * Integer
+
+         *
+         * The period, in seconds, to use when retrieving the metric. Minimum value
+ of 1.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-period
+         */
+        Period: C.CFInteger;
+        /**
+         * String
+
+         *
+         * The statistic to return. It can include any CloudWatch statistic or
+ extended statistic.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-stat
+         */
+        Stat: C.CFString;
+        /**
+         * String
+
+         *
+         * The unit to use for the returned data points.
+         *
+         * UpdateType: Mutable
+         * Documentation: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricstat.html#cfn-cloudwatch-alarm-metricstat-unit
+         */
+        Unit?: C.CFString;
     }
 }
 export namespace AWS.CloudWatch {
