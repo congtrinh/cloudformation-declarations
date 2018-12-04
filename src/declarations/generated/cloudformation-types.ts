@@ -1,9 +1,7 @@
 import * as C from '../core';
 export namespace AWS.AmazonMQ {
     /**
-     * A broker is a message broker environment running on
-    Amazon MQ. It is the basic building block of Amazon MQ.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
      */
@@ -12,9 +10,7 @@ export namespace AWS.AmazonMQ {
         Properties: AWS.AmazonMQ.Broker.Properties;
     }
     /**
-     * A broker is a message broker environment running on
-    Amazon MQ. It is the basic building block of Amazon MQ.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
      */
@@ -25,153 +21,117 @@ export namespace AWS.AmazonMQ {
 export namespace AWS.AmazonMQ.Broker {
     export interface Properties {
         /**
-         * List of String values
-
          *
-         * The list of rules (1 minimum, 125 maximum) that authorize connections to
- brokers.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
          */
         SecurityGroups?: C.CFList<C.CFString>;
         /**
-         * String
-
          *
-         * The version of the broker engine.
          *
-         * UpdateType: Immutable
+         *
+         *
+         * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-engineversion
          */
         EngineVersion: C.CFString;
         /**
-         * Amazon MQ Broker ConfigurationId
          *
-         * The broker configuration. If no configuration exists for a broker, Amazon MQ
- creates a default configuration.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-configuration
          */
         Configuration?: AWS.AmazonMQ.Broker.ConfigurationId;
         /**
-         * Amazon MQ Broker MaintenanceWindow
          *
-         * The parameters that determine the WeeklyStartTime.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
          */
         MaintenanceWindowStartTime?: AWS.AmazonMQ.Broker.MaintenanceWindow;
         /**
-         * String
-
          *
-         * The broker's instance type. For more information, see Instance Types in the
- Amazon MQ Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
          */
         HostInstanceType: C.CFString;
         /**
-         * Boolean
-
          *
-         * Enables automatic upgrades to new minor versions for brokers, as Apache releases the
- versions. The automatic upgrades occur during the maintenance window of the broker
- or
- after a manual broker reboot.
-
          *
-         * UpdateType: Immutable
+         *
+         *
+         * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
          */
         AutoMinorVersionUpgrade: C.CFBoolean;
         /**
-         * List of Amazon MQ Broker User property types
-
          *
-         * The list of all ActiveMQ usernames for the specified broker.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
          */
         Users: C.CFList<AWS.AmazonMQ.Broker.User>;
         /**
-         * Amazon MQ Broker
-    LogsConfiguration
          *
-         * The Amazon CloudWatch Logs configuration for the broker.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
          */
         Logs?: AWS.AmazonMQ.Broker.LogList;
         /**
-         * List of String values
-
          *
-         * The list of groups (2 maximum) that define which subnets and IP ranges the broker
- can use from different Availability Zones. A SINGLE_INSTANCE  deployment
- requires one subnet (for example, the default subnet). An
- ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
          */
         SubnetIds?: C.CFList<C.CFString>;
         /**
-         * String
-
          *
-         * The name of the broker. This value must be unique in your AWS account, 1-50
- characters long, must contain only letters, numbers, dashes, and underscores, and
- must
- not contain whitespaces, brackets, wildcard characters, or special characters.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-brokername
          */
         BrokerName: C.CFString;
         /**
-         * String
-
          *
-         * The deployment mode of the broker. SINGLE_INSTANCE creates a
- single-instance broker in a single Availability Zone.
- ACTIVE_STANDBY_MULTI_AZ creates an active/standby broker for high
- availability.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode
          */
         DeploymentMode: C.CFString;
         /**
-         * String
-
          *
-         * The type of broker engine.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype
          */
         EngineType: C.CFString;
         /**
-         * Boolean
-
          *
-         * Enables connections from applications outside of the VPC that hosts the broker's
- subnets.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-publiclyaccessible
@@ -648,10 +608,7 @@ export namespace AWS.ApiGateway.Authorizer {
          * String
 
          *
-         * The source of the identity in an incoming request. If you specify TOKEN for the authorizer's Type property, specify a mapping expression. The custom header mapping expression has
- the form method.request.header.name, where name is the name of a custom authorization header that clients submit as part of their
- requests.
-
+         * The source of the identity in an incoming request.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-identitysource
@@ -685,7 +642,7 @@ export namespace AWS.ApiGateway.Authorizer {
 
          *
          * A list of the Amazon Cognito user pool Amazon Resource Names (ARNs) to associate with
- this authorizer. For more information, see Use Amazon Cognito Your User Pool in the API Gateway Developer Guide.
+ this authorizer. For more information, see Use Amazon Cognito User Pools in the API Gateway Developer Guide.
 
          *
          * UpdateType: Mutable
@@ -852,6 +809,15 @@ export namespace AWS.ApiGateway {
 export namespace AWS.ApiGateway.Deployment {
     export interface Properties {
         /**
+         * DeploymentCanarySettings
+         *
+         * Specifies settings for the canary deployment.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-deploymentcanarysettings
+         */
+        DeploymentCanarySettings?: AWS.ApiGateway.Deployment.DeploymentCanarySettings;
+        /**
          * String
 
          *
@@ -893,6 +859,102 @@ export namespace AWS.ApiGateway.Deployment {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-stagename
          */
         StageName?: C.CFString;
+    }
+}
+export namespace AWS.ApiGateway.Deployment {
+    export interface AccessLogSetting {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-destinationarn
+         */
+        DestinationArn?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-accesslogsetting.html#cfn-apigateway-deployment-accesslogsetting-format
+         */
+        Format?: C.CFString;
+    }
+}
+export namespace AWS.ApiGateway.Deployment {
+    export interface CanarySetting {
+        /**
+         * Double
+
+         *
+         * The percent (0-100) of traffic diverted to a canary deployment.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-percenttraffic
+         */
+        PercentTraffic?: C.CFDouble;
+        /**
+         * String to String map
+
+         *
+         * Stage variables overridden for a canary release deployment, including new stage variables
+ introduced in the canary. These stage variables are represented as a string-to-string
+ map between stage variable names and their values.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-stagevariableoverrides
+         */
+        StageVariableOverrides?: C.CFMap<C.CFString>;
+        /**
+         * Boolean
+
+         *
+         * Whether the canary deployment uses the stage cache or not.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html#cfn-apigateway-deployment-canarysetting-usestagecache
+         */
+        UseStageCache?: C.CFBoolean;
+    }
+}
+export namespace AWS.ApiGateway.Deployment {
+    export interface DeploymentCanarySettings {
+        /**
+         * Double
+
+         *
+         * The percent (0-100) of traffic diverted to a canary deployment.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-percenttraffic
+         */
+        PercentTraffic?: C.CFDouble;
+        /**
+         * String to String map
+
+         *
+         * Stage variables overridden for a canary release deployment, including new stage variables
+ introduced in the canary. These stage variables are represented as a string-to-string
+ map between stage variable names and their values.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-stagevariableoverrides
+         */
+        StageVariableOverrides?: C.CFMap<C.CFString>;
+        /**
+         * Boolean
+
+         *
+         * Whether the canary deployment uses the stage cache or not.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html#cfn-apigateway-deployment-deploymentcanarysettings-usestagecache
+         */
+        UseStageCache?: C.CFBoolean;
     }
 }
 export namespace AWS.ApiGateway.Deployment {
@@ -1014,6 +1076,15 @@ export namespace AWS.ApiGateway.Deployment {
 export namespace AWS.ApiGateway.Deployment {
     export interface StageDescription {
         /**
+         * AccessLogSetting
+         *
+         * Specifies settings for logging access in this stage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+         */
+        AccessLogSetting?: AWS.ApiGateway.Deployment.AccessLogSetting;
+        /**
          * Boolean
 
          *
@@ -1067,6 +1138,15 @@ export namespace AWS.ApiGateway.Deployment {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
          */
         CachingEnabled?: C.CFBoolean;
+        /**
+         * CanarySetting
+         *
+         * Specifies settings for the canary deployment in this stage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+         */
+        CanarySetting?: AWS.ApiGateway.Deployment.CanarySetting;
         /**
          * String
 
@@ -1123,7 +1203,7 @@ export namespace AWS.ApiGateway.Deployment {
          */
         LoggingLevel?: C.CFString;
         /**
-         * List of API Gateway Deployment MethodSetting
+         * List of MethodSetting
          *
          * Configures settings for all of the stage's methods.
          *
@@ -1141,6 +1221,16 @@ export namespace AWS.ApiGateway.Deployment {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
          */
         MetricsEnabled?: C.CFBoolean;
+        /**
+         * List of Resource Tag property types
+
+         *
+         * An array of arbitrary tags (key-value pairs) to associate with the stage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+         */
+        Tags?: C.CFList<Tag>;
         /**
          * Integer
 
@@ -1165,6 +1255,16 @@ export namespace AWS.ApiGateway.Deployment {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingratelimit
          */
         ThrottlingRateLimit?: C.CFDouble;
+        /**
+         * Boolean
+
+         *
+         * Specifies whether active tracing with X-ray is enabled for this stage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-tracingenabled
+         */
+        TracingEnabled?: C.CFBoolean;
         /**
          * Mapping of key-value pairs
 
@@ -1402,7 +1502,7 @@ export namespace AWS.ApiGateway.DomainName {
          */
         DomainName: C.CFString;
         /**
-         *                             Type: API Gateway DomainName EndpointConfiguration
+         *                             Type: EndpointConfiguration
          *
          * A list of the endpoint types of the domain name.
          *
@@ -1562,10 +1662,29 @@ export namespace AWS.ApiGateway.Method {
          */
         ApiKeyRequired?: C.CFBoolean;
         /**
+         * List of String values
+
+         *
+         * A list of authorization scopes configured on the method. The scopes are used with
+ a COGNITO_USER_POOLS authorizer to authorize the method invocation. The authorization works by matching
+ the method scopes against the scopes parsed from the access token in the incoming
+ request. The method invocation is authorized if any method scopes matches a claimed
+ scope in the access token. Otherwise, the invocation is not authorized. When the method
+ scope is configured, the client must provide an access token instead of an identity
+ token for authorization purposes.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationscopes
+         */
+        AuthorizationScopes?: C.CFList<C.CFString>;
+        /**
          * String
 
          *
-         * The method's authorization type.
+         * The method's authorization type. For valid values, see Method in the
+ API Gateway API Reference.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype
@@ -1730,6 +1849,30 @@ export namespace AWS.ApiGateway.Method {
          * String
 
          *
+         * The ID of the VpcLink used for the integration when connectionType=VPC_LINK and undefined, otherwise.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+         */
+        ConnectionId?: C.CFString;
+        /**
+         * String
+
+         *
+         * The type of the network connection to the integration endpoint. The valid value is
+ INTERNET for connections through the public routable internet or VPC_LINK  for private connections between API Gateway and a network load balancer in a VPC.
+ The default value is INTERNET.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+         */
+        ConnectionType?: C.CFString;
+        /**
+         * String
+
+         *
          * Specifies how to handle request payload content type conversions. Valid values are:
          *
          * UpdateType: Mutable
@@ -1823,6 +1966,18 @@ export namespace AWS.ApiGateway.Method {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
          */
         RequestTemplates?: C.CFMap<C.CFString>;
+        /**
+         * Integer
+
+         *
+         * Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds
+ or 29 seconds.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+         */
+        TimeoutInMillis?: C.CFInteger;
         /**
          * String
 
@@ -2038,12 +2193,7 @@ export namespace AWS.ApiGateway.Model {
 }
 export namespace AWS.ApiGateway {
     /**
-     * The AWS::ApiGateway::RequestValidator resource sets up basic validation rules for incoming
-    requests to your API Gateway API.
-    For more information, see
-    
-       Enable Basic Request Validation for an API in API Gateway in the API Gateway Developer Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
      */
@@ -2052,12 +2202,7 @@ export namespace AWS.ApiGateway {
         Properties: AWS.ApiGateway.RequestValidator.Properties;
     }
     /**
-     * The AWS::ApiGateway::RequestValidator resource sets up basic validation rules for incoming
-    requests to your API Gateway API.
-    For more information, see
-    
-       Enable Basic Request Validation for an API in API Gateway in the API Gateway Developer Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
      */
@@ -2068,42 +2213,36 @@ export namespace AWS.ApiGateway {
 export namespace AWS.ApiGateway.RequestValidator {
     export interface Properties {
         /**
-         * String
-
          *
-         * The name of this request validator.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
          */
         Name?: C.CFString;
         /**
-         * String
-
          *
-         * The identifier of the targeted API entity.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
          */
         RestApiId: C.CFString;
         /**
-         * Boolean
-
          *
-         * Indicates whether to validate the request body according to the configured
- schema for the targeted API and method.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
          */
         ValidateRequestBody?: C.CFBoolean;
         /**
-         * Boolean
-
          *
-         * Indicates whether to validate request parameters.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
@@ -2272,7 +2411,7 @@ export namespace AWS.ApiGateway.RestApi {
          */
         Description?: C.CFString;
         /**
-         *                             Type: API Gateway RestApi EndpointConfiguration
+         *                             Type: EndpointConfiguration
          *
          * A list of the endpoint types of the API. Use this property when creating an API. When
  importing an existing API, specify the endpoint configuration types using the Parameters property.
@@ -2423,6 +2562,15 @@ export namespace AWS.ApiGateway {
 export namespace AWS.ApiGateway.Stage {
     export interface Properties {
         /**
+         * AccessLogSetting
+         *
+         * Specifies settings for logging access in this stage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-accesslogsetting
+         */
+        AccessLogSetting?: AWS.ApiGateway.Stage.AccessLogSetting;
+        /**
          * Boolean
 
          *
@@ -2442,6 +2590,15 @@ export namespace AWS.ApiGateway.Stage {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclustersize
          */
         CacheClusterSize?: C.CFString;
+        /**
+         * CanarySetting
+         *
+         * Specifies settings for the canary deployment in this stage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-canarysetting
+         */
+        CanarySetting?: AWS.ApiGateway.Stage.CanarySetting;
         /**
          * String
 
@@ -2485,7 +2642,7 @@ export namespace AWS.ApiGateway.Stage {
          */
         DocumentationVersion?: C.CFString;
         /**
-         * List of API Gateway Stage MethodSetting
+         * List of MethodSetting
          *
          * Settings for all methods in the stage.
          *
@@ -2517,6 +2674,26 @@ export namespace AWS.ApiGateway.Stage {
          */
         StageName?: C.CFString;
         /**
+         * List of Resource Tag property types
+
+         *
+         * An array of arbitrary tags (key-value pairs) to associate with the stage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-tags
+         */
+        Tags?: C.CFList<Tag>;
+        /**
+         * Boolean
+
+         *
+         * Specifies whether active tracing with X-ray is enabled for this stage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-tracingenabled
+         */
+        TracingEnabled?: C.CFBoolean;
+        /**
          * Mapping of key-value pairs
 
          *
@@ -2530,6 +2707,80 @@ export namespace AWS.ApiGateway.Stage {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-variables
          */
         Variables?: C.CFMap<C.CFString>;
+    }
+}
+export namespace AWS.ApiGateway.Stage {
+    export interface AccessLogSetting {
+        /**
+         * String
+
+         *
+         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group to receive access
+ logs
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-destinationarn
+         */
+        DestinationArn?: C.CFString;
+        /**
+         * String
+
+         *
+         * A single line format of the access logs of data, as specified by selected $context variables. The format must include at least $context.requestId.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-accesslogsetting.html#cfn-apigateway-stage-accesslogsetting-format
+         */
+        Format?: C.CFString;
+    }
+}
+export namespace AWS.ApiGateway.Stage {
+    export interface CanarySetting {
+        /**
+         * String
+
+         *
+         * The identifier of the deployment that the stage points to.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-deploymentid
+         */
+        DeploymentId?: C.CFString;
+        /**
+         * Double
+
+         *
+         * The percent (0-100) of traffic diverted to a canary deployment.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-percenttraffic
+         */
+        PercentTraffic?: C.CFDouble;
+        /**
+         * String to String map
+
+         *
+         * Stage variables overridden for a canary release deployment, including new stage variables
+ introduced in the canary. These stage variables are represented as a string-to-string
+ map between stage variable names and their values.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-stagevariableoverrides
+         */
+        StageVariableOverrides?: C.CFMap<C.CFString>;
+        /**
+         * Boolean
+
+         *
+         * Whether the canary deployment uses the stage cache or not.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html#cfn-apigateway-stage-canarysetting-usestagecache
+         */
+        UseStageCache?: C.CFBoolean;
     }
 }
 export namespace AWS.ApiGateway.Stage {
@@ -2725,6 +2976,15 @@ export namespace AWS.ApiGateway.UsagePlan {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
          */
         Stage?: C.CFString;
+        /**
+         * Map of sting-to-Amazon API Gateway UsagePlan ThrottleSettings
+         *
+         * Map containing method-level throttling information for API stage in a usage plan.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+         */
+        Throttle?: C.CFMap<AWS.ApiGateway.UsagePlan.ThrottleSettings>;
     }
 }
 export namespace AWS.ApiGateway.UsagePlan {
@@ -2919,6 +3179,926 @@ export namespace AWS.ApiGateway.VpcLink {
         Name: C.CFString;
     }
 }
+export namespace AWS.AppStream {
+    /**
+     * The AWS::AppStream::DirectoryConfig resource specifies the configuration
+    information required to join Amazon AppStream 2.0 fleets and image builders to Microsoft
+    Active
+    Directory domains. For more information, see CreateDirectoryConfig in the
+    Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html
+     */
+    export interface DirectoryConfig extends C.CommonResourceProps {
+        Type: 'AWS::AppStream::DirectoryConfig';
+        Properties: AWS.AppStream.DirectoryConfig.Properties;
+    }
+    /**
+     * The AWS::AppStream::DirectoryConfig resource specifies the configuration
+    information required to join Amazon AppStream 2.0 fleets and image builders to Microsoft
+    Active
+    Directory domains. For more information, see CreateDirectoryConfig in the
+    Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html
+     */
+    export function DirectoryConfig(props: C.Omit<DirectoryConfig, 'Type'>): DirectoryConfig {
+        return { Type: 'AWS::AppStream::DirectoryConfig', ...props };
+    }
+}
+export namespace AWS.AppStream.DirectoryConfig {
+    export interface Properties {
+        /**
+         *                             Type: List of String values
+
+         *
+         * The distinguished names of the organizational units for computer
+ accounts.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-organizationalunitdistinguishednames
+         */
+        OrganizationalUnitDistinguishedNames: C.CFList<C.CFString>;
+        /**
+         *                             Type: ServiceAccountCredentials
+         *
+         * The credentials for the service account used by the streaming instance to connect
+ to
+ the directory. Do not use this parameter directly. Use ServiceAccountCredentials as an input parameter with noEcho as shown in
+ the Parameters. For best practices information, see Do Not Embed Credentials in Your Templates.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-serviceaccountcredentials
+         */
+        ServiceAccountCredentials: AWS.AppStream.DirectoryConfig.ServiceAccountCredentials;
+        /**
+         *                             Type: String
+
+         *
+         * The fully qualified name of the directory (for example,
+ corp.example.com).
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html#cfn-appstream-directoryconfig-directoryname
+         */
+        DirectoryName: C.CFString;
+    }
+}
+export namespace AWS.AppStream.DirectoryConfig {
+    export interface ServiceAccountCredentials {
+        /**
+         *                             Type: String
+
+         *
+         * The user name of the account. This account must have the following
+ permissions: create computer objects, join computers to the domain, and change/reset
+ the
+ password on descendant computer objects for the organizational units specified.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html#cfn-appstream-directoryconfig-serviceaccountcredentials-accountname
+         */
+        AccountName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The password for the account.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html#cfn-appstream-directoryconfig-serviceaccountcredentials-accountpassword
+         */
+        AccountPassword: C.CFString;
+    }
+}
+export namespace AWS.AppStream {
+    /**
+     * The
+    AWS::AppStream::Fleet resource creates a fleet for Amazon AppStream 2.0. A fleet consists of streaming
+    instances that run a specified image. For more information, see
+    CreateFleet in the Amazon AppStream 2.0 API Reference.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html
+     */
+    export interface Fleet extends C.CommonResourceProps {
+        Type: 'AWS::AppStream::Fleet';
+        Properties: AWS.AppStream.Fleet.Properties;
+    }
+    /**
+     * The
+    AWS::AppStream::Fleet resource creates a fleet for Amazon AppStream 2.0. A fleet consists of streaming
+    instances that run a specified image. For more information, see
+    CreateFleet in the Amazon AppStream 2.0 API Reference.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html
+     */
+    export function Fleet(props: C.Omit<Fleet, 'Type'>): Fleet {
+        return { Type: 'AWS::AppStream::Fleet', ...props };
+    }
+}
+export namespace AWS.AppStream.Fleet {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The description to display.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-description
+         */
+        Description?: C.CFString;
+        /**
+         *                             Type: ComputeCapacity
+         *
+         * The desired capacity for the fleet.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-computecapacity
+         */
+        ComputeCapacity: AWS.AppStream.Fleet.ComputeCapacity;
+        /**
+         *                             Type: VpcConfig
+         *
+         * The VPC configuration for the fleet.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig
+         */
+        VpcConfig?: AWS.AppStream.Fleet.VpcConfig;
+        /**
+         *                             Type: String
+
+         *
+         * The fleet type.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
+         */
+        FleetType?: C.CFString;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Enables or disables default internet access for the fleet.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-enabledefaultinternetaccess
+         */
+        EnableDefaultInternetAccess?: C.CFBoolean;
+        /**
+         *                             Type: DomainJoinInfo
+         *
+         * The information needed to join a Microsoft Active Directory domain.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-domainjoininfo
+         */
+        DomainJoinInfo?: AWS.AppStream.Fleet.DomainJoinInfo;
+        /**
+         *                             Type: String
+
+         *
+         * A unique name for the fleet.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
+         */
+        Name?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the image used to create the fleet.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagename
+         */
+        ImageName?: C.CFString;
+        /**
+         *                             Type: Integer
+
+         *
+         * The maximum time that a streaming session can run, in seconds. Specify a value between
+ 600 and 57600.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-maxuserdurationinseconds
+         */
+        MaxUserDurationInSeconds?: C.CFInteger;
+        /**
+         *                             Type: Integer
+
+         *
+         * The time after disconnection when a session is considered to have ended, in seconds.
+ If a user who was disconnected reconnects within this time interval, the user is connected
+ to their previous session. Specify a value between 60 and 57600.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-disconnecttimeoutinseconds
+         */
+        DisconnectTimeoutInSeconds?: C.CFInteger;
+        /**
+         *                             Type: String
+
+         *
+         * The fleet name to display.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-displayname
+         */
+        DisplayName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The instance type to use when launching fleet instances.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-instancetype
+         */
+        InstanceType: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ARN of the public, private, or shared image to use.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn
+         */
+        ImageArn?: C.CFString;
+    }
+}
+export namespace AWS.AppStream.Fleet {
+    export interface ComputeCapacity {
+        /**
+         *                             Type: Integer
+
+         *
+         * The desired number of streaming instances.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-computecapacity.html#cfn-appstream-fleet-computecapacity-desiredinstances
+         */
+        DesiredInstances: C.CFInteger;
+    }
+}
+export namespace AWS.AppStream.Fleet {
+    export interface DomainJoinInfo {
+        /**
+         *                             Type: String
+
+         *
+         * The distinguished name of the organizational unit for computer
+ accounts.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-domainjoininfo.html#cfn-appstream-fleet-domainjoininfo-organizationalunitdistinguishedname
+         */
+        OrganizationalUnitDistinguishedName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The fully qualified name of the directory (for example,
+ corp.example.com).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-domainjoininfo.html#cfn-appstream-fleet-domainjoininfo-directoryname
+         */
+        DirectoryName?: C.CFString;
+    }
+}
+export namespace AWS.AppStream.Fleet {
+    export interface VpcConfig {
+        /**
+         *                             Type: List of String values
+
+         *
+         * The identifiers of the subnets to which a network interface is attached from
+ the fleet instance. Fleet instances can use one or two subnets.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-subnetids
+         */
+        SubnetIds?: C.CFList<C.CFString>;
+        /**
+         *                             Type: List of String values
+
+         *
+         * The identifiers of the security groups for the fleet.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-vpcconfig.html#cfn-appstream-fleet-vpcconfig-securitygroupids
+         */
+        SecurityGroupIds?: C.CFList<C.CFString>;
+    }
+}
+export namespace AWS.AppStream {
+    /**
+     *
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html
+     */
+    export interface ImageBuilder extends C.CommonResourceProps {
+        Type: 'AWS::AppStream::ImageBuilder';
+        Properties: AWS.AppStream.ImageBuilder.Properties;
+    }
+    /**
+     *
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html
+     */
+    export function ImageBuilder(props: C.Omit<ImageBuilder, 'Type'>): ImageBuilder {
+        return { Type: 'AWS::AppStream::ImageBuilder', ...props };
+    }
+}
+export namespace AWS.AppStream.ImageBuilder {
+    export interface Properties {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagename
+         */
+        ImageName?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-description
+         */
+        Description?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-vpcconfig
+         */
+        VpcConfig?: AWS.AppStream.ImageBuilder.VpcConfig;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-enabledefaultinternetaccess
+         */
+        EnableDefaultInternetAccess?: C.CFBoolean;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-displayname
+         */
+        DisplayName?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-domainjoininfo
+         */
+        DomainJoinInfo?: AWS.AppStream.ImageBuilder.DomainJoinInfo;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-appstreamagentversion
+         */
+        AppstreamAgentVersion?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-instancetype
+         */
+        InstanceType: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name
+         */
+        Name?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-imagearn
+         */
+        ImageArn?: C.CFString;
+    }
+}
+export namespace AWS.AppStream.ImageBuilder {
+    export interface DomainJoinInfo {
+        /**
+         *                             Type: String
+
+         *
+         * The distinguished name of the organizational unit for computer accounts.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-organizationalunitdistinguishedname
+         */
+        OrganizationalUnitDistinguishedName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The fully qualified name of the directory (for example, corp.example.com).
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-domainjoininfo.html#cfn-appstream-imagebuilder-domainjoininfo-directoryname
+         */
+        DirectoryName?: C.CFString;
+    }
+}
+export namespace AWS.AppStream.ImageBuilder {
+    export interface VpcConfig {
+        /**
+         *                             Type: List of String values
+
+         *
+         * The identifiers of the security groups for the image builder.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-securitygroupids
+         */
+        SecurityGroupIds?: C.CFList<C.CFString>;
+        /**
+         *                             Type: List of String values
+
+         *
+         * The identifier of the subnet to which a network interface is attached from
+ the image builder instance.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-imagebuilder-vpcconfig.html#cfn-appstream-imagebuilder-vpcconfig-subnetids
+         */
+        SubnetIds?: C.CFList<C.CFString>;
+    }
+}
+export namespace AWS.AppStream {
+    /**
+     * The AWS::AppStream::Stack resource creates a stack to start streaming
+    applications to Amazon AppStream 2.0 users. For more information, see CreateStack in the
+    Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html
+     */
+    export interface Stack extends C.CommonResourceProps {
+        Type: 'AWS::AppStream::Stack';
+        Properties: AWS.AppStream.Stack.Properties;
+    }
+    /**
+     * The AWS::AppStream::Stack resource creates a stack to start streaming
+    applications to Amazon AppStream 2.0 users. For more information, see CreateStack in the
+    Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html
+     */
+    export function Stack(props: C.Omit<Stack, 'Type'>): Stack {
+        return { Type: 'AWS::AppStream::Stack', ...props };
+    }
+}
+export namespace AWS.AppStream.Stack {
+    export interface Properties {
+        /**
+         *                             Type: ApplicationSettings
+         *
+         * The persistent application settings for users of a stack. When these settings are
+ enabled, changes that users make to applications and Windows settings are automatically
+ saved after each session and applied to the next session.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-applicationsettings
+         */
+        ApplicationSettings?: AWS.AppStream.Stack.ApplicationSettings;
+        /**
+         *                             Type: String
+
+         *
+         * The description to display.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-description
+         */
+        Description?: C.CFString;
+        /**
+         *                             Type: List of StorageConnector property types
+
+         *
+         * The storage connectors to enable.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectors
+         */
+        StorageConnectors?: C.CFList<AWS.AppStream.Stack.StorageConnector>;
+        /**
+         *                             Type: Boolean
+
+         *
+         * This parameter has been deprecated.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-deletestorageconnectors
+         */
+        DeleteStorageConnectors?: C.CFBoolean;
+        /**
+         *                             Type: List of UserSetting property types
+
+         *
+         * The actions that are enabled or disabled for users during their streaming
+ sessions. By default, these actions are enabled.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-usersettings
+         */
+        UserSettings?: C.CFList<AWS.AppStream.Stack.UserSetting>;
+        /**
+         *                             Type: List of String values
+
+         *
+         * The stack attributes to delete.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-attributestodelete
+         */
+        AttributesToDelete?: C.CFList<C.CFString>;
+        /**
+         *                             Type: String
+
+         *
+         * The stack name to display.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-displayname
+         */
+        DisplayName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The URL that users are redirected to after their streaming session ends.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-redirecturl
+         */
+        RedirectURL?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the stack.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-name
+         */
+        Name?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The URL that users are redirected to after they choose the Send Feedback link.
+ If no URL is specified, no Send Feedback link is displayed.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-feedbackurl
+         */
+        FeedbackURL?: C.CFString;
+    }
+}
+export namespace AWS.AppStream.Stack {
+    export interface ApplicationSettings {
+        /**
+         *                             Type: String
+
+         *
+         * The path prefix for the Amazon S3 bucket where users’ persistent application
+ settings are stored. You can allow the same persistent application settings to be
+ used
+ across multiple stacks by specifying the same settings group for each stack.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-settingsgroup
+         */
+        SettingsGroup?: C.CFString;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Specifies whether persistent application settings are enabled for users during their
+ streaming sessions.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-applicationsettings.html#cfn-appstream-stack-applicationsettings-enabled
+         */
+        Enabled: C.CFBoolean;
+    }
+}
+export namespace AWS.AppStream.Stack {
+    export interface StorageConnector {
+        /**
+         *                             Type: List of String values
+
+         *
+         * The names of the domains for the account.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-domains
+         */
+        Domains?: C.CFList<C.CFString>;
+        /**
+         *                             Type: String
+
+         *
+         * The ARN of the storage connector.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-resourceidentifier
+         */
+        ResourceIdentifier?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The type of storage connector.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-storageconnector.html#cfn-appstream-stack-storageconnector-connectortype
+         */
+        ConnectorType: C.CFString;
+    }
+}
+export namespace AWS.AppStream.Stack {
+    export interface UserSetting {
+        /**
+         *                             Type: String
+
+         *
+         * The action that is enabled or disabled.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-action
+         */
+        Action: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * Indicates whether the action is enabled or disabled.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html#cfn-appstream-stack-usersetting-permission
+         */
+        Permission: C.CFString;
+    }
+}
+export namespace AWS.AppStream {
+    /**
+     * The AWS::AppStream::StackFleetAssociation resource associates the specified
+    fleet with the specified stack for Amazon AppStream 2.0. For more information, see
+    AssociateFleet in the
+    Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html
+     */
+    export interface StackFleetAssociation extends C.CommonResourceProps {
+        Type: 'AWS::AppStream::StackFleetAssociation';
+        Properties: AWS.AppStream.StackFleetAssociation.Properties;
+    }
+    /**
+     * The AWS::AppStream::StackFleetAssociation resource associates the specified
+    fleet with the specified stack for Amazon AppStream 2.0. For more information, see
+    AssociateFleet in the
+    Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html
+     */
+    export function StackFleetAssociation(props: C.Omit<StackFleetAssociation, 'Type'>): StackFleetAssociation {
+        return { Type: 'AWS::AppStream::StackFleetAssociation', ...props };
+    }
+}
+export namespace AWS.AppStream.StackFleetAssociation {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The name of the fleet.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html#cfn-appstream-stackfleetassociation-fleetname
+         */
+        FleetName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the stack.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html#cfn-appstream-stackfleetassociation-stackname
+         */
+        StackName: C.CFString;
+    }
+}
+export namespace AWS.AppStream {
+    /**
+     * The AWS::AppStream::StackUserAssociation resource associates the specified
+    stacks with the specified users for Amazon AppStream 2.0. For more information, see
+    UserStackAssociation in the Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html
+     */
+    export interface StackUserAssociation extends C.CommonResourceProps {
+        Type: 'AWS::AppStream::StackUserAssociation';
+        Properties: AWS.AppStream.StackUserAssociation.Properties;
+    }
+    /**
+     * The AWS::AppStream::StackUserAssociation resource associates the specified
+    stacks with the specified users for Amazon AppStream 2.0. For more information, see
+    UserStackAssociation in the Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html
+     */
+    export function StackUserAssociation(props: C.Omit<StackUserAssociation, 'Type'>): StackUserAssociation {
+        return { Type: 'AWS::AppStream::StackUserAssociation', ...props };
+    }
+}
+export namespace AWS.AppStream.StackUserAssociation {
+    export interface Properties {
+        /**
+         *                             Type: Boolean
+
+         *
+         * Specifies whether a welcome email is sent to a user after the user is created in the
+ user pool.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-sendemailnotification
+         */
+        SendEmailNotification?: C.CFBoolean;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-username
+         */
+        UserName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the stack.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-stackname
+         */
+        StackName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The authentication type for the user.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html#cfn-appstream-stackuserassociation-authenticationtype
+         */
+        AuthenticationType: C.CFString;
+    }
+}
+export namespace AWS.AppStream {
+    /**
+     * The AWS::AppStream::User resource creates a new user in the user pool for
+    Amazon AppStream 2.0. For more information, see CreateUser in the Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html
+     */
+    export interface User extends C.CommonResourceProps {
+        Type: 'AWS::AppStream::User';
+        Properties: AWS.AppStream.User.Properties;
+    }
+    /**
+     * The AWS::AppStream::User resource creates a new user in the user pool for
+    Amazon AppStream 2.0. For more information, see CreateUser in the Amazon AppStream 2.0 API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html
+     */
+    export function User(props: C.Omit<User, 'Type'>): User {
+        return { Type: 'AWS::AppStream::User', ...props };
+    }
+}
+export namespace AWS.AppStream.User {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The email address of the user.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-username
+         */
+        UserName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The first name, or given name, of the user.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-firstname
+         */
+        FirstName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The action to take for the welcome email that is sent to a user after the user is
+ created in the user pool. If you specify SUPPRESS, no email is sent. If you specify
+ RESEND, do not specify the first name or last name of the user. If the value is null,
+ the email is sent.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-messageaction
+         */
+        MessageAction?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The last name, or surname, of the user.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-lastname
+         */
+        LastName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The authentication type for the user. You must specify USERPOOL.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html#cfn-appstream-user-authenticationtype
+         */
+        AuthenticationType: C.CFString;
+    }
+}
 export namespace AWS.AppSync {
     /**
      * The
@@ -2963,7 +4143,7 @@ export namespace AWS.AppSync.ApiKey {
 
          *
          * Expiration time of the API Key in seconds (using Unix Epoch time), with a minimum
- of 1 day and a maximum of 365 days.
+ of 1 day and a maximum of 365 days. The default value is 7 days.
 
          *
          * UpdateType: Mutable
@@ -2984,12 +4164,7 @@ export namespace AWS.AppSync.ApiKey {
 }
 export namespace AWS.AppSync {
     /**
-     * The
-    AWS::AppSync::DataSource resource creates data sources for resolvers in AWS AppSync to connect to, such as
-    Amazon DynamoDB, AWS Lambda, and Amazon Elasticserach Service.
-    Resolvers use these data sources to fetch data when clients make GraphQL calls.
-    
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html
      */
@@ -2998,12 +4173,7 @@ export namespace AWS.AppSync {
         Properties: AWS.AppSync.DataSource.Properties;
     }
     /**
-     * The
-    AWS::AppSync::DataSource resource creates data sources for resolvers in AWS AppSync to connect to, such as
-    Amazon DynamoDB, AWS Lambda, and Amazon Elasticserach Service.
-    Resolvers use these data sources to fetch data when clients make GraphQL calls.
-    
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html
      */
@@ -3014,95 +4184,139 @@ export namespace AWS.AppSync {
 export namespace AWS.AppSync.DataSource {
     export interface Properties {
         /**
-         *                             Type: String
-
          *
-         * Mandatory resource to return data from in customer AWS account. For a complete list
- of values, see CreateDataSource in the AWS AppSync API Reference for more information.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-type
          */
         Type: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * Friendly description for this data source.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-description
          */
         Description?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The Amazon Resource Name (ARN) of the IAM role which the data source will use
- to connect to a resource.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-servicerolearn
          */
         ServiceRoleArn?: C.CFString;
         /**
-         *                             Type: AWS AppSync DataSource HttpConfig
          *
-         * Endpoints for an HTTP DataSource.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig
          */
         HttpConfig?: AWS.AppSync.DataSource.HttpConfig;
         /**
-         *                             Type: AWS AppSync DataSource LambdaConfig
          *
-         * A valid ARN of a Lambda function in your account.
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-relationaldatabaseconfig
+         */
+        RelationalDatabaseConfig?: AWS.AppSync.DataSource.RelationalDatabaseConfig;
+        /**
+         *
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig
          */
         LambdaConfig?: AWS.AppSync.DataSource.LambdaConfig;
         /**
-         *                             Type: String
-
          *
-         * Unique AWS AppSync GraphQL API Identifier where this data source will be created.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-apiid
          */
         ApiId: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * Friendly name for you to identify your AppSync data source after creation.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-name
          */
         Name: C.CFString;
         /**
-         *                             Type: AWS AppSync DataSource DynamoDBConfig
          *
-         * AwsRegion and TableName for an Amazon DynamoDB table in your account.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-dynamodbconfig
          */
         DynamoDBConfig?: AWS.AppSync.DataSource.DynamoDBConfig;
         /**
-         *                             Type: AWS AppSync DataSource ElasticsearchConfig
          *
-         * AwsRegion and Endpoints for an Amazon Elasticsearch Service domain in your account.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig
          */
         ElasticsearchConfig?: AWS.AppSync.DataSource.ElasticsearchConfig;
+    }
+}
+export namespace AWS.AppSync.DataSource {
+    export interface AuthorizationConfig {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-awsiamconfig
+         */
+        AwsIamConfig?: AWS.AppSync.DataSource.AwsIamConfig;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html#cfn-appsync-datasource-authorizationconfig-authorizationtype
+         */
+        AuthorizationType: C.CFString;
+    }
+}
+export namespace AWS.AppSync.DataSource {
+    export interface AwsIamConfig {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html#cfn-appsync-datasource-awsiamconfig-signingregion
+         */
+        SigningRegion?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html#cfn-appsync-datasource-awsiamconfig-signingservicename
+         */
+        SigningServiceName?: C.CFString;
     }
 }
 export namespace AWS.AppSync.DataSource {
@@ -3131,7 +4345,7 @@ export namespace AWS.AppSync.DataSource {
          *                             Type: Boolean
 
          *
-         * Set to TRUE to use Amazon Cognito credentials with this data source.
+         * Set to TRUE to use AWS IAM with this data source.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html#cfn-appsync-datasource-dynamodbconfig-usecallercredentials
@@ -3142,20 +4356,18 @@ export namespace AWS.AppSync.DataSource {
 export namespace AWS.AppSync.DataSource {
     export interface ElasticsearchConfig {
         /**
-         *                             Type: String
-
          *
-         * The AWS region.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-elasticsearchconfig.html#cfn-appsync-datasource-elasticsearchconfig-awsregion
          */
         AwsRegion: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The endpoint.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-elasticsearchconfig.html#cfn-appsync-datasource-elasticsearchconfig-endpoint
@@ -3175,6 +4387,15 @@ export namespace AWS.AppSync.DataSource {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-endpoint
          */
         Endpoint: C.CFString;
+        /**
+         *                             Type: AuthorizationConfig
+         *
+         * The authorization configuration.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-authorizationconfig
+         */
+        AuthorizationConfig?: AWS.AppSync.DataSource.AuthorizationConfig;
     }
 }
 export namespace AWS.AppSync.DataSource {
@@ -3189,6 +4410,214 @@ export namespace AWS.AppSync.DataSource {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html#cfn-appsync-datasource-lambdaconfig-lambdafunctionarn
          */
         LambdaFunctionArn: C.CFString;
+    }
+}
+export namespace AWS.AppSync.DataSource {
+    export interface RdsHttpEndpointConfig {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-awsregion
+         */
+        AwsRegion: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-schema
+         */
+        Schema?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-databasename
+         */
+        DatabaseName?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-dbclusteridentifier
+         */
+        DbClusterIdentifier: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html#cfn-appsync-datasource-rdshttpendpointconfig-awssecretstorearn
+         */
+        AwsSecretStoreArn: C.CFString;
+    }
+}
+export namespace AWS.AppSync.DataSource {
+    export interface RelationalDatabaseConfig {
+        /**
+         *                             Type:RdsHttpEndpointConfig
+         *
+         * The information about the rds resource.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-rdshttpendpointconfig
+         */
+        RdsHttpEndpointConfig?: AWS.AppSync.DataSource.RdsHttpEndpointConfig;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html#cfn-appsync-datasource-relationaldatabaseconfig-relationaldatabasesourcetype
+         */
+        RelationalDatabaseSourceType: C.CFString;
+    }
+}
+export namespace AWS.AppSync {
+    /**
+     * The
+    AWS::AppSync::FunctionConfiguration resource defines the functions in GraphQL Apis to perform certain operations.
+    Functions can be attached by PipelineResolver. More information on functions can be
+    found in the
+    FunctionConfiguration Reference.
+    
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html
+     */
+    export interface FunctionConfiguration extends C.CommonResourceProps {
+        Type: 'AWS::AppSync::FunctionConfiguration';
+        Properties: AWS.AppSync.FunctionConfiguration.Properties;
+    }
+    /**
+     * The
+    AWS::AppSync::FunctionConfiguration resource defines the functions in GraphQL Apis to perform certain operations.
+    Functions can be attached by PipelineResolver. More information on functions can be
+    found in the
+    FunctionConfiguration Reference.
+    
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html
+     */
+    export function FunctionConfiguration(props: C.Omit<FunctionConfiguration, 'Type'>): FunctionConfiguration {
+        return { Type: 'AWS::AppSync::FunctionConfiguration', ...props };
+    }
+}
+export namespace AWS.AppSync.FunctionConfiguration {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * A location of a response mapping template on an S3 bucket if you wish to provision
+ with the template file living in S3 rather than embedded in your CloudFormation template.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-responsemappingtemplates3location
+         */
+        ResponseMappingTemplateS3Location?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The Description of the function.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-description
+         */
+        Description?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The AWS AppSync data source that this function will run against in order to return
+ data to the caller.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-datasourcename
+         */
+        DataSourceName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The function’s request mapping template, written in text within the CloudFormation
+ template.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-requestmappingtemplate
+         */
+        RequestMappingTemplate?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The function’s response mapping template, written in text within the CloudFormation
+ template.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-responsemappingtemplate
+         */
+        ResponseMappingTemplate?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The version of the function.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-functionversion
+         */
+        FunctionVersion?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * A location of a request mapping template on an S3 bucket if you wish to provision
+ with the template file living in S3 rather than embedded in your CloudFormation template.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-requestmappingtemplates3location
+         */
+        RequestMappingTemplateS3Location?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The AWS AppSync GraphQL API which you will attach with this function.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-apiid
+         */
+        ApiId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The Name of the function.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-name
+         */
+        Name?: C.CFString;
     }
 }
 export namespace AWS.AppSync {
@@ -3223,7 +4652,7 @@ export namespace AWS.AppSync {
 export namespace AWS.AppSync.GraphQLApi {
     export interface Properties {
         /**
-         *                             Type: AWS AppSync GraphQLApi OpenId Connect Config
+         *                             Type: OpenId Connect Config
          *
          * Optional authorization configuration for using an OpenId Connect compliant service
  with your GraphQL endpoint.
@@ -3234,7 +4663,7 @@ export namespace AWS.AppSync.GraphQLApi {
          */
         OpenIDConnectConfig?: AWS.AppSync.GraphQLApi.OpenIDConnectConfig;
         /**
-         *                             Type: AWS AppSync GraphQLApi UserPoolConfig
+         *                             Type: UserPoolConfig
          *
          * Optional authorization configuration for using Amazon Cognito User Pools with your
  GraphQL endpoint.
@@ -3267,7 +4696,7 @@ export namespace AWS.AppSync.GraphQLApi {
          */
         AuthenticationType: C.CFString;
         /**
-         *                             Type: AWS AppSync GraphQLApi LogConfig
+         *                             Type: LogConfig
          *
          * Logging configuration when writing GraphQL operations and tracing to Amazon Cloudwatch.
          *
@@ -3470,15 +4899,7 @@ export namespace AWS.AppSync.GraphQLSchema {
 }
 export namespace AWS.AppSync {
     /**
-     * The
-    AWS::AppSync::Resolver resource defines the logical GraphQL resolver that you will attach to fields in a
-    schema.
-    Request and Response templates for resolvers are written in Apache Velocity Template
-    Language (VTL) format.
-    More information on resolvers can be found in the
-    Resolver Mapping Template Reference.
-    
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html
      */
@@ -3487,15 +4908,7 @@ export namespace AWS.AppSync {
         Properties: AWS.AppSync.Resolver.Properties;
     }
     /**
-     * The
-    AWS::AppSync::Resolver resource defines the logical GraphQL resolver that you will attach to fields in a
-    schema.
-    Request and Response templates for resolvers are written in Apache Velocity Template
-    Language (VTL) format.
-    More information on resolvers can be found in the
-    Resolver Mapping Template Reference.
-    
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html
      */
@@ -3506,90 +4919,90 @@ export namespace AWS.AppSync {
 export namespace AWS.AppSync.Resolver {
     export interface Properties {
         /**
-         *                             Type: String
-
          *
-         * A location of a response mapping template on an S3 bucket if you wish to provision
- with the template file living in S3 rather than embedded in your CloudFormation template.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-responsemappingtemplates3location
          */
         ResponseMappingTemplateS3Location?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The GraphQL type that will invoke this resolver.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-typename
          */
         TypeName: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The AWS AppSync data source that this resolver will run against in order to return
- data to the caller.
-
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-pipelineconfig
+         */
+        PipelineConfig?: AWS.AppSync.Resolver.PipelineConfig;
+        /**
+         *
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-datasourcename
          */
-        DataSourceName: C.CFString;
+        DataSourceName?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The resolver’s request mapping template, written in text within the CloudFormation
- template.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-requestmappingtemplate
          */
         RequestMappingTemplate?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         *  The resolver’s response mapping template, written in text within the CloudFormation
- template.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-responsemappingtemplate
          */
         ResponseMappingTemplate?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * A location of a request mapping template on an S3 bucket if you wish to provision
- with the template file living in S3 rather than embedded in your CloudFormation template.
-
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-kind
+         */
+        Kind?: C.CFString;
+        /**
+         *
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-requestmappingtemplates3location
          */
         RequestMappingTemplateS3Location?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The AWS AppSync GraphQL API which you will attach this resolver.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-apiid
          */
         ApiId: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The GraphQL field on a type that will invoke the resolver.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-fieldname
@@ -3597,10 +5010,25 @@ export namespace AWS.AppSync.Resolver {
         FieldName: C.CFString;
     }
 }
+export namespace AWS.AppSync.Resolver {
+    export interface PipelineConfig {
+        /**
+         *                             Type: Type: List of String values
+
+         *
+         * The FunctionsIds of the functions attached with the resolver.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-pipelineconfig.html#cfn-appsync-resolver-pipelineconfig-functions
+         */
+        Functions?: C.CFList<C.CFString>;
+    }
+}
 export namespace AWS.ApplicationAutoScaling {
     /**
-     * The AWS::ApplicationAutoScaling::ScalableTarget resource specifies a resource that Application Auto Scaling can scale up or down.
-    For more information, see the RegisterScalableTarget action in the Application Auto Scaling API Reference.
+     * The AWS::ApplicationAutoScaling::ScalableTarget resource specifies a resource
+    that Application Auto Scaling can scale. For more information, see the RegisterScalableTarget action in
+    the Application Auto Scaling API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
@@ -3610,8 +5038,9 @@ export namespace AWS.ApplicationAutoScaling {
         Properties: AWS.ApplicationAutoScaling.ScalableTarget.Properties;
     }
     /**
-     * The AWS::ApplicationAutoScaling::ScalableTarget resource specifies a resource that Application Auto Scaling can scale up or down.
-    For more information, see the RegisterScalableTarget action in the Application Auto Scaling API Reference.
+     * The AWS::ApplicationAutoScaling::ScalableTarget resource specifies a resource
+    that Application Auto Scaling can scale. For more information, see the RegisterScalableTarget action in
+    the Application Auto Scaling API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
@@ -3688,7 +5117,7 @@ export namespace AWS.ApplicationAutoScaling.ScalableTarget {
          */
         ScalableDimension: C.CFString;
         /**
-         *                             Type: List of Application Auto Scaling ScalableTarget ScheduledAction property types
+         *                             Type: List of ScheduledAction property types
 
          *
          * The scheduled actions for the scalable target. Duplicates aren't allowed.
@@ -3701,14 +5130,10 @@ export namespace AWS.ApplicationAutoScaling.ScalableTarget {
          * String
 
          *
-         * The
- namespace of the AWS service that provides the resource or custom-resource
- for a resource provided by your own application or service. For
- valid
- AWS service namespace values,
- see the RegisterScalableTarget
+         * The namespace of the AWS service that provides the resource or
+ custom-resource for a resource provided by your own application or
+ service. For valid AWS service namespace values, see the RegisterScalableTarget
  action in the Application Auto Scaling API Reference.
- 
 
          *
          * UpdateType: Immutable
@@ -3720,20 +5145,18 @@ export namespace AWS.ApplicationAutoScaling.ScalableTarget {
 export namespace AWS.ApplicationAutoScaling.ScalableTarget {
     export interface ScalableTargetAction {
         /**
-         *                             Type: Integer
-
          *
-         * The maximum capacity.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-maxcapacity
          */
         MaxCapacity?: C.CFInteger;
         /**
-         *                             Type: Integer
-
          *
-         * The minimum capacity.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-mincapacity
@@ -3754,14 +5177,13 @@ export namespace AWS.ApplicationAutoScaling.ScalableTarget {
          */
         EndTime?: C.CFTimestamp;
         /**
-         *                             Type: Application Auto Scaling ScalableTarget ScalableTargetAction
+         *                             Type: ScalableTargetAction
          *
          * The new minimum and maximum capacity. You can set both values or just one. During
- the scheduled time,
-                  if the current capacity is below the minimum capacity, Application Auto Scaling
- scales out to the minimum capacity.
-                  If the current capacity is above the maximum capacity, Application Auto Scaling
- scales in to the maximum capacity.
+ the scheduled time, if the current capacity is below the minimum capacity, Application
+ Auto Scaling
+ scales out to the minimum capacity. If the current capacity is above the maximum
+ capacity, Application Auto Scaling scales in to the maximum capacity.
 
          *
          * UpdateType: Mutable
@@ -3782,9 +5204,8 @@ export namespace AWS.ApplicationAutoScaling.ScalableTarget {
          *                             Type: String
 
          *
-         * The name of the scheduled action.
-                    For constraints, see the
-                           ScheduledAction data type in the Application Auto Scaling API Reference.
+         * The name of the scheduled action. For constraints, see the  ScheduledAction data type in the Application Auto Scaling API
+    Reference.
 
          *
          * UpdateType: Mutable
@@ -3805,8 +5226,8 @@ export namespace AWS.ApplicationAutoScaling.ScalableTarget {
 }
 export namespace AWS.ApplicationAutoScaling {
     /**
-     * The AWS::ApplicationAutoScaling::ScalingPolicy resource defines an Application Auto Scaling scaling policy that Application Auto
-    Scaling uses to adjust your application resources.
+     * The AWS::ApplicationAutoScaling::ScalingPolicy resource defines a scaling
+    policy that Application Auto Scaling uses to adjust your application resources.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html
@@ -3816,8 +5237,8 @@ export namespace AWS.ApplicationAutoScaling {
         Properties: AWS.ApplicationAutoScaling.ScalingPolicy.Properties;
     }
     /**
-     * The AWS::ApplicationAutoScaling::ScalingPolicy resource defines an Application Auto Scaling scaling policy that Application Auto
-    Scaling uses to adjust your application resources.
+     * The AWS::ApplicationAutoScaling::ScalingPolicy resource defines a scaling
+    policy that Application Auto Scaling uses to adjust your application resources.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html
@@ -3926,10 +5347,7 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
         /**
          * List of Application Auto Scaling ScalingPolicy MetricDimension
          *
-         * The
- dimensions
- of the metric. Duplicates not allowed.
-
+         * The dimensions of the metric. Duplicates not allowed.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-dimensions
@@ -3959,10 +5377,7 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
          * String
 
          *
-         * The
- statistic
- of the metric.
-
+         * The statistic of the metric.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-statistic
@@ -3972,10 +5387,7 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
          * String
 
          *
-         * The
- unit
- of the metric.
-
+         * The unit of the metric.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-unit
@@ -3999,9 +5411,7 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
          * String
 
          *
-         * The
- value of the dimension.
-
+         * The value of the dimension.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html#cfn-applicationautoscaling-scalingpolicy-metricdimension-value
@@ -4015,10 +5425,7 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
          * String
 
          *
-         * The
- metric
- type.
-
+         * The metric type.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype
@@ -4028,9 +5435,7 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
          * String
 
          *
-         * This
- property is reserved for future use.
-
+         * This property is reserved for future use.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
@@ -4046,7 +5451,8 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
          *
          * The lower bound of the breach size. The lower bound is the difference between the
  breach threshold and the aggregated CloudWatch metric value. If the metric value is
- within the lower and upper bounds, Application Auto Scaling triggers this step adjustment.
+ within the
+ lower and upper bounds, Application Auto Scaling triggers this step adjustment.
 
          *
          * UpdateType: Mutable
@@ -4059,7 +5465,8 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
          *
          * The upper bound of the breach size. The upper bound is the difference between the
  breach threshold and the CloudWatch metric value. If the metric value is within the
- lower and upper bounds, Application Auto Scaling triggers this step adjustment.
+ lower and
+ upper bounds, Application Auto Scaling triggers this step adjustment.
 
          *
          * UpdateType: Mutable
@@ -4070,9 +5477,10 @@ export namespace AWS.ApplicationAutoScaling.ScalingPolicy {
          * Integer
 
          *
-         * The amount by which to scale. The adjustment is based on the value that you specified
- in the AdjustmentType property (either an absolute number or a percentage). A positive value adds to the
- current capacity and a negative number subtracts from the current capacity.
+         * The amount by which to scale. The adjustment is based on the value that you
+ specified in the AdjustmentType property (either an absolute number or a
+ percentage). A positive value adds to the current capacity and a negative number
+ subtracts from the current capacity.
 
          *
          * UpdateType: Mutable
@@ -4286,7 +5694,7 @@ export namespace AWS.Athena.NamedQuery {
 }
 export namespace AWS.AutoScaling {
     /**
-     * Creates an Auto Scaling group.
+     * Creates an Amazon EC2 Auto Scaling group.
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
      */
@@ -4295,7 +5703,7 @@ export namespace AWS.AutoScaling {
         Properties: AWS.AutoScaling.AutoScalingGroup.Properties;
     }
     /**
-     * Creates an Auto Scaling group.
+     * Creates an Amazon EC2 Auto Scaling group.
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
      */
@@ -4352,7 +5760,7 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
 
          *
          * The length of time in seconds after a new EC2 instance comes into service that
- Auto Scaling starts checking its health.
+ Amazon EC2 Auto Scaling starts checking its health.
 
          *
          * UpdateType: Mutable
@@ -4398,12 +5806,21 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          */
         LaunchConfigurationName?: C.CFString;
         /**
-         * List of Amazon EC2 Auto Scaling AutoScalingGroup LifecycleHookSpecification
+         * LaunchTemplateSpecification
          *
-         * The lifecycle hooks for the group, which specify actions to perform when Auto Scaling
- launches or terminates instances.
- For more information, see
-    Amazon EC2 Auto Scaling Lifecycle Hooks in the Amazon EC2 Auto Scaling User Guide.
+         * The launch template to use to launch instances.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchtemplate
+         */
+        LaunchTemplate?: AWS.AutoScaling.AutoScalingGroup.LaunchTemplateSpecification;
+        /**
+         * List of LifecycleHookSpecification
+         *
+         * The lifecycle hooks for the group, which specify actions to perform when
+ Amazon EC2 Auto Scaling launches or terminates instances. For more information, see
+  Amazon EC2 Auto Scaling Lifecycle Hooks in the
+ Amazon EC2 Auto Scaling User Guide.
 
          *
          * UpdateType: Mutable
@@ -4415,7 +5832,7 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
 
          *
          * A list of Classic load balancers associated with this Auto Scaling group. To specify
- Application load balancers, use TargetGroupARNs.
+ Application Load Balancers, use TargetGroupARNs.
 
          *
          * UpdateType: Mutable
@@ -4433,7 +5850,8 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          */
         MaxSize: C.CFString;
         /**
-         * A list of  Amazon EC2 Auto Scaling AutoScalingGroup MetricsCollection
+         * A list of Amazon EC2 Auto Scaling AutoScalingGroup
+    MetricsCollection
          *
          * Enables the monitoring of group metrics of an Auto Scaling group.
          *
@@ -4451,6 +5869,15 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-minsize
          */
         MinSize: C.CFString;
+        /**
+         * MixedInstancesPolicy
+         *
+         * The mixed instances policy to use to launch instances.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy
+         */
+        MixedInstancesPolicy?: AWS.AutoScaling.AutoScalingGroup.MixedInstancesPolicy;
         /**
          * List of Amazon EC2 Auto Scaling AutoScalingGroup
     NotificationConfiguration
@@ -4481,9 +5908,10 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          * String
 
          *
-         * The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group
- uses to call other AWS services on your behalf. By default, Auto Scaling uses a service-linked
- role named AWSServiceRoleForAutoScaling, which it creates if it does not exist.
+         * The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling
+ group uses to call other AWS services on your behalf. By default, Auto Scaling
+ uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if
+ it does not exist.
 
          *
          * UpdateType: Mutable
@@ -4493,9 +5921,8 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
         /**
          * List of Amazon EC2 Auto Scaling AutoScalingGroup TagProperty
          *
-         * The Auto Scaling tags to attach to this resource.
- For more information about Auto Scaling tags, see Tagging
-    Auto Scaling Groups and Instances in the Amazon EC2 Auto Scaling User Guide.
+         * The tags to attach to this resource. For more information, see Tagging Auto Scaling Groups and
+    Instances in the Amazon EC2 Auto Scaling User Guide.
 
          *
          * UpdateType: Mutable
@@ -4506,8 +5933,8 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          * List of String values
 
          *
-         * A list of Amazon Resource Names (ARN) of target groups to associate with the Auto
- Scaling group.
+         * A list of Amazon Resource Names (ARN) of target groups to associate with the
+ Auto Scaling group.
 
          *
          * UpdateType: Mutable
@@ -4536,6 +5963,138 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
          */
         VPCZoneIdentifier?: C.CFList<C.CFString>;
+    }
+}
+export namespace AWS.AutoScaling.AutoScalingGroup {
+    export interface InstancesDistribution {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandallocationstrategy
+         */
+        OnDemandAllocationStrategy?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandbasecapacity
+         */
+        OnDemandBaseCapacity?: C.CFInteger;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-ondemandpercentageabovebasecapacity
+         */
+        OnDemandPercentageAboveBaseCapacity?: C.CFInteger;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotallocationstrategy
+         */
+        SpotAllocationStrategy?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotinstancepools
+         */
+        SpotInstancePools?: C.CFInteger;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html#cfn-autoscaling-autoscalinggroup-instancesdistribution-spotmaxprice
+         */
+        SpotMaxPrice?: C.CFString;
+    }
+}
+export namespace AWS.AutoScaling.AutoScalingGroup {
+    export interface LaunchTemplate {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-group-launchtemplate
+         */
+        LaunchTemplateSpecification: AWS.AutoScaling.AutoScalingGroup.LaunchTemplateSpecification;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html#cfn-as-mixedinstancespolicy-overrides
+         */
+        Overrides?: C.CFList<AWS.AutoScaling.AutoScalingGroup.LaunchTemplateOverrides>;
+    }
+}
+export namespace AWS.AutoScaling.AutoScalingGroup {
+    export interface LaunchTemplateOverrides {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html#cfn-autoscaling-autoscalinggroup-launchtemplateoverrides-instancetype
+         */
+        InstanceType?: C.CFString;
+    }
+}
+export namespace AWS.AutoScaling.AutoScalingGroup {
+    export interface LaunchTemplateSpecification {
+        /**
+         * String
+
+         *
+         * The ID of the launch template. You must specify either a template ID or a template
+ name.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplateid
+         */
+        LaunchTemplateId?: C.CFString;
+        /**
+         * String
+
+         *
+         * The name of the launch template. You must specify either a template name or a template
+ ID.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-launchtemplatename
+         */
+        LaunchTemplateName?: C.CFString;
+        /**
+         * String
+
+         *
+         * The version number. AWS CloudFormation does not support specifying $Latest, or $Default for the template version number.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html#cfn-autoscaling-autoscalinggroup-launchtemplatespecification-version
+         */
+        Version: C.CFString;
     }
 }
 export namespace AWS.AutoScaling.AutoScalingGroup {
@@ -4596,8 +6155,8 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          *                             Type: String
 
          *
-         * Additional information to include when Auto Scaling sends a message to the notification
- target.
+         * Additional information to include when Amazon EC2 Auto Scaling sends a message to
+ the notification target.
  For constraints, see
     PutLifecycleHook in the Amazon EC2 Auto Scaling API Reference.
 
@@ -4610,7 +6169,7 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          *                             Type: String
 
          *
-         * The Amazon Resource Name (ARN) of the target that Auto Scaling sends notifications
+         * The Amazon Resource Name (ARN) of the target that Amazon EC2 Auto Scaling sends notifications
  to when an instance is in the transition
  state for the lifecycle hook. The notification target can be either an Amazon SQS
  queue or an Amazon SNS topic.
@@ -4640,8 +6199,8 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          * String
 
          *
-         * The frequency at which Auto Scaling sends aggregated data to CloudWatch. For example,
- you can
+         * The frequency at which Amazon EC2 Auto Scaling sends aggregated data to CloudWatch.
+ For example, you can
  specify 1Minute to send aggregated data to CloudWatch every minute.
 
          *
@@ -4661,6 +6220,28 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html#cfn-as-metricscollection-metrics
          */
         Metrics?: C.CFList<C.CFString>;
+    }
+}
+export namespace AWS.AutoScaling.AutoScalingGroup {
+    export interface MixedInstancesPolicy {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-group-mixedinstancespolicy.html#cfn-as-mixedinstancespolicy-instancesdistribution
+         */
+        InstancesDistribution?: AWS.AutoScaling.AutoScalingGroup.InstancesDistribution;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-group-mixedinstancespolicy.html#cfn-as-mixedinstancespolicy-launchtemplate
+         */
+        LaunchTemplate: AWS.AutoScaling.AutoScalingGroup.LaunchTemplate;
     }
 }
 export namespace AWS.AutoScaling.AutoScalingGroup {
@@ -4713,11 +6294,10 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
          * Boolean
 
          *
-         * Set to true if you want AWS CloudFormation to copy the tag to EC2 instances that are launched
- as
- part of the auto scaling group. Set to false if you want the tag attached only to the
- auto scaling group and not copied to any instances launched as part of the auto scaling
- group.
+         * Set to true if you want AWS CloudFormation to copy the tag to EC2 instances
+ that are launched as part of the Auto Scaling group. Set to false if you want
+ the tag attached only to the Auto Scaling group and not copied to any instances launched
+ as part of the Auto Scaling group.
 
          *
          * UpdateType: Mutable
@@ -4738,10 +6318,7 @@ export namespace AWS.AutoScaling.AutoScalingGroup {
 }
 export namespace AWS.AutoScaling {
     /**
-     * Creates an Auto Scaling launch configuration that can be used by an Auto Scaling group
-    to configure
-    Auto Scaling instances.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
      */
@@ -4750,10 +6327,7 @@ export namespace AWS.AutoScaling {
         Properties: AWS.AutoScaling.LaunchConfiguration.Properties;
     }
     /**
-     * Creates an Auto Scaling launch configuration that can be used by an Auto Scaling group
-    to configure
-    Auto Scaling instances.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
      */
@@ -4764,226 +6338,162 @@ export namespace AWS.AutoScaling {
 export namespace AWS.AutoScaling.LaunchConfiguration {
     export interface Properties {
         /**
-         * Boolean
-
          *
-         * For Amazon EC2 instances in a VPC, indicates whether instances in the Auto Scaling
- group
- receive public IP addresses. If you specify true, each instance in
- the Auto Scaling receives a unique public IP address.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cf-as-launchconfig-associatepubip
          */
         AssociatePublicIpAddress?: C.CFBoolean;
         /**
-         * A list of BlockDeviceMappings.
-
          *
-         * Specifies how block devices are exposed to the instance. You can specify
- virtual devices and EBS volumes.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-blockdevicemappings
          */
         BlockDeviceMappings?: C.CFList<AWS.AutoScaling.LaunchConfiguration.BlockDeviceMapping>;
         /**
-         * String
-
          *
-         * The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. You
- can specify this property only for EC2-Classic instances. For more information,
- see ClassicLink in the
- Amazon Elastic Compute Cloud User
-    Guide.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcid
          */
         ClassicLinkVPCId?: C.CFString;
         /**
-         * List of String values
-
          *
-         * The IDs of one or more security groups for the VPC that you specified in the
- ClassicLinkVPCId property.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcsecuritygroups
          */
         ClassicLinkVPCSecurityGroups?: C.CFList<C.CFString>;
         /**
-         * Boolean
-
          *
-         * Specifies whether the launch configuration is optimized for EBS I/O. This
- optimization provides dedicated throughput to Amazon EBS and an optimized
- configuration stack to provide optimal EBS I/O performance.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ebsoptimized
          */
         EbsOptimized?: C.CFBoolean;
         /**
-         * String (1–1600 chars)
-
          *
-         * Provides the name or the Amazon Resource Name (ARN) of the instance profile
- associated with the IAM role for the instance. The instance profile contains the
- IAM role.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-iaminstanceprofile
          */
         IamInstanceProfile?: C.CFString;
         /**
-         * String
-
          *
-         * Provides the unique ID of the Amazon Machine Image (AMI) that was assigned
- during registration.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-imageid
          */
         ImageId: C.CFString;
         /**
-         * String
-
          *
-         * The ID of the Amazon EC2 instance you want to use to create the launch
- configuration. Use this property if you want the launch configuration to use
- settings from an existing Amazon EC2 instance.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instanceid
          */
         InstanceId?: C.CFString;
         /**
-         * Boolean
-
          *
-         * Indicates whether detailed instance monitoring is enabled for the Auto Scaling group.
- By default, this property is set to true (enabled).
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancemonitoring
          */
         InstanceMonitoring?: C.CFBoolean;
         /**
-         * String
-
          *
-         * Specifies the instance type of the EC2 instance.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancetype
          */
         InstanceType: C.CFString;
         /**
-         * String
-
          *
-         * Provides the ID of the kernel associated with the EC2 AMI.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-kernelid
          */
         KernelId?: C.CFString;
         /**
-         * String
-
          *
-         * Provides the name of the EC2 key pair.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-keyname
          */
         KeyName?: C.CFString;
         /**
-         * String
-
          *
-         * The name of the launch configuration. This name must be unique within the scope of
- your AWS account.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-launchconfigurationname
          */
         LaunchConfigurationName?: C.CFString;
         /**
-         * String
-
          *
-         * The tenancy of the instance. An instance with a tenancy of
- dedicated runs on single-tenant hardware and can only be launched
- in a VPC. You must set the value of this parameter to dedicated if
- want to launch dedicated instances in a shared tenancy VPC (a VPC with the
- instance placement tenancy attribute set to default). For more information, see
- CreateLaunchConfiguration in the
- Amazon EC2 Auto Scaling API Reference.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
          */
         PlacementTenancy?: C.CFString;
         /**
-         * String
-
          *
-         * The ID of the RAM disk to select. Some kernels require additional drivers at
- launch. Check the kernel requirements for information about whether you need to
- specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center
- and search for the kernel ID.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ramdiskid
          */
         RamDiskId?: C.CFString;
         /**
-         * A list of security groups.
-
          *
-         * A list that contains the EC2 security groups to assign to the
- instances in the Auto Scaling group. The list can contain the IDs of existing EC2
- security groups or references to AWS::EC2::SecurityGroup resources
- created in the template.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-securitygroups
          */
         SecurityGroups?: C.CFList<C.CFString>;
         /**
-         * String
-
          *
-         * The spot price for this Auto Scaling group. If a spot price is set, then the
- Auto Scaling group will launch when the current spot price is less than the amount
- specified in the template.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-spotprice
          */
         SpotPrice?: C.CFString;
         /**
-         * String
-
          *
-         * The user data available to the launched EC2 instances.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-userdata
@@ -4998,7 +6508,7 @@ export namespace AWS.AutoScaling.LaunchConfiguration {
 
          *
          * Indicates whether to delete the volume when the instance is terminated. By
- default, Auto Scaling uses true.
+ default, Amazon EC2 Auto Scaling uses true.
 
          *
          * UpdateType: Mutable
@@ -5060,7 +6570,7 @@ export namespace AWS.AutoScaling.LaunchConfiguration {
          * String
 
          *
-         * The volume type. By default, Auto Scaling uses the standard volume type.
+         * The volume type. By default, Amazon EC2 Auto Scaling uses the standard volume type.
  For more information, see Ebs in the Amazon EC2 Auto Scaling API Reference.
 
          *
@@ -5083,7 +6593,7 @@ export namespace AWS.AutoScaling.LaunchConfiguration {
          */
         DeviceName: C.CFString;
         /**
-         * Amazon EC2 Auto Scaling EBS Block Device.
+         * Amazon EC2 Auto Scaling LaunchConfig BlockDevice.
 
          *
          * The Amazon Elastic Block Store volume information.
@@ -5097,8 +6607,8 @@ export namespace AWS.AutoScaling.LaunchConfiguration {
 
          *
          * Suppresses the device mapping. If NoDevice is set to true for the
- root device, the instance might fail the Amazon EC2 health check. Auto Scaling launches
- a
+ root device, the instance might fail the Amazon EC2 health check. Amazon EC2 Auto
+ Scaling launches a
  replacement instance if the instance fails the health check.
 
          *
@@ -5124,11 +6634,14 @@ export namespace AWS.AutoScaling.LaunchConfiguration {
 }
 export namespace AWS.AutoScaling {
     /**
-     * Controls the state of an instance in an Auto Scaling group after it is launched or
-    terminated. When you use a lifecycle hook,
-    the Auto Scaling group either pauses the instance after it is launched (before it
-    is put into service) or pauses the instance
-    as it is terminated (before it is fully terminated). For more information, see Amazon EC2 Auto Scaling Lifecycle Hooks in the Amazon EC2 Auto Scaling User Guide.
+     * Controls the state of an instance in an Amazon EC2 Auto Scaling group after it is
+    launched or terminated.
+    When you use a lifecycle hook, the Auto Scaling group either pauses the instance after
+    it is launched
+    (before it is put into service) or pauses the instance as it is terminated (before
+    it is fully
+    terminated). For more information, see Amazon EC2 Auto Scaling
+       Lifecycle Hooks in the Amazon EC2 Auto Scaling User Guide.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
@@ -5138,11 +6651,14 @@ export namespace AWS.AutoScaling {
         Properties: AWS.AutoScaling.LifecycleHook.Properties;
     }
     /**
-     * Controls the state of an instance in an Auto Scaling group after it is launched or
-    terminated. When you use a lifecycle hook,
-    the Auto Scaling group either pauses the instance after it is launched (before it
-    is put into service) or pauses the instance
-    as it is terminated (before it is fully terminated). For more information, see Amazon EC2 Auto Scaling Lifecycle Hooks in the Amazon EC2 Auto Scaling User Guide.
+     * Controls the state of an instance in an Amazon EC2 Auto Scaling group after it is
+    launched or terminated.
+    When you use a lifecycle hook, the Auto Scaling group either pauses the instance after
+    it is launched
+    (before it is put into service) or pauses the instance as it is terminated (before
+    it is fully
+    terminated). For more information, see Amazon EC2 Auto Scaling
+       Lifecycle Hooks in the Amazon EC2 Auto Scaling User Guide.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
@@ -5169,7 +6685,8 @@ export namespace AWS.AutoScaling.LifecycleHook {
          *
          * The action the Auto Scaling group takes when the lifecycle hook timeout elapses or
  if
- an unexpected failure occurs. Valid values are CONTINUE (default) and ABANDON.
+ an unexpected failure occurs. Valid values are CONTINUE (default) and
+ ABANDON.
 
          *
          * UpdateType: Mutable
@@ -5181,7 +6698,8 @@ export namespace AWS.AutoScaling.LifecycleHook {
 
          *
          * The amount of time (in seconds) that can elapse before the lifecycle hook times
- out. When the lifecycle hook times out, Auto Scaling performs the action that you
+ out. When the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action
+ that you
  specified in the DefaultResult property.
 
          *
@@ -5193,8 +6711,8 @@ export namespace AWS.AutoScaling.LifecycleHook {
          * String
 
          *
-         * The name of the lifecycle hook. Length Constraints: Minimum length of 1. Maximum length
- of 255.
+         * The name of the lifecycle hook. Length Constraints: Minimum length of 1.
+ Maximum length of 255.
 
          *
          * UpdateType: Immutable
@@ -5218,8 +6736,8 @@ export namespace AWS.AutoScaling.LifecycleHook {
          * String
 
          *
-         * Additional information that you want to include when Auto Scaling sends a message
- to
+         * Additional information that you want to include when Amazon EC2 Auto Scaling sends
+ a message to
  the notification target.
 
          *
@@ -5231,7 +6749,8 @@ export namespace AWS.AutoScaling.LifecycleHook {
          * String
 
          *
-         * The Amazon resource name (ARN) of the notification target that Auto Scaling uses to
+         * The Amazon resource name (ARN) of the notification target that Amazon EC2 Auto Scaling
+ uses to
  notify you when an instance is in the transition state for the lifecycle hook. You
  can specify an Amazon SQS queue or an Amazon SNS topic. The notification message includes
  the following information: lifecycle action token, user account ID, Auto Scaling group
@@ -5260,8 +6779,8 @@ export namespace AWS.AutoScaling.LifecycleHook {
 }
 export namespace AWS.AutoScaling {
     /**
-     * Adds a scaling policy to an Auto Scaling group. A scaling policy specifies whether
-    to scale the Auto Scaling group up or down, and by how much.
+     * Adds a scaling policy to an Amazon EC2 Auto Scaling group. A scaling policy specifies
+    whether to scale the Auto Scaling group up or down, and by how much.
     For more information, see Dynamic Scaling in the Amazon EC2 Auto Scaling User Guide.
  
      *
@@ -5272,8 +6791,8 @@ export namespace AWS.AutoScaling {
         Properties: AWS.AutoScaling.ScalingPolicy.Properties;
     }
     /**
-     * Adds a scaling policy to an Auto Scaling group. A scaling policy specifies whether
-    to scale the Auto Scaling group up or down, and by how much.
+     * Adds a scaling policy to an Amazon EC2 Auto Scaling group. A scaling policy specifies
+    whether to scale the Auto Scaling group up or down, and by how much.
     For more information, see Dynamic Scaling in the Amazon EC2 Auto Scaling User Guide.
  
      *
@@ -5303,7 +6822,7 @@ export namespace AWS.AutoScaling.ScalingPolicy {
          * String
 
          *
-         * The name or Amazon Resource Name (ARN) of the Auto Scaling Group that you
+         * The name or Amazon Resource Name (ARN) of the Auto Scaling group that you
  want to attach the policy to.
 
          *
@@ -5328,8 +6847,8 @@ export namespace AWS.AutoScaling.ScalingPolicy {
 
          *
          * The estimated time, in seconds, until a newly launched instance can send
- metrics to CloudWatch. By default, Auto Scaling uses the cooldown period, as specified
- in the
+ metrics to CloudWatch. By default, Amazon EC2 Auto Scaling uses the cooldown period,
+ as specified in the
  Cooldown property.
 
          *
@@ -5610,8 +7129,8 @@ export namespace AWS.AutoScaling.ScalingPolicy {
 }
 export namespace AWS.AutoScaling {
     /**
-     * Creates a scheduled scaling action for an Auto Scaling group, changing the number
-    of servers
+     * Creates a scheduled scaling action for an Amazon EC2 Auto Scaling group, changing
+    the number of servers
     available for your application in response to predictable load changes.
  
      *
@@ -5622,8 +7141,8 @@ export namespace AWS.AutoScaling {
         Properties: AWS.AutoScaling.ScheduledAction.Properties;
     }
     /**
-     * Creates a scheduled scaling action for an Auto Scaling group, changing the number
-    of servers
+     * Creates a scheduled scaling action for an Amazon EC2 Auto Scaling group, changing
+    the number of servers
     available for your application in response to predictable load changes.
  
      *
@@ -5725,8 +7244,7 @@ export namespace AWS.AutoScaling.ScheduledAction {
 }
 export namespace AWS.AutoScalingPlans {
     /**
-     * Creates a scaling plan for AWS Auto Scaling. For more information, see the AWS Auto Scaling User Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html
      */
@@ -5735,8 +7253,7 @@ export namespace AWS.AutoScalingPlans {
         Properties: AWS.AutoScalingPlans.ScalingPlan.Properties;
     }
     /**
-     * Creates a scaling plan for AWS Auto Scaling. For more information, see the AWS Auto Scaling User Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html
      */
@@ -5747,21 +7264,18 @@ export namespace AWS.AutoScalingPlans {
 export namespace AWS.AutoScalingPlans.ScalingPlan {
     export interface Properties {
         /**
-         *                             Type: AWS Auto Scaling ScalingPlan ApplicationSource
          *
-         * A CloudFormation stack or a set of tags. You can create one scaling plan per application
- source.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-applicationsource
          */
         ApplicationSource: AWS.AutoScalingPlans.ScalingPlan.ApplicationSource;
         /**
-         *                             Type: List of AWS Auto Scaling ScalingPlan ScalingInstruction property types
-
          *
-         * The scaling instructions.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-scalinginstructions
@@ -5782,7 +7296,7 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          */
         CloudFormationStackARN?: C.CFString;
         /**
-         *                             Type: List of AWS Auto Scaling ScalingPlan TagFilter
+         *                             Type: List of TagFilter
          *
          * A set of tags (up to 50).
          *
@@ -5790,6 +7304,55 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-tagfilters
          */
         TagFilters?: C.CFList<AWS.AutoScalingPlans.ScalingPlan.TagFilter>;
+    }
+}
+export namespace AWS.AutoScalingPlans.ScalingPlan {
+    export interface CustomizedLoadMetricSpecification {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-metricname
+         */
+        MetricName: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-statistic
+         */
+        Statistic: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-dimensions
+         */
+        Dimensions?: C.CFList<AWS.AutoScalingPlans.ScalingPlan.MetricDimension>;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-unit
+         */
+        Unit?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedloadmetricspecification-namespace
+         */
+        Namespace: C.CFString;
     }
 }
 export namespace AWS.AutoScalingPlans.ScalingPlan {
@@ -5815,7 +7378,7 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          */
         Statistic: C.CFString;
         /**
-         *                             Type: List of AWS Auto Scaling ScalingPlan MetricDimension
+         *                             Type: List of MetricDimension
          *
          * The dimensions of the metric.
          *
@@ -5870,6 +7433,28 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
     }
 }
 export namespace AWS.AutoScalingPlans.ScalingPlan {
+    export interface PredefinedLoadMetricSpecification {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-predefinedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-predefinedloadmetricspecification-predefinedloadmetrictype
+         */
+        PredefinedLoadMetricType: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-predefinedloadmetricspecification.html#cfn-autoscalingplans-scalingplan-predefinedloadmetricspecification-resourcelabel
+         */
+        ResourceLabel?: C.CFString;
+    }
+}
+export namespace AWS.AutoScalingPlans.ScalingPlan {
     export interface PredefinedScalingMetricSpecification {
         /**
          *                             Type: String
@@ -5898,17 +7483,20 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
 export namespace AWS.AutoScalingPlans.ScalingPlan {
     export interface ScalingInstruction {
         /**
-         *                             Type: String
+         *                             Type: Boolean
 
          *
-         * The ID of the resource. For examples, see
- ScalingInstruction in the AWS Auto Scaling API Reference.
+         * Controls whether dynamic scaling by AWS Auto Scaling is disabled. When dynamic scaling
+ is
+ enabled, AWS Auto Scaling creates target tracking scaling policies based on the specified
+ target
+ tracking configurations.
 
          *
          * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-resourceid
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-disabledynamicscaling
          */
-        ResourceId: C.CFString;
+        DisableDynamicScaling?: C.CFBoolean;
         /**
          *                             Type: String
 
@@ -5925,6 +7513,19 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          *                             Type: String
 
          *
+         * Defines the behavior that should be applied if the forecast capacity approaches or
+ exceeds the maximum capacity specified for the resource. The default value is
+ SetForecastCapacityToMaxCapacity.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-predictivescalingmaxcapacitybehavior
+         */
+        PredictiveScalingMaxCapacityBehavior?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
          * The scalable dimension associated with the resource. For a list of values, see
  ScalingInstruction in the AWS Auto Scaling API Reference.
 
@@ -5934,19 +7535,35 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          */
         ScalableDimension: C.CFString;
         /**
+         *                             Type: String
+
+         *
+         * Controls whether a resource's externally created scaling policies are kept or
+ replaced.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-scalingpolicyupdatebehavior
+         */
+        ScalingPolicyUpdateBehavior?: C.CFString;
+        /**
          *                             Type: Integer
 
          *
-         * The minimum value to scale to in response to a scale out event.
+         * The minimum capacity of the resource.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-mincapacity
          */
         MinCapacity: C.CFInteger;
         /**
-         *                             Type: List of AWS Auto Scaling ScalingPlan TargetTrackingConfiguration
+         *                             Type: List of TargetTrackingConfiguration property types
+
          *
-         * The target tracking scaling policies (up to 10).
+         * The structure that defines new target tracking configurations (up to 10). Each of
+ these structures includes a specific scaling metric and a target value for the metric,
+ along with various parameters to use with dynamic scaling.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-targettrackingconfigurations
@@ -5956,12 +7573,102 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          *                             Type: Integer
 
          *
-         * The maximum value to scale to in response to a scale in event.
+         * The size of the capacity buffer to use when the forecast capacity is close to or
+ exceeds the maximum capacity. The value is specified as a percentage relative to the
+ forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer,
+ such that if the forecast capacity is 50, and the maximum capacity is 40, then the
+ effective maximum capacity is 55.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-predictivescalingmaxcapacitybuffer
+         */
+        PredictiveScalingMaxCapacityBuffer?: C.CFInteger;
+        /**
+         *                             Type: CustomizedLoadMetricSpecification
+         *
+         * The customized load metric to use for predictive scaling. This parameter or a
+ PredefinedLoadMetricSpecification is required when
+ configuring predictive scaling, and cannot be used otherwise.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-customizedloadmetricspecification
+         */
+        CustomizedLoadMetricSpecification?: AWS.AutoScalingPlans.ScalingPlan.CustomizedLoadMetricSpecification;
+        /**
+         *                             Type: PredefinedLoadMetricSpecification
+ 
+
+         *
+         * The predefined load metric to use for predictive scaling. This parameter or a
+ CustomizedLoadMetricSpecification is required when
+ configuring predictive scaling, and cannot be used otherwise.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-predefinedloadmetricspecification
+         */
+        PredefinedLoadMetricSpecification?: AWS.AutoScalingPlans.ScalingPlan.PredefinedLoadMetricSpecification;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the resource. For examples, see
+ ScalingInstruction in the AWS Auto Scaling API Reference.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-resourceid
+         */
+        ResourceId: C.CFString;
+        /**
+         *                             Type: Integer
+
+         *
+         * The amount of time, in seconds, to buffer the run time of scheduled scaling actions
+ when scaling out. For example, if the forecast says to add capacity at 10:00 AM, and
+ the
+ buffer time is 5 minutes, then the run time of the corresponding scheduled scaling
+ action will be 9:55 AM. The intention is to give resources time to be provisioned.
+ For
+ example, it can take a few minutes to launch an EC2 instance. The actual amount of
+ time
+ required depends on several factors, such as the size of the instance and whether
+ there
+ are startup scripts to complete.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-scheduledactionbuffertime
+         */
+        ScheduledActionBufferTime?: C.CFInteger;
+        /**
+         *                             Type: Integer
+
+         *
+         * The maximum capacity of the resource. The exception to this upper limit is if
+ you specify a non-default setting for PredictiveScalingMaxCapacityBehavior.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-maxcapacity
          */
         MaxCapacity: C.CFInteger;
+        /**
+         *                             Type: String
+
+         *
+         * The predictive scaling mode. The default value is ForecastAndScale.
+ Otherwise, AWS Auto Scaling forecasts capacity but does not create any scheduled scaling
+ actions
+ based on the capacity forecast.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-predictivescalingmode
+         */
+        PredictiveScalingMode?: C.CFString;
     }
 }
 export namespace AWS.AutoScalingPlans.ScalingPlan {
@@ -5996,7 +7703,8 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          *
          * The amount of time, in seconds, after a scale out activity completes before another
  scale out activity can start. This value is not used if the scalable resource is an
- Auto Scaling group.
+ Auto
+ Scaling group.
 
          *
          * UpdateType: Mutable
@@ -6016,7 +7724,7 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          */
         TargetValue: C.CFDouble;
         /**
-         *                             Type: AWS Auto Scaling ScalingPlan PredefinedScalingMetricSpecification
+         *                             Type: PredefinedScalingMetricSpecification
          *
          * A predefined metric.
          *
@@ -6030,8 +7738,10 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          *
          * Indicates whether scale in by the target tracking policy is disabled. If the value
  is true, scale in is disabled and the target tracking policy won't remove capacity
- from the scalable resource. Otherwise, scale in is enabled and the target tracking
- policy can remove capacity from the scalable resource. The default value is false.
+ from
+ the scalable resource. Otherwise, scale in is enabled and the target tracking policy
+ can
+ remove capacity from the scalable resource. The default value is false.
 
          *
          * UpdateType: Mutable
@@ -6044,7 +7754,8 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          *
          * The amount of time, in seconds, after a scale in activity completes before another
  scale in activity can start. This value is not used if the scalable resource is an
- Auto Scaling group.
+ Auto
+ Scaling group.
 
          *
          * UpdateType: Mutable
@@ -6065,7 +7776,7 @@ export namespace AWS.AutoScalingPlans.ScalingPlan {
          */
         EstimatedInstanceWarmup?: C.CFInteger;
         /**
-         *                             Type: AWS Auto Scaling ScalingPlan CustomizedScalingMetricSpecification
+         *                             Type: CustomizedScalingMetricSpecification
          *
          * A customized metric.
          *
@@ -6167,8 +7878,8 @@ export namespace AWS.Batch.ComputeEnvironment {
          * String
 
          *
-         * The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a
- SPOT compute environment.
+         * The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to
+ a SPOT compute environment.
 
          *
          * UpdateType: Immutable
@@ -6189,12 +7900,11 @@ export namespace AWS.Batch.ComputeEnvironment {
          * Integer
 
          *
-         * The minimum percentage that a Spot Instance price must be when compared with the On-Demand
- 
- price for that instance type before instances are launched. For example, if your bid
- percentage is 20%, then the Spot price must be below 20% of the current On-Demand
- price for
- that EC2 instance.
+         * The minimum percentage that a Spot Instance price must be when compared
+ with the On-Demand price for that instance type before instances are
+ launched. For example, if your bid percentage is 20%, then the Spot price
+ must be below 20% of the current On-Demand price for that EC2
+ instance.
 
          *
          * UpdateType: Immutable
@@ -6205,8 +7915,8 @@ export namespace AWS.Batch.ComputeEnvironment {
          * List of String values
 
          *
-         * The EC2 security group that is associated with instances launched in the compute
- environment.
+         * The EC2 security group that is associated with instances launched in the
+ compute environment.
 
          *
          * UpdateType: Immutable
@@ -6227,7 +7937,8 @@ export namespace AWS.Batch.ComputeEnvironment {
          * String
 
          *
-         * The type of compute environment: EC2 or SPOT.
+         * The type of compute environment: EC2 or
+ SPOT.
 
          *
          * UpdateType: Immutable
@@ -6238,18 +7949,34 @@ export namespace AWS.Batch.ComputeEnvironment {
          * Integer
 
          *
-         * The minimum number of EC2 vCPUs that an environment should maintain.
+         * The minimum number of EC2 vCPUs that an environment should
+ maintain.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
          */
         MinvCpus: C.CFInteger;
         /**
+         *                             Type: LaunchTemplateSpecification
+         *
+         * The launch template to use for your compute resources. Any other compute
+ resource parameters that you specify in a CreateComputeEnvironment API operation override the same
+ parameters in the launch template. You must specify either the launch
+ template ID or launch template name in the request, but not both. For more
+ information, see Launch Template Support in the AWS Batch User Guide.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate
+         */
+        LaunchTemplate?: AWS.Batch.ComputeEnvironment.LaunchTemplateSpecification;
+        /**
          * String
 
          *
-         * The Amazon Machine Image (AMI) ID used for instances launched in the compute
- environment.
+         * The Amazon Machine Image (AMI) ID used for instances launched in the
+ compute environment.
 
          *
          * UpdateType: Immutable
@@ -6291,12 +8018,31 @@ export namespace AWS.Batch.ComputeEnvironment {
          */
         Ec2KeyPair?: C.CFString;
         /**
+         *                             Type: String
+
+         *
+         * The Amazon EC2 placement group to associate with your compute resources. If you
+ intend to submit multi-node parallel jobs to your compute environment, you
+ should consider creating a cluster placement group and associate it with
+ your compute resources. This keeps your multi-node parallel job on a logical
+ grouping of instances within a single Availability Zone with high network
+ flow potential. For more information, see Placement Groups in the Amazon EC2 User Guide for Linux
+    Instances.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup
+         */
+        PlacementGroup?: C.CFString;
+        /**
          * JSON object
 
          *
-         * Key-value pair tags to be applied to instances that are launched in the compute
- environment. For AWS Batch, these take the form of "String1": "String2", where String1
- is the tag key and String2 is the tag value—for example, { "Name": "AWS Batch Instance - C4OnDemand" }.
+         * Key-value pair tags to be applied to instances that are launched in the
+ compute environment. For AWS Batch, these take the form of "String1":
+    "String2", where String1 is the tag key and
+ String2 is the tag value—for example, {
+    "Name": "AWS Batch Instance - C4OnDemand" }.
 
          *
          * UpdateType: Immutable
@@ -6313,6 +8059,40 @@ export namespace AWS.Batch.ComputeEnvironment {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-desiredvcpus
          */
         DesiredvCpus?: C.CFInteger;
+    }
+}
+export namespace AWS.Batch.ComputeEnvironment {
+    export interface LaunchTemplateSpecification {
+        /**
+         *                             Type: String
+
+         *
+         * The name of the launch template.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-launchtemplatename
+         */
+        LaunchTemplateName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The version number of the launch template.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-version
+         */
+        Version?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the launch template.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html#cfn-batch-computeenvironment-launchtemplatespecification-launchtemplateid
+         */
+        LaunchTemplateId?: C.CFString;
     }
 }
 export namespace AWS.Batch {
@@ -6356,16 +8136,27 @@ export namespace AWS.Batch.JobDefinition {
          * JSON object
 
          *
-         * Default parameters or parameter substitution placeholders that are set in the
- job definition. Parameters are specified as a key-value pair mapping. For more
- information about specifying parameters, see Job Definition Parameters
- in the AWS Batch User Guide.
+         * Default parameters or parameter substitution placeholders that are set in
+ the job definition. Parameters are specified as a key-value pair mapping.
+ For more information about specifying parameters, see Job Definition
+    Parameters in the AWS Batch User Guide.
 
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters
          */
         Parameters?: C.CFJson;
+        /**
+         *                             Type: NodeProperties
+         *
+         * An object representing the node properties of a multi-node parallel
+ job.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-nodeproperties
+         */
+        NodeProperties?: AWS.Batch.JobDefinition.NodeProperties;
         /**
          *                             Type: AWS Batch JobDefinition Timeout
          *
@@ -6384,7 +8175,7 @@ export namespace AWS.Batch.JobDefinition {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-containerproperties
          */
-        ContainerProperties: AWS.Batch.JobDefinition.ContainerProperties;
+        ContainerProperties?: AWS.Batch.JobDefinition.ContainerProperties;
         /**
          * String
 
@@ -6412,20 +8203,6 @@ export namespace AWS.Batch.JobDefinition {
 export namespace AWS.Batch.JobDefinition {
     export interface ContainerProperties {
         /**
-         *                             Type: List of AWS Batch JobDefinition
-    MountPoints
-         *
-         * The mount points for data volumes in your container. This parameter maps to
- Volumes in the Create a container section of the
- Docker Remote API and the --volume option to docker
-    run.
-
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
-         */
-        MountPoints?: C.CFList<AWS.Batch.JobDefinition.MountPoints>;
-        /**
          * String
 
          *
@@ -6439,29 +8216,6 @@ export namespace AWS.Batch.JobDefinition {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-user
          */
         User?: C.CFString;
-        /**
-         *                             Type: List of AWS Batch JobDefinition
-    Volumes
-         *
-         * A list of data volumes used in a job.
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes
-         */
-        Volumes?: C.CFList<AWS.Batch.JobDefinition.Volumes>;
-        /**
-         * List of String values
-
-         *
-         * The command that is passed to the container. This parameter maps to
- Cmd in the Create a container section of the
- Docker Remote API and the COMMAND parameter to docker run.
-
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-command
-         */
-        Command?: C.CFList<C.CFString>;
         /**
          * Integer
 
@@ -6493,20 +8247,6 @@ export namespace AWS.Batch.JobDefinition {
          */
         Privileged?: C.CFBoolean;
         /**
-         *                             Type: List of AWS Batch JobDefinition
-    Environment
-         *
-         * The environment variables to pass to a container. This parameter maps to
- Env in the Create a container section of the
- Docker Remote API and the --env option to docker
-    run.
-
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-environment
-         */
-        Environment?: C.CFList<AWS.Batch.JobDefinition.Environment>;
-        /**
          * String
 
          *
@@ -6532,19 +8272,6 @@ export namespace AWS.Batch.JobDefinition {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem
          */
         ReadonlyRootFilesystem?: C.CFBoolean;
-        /**
-         *                             Type: List of AWS Batch JobDefinition
-    Ulimit
-         *
-         * A list of ulimits to set in the container. This parameter maps to
- Ulimits in the Create a container section of the
- Docker Remote API and the --ulimit option to docker run.
-
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
-         */
-        Ulimits?: C.CFList<AWS.Batch.JobDefinition.Ulimit>;
         /**
          * Integer
 
@@ -6578,6 +8305,79 @@ export namespace AWS.Batch.JobDefinition {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
          */
         Image: C.CFString;
+        /**
+         *                             Type: List of AWS Batch JobDefinition
+    MountPoints
+         *
+         * The mount points for data volumes in your container. This parameter maps to
+ Volumes in the Create a container section of the
+ Docker Remote API and the --volume option to docker
+    run.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
+         */
+        MountPoints?: C.CFList<AWS.Batch.JobDefinition.MountPoints>;
+        /**
+         *                             Type: List of AWS Batch JobDefinition
+    Volumes
+         *
+         * A list of data volumes used in a job.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes
+         */
+        Volumes?: C.CFList<AWS.Batch.JobDefinition.Volumes>;
+        /**
+         * List of String values
+
+         *
+         * The command that is passed to the container. This parameter maps to
+ Cmd in the Create a container section of the
+ Docker Remote API and the COMMAND parameter to docker run.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-command
+         */
+        Command?: C.CFList<C.CFString>;
+        /**
+         *                             Type: List of AWS Batch JobDefinition
+    Environment
+         *
+         * The environment variables to pass to a container. This parameter maps to
+ Env in the Create a container section of the
+ Docker Remote API and the --env option to docker
+    run.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-environment
+         */
+        Environment?: C.CFList<AWS.Batch.JobDefinition.Environment>;
+        /**
+         *                             Type: List of AWS Batch JobDefinition
+    Ulimit
+         *
+         * A list of ulimits to set in the container. This parameter maps to
+ Ulimits in the Create a container section of the
+ Docker Remote API and the --ulimit option to docker run.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
+         */
+        Ulimits?: C.CFList<AWS.Batch.JobDefinition.Ulimit>;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-instancetype
+         */
+        InstanceType?: C.CFString;
     }
 }
 export namespace AWS.Batch.JobDefinition {
@@ -6639,6 +8439,75 @@ export namespace AWS.Batch.JobDefinition {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html#cfn-batch-jobdefinition-mountpoints-containerpath
          */
         ContainerPath?: C.CFString;
+    }
+}
+export namespace AWS.Batch.JobDefinition {
+    export interface NodeProperties {
+        /**
+         *                             Type: Integer
+
+         *
+         * Specifies the node index for the main node of a multi-node parallel
+ job.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-mainnode
+         */
+        MainNode: C.CFInteger;
+        /**
+         *                             Type: List of NodeRangeProperty property types
+
+         *
+         * A list of node ranges and their properties associated with a multi-node
+ parallel job.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-noderangeproperties
+         */
+        NodeRangeProperties: C.CFList<AWS.Batch.JobDefinition.NodeRangeProperty>;
+        /**
+         *                             Type: Integer
+
+         *
+         * The number of nodes associated with a multi-node parallel job.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-nodeproperties.html#cfn-batch-jobdefinition-nodeproperties-numnodes
+         */
+        NumNodes: C.CFInteger;
+    }
+}
+export namespace AWS.Batch.JobDefinition {
+    export interface NodeRangeProperty {
+        /**
+         *                             Type: ContainerProperties
+         *
+         * The container details for the node range.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-container
+         */
+        Container?: AWS.Batch.JobDefinition.ContainerProperties;
+        /**
+         *                             Type: String
+
+         *
+         * The range of nodes, using node index values. A range of 0:3
+ indicates nodes with index values of 0 through 3. If the
+ starting range value is omitted (:n), then 0 is used to start
+ the range. If the ending range value is omitted (n:), then the highest
+ possible node index is used to end the range. Your accumulative node ranges must account
+ for all nodes (0:n). You may nest node ranges, for example 0:10 and 4:5, in which
+ case
+ the 4:5 range properties override the 0:10 properties.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html#cfn-batch-jobdefinition-noderangeproperty-targetnodes
+         */
+        TargetNodes: C.CFString;
     }
 }
 export namespace AWS.Batch.JobDefinition {
@@ -6896,7 +8765,7 @@ export namespace AWS.Budgets {
 export namespace AWS.Budgets.Budget {
     export interface Properties {
         /**
-         *                             Type: List of Billing and Cost Management Budget NotificationWithSubscribers property types
+         *                             Type: List of NotificationWithSubscribers property types
 
          *
          * The notification that you want associated with the budget. A budget can have up to
@@ -6909,7 +8778,7 @@ export namespace AWS.Budgets.Budget {
          */
         NotificationsWithSubscribers?: C.CFList<AWS.Budgets.Budget.NotificationWithSubscribers>;
         /**
-         *                             Type: Billing and Cost Management Budget BudgetData
+         *                             Type: BudgetData
          *
          * The budget for tracking your service usage, costs, and RI utilization. Single accounts
  and master
@@ -6925,7 +8794,7 @@ export namespace AWS.Budgets.Budget {
 export namespace AWS.Budgets.Budget {
     export interface BudgetData {
         /**
-         *                             Type: Billing and Cost Management Budget Spend
+         *                             Type: Spend
          *
          * The total amount of cost, usage, or RI utilization that you want to track with your
  budget.
@@ -6936,7 +8805,7 @@ export namespace AWS.Budgets.Budget {
          */
         BudgetLimit?: AWS.Budgets.Budget.Spend;
         /**
-         *                             Type: Billing and Cost Management Budget TimePeriod
+         *                             Type: TimePeriod
          *
          * The period of time covered by a budget. Has a start date and an end
  date. The start date must come before the end date. There are no
@@ -6981,7 +8850,7 @@ export namespace AWS.Budgets.Budget {
          */
         BudgetName?: C.CFString;
         /**
-         *                             Type: Billing and Cost Management Budget CostTypes
+         *                             Type: CostTypes
          *
          * The types of costs included in this budget, such as credits, subscriptions, or taxes.
          *
@@ -7175,7 +9044,7 @@ export namespace AWS.Budgets.Budget {
 export namespace AWS.Budgets.Budget {
     export interface NotificationWithSubscribers {
         /**
-         *                             Type: List of Billing and Cost Management Budget Subscriber
+         *                             Type: List of Subscriber
          *
          * A list of subscribers who are subscribed to this notification.
          *
@@ -7184,7 +9053,7 @@ export namespace AWS.Budgets.Budget {
          */
         Subscribers: C.CFList<AWS.Budgets.Budget.Subscriber>;
         /**
-         *                             Type: Billing and Cost Management Budget Notification
+         *                             Type: Notification
          *
          * A notification associated with a budget. A budget can have up to five
  notifications.
@@ -7199,24 +9068,18 @@ export namespace AWS.Budgets.Budget {
 export namespace AWS.Budgets.Budget {
     export interface Spend {
         /**
-         *                             Type: Double
-
          *
-         * The cost or usage amount associated with a budget forecast, actual spend, or
- budget threshold.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
          */
         Amount: C.CFDouble;
         /**
-         *                             Type: String
-
          *
-         * The unit of measurement used for the budget forecast, actual spend, or budget
- threshold, such as USD or GB.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
@@ -7360,7 +9223,7 @@ export namespace AWS.CertificateManager.Certificate {
          */
         SubjectAlternativeNames?: C.CFList<C.CFString>;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this ACM certificate.
          *
@@ -7438,8 +9301,7 @@ export namespace AWS.Cloud9 {
 export namespace AWS.Cloud9.EnvironmentEC2 {
     export interface Properties {
         /**
-         *                             Type: List of AWS Cloud9
-    EnvironmentEC2 Repository
+         *                             Type: List of Repository
          *
          * Any AWS CodeCommit source code repositories to be cloned into the development
  environment.
@@ -7520,29 +9382,18 @@ export namespace AWS.Cloud9.EnvironmentEC2 {
 export namespace AWS.Cloud9.EnvironmentEC2 {
     export interface Repository {
         /**
-         *                             Type: String
-
          *
-         * The path within the development environment's default filesystem location to
- clone the AWS CodeCommit repository into. For example,
- /repository-name would clone the repository
- into the
- /home/ec2-user/environment/repository-name
- directory in the environment.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloud9-environmentec2-repository.html#cfn-cloud9-environmentec2-repository-pathcomponent
          */
         PathComponent: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The clone URL of the AWS CodeCommit repository to be cloned. For example, for an
- AWS CodeCommit repository this might be
- https://git-codecommit.us-east-2.amazonaws.com/v1/repos/repository-name.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloud9-environmentec2-repository.html#cfn-cloud9-environmentec2-repository-repositoryurl
@@ -7587,6 +9438,99 @@ export namespace AWS.CloudFormation.CustomResource {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#cfn-customresource-servicetoken
          */
         ServiceToken: C.CFString;
+    }
+}
+export namespace AWS.CloudFormation {
+    /**
+     * The AWS::CloudFormation::Macro resource is an AWS CloudFormation resource type that
+    creates an AWS CloudFormation macro to perform custom processing on AWS CloudFormation
+    templates. For more
+    information, see Using AWS CloudFormation Macros to Perform Custom Processing on
+       Templates.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
+     */
+    export interface Macro extends C.CommonResourceProps {
+        Type: 'AWS::CloudFormation::Macro';
+        Properties: AWS.CloudFormation.Macro.Properties;
+    }
+    /**
+     * The AWS::CloudFormation::Macro resource is an AWS CloudFormation resource type that
+    creates an AWS CloudFormation macro to perform custom processing on AWS CloudFormation
+    templates. For more
+    information, see Using AWS CloudFormation Macros to Perform Custom Processing on
+       Templates.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
+     */
+    export function Macro(props: C.Omit<Macro, 'Type'>): Macro {
+        return { Type: 'AWS::CloudFormation::Macro', ...props };
+    }
+}
+export namespace AWS.CloudFormation.Macro {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * A description of the macro.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-description
+         */
+        Description?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The Amazon Resource Name (ARN) of the underlying AWS Lambda function that
+ you want AWS CloudFormation to invoke when the macro is run.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-functionname
+         */
+        FunctionName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The
+ Amazon CloudWatch log group to which AWS CloudFormation sends error logging information
+ when invoking the
+ macro's underlying AWS Lambda function.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-loggroupname
+         */
+        LogGroupName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ARN of the role AWS CloudFormation should assume when sending log entries to CloudWatch
+ logs.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-logrolearn
+         */
+        LogRoleARN?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the macro. The name of the macro must be unique across all
+ macros in the account.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html#cfn-cloudformation-macro-name
+         */
+        Name: C.CFString;
     }
 }
 export namespace AWS.CloudFormation {
@@ -7636,7 +9580,7 @@ export namespace AWS.CloudFormation.Stack {
          */
         Parameters?: C.CFMap<C.CFString>;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) to describe this
  stack.
@@ -7732,7 +9676,7 @@ export namespace AWS.CloudFormation.WaitCondition {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
          */
-        Handle: C.CFString;
+        Handle?: C.CFString;
         /**
          * String
 
@@ -7747,7 +9691,7 @@ export namespace AWS.CloudFormation.WaitCondition {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
          */
-        Timeout: C.CFString;
+        Timeout?: C.CFString;
     }
 }
 export namespace AWS.CloudFormation {
@@ -7869,7 +9813,7 @@ export namespace AWS.CloudFront.Distribution {
          */
         DistributionConfig: AWS.CloudFront.Distribution.DistributionConfig;
         /**
-         *                             Type: List of
+         *                             Type: List of Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) to associate with a CloudFront distribution.
          *
@@ -7895,7 +9839,7 @@ export namespace AWS.CloudFront.Distribution {
          */
         Compress?: C.CFBoolean;
         /**
-         *                             Type: List of CloudFront Distribution LambdaFunctionAssociation
+         *                             Type: List of LambdaFunctionAssociation
          *
          * Lambda function associations for the Amazon CloudFront distribution.
          *
@@ -8240,7 +10184,7 @@ export namespace AWS.CloudFront.Distribution {
          */
         Compress?: C.CFBoolean;
         /**
-         *                             Type: List of CloudFront Distribution LambdaFunctionAssociation
+         *                             Type: List of LambdaFunctionAssociation
          *
          * Lambda function associations for the Amazon CloudFront distribution.
          *
@@ -8972,7 +10916,7 @@ export namespace AWS.CloudFront {
 export namespace AWS.CloudFront.StreamingDistribution {
     export interface Properties {
         /**
-         *                             Type: CloudFront StreamingDistribution StreamingDistributionConfig
+         *                             Type: StreamingDistributionConfig
          *
          * Information about the configuration of the RMTP streaming distribution.
          *
@@ -8981,7 +10925,7 @@ export namespace AWS.CloudFront.StreamingDistribution {
          */
         StreamingDistributionConfig: AWS.CloudFront.StreamingDistribution.StreamingDistributionConfig;
         /**
-         *                             Type: List of CloudFront StreamingDistribution Tag
+         *                             Type: List of Resource Tag
          *
          * Key-value tags to assign to this streaming distribution.
          *
@@ -9063,7 +11007,7 @@ export namespace AWS.CloudFront.StreamingDistribution {
 export namespace AWS.CloudFront.StreamingDistribution {
     export interface StreamingDistributionConfig {
         /**
-         *                             Type: CloudFront StreamingDistribution Logging
+         *                             Type: Logging
          *
          * Whether access logs are written for the streaming distribution.
          *
@@ -9092,7 +11036,7 @@ export namespace AWS.CloudFront.StreamingDistribution {
          */
         PriceClass?: C.CFString;
         /**
-         *                             Type: CloudFront StreamingDistribution S3Origin
+         *                             Type: S3Origin
          *
          * Information about the Amazon S3 bucket from which you want CloudFront to get your
  media files for distribution.
@@ -9123,7 +11067,7 @@ export namespace AWS.CloudFront.StreamingDistribution {
          */
         Aliases?: C.CFList<C.CFString>;
         /**
-         *                             Type: CloudFront StreamingDistribution TrustedSigners
+         *                             Type: TrustedSigners
          *
          * Specifies any AWS accounts that you want to permit to create signed URLs for private
  content. If you want the distribution to use signed URLs, include this element; if
@@ -9237,7 +11181,7 @@ export namespace AWS.CloudTrail.Trail {
          */
         EnableLogFileValidation?: C.CFBoolean;
         /**
-         * List of CloudTrail Trail EventSelector
+         * List of EventSelector
          *
          * Configures logging for management and data events.
          *
@@ -9329,7 +11273,7 @@ export namespace AWS.CloudTrail.Trail {
          */
         SnsTopicName?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this trail.
          *
@@ -9357,8 +11301,8 @@ export namespace AWS.CloudTrail.Trail {
          *                             Type: String
 
          *
-         * The resource type to log data events for. You can specify only the following value:
- AWS::S3::Object.
+         * The resource type to log data events for. You can specify the following
+ values: AWS::S3::Object or AWS::Lambda::Function.
 
          *
          * UpdateType: Mutable
@@ -9380,7 +11324,7 @@ export namespace AWS.CloudTrail.Trail {
 export namespace AWS.CloudTrail.Trail {
     export interface EventSelector {
         /**
-         *                             Type: List of CloudTrail Trail DataResource
+         *                             Type: List of DataResource
          *
          * The resources for data events. CloudTrail supports logging data events for Amazon
  S3
@@ -9507,6 +11451,20 @@ export namespace AWS.CloudWatch.Alarm {
          */
         ComparisonOperator: C.CFString;
         /**
+         * Integer
+
+         *
+         * The number of datapoints that must be breaching to trigger the alarm. This is
+ used only if you are setting an "M out of N" alarm. In that case, this value is
+ the M. For more information, see Evaluating an
+    Alarm in the Amazon CloudWatch User Guide.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarm-datapointstoalarm
+         */
+        DatapointsToAlarm?: C.CFInteger;
+        /**
          * List of Metric Dimension
          *
          * The
@@ -9567,8 +11525,9 @@ export namespace AWS.CloudWatch.Alarm {
          * The list of actions to execute when this alarm transitions into an
  INSUFFICIENT_DATA state. Specify each action as an Amazon Resource Number (ARN).
  Currently,
- the only action supported is publishing to an Amazon SNS topic or an Auto Scaling
- policy.
+ the only supported actions are publishing to an Amazon SNS topic and publishing to
+ an
+ Auto Scaling policy.
 
          *
          * UpdateType: Mutable
@@ -9588,7 +11547,7 @@ export namespace AWS.CloudWatch.Alarm {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-metricname
          */
-        MetricName: C.CFString;
+        MetricName?: C.CFString;
         /**
          * String
 
@@ -9598,7 +11557,7 @@ export namespace AWS.CloudWatch.Alarm {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-namespace
          */
-        Namespace: C.CFString;
+        Namespace?: C.CFString;
         /**
          * List of String values
 
@@ -9625,7 +11584,7 @@ export namespace AWS.CloudWatch.Alarm {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-period
          */
-        Period: C.CFInteger;
+        Period?: C.CFInteger;
         /**
          * String
 
@@ -9780,7 +11739,7 @@ export namespace AWS.CodeBuild.Project {
          */
         Description?: C.CFString;
         /**
-         *                             Type: AWS CodeBuild Project VpcConfig
+         *                             Type: VpcConfig
          *
          * Settings that enable AWS CodeBuild to access resources in an Amazon VPC.
  For more information, see Use AWS CodeBuild with Amazon Virtual Private Cloud
@@ -9791,6 +11750,17 @@ export namespace AWS.CodeBuild.Project {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-vpcconfig
          */
         VpcConfig?: AWS.CodeBuild.Project.VpcConfig;
+        /**
+         * List of AWS CodeBuild Project Source
+         *
+         * An array of source objects. Each source object contains source code settings for the
+ project.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysources
+         */
+        SecondarySources?: C.CFList<AWS.CodeBuild.Project.Source>;
         /**
          * String
 
@@ -9821,6 +11791,17 @@ export namespace AWS.CodeBuild.Project {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-triggers
          */
         Triggers?: AWS.CodeBuild.Project.ProjectTriggers;
+        /**
+         * List of AWS CodeBuild Project Artifacts
+         *
+         * An array of artifacts objects. Each artifacts object specifies output settings that
+ the project generates during a build.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
+         */
+        SecondaryArtifacts?: C.CFList<AWS.CodeBuild.Project.Artifacts>;
         /**
          * AWS CodeBuild Project Source
          *
@@ -9868,6 +11849,15 @@ export namespace AWS.CodeBuild.Project {
          */
         BadgeEnabled?: C.CFBoolean;
         /**
+         * AWS CodeBuild Project LogsConfig
+         *
+         * Information about logs for this build project.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-logsconfig
+         */
+        LogsConfig?: AWS.CodeBuild.Project.LogsConfig;
+        /**
          * String
 
          *
@@ -9880,6 +11870,15 @@ export namespace AWS.CodeBuild.Project {
          */
         ServiceRole: C.CFString;
         /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-queuedtimeoutinminutes
+         */
+        QueuedTimeoutInMinutes?: C.CFInteger;
+        /**
          * AWS CodeBuild Project Environment
          *
          * The build environment settings for the project, such as the environment type or the
@@ -9891,7 +11890,7 @@ export namespace AWS.CodeBuild.Project {
          */
         Environment: AWS.CodeBuild.Project.Environment;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key-value pairs) for the AWS CodeBuild project.
          *
@@ -9914,7 +11913,7 @@ export namespace AWS.CodeBuild.Project {
          */
         TimeoutInMinutes?: C.CFInteger;
         /**
-         *                             Type: AWS CodeBuild Project ProjectCache
+         *                             Type: ProjectCache
          *
          * Settings that AWS CodeBuild uses to store and reuse build dependencies.
          *
@@ -9950,6 +11949,15 @@ export namespace AWS.CodeBuild.Project {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-type
          */
         Type: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-artifactidentifier
+         */
+        ArtifactIdentifier?: C.CFString;
         /**
          * Boolean
 
@@ -10042,6 +12050,37 @@ export namespace AWS.CodeBuild.Project {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-namespacetype
          */
         NamespaceType?: C.CFString;
+    }
+}
+export namespace AWS.CodeBuild.Project {
+    export interface CloudWatchLogsConfig {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html#cfn-codebuild-project-cloudwatchlogsconfig-status
+         */
+        Status: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html#cfn-codebuild-project-cloudwatchlogsconfig-groupname
+         */
+        GroupName?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-cloudwatchlogsconfig.html#cfn-codebuild-project-cloudwatchlogsconfig-streamname
+         */
+        StreamName?: C.CFString;
     }
 }
 export namespace AWS.CodeBuild.Project {
@@ -10154,6 +12193,30 @@ export namespace AWS.CodeBuild.Project {
     }
 }
 export namespace AWS.CodeBuild.Project {
+    export interface LogsConfig {
+        /**
+         *                             Type: CloudWatchLogs
+         *
+         * Information about CloudWatch Logs for a build project.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html#cfn-codebuild-project-logsconfig-cloudwatchlogs
+         */
+        CloudWatchLogs?: AWS.CodeBuild.Project.CloudWatchLogsConfig;
+        /**
+         *                             Type: S3Logs
+         *
+         * Information about logs built to an S3 bucket for a build project.
+ 
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-logsconfig.html#cfn-codebuild-project-logsconfig-s3logs
+         */
+        S3Logs?: AWS.CodeBuild.Project.S3LogsConfig;
+    }
+}
+export namespace AWS.CodeBuild.Project {
     export interface ProjectCache {
         /**
          *                             Type: String
@@ -10196,97 +12259,96 @@ export namespace AWS.CodeBuild.Project {
     }
 }
 export namespace AWS.CodeBuild.Project {
+    export interface S3LogsConfig {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-s3logsconfig.html#cfn-codebuild-project-s3logsconfig-status
+         */
+        Status: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-s3logsconfig.html#cfn-codebuild-project-s3logsconfig-location
+         */
+        Location?: C.CFString;
+    }
+}
+export namespace AWS.CodeBuild.Project {
     export interface Source {
         /**
-         * String
-
          *
-         * The type of repository that contains your source code. For valid values, see the
- source-type field in the
- AWS CodeBuild User Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-type
          */
         Type: C.CFString;
         /**
-         * Boolean
-
          *
-         * This specifies whether to send your source provider the status of a build's start
- and completion. If you set this with a source provider other than GitHub, an invalidInputException
- is thrown.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-reportbuildstatus
          */
         ReportBuildStatus?: C.CFBoolean;
         /**
-         *                             Type: AWS CodeBuild Project SourceAuth
          *
-         * Information about the authorization settings for AWS CodeBuild to access the source
- code to be built.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-auth
          */
         Auth?: AWS.CodeBuild.Project.SourceAuth;
         /**
-         * String
-
          *
-         * The build specification for the project. If this value is not provided, then the source
- code must contain a build spec
- file named buildspec.yml at the root level. If this value is provided, it can be either a single string containing
- the entire build
- specification, or the path to an alternate build spec file relative to the value of
- the built-in environment variable
- CODEBUILD_SRC_DIR. The alternate build spec file can have a name other than buildspec.yml, for example myspec.yml or
- build_spec_qa.yml or similar. For more information, see the
- Build Spec
-       Reference in the AWS CodeBuild User Guide.
-
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-sourceidentifier
+         */
+        SourceIdentifier?: C.CFString;
+        /**
+         *
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildspec
          */
         BuildSpec?: C.CFString;
         /**
-         * Integer
-
          *
-         * The depth of history to download. Minimum value is 0. If this value is 0, greater
- than 25, or not provided, then the full history is downloaded with each build project.
- If your source type is Amazon S3, this value is not supported.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
          */
         GitCloneDepth?: C.CFInteger;
         /**
-         * Boolean
-
          *
-         * This is used with GitHub Enterprise only. Set to true to ignore SSL warnings while connecting to your GitHub Enterprise project repository.
- The default value is false. InsecureSsl should be used for testing purposes only. It should not be used in a production environment.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-insecuressl
          */
         InsecureSsl?: C.CFBoolean;
         /**
-         * String
-
          *
-         * The location of the source code in the specified repository type. For more
- information, see the source-location field in the
- AWS CodeBuild User Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-location
@@ -10331,7 +12393,7 @@ export namespace AWS.CodeBuild.Project {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-subnets
          */
-        Subnets: C.CFList<C.CFString>;
+        Subnets?: C.CFList<C.CFString>;
         /**
          *                             Type: String
 
@@ -10341,7 +12403,7 @@ export namespace AWS.CodeBuild.Project {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-vpcid
          */
-        VpcId: C.CFString;
+        VpcId?: C.CFString;
         /**
          *                             Type: List of String values
 
@@ -10351,7 +12413,7 @@ export namespace AWS.CodeBuild.Project {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-securitygroupids
          */
-        SecurityGroupIds: C.CFList<C.CFString>;
+        SecurityGroupIds?: C.CFList<C.CFString>;
     }
 }
 export namespace AWS.CodeCommit {
@@ -10692,7 +12754,7 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
          */
         ApplicationName: C.CFString;
         /**
-         *                             Type: AWS CodeDeploy DeploymentGroup AutoRollbackConfiguration
+         *                             Type: AutoRollbackConfiguration
          *
          * Information about the automatic rollback configuration that is associated with the
  deployment group.
@@ -10761,7 +12823,7 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
          */
         DeploymentGroupName?: C.CFString;
         /**
-         *                             Type: AWS CodeDeploy DeploymentGroup DeploymentStyle
+         *                             Type: DeploymentStyle
          *
          * Attributes that determine the type of deployment to run and whether to route deployment
  traffic behind a load balancer.
@@ -10786,7 +12848,18 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
          */
         Ec2TagFilters?: C.CFList<AWS.CodeDeploy.DeploymentGroup.EC2TagFilter>;
         /**
-         *                             Type: AWS CodeDeploy DeploymentGroup LoadBalancerInfo
+         * EC2TagSet
+         *
+         * Specifies information about groups of tags applied to EC2 instances. The deployment
+ group will include only EC2 instances identified by all the tag groups.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagset
+         */
+        Ec2TagSet?: AWS.CodeDeploy.DeploymentGroup.EC2TagSet;
+        /**
+         *                             Type: LoadBalancerInfo
          *
          * Information about the load balancer used in the deployment. For more information,
  see
@@ -10799,7 +12872,7 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
         LoadBalancerInfo?: AWS.CodeDeploy.DeploymentGroup.LoadBalancerInfo;
         /**
          * List of AWS CodeDeploy
-    DeploymentGroup OnPremisesInstanceTagFilters
+    DeploymentGroup TagFilters
          *
          * The on-premises instance tags already applied to on-premises instances that you want
  to include in the deployment group.
@@ -10813,6 +12886,15 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters
          */
         OnPremisesInstanceTagFilters?: C.CFList<AWS.CodeDeploy.DeploymentGroup.TagFilter>;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisestagset
+         */
+        OnPremisesTagSet?: AWS.CodeDeploy.DeploymentGroup.OnPremisesTagSet;
         /**
          * String
 
@@ -10899,22 +12981,18 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
 export namespace AWS.CodeDeploy.DeploymentGroup {
     export interface AutoRollbackConfiguration {
         /**
-         *                             Type: Boolean
-
          *
-         * Indicates whether a defined automatic rollback configuration is currently enabled.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html#cfn-codedeploy-deploymentgroup-autorollbackconfiguration-enabled
          */
         Enabled?: C.CFBoolean;
         /**
-         *                             Type: List of String values
-
          *
-         * The event type or types that trigger a rollback. Valid values are DEPLOYMENT_FAILURE,
- DEPLOYMENT_STOP_ON_ALARM, or DEPLOYMENT_STOP_ON_REQUEST.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-autorollbackconfiguration.html#cfn-codedeploy-deploymentgroup-autorollbackconfiguration-events
@@ -10925,38 +13003,27 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
 export namespace AWS.CodeDeploy.DeploymentGroup {
     export interface Deployment {
         /**
-         * String
-
          *
-         * A description about this deployment.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html#cfn-properties-codedeploy-deploymentgroup-deployment-description
          */
         Description?: C.CFString;
         /**
-         * Boolean
-
          *
-         * Whether to continue the deployment if the
- ApplicationStop deployment lifecycle event fails. If you
- want AWS CodeDeploy to continue the deployment lifecycle even if the
- ApplicationStop event fails on an instance, specify
- true. The deployment continues to the BeforeInstall
- deployment lifecycle event. If you want AWS CodeDeploy to stop deployment on the instance
- if the ApplicationStop event fails, specify false or do
- not specify a value.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html#cfn-properties-codedeploy-deploymentgroup-deployment-ignoreapplicationstopfailures
          */
         IgnoreApplicationStopFailures?: C.CFBoolean;
         /**
-         * AWS CodeDeploy
-    DeploymentGroup Deployment Revision
          *
-         * The location of the application revision to deploy.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html#cfn-properties-codedeploy-deploymentgroup-deployment-revision
@@ -10991,37 +13058,61 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
 export namespace AWS.CodeDeploy.DeploymentGroup {
     export interface EC2TagFilter {
         /**
-         * String
-
          *
-         * Filter instances with this key.
+         *
+         *
          *
          * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html#cfn-properties-codedeploy-deploymentgroup-ec2tagfilters-key
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-key
          */
         Key?: C.CFString;
         /**
-         * String
-
          *
-         * The filter type. For example, you can filter instances by the key, tag value,
- or both. For valid values, see EC2TagFilter in the AWS CodeDeploy API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html#cfn-properties-codedeploy-deploymentgroup-ec2tagfilters-type
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-type
          */
         Type?: C.CFString;
         /**
-         * String
-
          *
-         * Filter instances with this tag value.
+         *
+         *
          *
          * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html#cfn-properties-codedeploy-deploymentgroup-ec2tagfilters-value
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-value
          */
         Value?: C.CFString;
+    }
+}
+export namespace AWS.CodeDeploy.DeploymentGroup {
+    export interface EC2TagSet {
+        /**
+         *                             Type: List of EC2TagSetListObject
+         *
+         * A list containing other lists of EC2 instance tag groups. In order for an instance
+ to be included in the deployment group, it must be identified by all the tag groups
+ in the list.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagset.html#cfn-codedeploy-deploymentgroup-ec2tagset-ec2tagsetlist
+         */
+        Ec2TagSetList?: C.CFList<AWS.CodeDeploy.DeploymentGroup.EC2TagSetListObject>;
+    }
+}
+export namespace AWS.CodeDeploy.DeploymentGroup {
+    export interface EC2TagSetListObject {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagsetlistobject.html#cfn-codedeploy-deploymentgroup-ec2tagsetlistobject-ec2taggroup
+         */
+        Ec2TagGroup?: C.CFList<AWS.CodeDeploy.DeploymentGroup.EC2TagFilter>;
     }
 }
 export namespace AWS.CodeDeploy.DeploymentGroup {
@@ -11073,7 +13164,7 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
 export namespace AWS.CodeDeploy.DeploymentGroup {
     export interface LoadBalancerInfo {
         /**
-         *                             Type: List of AWS CodeDeploy DeploymentGroup ELBInfo
+         *                             Type: List of ELBInfo
          *
          * Information about the Elastic Load Balancing load balancer to use in the deployment.
          *
@@ -11082,7 +13173,7 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
          */
         ElbInfoList?: C.CFList<AWS.CodeDeploy.DeploymentGroup.ELBInfo>;
         /**
-         *                             Type: List of AWS CodeDeploy DeploymentGroup TargetGroupInfo
+         *                             Type: List of TargetGroupInfo
          *
          * information about the target groups to use in the deployment. Instances are registered
  as targets in a target group, and traffic is routed to the target group.
@@ -11092,6 +13183,40 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-targetgroupinfolist
          */
         TargetGroupInfoList?: C.CFList<AWS.CodeDeploy.DeploymentGroup.TargetGroupInfo>;
+    }
+}
+export namespace AWS.CodeDeploy.DeploymentGroup {
+    export interface OnPremisesTagSet {
+        /**
+         *                             Type: List of OnPremisesTagSetListObject
+ 
+
+         *
+         * A list containing other lists of on-premises instance tag groups. In order for an
+ instance to be included in the deployment group, it must be identified by all the
+ tag groups in the list.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagset.html#cfn-codedeploy-deploymentgroup-onpremisestagset-onpremisestagsetlist
+         */
+        OnPremisesTagSetList?: C.CFList<AWS.CodeDeploy.DeploymentGroup.OnPremisesTagSetListObject>;
+    }
+}
+export namespace AWS.CodeDeploy.DeploymentGroup {
+    export interface OnPremisesTagSetListObject {
+        /**
+         *                             Type: List of AWS CodeDeploy
+    DeploymentGroup TagFilters
+ 
+
+         *
+         * Lists of on-premises instance tag groups.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisestagsetlistobject.html#cfn-codedeploy-deploymentgroup-onpremisestagsetlistobject-onpremisestaggroup
+         */
+        OnPremisesTagGroup?: C.CFList<AWS.CodeDeploy.DeploymentGroup.TagFilter>;
     }
 }
 export namespace AWS.CodeDeploy.DeploymentGroup {
@@ -11199,36 +13324,30 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
 export namespace AWS.CodeDeploy.DeploymentGroup {
     export interface TagFilter {
         /**
-         * String
-
          *
-         * Filter on-premises instances with this key.
+         *
+         *
          *
          * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html#cfn-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters-key
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html#cfn-codedeploy-deploymentgroup-tagfilter-key
          */
         Key?: C.CFString;
         /**
-         * String
-
          *
-         * The filter type. For example, you can filter on-premises instances by the key,
- tag value, or both. For valid values, see EC2TagFilter in the
- AWS CodeDeploy API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html#cfn-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters-type
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html#cfn-codedeploy-deploymentgroup-tagfilter-type
          */
         Type?: C.CFString;
         /**
-         * String
-
          *
-         * Filter on-premises instances with this tag value.
+         *
+         *
          *
          * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html#cfn-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters-value
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html#cfn-codedeploy-deploymentgroup-tagfilter-value
          */
         Value?: C.CFString;
     }
@@ -11298,15 +13417,7 @@ export namespace AWS.CodeDeploy.DeploymentGroup {
 }
 export namespace AWS.CodePipeline {
     /**
-     * The AWS::CodePipeline::CustomActionType resource creates a custom action for
-    activities that aren't included in the AWS CodePipeline default actions, such as running
-    an internally
-    developed build process or a test suite. You can use these custom actions in the stage
-    of a
-    pipeline. For more information,
-    see Create and Add a Custom Action
-       in AWS CodePipeline in the AWS CodePipeline User Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
      */
@@ -11315,15 +13426,7 @@ export namespace AWS.CodePipeline {
         Properties: AWS.CodePipeline.CustomActionType.Properties;
     }
     /**
-     * The AWS::CodePipeline::CustomActionType resource creates a custom action for
-    activities that aren't included in the AWS CodePipeline default actions, such as running
-    an internally
-    developed build process or a test suite. You can use these custom actions in the stage
-    of a
-    pipeline. For more information,
-    see Create and Add a Custom Action
-       in AWS CodePipeline in the AWS CodePipeline User Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
      */
@@ -11334,76 +13437,63 @@ export namespace AWS.CodePipeline {
 export namespace AWS.CodePipeline.CustomActionType {
     export interface Properties {
         /**
-         * String
-
          *
-         * The category of the custom action, such as a source action or a build action.
- For valid values, see CreateCustomActionType in the
- AWS CodePipeline API Reference.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-category
          */
         Category: C.CFString;
         /**
-         * List of AWS CodePipeline
-    CustomActionType ConfigurationProperties
          *
-         * The configuration properties for the custom action.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-configurationproperties
          */
         ConfigurationProperties?: C.CFList<AWS.CodePipeline.CustomActionType.ConfigurationProperties>;
         /**
-         * AWS CodePipeline
-    CustomActionType ArtifactDetails
          *
-         * The input artifact details for this custom action.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-inputartifactdetails
          */
         InputArtifactDetails: AWS.CodePipeline.CustomActionType.ArtifactDetails;
         /**
-         * AWS CodePipeline
-    CustomActionType ArtifactDetails
          *
-         * The output artifact details for this custom action.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-outputartifactdetails
          */
         OutputArtifactDetails: AWS.CodePipeline.CustomActionType.ArtifactDetails;
         /**
-         * String
-
          *
-         * The name of the service provider that AWS CodePipeline uses for this custom action.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-provider
          */
         Provider: C.CFString;
         /**
-         * AWS CodePipeline CustomActionType
-    Settings
          *
-         * URLs that provide users information about this custom action.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-settings
          */
         Settings?: AWS.CodePipeline.CustomActionType.Settings;
         /**
-         * String
-
          *
-         * The version number of this custom action. For length constraints, see the
- version parameter of the CreateCustomActionType
- action in the AWS CodePipeline API Reference.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-version
@@ -11607,22 +13697,38 @@ export namespace AWS.CodePipeline {
 export namespace AWS.CodePipeline.Pipeline {
     export interface Properties {
         /**
-         * AWS CodePipeline Pipeline
-    ArtifactStore
+         * ArtifactStore
          *
          * The Amazon Simple Storage Service (Amazon S3) location where AWS CodePipeline stores
- pipeline artifacts. For more
- information, see Create an Amazon S3 Bucket
-    for Your Application in the AWS CodePipeline User Guide.
+ pipeline artifacts. You can
+ only use either ArtifactStore or ArtifactStores, not both. For more information, see
+ Create an Amazon S3 Bucket for Your
+    Application in the AWS CodePipeline User Guide.
 
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstore
          */
-        ArtifactStore: AWS.CodePipeline.Pipeline.ArtifactStore;
+        ArtifactStore?: AWS.CodePipeline.Pipeline.ArtifactStore;
         /**
-         * List of AWS CodePipeline
-    Pipeline DisableInboundStageTransitions
+         * List of ArtifactStoreMap property
+ types
+
+         *
+         * Specifies a list of ArtifactStoreMap mappings. There must be an artifact store for
+ the pipeline region and for each cross-region action within the pipeline. You can
+ only
+ use either ArtifactStore or ArtifactStores, not both.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstores
+         */
+        ArtifactStores?: C.CFList<AWS.CodePipeline.Pipeline.ArtifactStoreMap>;
+        /**
+         * List of DisableInboundStageTransitions
+ property types
+
          *
          * Prevents artifacts in a pipeline from transitioning to the stage that you
  specified. This enables you to manually control transitions.
@@ -11667,7 +13773,8 @@ export namespace AWS.CodePipeline.Pipeline {
          */
         RoleArn: C.CFString;
         /**
-         * AWS CodePipeline Pipeline Stages
+         * List of Stages property types
+
          *
          * Defines the AWS CodePipeline pipeline stages.
          *
@@ -11694,8 +13801,8 @@ export namespace AWS.CodePipeline.Pipeline {
 
          *
          * The action's configuration. These are key-value pairs that specify input values
- for an action. For more information, see
-    Action Structure Requirements in AWS CodePipeline in the AWS CodePipeline User Guide.
+ for an action. For more information, see  Action Structure Requirements in AWS CodePipeline in the AWS CodePipeline User
+    Guide.
 
          *
          * UpdateType: Mutable
@@ -11736,6 +13843,17 @@ export namespace AWS.CodePipeline.Pipeline {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-outputartifacts
          */
         OutputArtifacts?: C.CFList<AWS.CodePipeline.Pipeline.OutputArtifact>;
+        /**
+         * String
+
+         *
+         * Specifies the action’s AWS Region, such as us-east-1.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-region
+         */
+        Region?: C.CFString;
         /**
          * String
 
@@ -11818,8 +13936,7 @@ export namespace AWS.CodePipeline.Pipeline {
 export namespace AWS.CodePipeline.Pipeline {
     export interface ArtifactStore {
         /**
-         * AWS CodePipeline Pipeline
-    ArtifactStore EncryptionKey
+         * EncryptionKey
          *
          * The encryption key AWS CodePipeline uses to encrypt the data in the artifact store,
  such
@@ -11836,9 +13953,7 @@ export namespace AWS.CodePipeline.Pipeline {
          * String
 
          *
-         * The location where AWS CodePipeline stores artifacts for a pipeline, such as an S3
- bucket.
-
+         * The name of the S3 bucket where AWS CodePipeline stores artifacts for a pipeline.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-location
@@ -11856,6 +13971,31 @@ export namespace AWS.CodePipeline.Pipeline {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-type
          */
         Type: C.CFString;
+    }
+}
+export namespace AWS.CodePipeline.Pipeline {
+    export interface ArtifactStoreMap {
+        /**
+         * ArtifactStore
+         *
+         * The Amazon S3 bucket where artifacts are stored for the pipeline.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-artifactstore
+         */
+        ArtifactStore: AWS.CodePipeline.Pipeline.ArtifactStore;
+        /**
+         * String
+
+         *
+         * Specifies the action’s AWS Region, such as
+ us-east-1.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstoremap.html#cfn-codepipeline-pipeline-artifactstoremap-region
+         */
+        Region: C.CFString;
     }
 }
 export namespace AWS.CodePipeline.Pipeline {
@@ -12009,12 +14149,7 @@ export namespace AWS.CodePipeline.Pipeline {
 }
 export namespace AWS.CodePipeline {
     /**
-     * The AWS::CodePipeline::Webhook resource creates and registers your webhook.
-    After the webhook is created and registered, it triggers your pipeline to start every
-    time an
-    external event occurs. For more information, see Configure Your GitHub Pipelines to Use
-       Webhooks for Change Detection in the AWS CodePipeline User Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html
      */
@@ -12023,12 +14158,7 @@ export namespace AWS.CodePipeline {
         Properties: AWS.CodePipeline.Webhook.Properties;
     }
     /**
-     * The AWS::CodePipeline::Webhook resource creates and registers your webhook.
-    After the webhook is created and registered, it triggers your pipeline to start every
-    time an
-    external event occurs. For more information, see Configure Your GitHub Pipelines to Use
-       Webhooks for Change Detection in the AWS CodePipeline User Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html
      */
@@ -12039,94 +14169,72 @@ export namespace AWS.CodePipeline {
 export namespace AWS.CodePipeline.Webhook {
     export interface Properties {
         /**
-         *                             Type: AWS CodePipeline Webhook WebhookAuthConfiguration
          *
-         * Properties that configure the authentication applied to incoming webhook trigger
- requests. For more information, see Webhook Definition in the AWS CodePipeline API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-authenticationconfiguration
          */
         AuthenticationConfiguration: AWS.CodePipeline.Webhook.WebhookAuthConfiguration;
         /**
-         *                             Type: List of AWS CodePipeline
-    Webhook WebhookFilterRule property types
-
          *
-         * A list of rules applied to the body/payload sent in the POST request to a webhook
- URL. All defined rules must pass for the request to be accepted and the pipeline
- started.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-filters
          */
         Filters: C.CFList<AWS.CodePipeline.Webhook.WebhookFilterRule>;
         /**
-         *                             Type: String
-
          *
-         * The type of authentication scheme that allows the trigger request to be
- accepted. For more information, see Webhook Definition in the AWS CodePipeline API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-authentication
          */
         Authentication: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The name of the pipeline you want to connect to the webhook.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipeline
          */
         TargetPipeline: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The name of the action in a pipeline you want to connect to the webhook. The action
- must be from the source (first) stage of the pipeline.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetaction
          */
         TargetAction: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The name of the webhook to be created and, if applicable, to register with a
- supported third party.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-name
          */
         Name?: C.CFString;
         /**
-         *                             Type: Integer
-
          *
-         * The version number of the pipeline to be connected to the trigger request.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-targetpipelineversion
          */
         TargetPipelineVersion: C.CFInteger;
         /**
-         *                             Type: Boolean
-
          *
-         * Indicates whether to register the webhook with a third party. Third party
- registration configures a connection between the webhook that was created and the
- external tool, such as GitHub, with events to be detected.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html#cfn-codepipeline-webhook-registerwiththirdparty
@@ -12137,22 +14245,18 @@ export namespace AWS.CodePipeline.Webhook {
 export namespace AWS.CodePipeline.Webhook {
     export interface WebhookAuthConfiguration {
         /**
-         *                             Type: String
-
          *
-         * The property used to configure acceptance of webhooks within a specific IP range.
- 
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookauthconfiguration.html#cfn-codepipeline-webhook-webhookauthconfiguration-allowediprange
          */
         AllowedIPRange?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The property used to configure GitHub authentication.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-webhook-webhookauthconfiguration.html#cfn-codepipeline-webhook-webhookauthconfiguration-secrettoken
@@ -12360,36 +14464,27 @@ export namespace AWS.Cognito.IdentityPool {
 export namespace AWS.Cognito.IdentityPool {
     export interface CognitoStreams {
         /**
-         * String
-
          *
-         * Status of the Cognito streams. Valid values are: ENABLED or DISABLED.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html#cfn-cognito-identitypool-cognitostreams-streamingstatus
          */
         StreamingStatus?: C.CFString;
         /**
-         * String
-
          *
-         * The name of the Amazon Cognito stream to receive updates. This stream must be in the
- developer's account and in the same region as the identity pool.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html#cfn-cognito-identitypool-cognitostreams-streamname
          */
         StreamName?: C.CFString;
         /**
-         * String
-
          *
-         * The Amazon Resource Name (ARN) of the role Amazon Cognito can assume to publish to
- the stream. This role must grant access to Amazon Cognito (cognito-sync) to invoke
- PutRecord on your Amazon Cognito stream.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html#cfn-cognito-identitypool-cognitostreams-rolearn
@@ -12423,8 +14518,7 @@ export namespace AWS.Cognito.IdentityPool {
 }
 export namespace AWS.Cognito {
     /**
-     * The AWS::Cognito::IdentityPoolRoleAttachment resource manages the role configuration for an Amazon Cognito identity pool.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
      */
@@ -12433,8 +14527,7 @@ export namespace AWS.Cognito {
         Properties: AWS.Cognito.IdentityPoolRoleAttachment.Properties;
     }
     /**
-     * The AWS::Cognito::IdentityPoolRoleAttachment resource manages the role configuration for an Amazon Cognito identity pool.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
      */
@@ -12445,24 +14538,18 @@ export namespace AWS.Cognito {
 export namespace AWS.Cognito.IdentityPoolRoleAttachment {
     export interface Properties {
         /**
-         * String to Amazon Cognito IdentityPoolRoleAttachment RoleMapping object map.
-
          *
-         * How users for a specific identity provider are to mapped to roles. This is a string
- to RoleMapping object map. The string identifies the identity provider, for example,
- "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id"
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-rolemappings
          */
         RoleMappings?: C.CFJson;
         /**
-         * String
-
          *
-         * An identity pool ID in the format REGION:GUID.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-identitypoolid
@@ -12471,9 +14558,7 @@ export namespace AWS.Cognito.IdentityPoolRoleAttachment {
         /**
          *
          *
-         * The map of roles associated with this pool. For a given role, the key will be either
- "authenticated" or "unauthenticated" and the value will be the Role ARN.
-
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html#cfn-cognito-identitypoolroleattachment-roles
@@ -12484,42 +14569,36 @@ export namespace AWS.Cognito.IdentityPoolRoleAttachment {
 export namespace AWS.Cognito.IdentityPoolRoleAttachment {
     export interface MappingRule {
         /**
-         * String
-
          *
-         * The match condition that specifies how closely the claim value in the IdP token must
- match Value.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html#cfn-cognito-identitypoolroleattachment-mappingrule-matchtype
          */
         MatchType: C.CFString;
         /**
-         * String
-
          *
-         * A brief string that the claim must match, for example, "paid" or "yes."
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html#cfn-cognito-identitypoolroleattachment-mappingrule-value
          */
         Value: C.CFString;
         /**
-         * String
-
          *
-         * The claim name that must be present in the token, for example, "isAdmin" or "paid."
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html#cfn-cognito-identitypoolroleattachment-mappingrule-claim
          */
         Claim: C.CFString;
         /**
-         * String
-
          *
-         * The Amazon Resource Name (ARN) of the role.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html#cfn-cognito-identitypoolroleattachment-mappingrule-rolearn
@@ -13200,20 +15279,18 @@ export namespace AWS.Cognito.UserPool {
 export namespace AWS.Cognito.UserPool {
     export interface StringAttributeConstraints {
         /**
-         * String
-
          *
-         * The minimum value of an attribute that is of the string data type.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html#cfn-cognito-userpool-stringattributeconstraints-minlength
          */
         MinLength?: C.CFString;
         /**
-         * String
-
          *
-         * The maximum value of an attribute that is of the string data type.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html#cfn-cognito-userpool-stringattributeconstraints-maxlength
@@ -13866,40 +15943,27 @@ export namespace AWS.Config.ConfigRule {
 export namespace AWS.Config.ConfigRule {
     export interface SourceDetail {
         /**
-         * String
-
          *
-         * The source, such as an AWS service, that generate events, triggering AWS Config to
- evaluate your AWS resources.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource
          */
         EventSource: C.CFString;
         /**
-         * String
-
          *
-         * The frequency that you want AWS Config to run evaluations for a custom rule with a
- periodic trigger. By default, rules with a periodic trigger are evaluated every 24
- hours.
- If you specify a value for MaximumExecutionFrequency, then MessageType must use the ScheduledNotification value.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-sourcedetail-maximumexecutionfrequency
          */
         MaximumExecutionFrequency?: C.CFString;
         /**
-         * String
-
          *
-         * The type of Amazon Simple Notification Service (Amazon SNS) message that triggers
- AWS Config to run an
- evaluation. For more information, see the SourceDetail data type in the
- AWS Config API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype
@@ -13939,7 +16003,7 @@ export namespace AWS.Config {
 export namespace AWS.Config.ConfigurationAggregator {
     export interface Properties {
         /**
-         *                             Type: List of AWS Config ConfigurationAggregator AccountAggregationSource property types
+         *                             Type: List of AccountAggregationSource property types
 
          *
          * A collection of accounts and regions.
@@ -13959,7 +16023,7 @@ export namespace AWS.Config.ConfigurationAggregator {
          */
         ConfigurationAggregatorName: C.CFString;
         /**
-         *                             Type: AWS Config ConfigurationAggregator OrganizationAggregationSource
+         *                             Type: OrganizationAggregationSource
  
 
          *
@@ -14292,7 +16356,7 @@ export namespace AWS.DAX {
 export namespace AWS.DAX.Cluster {
     export interface Properties {
         /**
-         * DAX Cluster SSESpecification
+         * SSESpecification
  
 
          *
@@ -14571,6 +16635,216 @@ export namespace AWS.DAX.SubnetGroup {
         SubnetIds: C.CFList<C.CFString>;
     }
 }
+export namespace AWS.DLM {
+    /**
+     * The AWS::DLM::LifecyclePolicy resource creates a lifecycle policy for
+    Amazon Data Lifecycle Manager. For more information, see Automating the Amazon EBS Snapshot Lifecycle in the Amazon EC2 User Guide for Linux Instances and CreateLifecyclePolicy in the Amazon Data Lifecycle Manager API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html
+     */
+    export interface LifecyclePolicy extends C.CommonResourceProps {
+        Type: 'AWS::DLM::LifecyclePolicy';
+        Properties: AWS.DLM.LifecyclePolicy.Properties;
+    }
+    /**
+     * The AWS::DLM::LifecyclePolicy resource creates a lifecycle policy for
+    Amazon Data Lifecycle Manager. For more information, see Automating the Amazon EBS Snapshot Lifecycle in the Amazon EC2 User Guide for Linux Instances and CreateLifecyclePolicy in the Amazon Data Lifecycle Manager API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html
+     */
+    export function LifecyclePolicy(props: C.Omit<LifecyclePolicy, 'Type'>): LifecyclePolicy {
+        return { Type: 'AWS::DLM::LifecyclePolicy', ...props };
+    }
+}
+export namespace AWS.DLM.LifecyclePolicy {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The Amazon Resource Name (ARN) of the IAM role used to run the operations specified
+ by the lifecycle policy.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-executionrolearn
+         */
+        ExecutionRoleArn?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The description of the lifecycle policy.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-description
+         */
+        Description?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The activation state of the lifecycle policy.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-state
+         */
+        State?: C.CFString;
+        /**
+         *                             Type: PolicyDetails
+         *
+         * The configuration of the lifecycle policy.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html#cfn-dlm-lifecyclepolicy-policydetails
+         */
+        PolicyDetails?: AWS.DLM.LifecyclePolicy.PolicyDetails;
+    }
+}
+export namespace AWS.DLM.LifecyclePolicy {
+    export interface CreateRule {
+        /**
+         *                             Type: String
+
+         *
+         * The time unit. The supported unit is HOURS.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-intervalunit
+         */
+        IntervalUnit: C.CFString;
+        /**
+         *                             Type: List of String values
+
+         *
+         * The time, in UTC, to start the operation.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-times
+         */
+        Times?: C.CFList<C.CFString>;
+        /**
+         *                             Type: Integer
+
+         *
+         * The time interval between snapshots. Supported values are 12 and 24.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html#cfn-dlm-lifecyclepolicy-createrule-interval
+         */
+        Interval: C.CFInteger;
+    }
+}
+export namespace AWS.DLM.LifecyclePolicy {
+    export interface PolicyDetails {
+        /**
+         *                             Type: List of String values
+
+         *
+         * The type of AWS resource. The supported value is VOLUME.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes
+         */
+        ResourceTypes?: C.CFList<C.CFString>;
+        /**
+         *                             Type: List of Schedule property
+ types
+
+         *
+         * The schedule of policy-defined actions.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-schedules
+         */
+        Schedules?: C.CFList<AWS.DLM.LifecyclePolicy.Schedule>;
+        /**
+         *                             Type: List of Resource Tag property types
+
+         *
+         * The single tag that identifies targeted resources for a policy.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-targettags
+         */
+        TargetTags?: C.CFList<Tag>;
+    }
+}
+export namespace AWS.DLM.LifecyclePolicy {
+    export interface RetainRule {
+        /**
+         *                             Type: Integer
+
+         *
+         * The number of snapshots to keep for each volume, up to a maximum of 1000.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retainrule.html#cfn-dlm-lifecyclepolicy-retainrule-count
+         */
+        Count: C.CFInteger;
+    }
+}
+export namespace AWS.DLM.LifecyclePolicy {
+    export interface Schedule {
+        /**
+         *                             Type: List of Resource Tag property types
+
+         *
+         * The tags to apply to policy-created resources. These user-defined tags are in
+ addition to the AWS-added lifecycle tags.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
+         */
+        TagsToAdd?: C.CFList<Tag>;
+        /**
+         *                             Type: CreateRule
+         *
+         * The create rule for a policy.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-createrule
+         */
+        CreateRule?: AWS.DLM.LifecyclePolicy.CreateRule;
+        /**
+         *                             Type: RetainRule
+         *
+         * The retention rule for a policy.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-retainrule
+         */
+        RetainRule?: AWS.DLM.LifecyclePolicy.RetainRule;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the schedule.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-name
+         */
+        Name?: C.CFString;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Copy all user-defined tags on a source volume to snapshots of the volume created by
+ a policy.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-copytags
+         */
+        CopyTags?: C.CFBoolean;
+    }
+}
 export namespace AWS.DMS {
     /**
      * The AWS::DMS::Certificate resource creates an SSL certificate that encrypts connections between AWS DMS endpoints
@@ -14703,9 +16977,11 @@ export namespace AWS.DMS.Endpoint {
          * String
 
          *
-         * The type of engine for the endpoint. Valid values depend on the EndPointType
- and include MYSQL, ORACLE, POSTGRES, MARIADB, AURORA, REDSHIFT, S3, SYBASE,
- DYNAMODB, MONGODB, and SQLSERVER.
+         * The type of engine for the endpoint. Valid values depend on the
+ EndPointType and include mysql, oracle,
+ postgres, mariadb, aurora, aurora-postgresql,
+ redshift, s3, db2, azuredb, sybase,
+ dynamodb, mongodb, and sqlserver.
 
          *
          * UpdateType: Mutable
@@ -14842,10 +17118,9 @@ export namespace AWS.DMS.Endpoint {
 export namespace AWS.DMS.Endpoint {
     export interface DynamoDbSettings {
         /**
-         * String
-
          *
-         * The Amazon Resource Name (ARN) used by the service access IAM role.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html#cfn-dms-endpoint-dynamodbsettings-serviceaccessrolearn
@@ -16199,7 +18474,7 @@ export namespace AWS.DynamoDB {
 export namespace AWS.DynamoDB.Table {
     export interface Properties {
         /**
-         * List of DynamoDB Table AttributeDefinition
+         * List of AttributeDefinition
          *
          * A list of attributes that describe the key schema for the table and indexes. Duplicates
  are allowed.
@@ -16210,7 +18485,17 @@ export namespace AWS.DynamoDB.Table {
          */
         AttributeDefinitions?: C.CFList<AWS.DynamoDB.Table.AttributeDefinition>;
         /**
-         * List of DynamoDB Table GlobalSecondaryIndex
+         * String
+
+         *
+         * Specify how you are charged for read and write throughput and how you manage capacity.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-billingmode
+         */
+        BillingMode?: C.CFString;
+        /**
+         * List of GlobalSecondaryIndex
          *
          * Global secondary indexes to be created on the table. You can create up to 5 global
  secondary indexes.
@@ -16221,7 +18506,7 @@ export namespace AWS.DynamoDB.Table {
          */
         GlobalSecondaryIndexes?: C.CFList<AWS.DynamoDB.Table.GlobalSecondaryIndex>;
         /**
-         * List of DynamoDB Table KeySchema
+         * List of KeySchema
          *
          * Specifies the attributes that make up the primary key for the table. The
  attributes in the KeySchema property must also be defined in the
@@ -16233,7 +18518,7 @@ export namespace AWS.DynamoDB.Table {
          */
         KeySchema: C.CFList<AWS.DynamoDB.Table.KeySchema>;
         /**
-         * List of DynamoDB Table LocalSecondaryIndex
+         * List of LocalSecondaryIndex
          *
          * Local secondary indexes to be created on the table. You can create up to 5 local
  secondary indexes. Each index is scoped to a given hash key value. The size of each
@@ -16246,7 +18531,7 @@ export namespace AWS.DynamoDB.Table {
          */
         LocalSecondaryIndexes?: C.CFList<AWS.DynamoDB.Table.LocalSecondaryIndex>;
         /**
-         * DynamoDB  Table PointInTimeRecoverySpecification
+         * PointInTimeRecoverySpecification
          *
          * The settings used to enable point in time recovery.
          *
@@ -16255,7 +18540,7 @@ export namespace AWS.DynamoDB.Table {
          */
         PointInTimeRecoverySpecification?: AWS.DynamoDB.Table.PointInTimeRecoverySpecification;
         /**
-         * DynamoDB Table ProvisionedThroughput
+         * ProvisionedThroughput
          *
          * Throughput for the specified table, which consists of values for ReadCapacityUnits
  and WriteCapacityUnits. For more information about the contents of a provisioned
@@ -16265,9 +18550,9 @@ export namespace AWS.DynamoDB.Table {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
          */
-        ProvisionedThroughput: AWS.DynamoDB.Table.ProvisionedThroughput;
+        ProvisionedThroughput?: AWS.DynamoDB.Table.ProvisionedThroughput;
         /**
-         * DynamoDB  SSESpecification
+         * DynamoDB  Table SSESpecification
          *
          * Specifies the settings to enable server-side encryption.
          *
@@ -16276,7 +18561,7 @@ export namespace AWS.DynamoDB.Table {
          */
         SSESpecification?: AWS.DynamoDB.Table.SSESpecification;
         /**
-         * DynamoDB Table StreamSpecification
+         * StreamSpecification
          *
          * The settings for the DynamoDB table stream, which capture changes to items stored
  in
@@ -16301,7 +18586,7 @@ export namespace AWS.DynamoDB.Table {
          */
         TableName?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  table. Use tags to manage your resources.
@@ -16312,7 +18597,7 @@ export namespace AWS.DynamoDB.Table {
          */
         Tags?: C.CFList<Tag>;
         /**
-         * DynamoDB Table TimeToLiveSpecification
+         * TimeToLiveSpecification
          *
          * Specifies the Time to Live (TTL) settings for the table.
          *
@@ -16365,7 +18650,7 @@ export namespace AWS.DynamoDB.Table {
          */
         IndexName: C.CFString;
         /**
-         * List of DynamoDB Table KeySchema
+         * List of KeySchema
          *
          * The complete index key schema for the global secondary index, which consists of
  one or more pairs of attribute names and key types.
@@ -16376,7 +18661,7 @@ export namespace AWS.DynamoDB.Table {
          */
         KeySchema: C.CFList<AWS.DynamoDB.Table.KeySchema>;
         /**
-         * DynamoDB Table Projection
+         * Projection
          *
          * Attributes that are copied (projected) from the source table into the index.
  These attributes are in addition to the primary key attributes and index key
@@ -16388,14 +18673,14 @@ export namespace AWS.DynamoDB.Table {
          */
         Projection: AWS.DynamoDB.Table.Projection;
         /**
-         * DynamoDB Table ProvisionedThroughput
+         * ProvisionedThroughput
          *
          * The provisioned throughput settings for the index.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
          */
-        ProvisionedThroughput: AWS.DynamoDB.Table.ProvisionedThroughput;
+        ProvisionedThroughput?: AWS.DynamoDB.Table.ProvisionedThroughput;
     }
 }
 export namespace AWS.DynamoDB.Table {
@@ -16442,7 +18727,7 @@ export namespace AWS.DynamoDB.Table {
          */
         IndexName: C.CFString;
         /**
-         * List of DynamoDB Table KeySchema
+         * List of KeySchema
          *
          * The complete index key schema for the local secondary index, which consists of
  one or more pairs of attribute names and key types. For local secondary indexes,
@@ -16454,7 +18739,7 @@ export namespace AWS.DynamoDB.Table {
          */
         KeySchema: C.CFList<AWS.DynamoDB.Table.KeySchema>;
         /**
-         * DynamoDB Table Projection
+         * Projection
          *
          * Attributes that are copied (projected) from the source table into the index.
  These attributes are additions to the primary key attributes and index key
@@ -16513,7 +18798,7 @@ export namespace AWS.DynamoDB.Table {
          * Number
 
          *
-         * Sets the desired minimum number of consistent reads of items (up to 1KB in
+         * Sets the desired minimum number of consistent reads of items (up to 4KB in
  size) per second for the specified table before Amazon DynamoDB balances the
  load.
 
@@ -16554,13 +18839,9 @@ export namespace AWS.DynamoDB.Table {
 export namespace AWS.DynamoDB.Table {
     export interface StreamSpecification {
         /**
-         * String
-
          *
-         * Determines the information that the stream captures when an item in the table
- is modified. For valid values, see StreamSpecification in
- the Amazon DynamoDB API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
@@ -16635,7 +18916,7 @@ export namespace AWS.EC2.CustomerGateway {
          */
         IpAddress: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags.
+         * Resource Tag.
 
          *
          * The tags that you want to attach to the resource.
@@ -16731,7 +19012,7 @@ export namespace AWS.EC2.DHCPOptions {
          */
         NtpServers?: C.CFList<C.CFString>;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this resource.
          *
@@ -16739,6 +19020,453 @@ export namespace AWS.EC2.DHCPOptions {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-tags
          */
         Tags?: C.CFList<Tag>;
+    }
+}
+export namespace AWS.EC2 {
+    /**
+     * The AWS::EC2::EC2Fleet resource specifies the configuration information to
+    launch a fleet—or group—of instances. An EC2 Fleet can launch multiple instance
+    types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance,
+    and
+    Spot Instance purchasing models together. Using EC2 Fleet, you can define separate
+    On-Demand and
+    Spot capacity targets, specify the instance types that work best for your applications,
+    and
+    specify how Amazon EC2 should distribute your fleet capacity within each purchasing
+    model. For more
+    information, see Launching an EC2 Fleet in the
+    Amazon EC2 User Guide for Linux Instances.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
+     */
+    export interface EC2Fleet extends C.CommonResourceProps {
+        Type: 'AWS::EC2::EC2Fleet';
+        Properties: AWS.EC2.EC2Fleet.Properties;
+    }
+    /**
+     * The AWS::EC2::EC2Fleet resource specifies the configuration information to
+    launch a fleet—or group—of instances. An EC2 Fleet can launch multiple instance
+    types across multiple Availability Zones, using the On-Demand Instance, Reserved Instance,
+    and
+    Spot Instance purchasing models together. Using EC2 Fleet, you can define separate
+    On-Demand and
+    Spot capacity targets, specify the instance types that work best for your applications,
+    and
+    specify how Amazon EC2 should distribute your fleet capacity within each purchasing
+    model. For more
+    information, see Launching an EC2 Fleet in the
+    Amazon EC2 User Guide for Linux Instances.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
+     */
+    export function EC2Fleet(props: C.Omit<EC2Fleet, 'Type'>): EC2Fleet {
+        return { Type: 'AWS::EC2::EC2Fleet', ...props };
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface Properties {
+        /**
+         *                             Type: TargetCapacitySpecificationRequest
+         *
+         * The TotalTargetCapacity, OnDemandTargetCapacity, SpotTargetCapacity,
+ and DefaultCapacityType structure.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
+         */
+        TargetCapacitySpecification: AWS.EC2.EC2Fleet.TargetCapacitySpecificationRequest;
+        /**
+         *                             Type: OnDemandOptionsRequest
+         *
+         * The allocation strategy of On-Demand Instances in an EC2 Fleet.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
+         */
+        OnDemandOptions?: AWS.EC2.EC2Fleet.OnDemandOptionsRequest;
+        /**
+         *                             Type: String
+
+         *
+         * The type of the request. By default, the EC2 Fleet places an asynchronous
+ request for your desired capacity, and maintains it by replenishing interrupted Spot
+ Instances (maintain). A value of instant places a synchronous
+ one-time request, and returns errors for any instances that could not be launched.
+ A
+ value of request places an asynchronous one-time request without
+ maintaining capacity or submitting requests in alternative capacity pools if capacity
+ is
+ unavailable. For more information, see EC2
+    Fleet Request Types in the Amazon EC2 User Guide for Linux Instances.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
+         */
+        Type?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * Indicates whether running instances should be terminated if the total target capacity
+ of the EC2 Fleet
+ is decreased below the current size of the EC2 Fleet.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
+         */
+        ExcessCapacityTerminationPolicy?: C.CFString;
+        /**
+         *                             Type: List of TagSpecification property types
+
+         *
+         * The key-value pair for tagging the EC2 Fleet request on creation. The value for ResourceType must
+ be fleet, otherwise the fleet request fails.
+ To tag instances at launch, specify the tags in the launch template.
+ For information about tagging after launch, see Tagging Your Resources.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
+         */
+        TagSpecifications?: C.CFList<AWS.EC2.EC2Fleet.TagSpecification>;
+        /**
+         *                             Type: SpotOptionsRequest
+         *
+         * Describes the configuration of Spot Instances in an EC2 Fleet.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
+         */
+        SpotOptions?: AWS.EC2.EC2Fleet.SpotOptionsRequest;
+        /**
+         *                             Type: Integer
+
+         *
+         * The start date and time of the request, in UTC format (for example,
+ YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
+         */
+        ValidFrom?: C.CFInteger;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Indicates whether EC2 Fleet should replace unhealthy instances.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
+         */
+        ReplaceUnhealthyInstances?: C.CFBoolean;
+        /**
+         *                             Type: List of FleetLaunchTemplateConfigRequest property types
+
+         *
+         * The configuration for the EC2 Fleet.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
+         */
+        LaunchTemplateConfigs: C.CFList<AWS.EC2.EC2Fleet.FleetLaunchTemplateConfigRequest>;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Indicates whether running instances should be terminated when the EC2 Fleet expires.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
+         */
+        TerminateInstancesWithExpiration?: C.CFBoolean;
+        /**
+         *                             Type: Integer
+
+         *
+         * The end date and time of the request, in UTC format (for example,
+ YYYY-MM-DDTHH:MM:SSZ). At this point,
+ no new EC2 Fleet requests are placed or able to fulfill the request. The default end
+ date is 7 days from the current date.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
+         */
+        ValidUntil?: C.CFInteger;
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface FleetLaunchTemplateConfigRequest {
+        /**
+         *                             Type: FleetLaunchTemplateSpecificationRequest
+         *
+         * The launch template to use. You must specify either the launch template ID or launch
+ template name in the request.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-launchtemplatespecification
+         */
+        LaunchTemplateSpecification?: AWS.EC2.EC2Fleet.FleetLaunchTemplateSpecificationRequest;
+        /**
+         *                             Type: List of FleetLaunchTemplateOverridesRequest
+         *
+         * Any parameters that you specify override the same parameters in the launch template.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateconfigrequest-overrides
+         */
+        Overrides?: C.CFList<AWS.EC2.EC2Fleet.FleetLaunchTemplateOverridesRequest>;
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface FleetLaunchTemplateOverridesRequest {
+        /**
+         *                             Type: Double
+
+         *
+         * The number of units provided by the specified instance type.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-weightedcapacity
+         */
+        WeightedCapacity?: C.CFDouble;
+        /**
+         *                             Type: Double
+
+         *
+         * The priority for the launch template override. If AllocationStrategy is set to prioritized, EC2 Fleet uses priority to
+ determine which launch template override to use first in fulfilling On-Demand capacity.
+ The highest priority is launched first. Valid values are whole numbers starting at
+ 0. The lower the number, the higher the priority. If no number is set,
+ the launch template override has the lowest priority.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-priority
+         */
+        Priority?: C.CFDouble;
+        /**
+         *                             Type: String
+
+         *
+         * The Availability Zone in which to launch the instances.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-availabilityzone
+         */
+        AvailabilityZone?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the subnet in which to launch the instances.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-subnetid
+         */
+        SubnetId?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The instance type.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-instancetype
+         */
+        InstanceType?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The maximum price per unit hour that you are willing to pay for a Spot Instance.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplateoverridesrequest-maxprice
+         */
+        MaxPrice?: C.CFString;
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface FleetLaunchTemplateSpecificationRequest {
+        /**
+         *                             Type: String
+
+         *
+         * The name of the launch template.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplatename
+         */
+        LaunchTemplateName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The version number of the launch template.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-version
+         */
+        Version?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the launch template.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest.html#cfn-ec2-ec2fleet-fleetlaunchtemplatespecificationrequest-launchtemplateid
+         */
+        LaunchTemplateId?: C.CFString;
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface OnDemandOptionsRequest {
+        /**
+         *                             Type: String
+
+         *
+         * The order of the launch template overrides to use in fulfilling On-Demand capacity.
+ If you specify lowest-price,
+ EC2 Fleet uses price to determine the order, launching the lowest price first. If
+ you specify prioritized, EC2 Fleet
+ uses the priority that you assigned to each launch template override, launching the
+ highest priority first. If you do not specify
+ a value, EC2 Fleet defaults to lowest-price.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-allocationstrategy
+         */
+        AllocationStrategy?: C.CFString;
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface SpotOptionsRequest {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-allocationstrategy
+         */
+        AllocationStrategy?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instanceinterruptionbehavior
+         */
+        InstanceInterruptionBehavior?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-spotoptionsrequest.html#cfn-ec2-ec2fleet-spotoptionsrequest-instancepoolstousecount
+         */
+        InstancePoolsToUseCount?: C.CFInteger;
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface TagRequest {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagrequest.html#cfn-ec2-ec2fleet-tagrequest-value
+         */
+        Value?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagrequest.html#cfn-ec2-ec2fleet-tagrequest-key
+         */
+        Key?: C.CFString;
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface TagSpecification {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-resourcetype
+         */
+        ResourceType?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-tags
+         */
+        Tags?: C.CFList<AWS.EC2.EC2Fleet.TagRequest>;
+    }
+}
+export namespace AWS.EC2.EC2Fleet {
+    export interface TargetCapacitySpecificationRequest {
+        /**
+         *                             Type: String
+
+         *
+         * The default TotalTargetCapacity, which is either Spot or On-Demand.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-defaulttargetcapacitytype
+         */
+        DefaultTargetCapacityType?: C.CFString;
+        /**
+         *                             Type: Integer
+
+         *
+         * The number of units to request, filled using DefaultTargetCapacityType.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-totaltargetcapacity
+         */
+        TotalTargetCapacity: C.CFInteger;
+        /**
+         *                             Type: Integer
+
+         *
+         * The number of On-Demand units to request.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-ondemandtargetcapacity
+         */
+        OnDemandTargetCapacity?: C.CFInteger;
+        /**
+         *                             Type: Integer
+
+         *
+         * The number of Spot units to request.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-targetcapacityspecificationrequest.html#cfn-ec2-ec2fleet-targetcapacityspecificationrequest-spottargetcapacity
+         */
+        SpotTargetCapacity?: C.CFInteger;
     }
 }
 export namespace AWS.EC2 {
@@ -16790,6 +19518,18 @@ export namespace AWS.EC2.EIP {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-instanceid
          */
         InstanceId?: C.CFString;
+        /**
+         * String
+
+         *
+         * Specifies the ID of an address pool that you own to let Amazon EC2 select an address
+ from the address pool.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-publicipv4pool
+         */
+        PublicIpv4Pool?: C.CFString;
     }
 }
 export namespace AWS.EC2 {
@@ -16983,7 +19723,34 @@ export namespace AWS.EC2.FlowLog {
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-deliverlogspermissionarn
          */
-        DeliverLogsPermissionArn: C.CFString;
+        DeliverLogsPermissionArn?: C.CFString;
+        /**
+         * String
+
+         *
+         * Specifies the destination to which the flow log data is to be published. Flow log
+ data can be published to a CloudWatch Logs log group or an Amazon S3 bucket. The value
+ specified for this parameter depends on the value specified for
+ LogDestinationType.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestination
+         */
+        LogDestination?: C.CFString;
+        /**
+         * String
+
+         *
+         * Specifies the type of destination to which the flow log data is to be published. Flow
+ log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data
+ to CloudWatch Logs, specify cloud-watch-logs. To publish flow log data to Amazon S3, specify s3.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-logdestinationtype
+         */
+        LogDestinationType?: C.CFString;
         /**
          * String
 
@@ -16995,7 +19762,7 @@ export namespace AWS.EC2.FlowLog {
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html#cfn-ec2-flowlog-loggroupname
          */
-        LogGroupName: C.CFString;
+        LogGroupName?: C.CFString;
         /**
          * String
 
@@ -17163,7 +19930,7 @@ export namespace AWS.EC2.Instance {
          */
         AvailabilityZone?: C.CFString;
         /**
-         * A list of Amazon EC2 Block Device Mapping Property.
+         * A list of Amazon EC2 BlockDeviceMapping.
 
          *
          * Defines a set of Amazon Elastic Block Store block device mappings, ephemeral instance
@@ -17221,6 +19988,18 @@ export namespace AWS.EC2.Instance {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications
          */
         ElasticGpuSpecifications?: C.CFList<AWS.EC2.Instance.ElasticGpuSpecification>;
+        /**
+         *
+         *
+         * Specify a list of elastic inference accelerators for an instance. Elastic Inference
+ (EI) accelerators are a resource you can attach to your Amazon EC2 instances to
+ accelerate your Deep Learning (DL) inference workloads.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
+         */
+        ElasticInferenceAccelerators?: C.CFList<AWS.EC2.Instance.ElasticInferenceAccelerator>;
         /**
          * String
 
@@ -17345,6 +20124,15 @@ export namespace AWS.EC2.Instance {
          */
         LaunchTemplate?: AWS.EC2.Instance.LaunchTemplateSpecification;
         /**
+         *
+         *
+         * Associate a list of license configurations with the instance.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-licensespecifications
+         */
+        LicenseSpecifications?: C.CFList<AWS.EC2.Instance.LicenseSpecification>;
+        /**
          * Boolean
 
          *
@@ -17355,8 +20143,7 @@ export namespace AWS.EC2.Instance {
          */
         Monitoring?: C.CFBoolean;
         /**
-         * A list of EC2 NetworkInterface Embedded
-    Property Type
+         * A list of EC2 NetworkInterface
          *
          * A list of embedded objects that describes the network interfaces to associate
  with this instance.
@@ -17473,7 +20260,7 @@ export namespace AWS.EC2.Instance {
          */
         SubnetId?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this instance.
          *
@@ -17553,7 +20340,7 @@ export namespace AWS.EC2.Instance {
          */
         DeviceName: C.CFString;
         /**
-         * Amazon Elastic Block Store Block Device Property.
+         * Amazon Elastic Block Store Block Device.
 
          *
          * Required: Conditional You can specify either VirtualName or
@@ -17698,6 +20485,19 @@ export namespace AWS.EC2.Instance {
     }
 }
 export namespace AWS.EC2.Instance {
+    export interface ElasticInferenceAccelerator {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-elasticinferenceaccelerator.html#cfn-ec2-instance-elasticinferenceaccelerator-type
+         */
+        Type: C.CFString;
+    }
+}
+export namespace AWS.EC2.Instance {
     export interface InstanceIpv6Address {
         /**
          *
@@ -17747,6 +20547,20 @@ export namespace AWS.EC2.Instance {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-launchtemplatespecification.html#cfn-ec2-instance-launchtemplatespecification-version
          */
         Version: C.CFString;
+    }
+}
+export namespace AWS.EC2.Instance {
+    export interface LicenseSpecification {
+        /**
+         *                             Type: String
+
+         *
+         * The Amazon Resource Name (ARN) of license configuration to associate with the instance.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-licensespecification.html#cfn-ec2-instance-licensespecification-licenseconfigurationarn
+         */
+        LicenseConfigurationArn: C.CFString;
     }
 }
 export namespace AWS.EC2.Instance {
@@ -17866,7 +20680,7 @@ export namespace AWS.EC2.Instance {
  Primary property to true in the
  PrivateIpAddressSpecification property. If you want Amazon EC2 to
  automatically assign private IP addresses, use the
- SecondaryPrivateIpCount property and do not specify this
+ SecondaryPrivateIpAddressCount property and do not specify this
  property.
 
          *
@@ -18010,7 +20824,7 @@ export namespace AWS.EC2 {
 export namespace AWS.EC2.InternetGateway {
     export interface Properties {
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this resource.
          *
@@ -18060,7 +20874,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         LaunchTemplateName?: C.CFString;
         /**
-         *                             Type: Amazon EC2 LaunchTemplate LaunchTemplateData
+         *                             Type: LaunchTemplateData
          *
          * The information for the launch template.
          *
@@ -18073,8 +20887,7 @@ export namespace AWS.EC2.LaunchTemplate {
 export namespace AWS.EC2.LaunchTemplate {
     export interface BlockDeviceMapping {
         /**
-         *                             Type: xxx
-
+         *                             Type: Ebs
          *
          * Parameters used to automatically set up EBS volumes when the instance is launched.
          *
@@ -18286,7 +21099,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         SecurityGroups?: C.CFList<C.CFString>;
         /**
-         *                             Type: List of Amazon EC2 LaunchTemplate TagSpecification
+         *                             Type: List of TagSpecification
          *
          * The tags to apply to the resources during launch. You can tag instances and volumes.
  The specified tags are applied to all instances or volumes that are created during
@@ -18322,7 +21135,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         InstanceInitiatedShutdownBehavior?: C.CFString;
         /**
-         *                             Type: List of Amazon EC2 LaunchTemplate BlockDeviceMapping
+         *                             Type: List of BlockDeviceMapping
          *
          * The block device mapping.
          *
@@ -18331,7 +21144,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         BlockDeviceMappings?: C.CFList<AWS.EC2.LaunchTemplate.BlockDeviceMapping>;
         /**
-         *                             Type: Amazon EC2 LaunchTemplate IamInstanceProfile
+         *                             Type: IamInstanceProfile
          *
          * The IAM instance profile.
          *
@@ -18398,7 +21211,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         DisableApiTermination?: C.CFBoolean;
         /**
-         *                             Type: List of Amazon EC2 LaunchTemplate ElasticGpuSpecification
+         *                             Type: List of ElasticGpuSpecification
          *
          * An elastic GPU to associate with the instance.
          *
@@ -18407,7 +21220,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         ElasticGpuSpecifications?: C.CFList<AWS.EC2.LaunchTemplate.ElasticGpuSpecification>;
         /**
-         *                             Type: Amazon EC2 LaunchTemplate Placement
+         *                             Type: Placement
          *
          * The placement for the instance.
          *
@@ -18416,7 +21229,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         Placement?: AWS.EC2.LaunchTemplate.Placement;
         /**
-         *                             Type: Amazon EC2 LaunchTemplate InstanceMarketOptions
+         *                             Type: InstanceMarketOptions
          *
          * The market (purchasing) option for the instances.
          *
@@ -18425,7 +21238,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         InstanceMarketOptions?: AWS.EC2.LaunchTemplate.InstanceMarketOptions;
         /**
-         *                             Type: List of Amazon EC2 LaunchTemplate NetworkInterface
+         *                             Type: List of NetworkInterface
          *
          * One or more network interfaces.
          *
@@ -18466,7 +21279,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         RamDiskId?: C.CFString;
         /**
-         *                             Type: Amazon EC2 LaunchTemplate Monitoring
+         *                             Type: Monitoring
          *
          * The monitoring for the instance.
          *
@@ -18475,7 +21288,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         Monitoring?: AWS.EC2.LaunchTemplate.Monitoring;
         /**
-         *                             Type: Amazon EC2 LaunchTemplate CreditSpecification
+         *                             Type: CreditSpecification
          *
          * The credit option for CPU usage of the instance. Valid for T2 instances only.
          *
@@ -18521,7 +21334,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         PrivateIpAddress?: C.CFString;
         /**
-         *                             Type: List of Amazon EC2 LaunchTemplate PrivateIpAdd
+         *                             Type: List of PrivateIpAdd
          *
          * One or more private IPv4 addresses.
          *
@@ -18583,7 +21396,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         SubnetId?: C.CFString;
         /**
-         *                             Type: List of Amazon EC2 LaunchTemplate Ipv6Add
+         *                             Type: List of Ipv6Add
          *
          * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
  You can't use this option if you're specifying a number of IPv6 addresses.
@@ -18746,7 +21559,7 @@ export namespace AWS.EC2.LaunchTemplate {
          */
         ResourceType?: C.CFString;
         /**
-         *                             Type: List of AWS CloudFormation Resource Tags
+         *                             Type: List of Resource Tag
          *
          * The tags to apply to the resource.
          *
@@ -18819,7 +21632,7 @@ export namespace AWS.EC2.NatGateway {
          */
         SubnetId: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  resource. Use tags to manage your resources.
@@ -18853,7 +21666,7 @@ export namespace AWS.EC2 {
 export namespace AWS.EC2.NetworkAcl {
     export interface Properties {
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this ACL.
          *
@@ -19207,7 +22020,7 @@ export namespace AWS.EC2.NetworkInterface {
          */
         SubnetId: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this network
  interface.
@@ -19403,13 +22216,7 @@ export namespace AWS.EC2.NetworkInterfacePermission {
 }
 export namespace AWS.EC2 {
     /**
-     * The AWS::EC2::PlacementGroup resource is a logical grouping of instances
-    within a single Availability Zone (AZ) that enables applications to participate in
-    a
-    low-latency, 10 Gbps network. You create a placement group first, and then you can
-    launch
-    instances in the placement group.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
      */
@@ -19418,13 +22225,7 @@ export namespace AWS.EC2 {
         Properties: AWS.EC2.PlacementGroup.Properties;
     }
     /**
-     * The AWS::EC2::PlacementGroup resource is a logical grouping of instances
-    within a single Availability Zone (AZ) that enables applications to participate in
-    a
-    low-latency, 10 Gbps network. You create a placement group first, and then you can
-    launch
-    instances in the placement group.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
      */
@@ -19435,15 +22236,9 @@ export namespace AWS.EC2 {
 export namespace AWS.EC2.PlacementGroup {
     export interface Properties {
         /**
-         * String
-
          *
-         * The placement strategy, which relates to the instance types that can be added
- to the placement group. For example, for the cluster strategy, you can
- cluster C4 instance types but not T2 instance types. For valid values, see CreatePlacementGroup in the
- Amazon EC2 API Reference. By default, AWS CloudFormation sets the value of this
- property to cluster.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html#cfn-ec2-placementgroup-strategy
@@ -19596,10 +22391,7 @@ export namespace AWS.EC2.Route {
 }
 export namespace AWS.EC2 {
     /**
-     * Creates a new route table within a VPC. After you create a new route table, you can
-    add routes and
-    associate the table with a subnet.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html
      */
@@ -19608,10 +22400,7 @@ export namespace AWS.EC2 {
         Properties: AWS.EC2.RouteTable.Properties;
     }
     /**
-     * Creates a new route table within a VPC. After you create a new route table, you can
-    add routes and
-    associate the table with a subnet.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html
      */
@@ -19622,19 +22411,18 @@ export namespace AWS.EC2 {
 export namespace AWS.EC2.RouteTable {
     export interface Properties {
         /**
-         * AWS CloudFormation Resource Tags
          *
-         * An arbitrary set of tags (key–value pairs) for this route table.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html#cfn-ec2-routetable-tags
          */
         Tags?: C.CFList<Tag>;
         /**
-         * String
-
          *
-         * The ID of the VPC where the route table will be created.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html#cfn-ec2-routetable-vpcid
@@ -19687,8 +22475,7 @@ export namespace AWS.EC2.SecurityGroup {
          */
         GroupName?: C.CFString;
         /**
-         * List of EC2 Security Group
-    Rule
+         * List of SecurityGroupRule
          *
          * A list of Amazon EC2 security group egress rules.
          *
@@ -19697,8 +22484,7 @@ export namespace AWS.EC2.SecurityGroup {
          */
         SecurityGroupEgress?: C.CFList<AWS.EC2.SecurityGroup.Egress>;
         /**
-         * List of EC2 Security Group
-    Rule
+         * List of SecurityGroupRule
          *
          * A list of Amazon EC2 security group ingress rules.
          *
@@ -19707,7 +22493,7 @@ export namespace AWS.EC2.SecurityGroup {
          */
         SecurityGroupIngress?: C.CFList<AWS.EC2.SecurityGroup.Ingress>;
         /**
-         * List of AWS CloudFormation Resource Tags
+         * List of Resource Tag
          *
          * The tags that you want to attach to the resource.
          *
@@ -19874,6 +22660,15 @@ export namespace AWS.EC2.SecurityGroup {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
          */
         IpProtocol: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-securitygroup-ingress-sourceprefixlistid
+         */
+        SourcePrefixListId?: C.CFString;
         /**
          *
          *
@@ -20153,6 +22948,18 @@ export namespace AWS.EC2.SecurityGroupIngress {
          * String
 
          *
+         * The AWS service prefix of an Amazon VPC endpoint. For more information, see VPC Endpoints in the
+ Amazon VPC User Guide.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-securitygroupingress-sourceprefixlistid
+         */
+        SourcePrefixListId?: C.CFString;
+        /**
+         * String
+
+         *
          * Specifies the ID of the source security group or uses the Ref
  intrinsic function to refer to the logical ID of a security group defined in the
  same template.
@@ -20299,6 +23106,37 @@ export namespace AWS.EC2.SpotFleet {
     }
 }
 export namespace AWS.EC2.SpotFleet {
+    export interface ClassicLoadBalancer {
+        /**
+         *                             Type: String
+
+         *
+         * The name of the load balancer.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancer.html#cfn-ec2-spotfleet-classicloadbalancer-name
+         */
+        Name: C.CFString;
+    }
+}
+export namespace AWS.EC2.SpotFleet {
+    export interface ClassicLoadBalancersConfig {
+        /**
+         *                             Type: List of Amazon EC2 SpotFleet ClassicLoadBalancer
+         *
+         * One or more Classic Load Balancers to attach to the Spot Fleet. Duplicates not allowed.
+ For
+ property constraints, see ClassicLoadBalancersConfig
+ in the Amazon EC2 API Reference.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-classicloadbalancersconfig.html#cfn-ec2-spotfleet-classicloadbalancersconfig-classicloadbalancers
+         */
+        ClassicLoadBalancers: C.CFList<AWS.EC2.SpotFleet.ClassicLoadBalancer>;
+    }
+}
+export namespace AWS.EC2.SpotFleet {
     export interface EbsBlockDevice {
         /**
          * Boolean
@@ -20378,6 +23216,45 @@ export namespace AWS.EC2.SpotFleet {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype
          */
         VolumeType?: C.CFString;
+    }
+}
+export namespace AWS.EC2.SpotFleet {
+    export interface FleetLaunchTemplateSpecification {
+        /**
+         * String
+
+         *
+         * The ID of the launch template. You must specify either a template ID or a template
+ name.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-launchtemplateid
+         */
+        LaunchTemplateId?: C.CFString;
+        /**
+         * String
+
+         *
+         * The name of the launch template. You must specify either a template name or a template
+ ID.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-launchtemplatename
+         */
+        LaunchTemplateName?: C.CFString;
+        /**
+         * String
+
+         *
+         * The version number. AWS CloudFormation does not support specifying $Latest or $Default for the template version number.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-fleetlaunchtemplatespecification.html#cfn-ec2-spotfleet-fleetlaunchtemplatespecification-version
+         */
+        Version: C.CFString;
     }
 }
 export namespace AWS.EC2.SpotFleet {
@@ -20551,6 +23428,104 @@ export namespace AWS.EC2.SpotFleet {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-subnetid
          */
         SubnetId?: C.CFString;
+    }
+}
+export namespace AWS.EC2.SpotFleet {
+    export interface LaunchTemplateConfig {
+        /**
+         * FleetLaunchTemplateSpecification
+         *
+         * The launch template.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-launchtemplatespecification
+         */
+        LaunchTemplateSpecification?: AWS.EC2.SpotFleet.FleetLaunchTemplateSpecification;
+        /**
+         * List of LaunchTemplateOverrides
+         *
+         * Any parameters that you specify override the same parameters in the launch template.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-overrides
+         */
+        Overrides?: C.CFList<AWS.EC2.SpotFleet.LaunchTemplateOverrides>;
+    }
+}
+export namespace AWS.EC2.SpotFleet {
+    export interface LaunchTemplateOverrides {
+        /**
+         * String
+
+         *
+         * The Availability Zone in which to launch the instances.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-availabilityzone
+         */
+        AvailabilityZone?: C.CFString;
+        /**
+         * String
+
+         *
+         * The instance type.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-instancetype
+         */
+        InstanceType?: C.CFString;
+        /**
+         * String
+
+         *
+         * The maximum price per unit hour that you are willing to pay for a Spot Instance.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-spotprice
+         */
+        SpotPrice?: C.CFString;
+        /**
+         * String
+
+         *
+         * The ID of the subnet in which to launch the instances.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-subnetid
+         */
+        SubnetId?: C.CFString;
+        /**
+         * Double
+
+         *
+         * The number of units provided by the specified instance type.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateoverrides.html#cfn-ec2-spotfleet-launchtemplateoverrides-weightedcapacity
+         */
+        WeightedCapacity?: C.CFDouble;
+    }
+}
+export namespace AWS.EC2.SpotFleet {
+    export interface LoadBalancersConfig {
+        /**
+         *                             Type: Amazon EC2 SpotFleet ClassicLoadBalancersConfig
+         *
+         * The Classic Load Balancers to attach to the SpotFleet request.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-classicloadbalancersconfig
+         */
+        ClassicLoadBalancersConfig?: AWS.EC2.SpotFleet.ClassicLoadBalancersConfig;
+        /**
+         *                             Type: Amazon EC2 SpotFleet TargetGroupsConfig
+         *
+         * The target groups to attach to the SpotFleet request.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-targetgroupsconfig
+         */
+        TargetGroupsConfig?: AWS.EC2.SpotFleet.TargetGroupsConfig;
     }
 }
 export namespace AWS.EC2.SpotFleet {
@@ -20738,7 +23713,7 @@ export namespace AWS.EC2.SpotFleet {
          */
         SubnetId?: C.CFString;
         /**
-         * List of Amazon EC2 SpotFleet SpotFleetTagSpecification
+         * List of SpotFleetTagSpecification
          *
          * The tags to apply during creation.
          *
@@ -20794,8 +23769,7 @@ export namespace AWS.EC2.SpotFleet {
 
          *
          * Indicates how to allocate the target capacity across the Spot pools that you
- specified in the Spot fleet request. For valid values, see SpotFleetRequestConfigData in the
- Amazon EC2 API Reference.
+ specified in the Spot fleet request.
 
          *
          * UpdateType: Immutable
@@ -20808,8 +23782,7 @@ export namespace AWS.EC2.SpotFleet {
          *
          * Indicates whether running Spot instances are terminated if you decrease the
  target capacity of the Spot fleet request below the current size of the Spot
- fleet. For valid values, see SpotFleetRequestConfigData in the
- Amazon EC2 API Reference.
+ fleet.
 
          *
          * UpdateType: Mutable
@@ -20833,6 +23806,16 @@ export namespace AWS.EC2.SpotFleet {
          */
         IamFleetRole: C.CFString;
         /**
+         * String
+
+         *
+         * The behavior when a Spot Instance is interrupted.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instanceinterruptionbehavior
+         */
+        InstanceInterruptionBehavior?: C.CFString;
+        /**
          * List of Amazon Elastic Compute Cloud SpotFleet LaunchSpecifications
          *
          * The launch specifications for the Spot fleet request.
@@ -20841,6 +23824,28 @@ export namespace AWS.EC2.SpotFleet {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
          */
         LaunchSpecifications?: C.CFList<AWS.EC2.SpotFleet.SpotFleetLaunchSpecification>;
+        /**
+         * List of LaunchTemplateConfig
+         *
+         * Describes a launch template and overrides.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchtemplateconfigs
+         */
+        LaunchTemplateConfigs?: C.CFList<AWS.EC2.SpotFleet.LaunchTemplateConfig>;
+        /**
+         * LoadBalancersConfig
+         *
+         * One or more Classic Load Balancers and target groups to attach to the Spot
+ Fleet request. Spot Fleet registers the running Spot Instances with the specified
+ Classic Load Balancers and target
+ groups.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-loadbalancersconfig
+         */
+        LoadBalancersConfig?: AWS.EC2.SpotFleet.LoadBalancersConfig;
         /**
          * Boolean
 
@@ -20897,8 +23902,6 @@ export namespace AWS.EC2.SpotFleet {
          * The type of request, which indicates whether the fleet will only request the target
  capacity or
  also attempt to maintain it.
- For more information, see SpotFleetRequestConfigData
- in the Amazon EC2 API Reference.
 
          *
          * UpdateType: Immutable
@@ -20947,6 +23950,17 @@ export namespace AWS.EC2.SpotFleet {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
          */
         ResourceType?: C.CFString;
+        /**
+         * Resource Tag
+         *
+         * Specifies an arbitrary set of tags (key–value pairs) to associate with this
+ spot fleet. Use tags to manage your resources.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-tagspecifications.html#cfn-ec2-spotfleet-tags
+         */
+        Tags?: C.CFList<Tag>;
     }
 }
 export namespace AWS.EC2.SpotFleet {
@@ -20971,6 +23985,47 @@ export namespace AWS.EC2.SpotFleet {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-groupname
          */
         GroupName?: C.CFString;
+        /**
+         * String
+
+         *
+         * The tenancy of the instance (if the instance is running in a VPC). An instance
+ with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not
+ supported for Spot Instances.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html#cfn-ec2-spotfleet-spotplacement-tenancy
+         */
+        Tenancy?: C.CFString;
+    }
+}
+export namespace AWS.EC2.SpotFleet {
+    export interface TargetGroup {
+        /**
+         *                             Type: String
+
+         *
+         * The Amazon Resource Name (ARN) of the target group.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroup.html#cfn-ec2-spotfleet-targetgroup-arn
+         */
+        Arn: C.CFString;
+    }
+}
+export namespace AWS.EC2.SpotFleet {
+    export interface TargetGroupsConfig {
+        /**
+         *                             Type: List of Amazon EC2 SpotFleet TargetGroup
+         *
+         * One or more target groups. Duplicates not allowed. For property
+ constraints, see TargetGroupsConfig in the Amazon EC2 API Reference
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-targetgroupsconfig.html#cfn-ec2-spotfleet-targetgroupsconfig-targetgroups
+         */
+        TargetGroups: C.CFList<AWS.EC2.SpotFleet.TargetGroup>;
     }
 }
 export namespace AWS.EC2 {
@@ -21055,7 +24110,7 @@ export namespace AWS.EC2.Subnet {
          */
         MapPublicIpOnLaunch?: C.CFBoolean;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this subnet.
          *
@@ -21227,6 +24282,378 @@ export namespace AWS.EC2 {
     /**
      *
      *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html
+     */
+    export interface TransitGateway extends C.CommonResourceProps {
+        Type: 'AWS::EC2::TransitGateway';
+        Properties: AWS.EC2.TransitGateway.Properties;
+    }
+    /**
+     *
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html
+     */
+    export function TransitGateway(props: C.Omit<TransitGateway, 'Type'>): TransitGateway {
+        return { Type: 'AWS::EC2::TransitGateway', ...props };
+    }
+}
+export namespace AWS.EC2.TransitGateway {
+    export interface Properties {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetablepropagation
+         */
+        DefaultRouteTablePropagation?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-description
+         */
+        Description?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-autoacceptsharedattachments
+         */
+        AutoAcceptSharedAttachments?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-defaultroutetableassociation
+         */
+        DefaultRouteTableAssociation?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-vpnecmpsupport
+         */
+        VpnEcmpSupport?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
+         */
+        DnsSupport?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-amazonsideasn
+         */
+        AmazonSideAsn?: C.CFInteger;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
+         */
+        Tags?: C.CFList<Tag>;
+    }
+}
+export namespace AWS.EC2 {
+    /**
+     * Creates an attachment between a VPC and a transit gateway. For more information, see
+    Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html
+     */
+    export interface TransitGatewayAttachment extends C.CommonResourceProps {
+        Type: 'AWS::EC2::TransitGatewayAttachment';
+        Properties: AWS.EC2.TransitGatewayAttachment.Properties;
+    }
+    /**
+     * Creates an attachment between a VPC and a transit gateway. For more information, see
+    Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html
+     */
+    export function TransitGatewayAttachment(props: C.Omit<TransitGatewayAttachment, 'Type'>): TransitGatewayAttachment {
+        return { Type: 'AWS::EC2::TransitGatewayAttachment', ...props };
+    }
+}
+export namespace AWS.EC2.TransitGatewayAttachment {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the transit gateway.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-transitgatewayid
+         */
+        TransitGatewayId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the VPC.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-vpcid
+         */
+        VpcId: C.CFString;
+        /**
+         *                             Type: List of String values
+
+         *
+         * The IDs of one or more subnets. You can specify only one subnet per Availability Zone.
+ You must specify at least one subnet,
+ but we recommend that you specify two subnets for better availability. The transit
+ gateway uses one IP address from each specified subnet.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-subnetids
+         */
+        SubnetIds: C.CFList<C.CFString>;
+        /**
+         *                             Type: List of Resource Tag property types
+
+         *
+         * The tags to apply to the VPC attachment.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html#cfn-ec2-transitgatewayattachment-tags
+         */
+        Tags?: C.CFList<Tag>;
+    }
+}
+export namespace AWS.EC2 {
+    /**
+     * Creates a static route for a transit gateway route table. For more information, see
+    Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html
+     */
+    export interface TransitGatewayRoute extends C.CommonResourceProps {
+        Type: 'AWS::EC2::TransitGatewayRoute';
+        Properties: AWS.EC2.TransitGatewayRoute.Properties;
+    }
+    /**
+     * Creates a static route for a transit gateway route table. For more information, see
+    Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html
+     */
+    export function TransitGatewayRoute(props: C.Omit<TransitGatewayRoute, 'Type'>): TransitGatewayRoute {
+        return { Type: 'AWS::EC2::TransitGatewayRoute', ...props };
+    }
+}
+export namespace AWS.EC2.TransitGatewayRoute {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the transit gateway route table.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-transitgatewayroutetableid
+         */
+        TransitGatewayRouteTableId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The CIDR range used for destination matches. Routing decisions are based on the most
+ specific match.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-destinationcidrblock
+         */
+        DestinationCidrBlock?: C.CFString;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Indicates whether to drop traffic if the target isn't available.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-blackhole
+         */
+        Blackhole?: C.CFBoolean;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the attachment.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html#cfn-ec2-transitgatewayroute-transitgatewayattachmentid
+         */
+        TransitGatewayAttachmentId?: C.CFString;
+    }
+}
+export namespace AWS.EC2 {
+    /**
+     * Creates a route table for a transit gateway. For more information, see Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html
+     */
+    export interface TransitGatewayRouteTable extends C.CommonResourceProps {
+        Type: 'AWS::EC2::TransitGatewayRouteTable';
+        Properties: AWS.EC2.TransitGatewayRouteTable.Properties;
+    }
+    /**
+     * Creates a route table for a transit gateway. For more information, see Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html
+     */
+    export function TransitGatewayRouteTable(props: C.Omit<TransitGatewayRouteTable, 'Type'>): TransitGatewayRouteTable {
+        return { Type: 'AWS::EC2::TransitGatewayRouteTable', ...props };
+    }
+}
+export namespace AWS.EC2.TransitGatewayRouteTable {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the transit gateway.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-transitgatewayid
+         */
+        TransitGatewayId: C.CFString;
+        /**
+         *                             Type: List of Resource Tag property types
+
+         *
+         * The tags to apply to the transit gateway route table.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html#cfn-ec2-transitgatewayroutetable-tags
+         */
+        Tags?: C.CFList<Tag>;
+    }
+}
+export namespace AWS.EC2 {
+    /**
+     * Associate an attachment with a transit gateway route table. For more information,
+    see Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html
+     */
+    export interface TransitGatewayRouteTableAssociation extends C.CommonResourceProps {
+        Type: 'AWS::EC2::TransitGatewayRouteTableAssociation';
+        Properties: AWS.EC2.TransitGatewayRouteTableAssociation.Properties;
+    }
+    /**
+     * Associate an attachment with a transit gateway route table. For more information,
+    see Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html
+     */
+    export function TransitGatewayRouteTableAssociation(props: C.Omit<TransitGatewayRouteTableAssociation, 'Type'>): TransitGatewayRouteTableAssociation {
+        return { Type: 'AWS::EC2::TransitGatewayRouteTableAssociation', ...props };
+    }
+}
+export namespace AWS.EC2.TransitGatewayRouteTableAssociation {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the transit gateway route table.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html#cfn-ec2-transitgatewayroutetableassociation-transitgatewayroutetableid
+         */
+        TransitGatewayRouteTableId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the attachment.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html#cfn-ec2-transitgatewayroutetableassociation-transitgatewayattachmentid
+         */
+        TransitGatewayAttachmentId: C.CFString;
+    }
+}
+export namespace AWS.EC2 {
+    /**
+     * Enables an attachment to propagate routes. For more information, see Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html
+     */
+    export interface TransitGatewayRouteTablePropagation extends C.CommonResourceProps {
+        Type: 'AWS::EC2::TransitGatewayRouteTablePropagation';
+        Properties: AWS.EC2.TransitGatewayRouteTablePropagation.Properties;
+    }
+    /**
+     * Enables an attachment to propagate routes. For more information, see Amazon VPC Transit Gateways.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html
+     */
+    export function TransitGatewayRouteTablePropagation(props: C.Omit<TransitGatewayRouteTablePropagation, 'Type'>): TransitGatewayRouteTablePropagation {
+        return { Type: 'AWS::EC2::TransitGatewayRouteTablePropagation', ...props };
+    }
+}
+export namespace AWS.EC2.TransitGatewayRouteTablePropagation {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the propagation route table.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html#cfn-ec2-transitgatewayroutetablepropagation-transitgatewayroutetableid
+         */
+        TransitGatewayRouteTableId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the attachment.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetablepropagation.html#cfn-ec2-transitgatewayroutetablepropagation-transitgatewayattachmentid
+         */
+        TransitGatewayAttachmentId: C.CFString;
+    }
+}
+export namespace AWS.EC2 {
+    /**
+     *
+     *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html
      */
     export interface TrunkInterfaceAssociation extends C.CommonResourceProps {
@@ -21358,7 +24785,7 @@ export namespace AWS.EC2.VPC {
          */
         InstanceTenancy?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this VPC. To name a VPC resource, specify
  a value for the Name key.
@@ -21515,39 +24942,6 @@ export namespace AWS.EC2 {
 export namespace AWS.EC2.VPCEndpoint {
     export interface Properties {
         /**
-         * String
-
-         *
-         * The ID of the VPC in which the endpoint will be used.
-         *
-         * UpdateType: Immutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
-         */
-        VpcId: C.CFString;
-        /**
-         * List of String values
-
-         *
-         * One or more route table IDs that are used by the VPC to reach the
- endpoint.
-
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
-         */
-        RouteTableIds?: C.CFList<C.CFString>;
-        /**
-         * String
-
-         *
-         * The name of the service. To get a list of available services, use DescribeVpcEndpointServices or get the name from the service provider.
-
-         *
-         * UpdateType: Immutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename
-         */
-        ServiceName: C.CFString;
-        /**
          * JSON object
 
          *
@@ -21564,14 +24958,52 @@ export namespace AWS.EC2.VPCEndpoint {
          */
         PolicyDocument?: C.CFJson;
         /**
+         *                             Type: Boolean
+
          *
-         *
-         *
+         * [Interface endpoint] Indicates whether to associate a private hosted zone with the
+ specified VPC.
+
          *
          * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-isprivatednsenabled
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled
          */
-        IsPrivateDnsEnabled?: C.CFBoolean;
+        PrivateDnsEnabled?: C.CFBoolean;
+        /**
+         * List of String values
+
+         *
+         * [Gateway endpoint] One or more route table IDs that are used by the VPC to
+ reach the endpoint.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
+         */
+        RouteTableIds?: C.CFList<C.CFString>;
+        /**
+         *                             Type: List of String values
+
+         *
+         * [Interface endpoint] The ID of one or more security groups to associate with the
+ endpoint network interface.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids
+         */
+        SecurityGroupIds?: C.CFList<C.CFString>;
+        /**
+         * String
+
+         *
+         * The name of the service. To get a list of available services, use DescribeVpcEndpointServices or get the name from the service provider.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename
+         */
+        ServiceName: C.CFString;
         /**
          *                             Type: List of String values
 
@@ -21585,26 +25017,24 @@ export namespace AWS.EC2.VPCEndpoint {
          */
         SubnetIds?: C.CFList<C.CFString>;
         /**
-         *                             Type: List of String values
-
-         *
-         * [Interface endpoint] The ID of one or more security groups to associate with the endpoint
- network interface.
-
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-securitygroupids
-         */
-        SecurityGroupIds?: C.CFList<C.CFString>;
-        /**
          *
          *
          *
          *
-         * UpdateType: Mutable
+         * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype
          */
         VPCEndpointType?: C.CFString;
+        /**
+         * String
+
+         *
+         * The ID of the VPC in which the endpoint will be used.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
+         */
+        VpcId: C.CFString;
     }
 }
 export namespace AWS.EC2 {
@@ -21792,13 +25222,7 @@ export namespace AWS.EC2.VPCGatewayAttachment {
 }
 export namespace AWS.EC2 {
     /**
-     * A VPC peering connection enables a network connection between two virtual private
-    clouds
-    (VPCs) so that you can route traffic between them using a private IP address. For
-    more
-    information about VPC peering and its limitations, see VPC Peering Overview in the
-    Amazon VPC Peering Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
      */
@@ -21807,13 +25231,7 @@ export namespace AWS.EC2 {
         Properties: AWS.EC2.VPCPeeringConnection.Properties;
     }
     /**
-     * A VPC peering connection enables a network connection between two virtual private
-    clouds
-    (VPCs) so that you can route traffic between them using a private IP address. For
-    more
-    information about VPC peering and its limitations, see VPC Peering Overview in the
-    Amazon VPC Peering Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
      */
@@ -21824,68 +25242,54 @@ export namespace AWS.EC2 {
 export namespace AWS.EC2.VPCPeeringConnection {
     export interface Properties {
         /**
-         * String
-
          *
-         * The AWS account ID of the owner of the VPC that you want to peer
- with.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerownerid
          */
         PeerOwnerId?: C.CFString;
         /**
-         * String
-
          *
-         * The region code for the accepter VPC, if the accepter VPC is located in a region other
- than the region in which you make the request. The default is the region in which
- you make the request.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerregion
          */
         PeerRegion?: C.CFString;
         /**
-         * String
-
          *
-         * The Amazon Resource Name (ARN) of the VPC peer role for the peering connection in
- another AWS account.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerrolearn
          */
         PeerRoleArn?: C.CFString;
         /**
-         * String
-
          *
-         * The ID of the VPC with which you are creating the peering connection.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peervpcid
          */
         PeerVpcId: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
          *
-         * An arbitrary set of tags (key–value pairs) for this
- resource.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-tags
          */
         Tags?: C.CFList<Tag>;
         /**
-         * String
-
          *
-         * The ID of the VPC that is requesting a peering connection.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-vpcid
@@ -21943,7 +25347,7 @@ export namespace AWS.EC2.VPNConnection {
          */
         StaticRoutesOnly?: C.CFBoolean;
         /**
-         * AWS CloudFormation Resource Tags.
+         * Resource Tag.
 
          *
          * The tags that you want to attach to the resource.
@@ -21975,7 +25379,7 @@ export namespace AWS.EC2.VPNConnection {
          */
         VpnGatewayId: C.CFString;
         /**
-         *                             Type: List of EC2 VPNConnection VpnTunnelOptionsSpecification
+         *                             Type: List of VpnTunnelOptionsSpecification
          *
          * The tunnel options for the VPN connection. Duplicates not allowed.
          *
@@ -22106,7 +25510,7 @@ export namespace AWS.EC2.VPNGateway {
          */
         AmazonSideAsn?: C.CFLong;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this resource.
          *
@@ -22303,7 +25707,7 @@ export namespace AWS.EC2.Volume {
          */
         SnapshotId?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this volume.
          *
@@ -22418,7 +25822,7 @@ export namespace AWS.ECR {
 export namespace AWS.ECR.Repository {
     export interface Properties {
         /**
-         * Amazon ECR Repository LifecyclePolicy
+         * LifecyclePolicy
          *
          * A lifecycle policy for the repository.
          *
@@ -22629,7 +26033,7 @@ export namespace AWS.ECS.Service {
          */
         LoadBalancers?: C.CFList<AWS.ECS.Service.LoadBalancer>;
         /**
-         *                             Type: Amazon ECS Service NetworkConfiguration
+         *                             Type: NetworkConfiguration
          *
          * The network configuration for the service. This parameter is required for task definitions
  that use the awsvpc network mode to receive their own Elastic Network Interface, and it is not supported
@@ -22689,6 +26093,16 @@ export namespace AWS.ECS.Service {
          * String
 
          *
+         * The scheduling strategy to use for the service.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
+         */
+        SchedulingStrategy?: C.CFString;
+        /**
+         * String
+
+         *
          * The name of your service. The name is limited to 255 letters (uppercase and
  lowercase), numbers, hyphens, and underscores. Service names must be unique within
  a cluster, but you can have similarly named services in multiple clusters within a
@@ -22700,11 +26114,11 @@ export namespace AWS.ECS.Service {
          */
         ServiceName?: C.CFString;
         /**
-         * Amazon ECS Service ServiceRegistry
+         * ServiceRegistry
          *
          * Details of the service registry.
          *
-         * UpdateType: Mutable
+         * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
          */
         ServiceRegistries?: C.CFList<AWS.ECS.Service.ServiceRegistry>;
@@ -22832,7 +26246,7 @@ export namespace AWS.ECS.Service {
          * String
 
          *
-         * An Application load balancer target group Amazon Resource Name (ARN) to associate
+         * An Application Load Balancer target group Amazon Resource Name (ARN) to associate
  with the Amazon ECS service.
 
          *
@@ -22845,10 +26259,9 @@ export namespace AWS.ECS.Service {
 export namespace AWS.ECS.Service {
     export interface NetworkConfiguration {
         /**
-         * Amazon Elastic Container Service Service
-    AwsVpcConfiguration
          *
-         *  The VPC subnets and security groups associated with a task.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
@@ -22903,12 +26316,42 @@ export namespace AWS.ECS.Service {
 export namespace AWS.ECS.Service {
     export interface ServiceRegistry {
         /**
+         * String
+
+         *
+         * The container name value, already specified in the task definition, to be used for
+ your service discovery service. If the task definition that your service task specifies
+ uses the bridge or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition that your service task
+ specifies uses the awsvpc network mode and a type SRV DNS record is used, you must
+ specify either a containerName and containerPort combination or a port value, but not both.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containername
+         */
+        ContainerName?: C.CFString;
+        /**
+         * Integer
+
+         *
+         * The port value, already specified in the task definition, to be used for your service
+ discovery service. If the task definition your service task specifies uses the bridge
+ or host network mode, you must specify a containerName and containerPort combination from the task definition. If the task definition your service task specifies
+ uses the awsvpc network mode and a type SRV DNS record is used, you must specify either
+ a containerName and containerPort combination or a port value, but not both.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-containerport
+         */
+        ContainerPort?: C.CFInteger;
+        /**
          * Integer
 
          *
          * The port value used if your service discovery service specified an SRV record.
          *
-         * UpdateType: Mutable
+         * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-port
          */
         Port?: C.CFInteger;
@@ -22920,7 +26363,7 @@ export namespace AWS.ECS.Service {
  registry is Amazon Route 53 auto naming.
 
          *
-         * UpdateType: Mutable
+         * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceregistry.html#cfn-ecs-service-serviceregistry-registryarn
          */
         RegistryArn?: C.CFString;
@@ -23097,8 +26540,7 @@ export namespace AWS.ECS.TaskDefinition {
 
          *
          * The CMD value to pass to the container. For more information
- about the Docker CMD parameter, see
- https://docs.docker.com/engine/reference/builder/#cmd.
+ about the Docker CMD parameter, see https://docs.docker.com/engine/reference/builder/#cmd.
 
          *
          * UpdateType: Immutable
@@ -23186,7 +26628,7 @@ export namespace AWS.ECS.TaskDefinition {
          */
         EntryPoint?: C.CFList<C.CFString>;
         /**
-         * List of Amazon ECS TaskDefinition KeyValuePair property types
+         * List of KeyValuePair property types
 
          *
          * The environment variables to pass to the container.
@@ -23208,7 +26650,7 @@ export namespace AWS.ECS.TaskDefinition {
          */
         Essential?: C.CFBoolean;
         /**
-         * List of Amazon ECS TaskDefinition HostEntry property types
+         * List of HostEntry property types
 
          *
          * A list of hostnames and IP address mappings to append to the /etc/hosts file on the container.
@@ -23219,10 +26661,7 @@ export namespace AWS.ECS.TaskDefinition {
          */
         ExtraHosts?: C.CFList<AWS.ECS.TaskDefinition.HostEntry>;
         /**
-         * AWS Batch JobDefinition TimeoutAmazon ECS TaskDefinition HealthCheckAmazon SageMaker
-    Endpoint
-    TagAmazon SageMaker
-    EndpointConfig ProductionVariantAmazon SageMaker NotebookInstanceLifecycleConfig NotebookInstanceLifecycleHook
+         * HealthCheck
          *
          * A container health check. Health check parameters that are specified in a container
  definition override any Docker health checks that exist in the container image (such
@@ -23270,7 +26709,7 @@ export namespace AWS.ECS.TaskDefinition {
          */
         Links?: C.CFList<C.CFString>;
         /**
-         *                             Type: Amazon ECS TaskDefinition LinuxParameters
+         *                             Type: LinuxParameters
          *
          * The Linux-specific options that are applied to the container.
          *
@@ -23279,7 +26718,7 @@ export namespace AWS.ECS.TaskDefinition {
          */
         LinuxParameters?: AWS.ECS.TaskDefinition.LinuxParameters;
         /**
-         * Amazon ECS TaskDefinition LogConfiguration
+         * LogConfiguration
          *
          * Configures a custom log driver for the container. For more information, see the
  logConfiguration content for the ContainerDefinition data type
@@ -23294,7 +26733,7 @@ export namespace AWS.ECS.TaskDefinition {
          * Integer
 
          *
-         * The number of MiB of memory to reserve for the container. If your container attempts
+         * The hard limit (in MiB) of memory to present to the container. If your container attempts
  to exceed the allocated memory, the container is terminated.
 
          *
@@ -23306,12 +26745,12 @@ export namespace AWS.ECS.TaskDefinition {
          * Integer
 
          *
-         * The number of MiB of memory to reserve for the container. When system
- memory is under contention, Docker attempts to keep the container memory
- within the limit. If the container requires more memory, it can consume up
- to the value specified by the Memory property or all of the
- available memory on the container instance—whichever comes first.
- This is called a soft limit.
+         * The soft limit (in MiB) of memory to reserve for the container. When
+ system memory is under contention, Docker attempts to keep the container
+ memory within the limit. If the container requires more memory, it can
+ consume up to the value specified by the Memory property or all
+ of the available memory on the container instance—whichever comes
+ first.
 
          *
          * UpdateType: Immutable
@@ -23319,7 +26758,7 @@ export namespace AWS.ECS.TaskDefinition {
          */
         MemoryReservation?: C.CFInteger;
         /**
-         * List of Amazon ECS TaskDefinition MountPoint property types
+         * List of MountPoint property types
 
          *
          * The mount points for data volumes in the container.
@@ -23339,7 +26778,7 @@ export namespace AWS.ECS.TaskDefinition {
          */
         Name?: C.CFString;
         /**
-         * List of Amazon ECS TaskDefinition ContainerDefinitions PortMapping property types
+         * List of PortMapping property types
 
          *
          * A mapping of the container port to a host port. Port mappings enable
@@ -23372,7 +26811,16 @@ export namespace AWS.ECS.TaskDefinition {
          */
         ReadonlyRootFilesystem?: C.CFBoolean;
         /**
-         * List of Amazon ECS TaskDefinition Ulimit property types
+         * RepositoryCredentials
+         *
+         * The repository credentials for private registry authentication.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
+         */
+        RepositoryCredentials?: AWS.ECS.TaskDefinition.RepositoryCredentials;
+        /**
+         * List of Ulimit property types
 
          *
          * A list of ulimits to set in the container. The ulimits set constraints on
@@ -23395,7 +26843,7 @@ export namespace AWS.ECS.TaskDefinition {
          */
         User?: C.CFString;
         /**
-         * List of Amazon ECS TaskDefinition VolumeFrom property types
+         * List of VolumeFrom property types
 
          *
          * The data volumes to mount from another container.
@@ -23459,6 +26907,70 @@ export namespace AWS.ECS.TaskDefinition {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-device.html#cfn-ecs-taskdefinition-device-permissions
          */
         Permissions?: C.CFList<C.CFString>;
+    }
+}
+export namespace AWS.ECS.TaskDefinition {
+    export interface DockerVolumeConfiguration {
+        /**
+         *                             Type: Boolean
+
+         *
+         * If true, the Docker volume is created if it does not already exist. This field is only used
+ if the scope is shared.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-autoprovision
+         */
+        Autoprovision?: C.CFBoolean;
+        /**
+         *                             Type: String
+
+         *
+         * The Docker volume driver to use. The driver value must match the driver name provided
+ by Docker because it is used for task placement. For more information, see DockerVolumeConfiguration in the Amazon Elastic Container Service API Reference.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driver
+         */
+        Driver?: C.CFString;
+        /**
+         *                             Type: List of Strings
+
+         *
+         * A map of Docker driver specific options passed through. For more information, see
+ DockerVolumeConfiguration in the Amazon Elastic Container Service API Reference.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-driveropts
+         */
+        DriverOpts?: C.CFMap<C.CFString>;
+        /**
+         *                             Type: List of String
+
+         *
+         * Custom metadata to add to your Docker volume. For more information, see DockerVolumeConfiguration in the Amazon Elastic Container Service API Reference.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-labels
+         */
+        Labels?: C.CFMap<C.CFString>;
+        /**
+         *                             Type: String
+
+         *
+         * The scope for the Docker volume which determines it's lifecycle. Docker volumes that
+ are scoped to a task are automatically provisioned when the task starts and destroyed when the task stops.
+ Docker volumes that are scoped as shared persist after the task stops.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-dockervolumeconfiguration.html#cfn-ecs-taskdefinition-dockervolumeconfiguration-scope
+         */
+        Scope?: C.CFString;
     }
 }
 export namespace AWS.ECS.TaskDefinition {
@@ -23557,10 +27069,9 @@ export namespace AWS.ECS.TaskDefinition {
 export namespace AWS.ECS.TaskDefinition {
     export interface HostVolumeProperties {
         /**
-         * String
-
          *
-         * The data volume path on the host container instance.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html#cfn-ecs-taskdefinition-volumes-host-sourcepath
@@ -23631,7 +27142,7 @@ export namespace AWS.ECS.TaskDefinition {
 export namespace AWS.ECS.TaskDefinition {
     export interface LinuxParameters {
         /**
-         *                             Type: Amazon ECS TaskDefinition KernelCapabilities
+         *                             Type: KernelCapabilities
          *
          * The Linux capabilities for the container that are added to or dropped from the default
  configuration provided by Docker.
@@ -23642,14 +27153,12 @@ export namespace AWS.ECS.TaskDefinition {
          */
         Capabilities?: AWS.ECS.TaskDefinition.KernelCapabilities;
         /**
-         *                             Type: List of Amazon ECS TaskDefinition Device property types
+         *                             Type: List of Device property types
 
          *
          * Any host devices to expose to the container. This maps to
- Devices in the  Create a container section of the Docker Remote API
- and
- the --device option to docker
-    run.
+ Devices in the  Create a container section of the Docker Remote API and
+ the --device option to docker run.
 
          *
          * UpdateType: Immutable
@@ -23668,6 +27177,29 @@ export namespace AWS.ECS.TaskDefinition {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
          */
         InitProcessEnabled?: C.CFBoolean;
+        /**
+         *                             Type: Integer
+
+         *
+         * The value for the size (in MiB) of the /dev/shm volume. This parameter maps to the --shm-size option to docker run.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
+         */
+        SharedMemorySize?: C.CFInteger;
+        /**
+         *                             Type: List of Tmpfs property types
+
+         *
+         * The container path, mount options, and size (in MiB) of the tmpfs mount. This parameter
+ maps to the --tmpfs option to docker run.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
+         */
+        Tmpfs?: C.CFList<AWS.ECS.TaskDefinition.Tmpfs>;
     }
 }
 export namespace AWS.ECS.TaskDefinition {
@@ -23780,6 +27312,19 @@ export namespace AWS.ECS.TaskDefinition {
     }
 }
 export namespace AWS.ECS.TaskDefinition {
+    export interface RepositoryCredentials {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-repositorycredentials.html#cfn-ecs-taskdefinition-repositorycredentials-credentialsparameter
+         */
+        CredentialsParameter?: C.CFString;
+    }
+}
+export namespace AWS.ECS.TaskDefinition {
     export interface TaskDefinitionPlacementConstraint {
         /**
          *
@@ -23799,6 +27344,37 @@ export namespace AWS.ECS.TaskDefinition {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html#cfn-ecs-taskdefinition-taskdefinitionplacementconstraint-type
          */
         Type: C.CFString;
+    }
+}
+export namespace AWS.ECS.TaskDefinition {
+    export interface Tmpfs {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
+         */
+        ContainerPath?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-mountoptions
+         */
+        MountOptions?: C.CFList<C.CFString>;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
+         */
+        Size?: C.CFInteger;
     }
 }
 export namespace AWS.ECS.TaskDefinition {
@@ -23840,6 +27416,18 @@ export namespace AWS.ECS.TaskDefinition {
 }
 export namespace AWS.ECS.TaskDefinition {
     export interface Volume {
+        /**
+         * Amazon ECS TaskDefinition DockerVolumeConfiguration
+         *
+         * Specifies the configuration of a Docker volume. This parameter is specified when using
+ Docker volumes. Docker volumes are only supported when using the EC2 launch type.
+ Windows containers only support the use of the local driver. To use bind mounts, specify a host instead.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
+         */
+        DockerVolumeConfiguration?: AWS.ECS.TaskDefinition.DockerVolumeConfiguration;
         /**
          * Amazon Elastic Container Service TaskDefinition Volumes
     Host
@@ -24009,24 +27597,18 @@ export namespace AWS.EFS.FileSystem {
 export namespace AWS.EFS.FileSystem {
     export interface ElasticFileSystemTag {
         /**
-         * String
-
          *
-         * The key name of the tag. You can specify a value that is from 1 to 128 Unicode
- characters in length, but you cannot use the prefix aws:.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html#cfn-efs-filesystem-filesystemtags-key
          */
         Key: C.CFString;
         /**
-         * String
-
          *
-         * The value of the tag key. You can specify a value that is from 0 to 128 Unicode
- characters in length.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html#cfn-efs-filesystem-filesystemtags-value
@@ -24377,8 +27959,7 @@ export namespace AWS.EMR.Cluster {
          */
         JobFlowRole: C.CFString;
         /**
-         * Amazon EMR Cluster
-    KerberosAttributes
+         * Amazon EMR Cluster KerberosAttributes
          *
          * Attributes for Kerberos configuration when Kerberos authentication is enabled using
  a security configuration.
@@ -24463,7 +28044,17 @@ export namespace AWS.EMR.Cluster {
          */
         ServiceRole: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * List of Amazon EMR Cluster StepConfig property types
+
+         *
+         * The cluster (job flow) steps.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
+         */
+        Steps?: C.CFList<AWS.EMR.Cluster.StepConfig>;
+        /**
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) to help you identify the Amazon EMR
  cluster.
@@ -24753,6 +28344,46 @@ export namespace AWS.EMR.Cluster {
     }
 }
 export namespace AWS.EMR.Cluster {
+    export interface HadoopJarStepConfig {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-args
+         */
+        Args?: C.CFList<C.CFString>;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-jar
+         */
+        Jar: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-mainclass
+         */
+        MainClass?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-hadoopjarstepconfig.html#cfn-elasticmapreduce-cluster-hadoopjarstepconfig-stepproperties
+         */
+        StepProperties?: C.CFList<AWS.EMR.Cluster.KeyValue>;
+    }
+}
+export namespace AWS.EMR.Cluster {
     export interface InstanceFleetConfig {
         /**
          * List of Amazon EMR
@@ -24819,12 +28450,9 @@ export namespace AWS.EMR.Cluster {
 export namespace AWS.EMR.Cluster {
     export interface InstanceFleetProvisioningSpecifications {
         /**
-         * Amazon EMR
-    Cluster SpotProvisioningSpecification
          *
-         * The launch specification for Spot instances in the fleet, which determines the defined
- duration and provisioning timeout behavior.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-cluster-instancefleetprovisioningspecifications-spotspecification
@@ -25098,6 +28726,15 @@ export namespace AWS.EMR.Cluster {
          *
          *
          * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-keepjobflowalivewhennosteps
+         */
+        KeepJobFlowAliveWhenNoSteps?: C.CFBoolean;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-masterinstancefleet
          */
         MasterInstanceFleet?: AWS.EMR.Cluster.InstanceFleetConfig;
@@ -25200,6 +28837,30 @@ export namespace AWS.EMR.Cluster {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-kerberosattributes.html#cfn-elasticmapreduce-cluster-kerberosattributes-realm
          */
         Realm: C.CFString;
+    }
+}
+export namespace AWS.EMR.Cluster {
+    export interface KeyValue {
+        /**
+         *                             Type: String
+
+         *
+         * The unique identifier of a key value pair.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-keyvalue.html#cfn-elasticmapreduce-cluster-keyvalue-key
+         */
+        Key?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The value part of the identified key.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-keyvalue.html#cfn-elasticmapreduce-cluster-keyvalue-value
+         */
+        Value?: C.CFString;
     }
 }
 export namespace AWS.EMR.Cluster {
@@ -25330,12 +28991,9 @@ export namespace AWS.EMR.Cluster {
 export namespace AWS.EMR.Cluster {
     export interface ScalingTrigger {
         /**
-         * Amazon EMR
-    Cluster CloudWatchAlarmDefinition
          *
-         * The definition of a CloudWatch metric alarm. When the defined alarm conditions are
- met along with other trigger parameters, scaling activity begins.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingtrigger.html#cfn-elasticmapreduce-cluster-scalingtrigger-cloudwatchalarmdefinition
@@ -25449,6 +29107,41 @@ export namespace AWS.EMR.Cluster {
     }
 }
 export namespace AWS.EMR.Cluster {
+    export interface StepConfig {
+        /**
+         *                             Type: String
+
+         *
+         * The action to take when the cluster step fails.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-actiononfailure
+         */
+        ActionOnFailure?: C.CFString;
+        /**
+         *                             Type: HadoopJarStepConfig
+ 
+
+         *
+         * The JAR file used for the step.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-hadoopjarstep
+         */
+        HadoopJarStep: AWS.EMR.Cluster.HadoopJarStepConfig;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the step.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-stepconfig.html#cfn-elasticmapreduce-cluster-stepconfig-name
+         */
+        Name: C.CFString;
+    }
+}
+export namespace AWS.EMR.Cluster {
     export interface VolumeSpecification {
         /**
          *
@@ -25481,16 +29174,7 @@ export namespace AWS.EMR.Cluster {
 }
 export namespace AWS.EMR {
     /**
-     * Use
-    the AWS::EMR::InstanceFleetConfig resource
-    to
-    configure
-    a Spot
-    Instance
-    fleet
-    for an Amazon EMR cluster. For more information, see Configure Instance
-       Fleets in the Amazon EMR Management Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
      */
@@ -25499,16 +29183,7 @@ export namespace AWS.EMR {
         Properties: AWS.EMR.InstanceFleetConfig.Properties;
     }
     /**
-     * Use
-    the AWS::EMR::InstanceFleetConfig resource
-    to
-    configure
-    a Spot
-    Instance
-    fleet
-    for an Amazon EMR cluster. For more information, see Configure Instance
-       Fleets in the Amazon EMR Management Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
      */
@@ -25519,94 +29194,63 @@ export namespace AWS.EMR {
 export namespace AWS.EMR.InstanceFleetConfig {
     export interface Properties {
         /**
-         * String
-
          *
-         * The ID of the target cluster.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-clusterid
          */
         ClusterId: C.CFString;
         /**
-         * String
-
          *
-         * The node type that the instance fleet hosts.
- Valid
- values are MASTER, CORE, and TASK.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancefleettype
          */
         InstanceFleetType: C.CFString;
         /**
-         * List of Amazon EMR InstanceFleetConfig InstanceTypeConfig
          *
-         * The instance type configurations that define the EC2 instances in the instance fleet.
- Duplicates not allowed.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfigs
          */
         InstanceTypeConfigs?: C.CFList<AWS.EMR.InstanceFleetConfig.InstanceTypeConfig>;
         /**
-         * Amazon EMR InstanceFleetConfig InstanceFleetProvisioningSpecifications
          *
-         * The
- launch
- specification for the instance fleet.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-launchspecifications
          */
         LaunchSpecifications?: AWS.EMR.InstanceFleetConfig.InstanceFleetProvisioningSpecifications;
         /**
-         * String
-
          *
-         * The friendly name of the instance fleet. For constraints, see InstanceFleetConfig in the Amazon EMR API Reference.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-name
          */
         Name?: C.CFString;
         /**
-         * Integer
-
          *
-         * The target capacity of On-Demand
- units
- for the instance fleet.
- This
- 
- determines how many
- On-Demand
- Instances
- to provision. For more information, see InstanceFleetConfig in the Amazon EMR API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-targetondemandcapacity
          */
         TargetOnDemandCapacity?: C.CFInteger;
         /**
-         * Integer
-
          *
-         * The target capacity of Spot
- units
- for the instance
- fleet.
- This
- determines how many Spot
- Instances
- to provision. For more information, see InstanceFleetConfig in the Amazon EMR API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-targetspotcapacity
@@ -25667,28 +29311,18 @@ export namespace AWS.EMR.InstanceFleetConfig {
 export namespace AWS.EMR.InstanceFleetConfig {
     export interface EbsBlockDeviceConfig {
         /**
-         * Amazon EMR InstanceFleetConfig VolumeSpecification
          *
-         * Amazon EBS volume
- specifications,
- such as volume type, IOPS, and size
- (GiB),
- for the EBS volume attached to an EC2 instance in the fleet.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ebsblockdeviceconfig.html#cfn-elasticmapreduce-instancefleetconfig-ebsblockdeviceconfig-volumespecification
          */
         VolumeSpecification: AWS.EMR.InstanceFleetConfig.VolumeSpecification;
         /**
-         * Integer
-
          *
-         * The number of Amazon EBS volumes with
- a
- specific volume configuration that are associated with
- every instance in the fleet.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ebsblockdeviceconfig.html#cfn-elasticmapreduce-instancefleetconfig-ebsblockdeviceconfig-volumesperinstance
@@ -25729,15 +29363,9 @@ export namespace AWS.EMR.InstanceFleetConfig {
 export namespace AWS.EMR.InstanceFleetConfig {
     export interface InstanceFleetProvisioningSpecifications {
         /**
-         * Amazon EMR InstanceFleetConfig SpotProvisioningSpecification
          *
-         * The launch specification for Spot
- Instances
- in the
- fleet.
- This
- determines the defined duration and provisioning timeout behavior.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html#cfn-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications-spotspecification
@@ -26099,27 +29727,18 @@ export namespace AWS.EMR.InstanceGroupConfig {
 export namespace AWS.EMR.InstanceGroupConfig {
     export interface AutoScalingPolicy {
         /**
-         * Amazon EMR
-    InstanceGroupConfig ScalingConstraints
          *
-         * The
- upper and lower Amazon EC2 instance limits for an automatic scaling
- policy. Automatic scaling activity doesn't cause an instance group to
- grow above or below these limits.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy-constraints
          */
         Constraints: AWS.EMR.InstanceGroupConfig.ScalingConstraints;
         /**
-         * List of Amazon EMR
-    InstanceGroupConfig ScalingRule
          *
-         * The
- scale-in
- and scale-out rules that compose the automatic scaling policy.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy-rules
@@ -26331,23 +29950,18 @@ export namespace AWS.EMR.InstanceGroupConfig {
 export namespace AWS.EMR.InstanceGroupConfig {
     export interface EbsConfiguration {
         /**
-         * List of Amazon EMR EbsConfiguration EbsBlockDeviceConfigs
          *
-         * Configures the block storage devices that are associated with your EMR instances.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfigs
          */
         EbsBlockDeviceConfigs?: C.CFList<AWS.EMR.InstanceGroupConfig.EbsBlockDeviceConfig>;
         /**
-         * Boolean
-
          *
-         * Indicates whether the instances are optimized for Amazon EBS I/O. This optimization
- provides dedicated throughput to Amazon EBS and an optimized configuration stack to
- provide optimal EBS I/O performance. For more information about fees and supported
- instance types, see EBS-Optimized Instances in the Amazon EC2 User Guide for Linux Instances.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsoptimized
@@ -26555,35 +30169,27 @@ export namespace AWS.EMR.InstanceGroupConfig {
 export namespace AWS.EMR.InstanceGroupConfig {
     export interface VolumeSpecification {
         /**
-         * Integer
-
          *
-         * The number of I/O operations per second (IOPS) that the volume supports. For more
- information, see Iops for the EbsBlockDevice action in the Amazon EC2 API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-iops
          */
         Iops?: C.CFInteger;
         /**
-         * Integer
-
          *
-         * The volume size, in Gibibytes (GiB). For more information about specifying the volume
- size, see VolumeSize for the EbsBlockDevice action in the Amazon EC2 API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-sizeingb
          */
         SizeInGB: C.CFInteger;
         /**
-         * String
-
          *
-         * The volume type, such as standard or io1. For more information about specifying the volume type, see VolumeType for the EbsBlockDevice action in the Amazon EC2 API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-volumetype
@@ -27048,7 +30654,7 @@ export namespace AWS.ElastiCache.CacheCluster {
          */
         SnapshotWindow?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this cache
  cluster.
@@ -27299,7 +30905,7 @@ export namespace AWS.ElastiCache.ReplicationGroup {
          *
          * Configuration options for the node group (shard).
          *
-         * UpdateType: Immutable
+         * UpdateType: Conditional
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-nodegroupconfiguration
          */
         NodeGroupConfiguration?: C.CFList<AWS.ElastiCache.ReplicationGroup.NodeGroupConfiguration>;
@@ -27339,7 +30945,7 @@ export namespace AWS.ElastiCache.ReplicationGroup {
  For Redis (clustered mode disabled), either omit this property or set it to 1.
 
          *
-         * UpdateType: Immutable
+         * UpdateType: Conditional
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numnodegroups
          */
         NumNodeGroups?: C.CFInteger;
@@ -27507,7 +31113,7 @@ export namespace AWS.ElastiCache.ReplicationGroup {
          */
         SnapshottingClusterId?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this replication
  group.
@@ -27536,50 +31142,45 @@ export namespace AWS.ElastiCache.ReplicationGroup {
 export namespace AWS.ElastiCache.ReplicationGroup {
     export interface NodeGroupConfiguration {
         /**
-         * String
-
          *
-         * The Availability Zone where ElastiCache launches the node group's primary
- node.
-
+         *
+         *
+         *
+         * UpdateType: Conditional
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
+         */
+        NodeGroupId?: C.CFString;
+        /**
+         *
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-primaryavailabilityzone
          */
         PrimaryAvailabilityZone?: C.CFString;
         /**
-         * List of String values
-
          *
-         * A list of Availability Zones where ElastiCache launches the read replicas. The number
- of Availability Zones must match the value of the ReplicaCount
- property or, if you don't specify the ReplicaCount property, the
- replication group's ReplicasPerNodeGroup property.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
          */
         ReplicaAvailabilityZones?: C.CFList<C.CFString>;
         /**
-         * Integer
-
          *
-         * The number of read replica nodes in the node group.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount
          */
         ReplicaCount?: C.CFInteger;
         /**
-         * String
-
          *
-         * A string of comma-separated values where the first set of values are the slot
- numbers (zero based), and the second set of values are the keyspaces for each
- slot. The following example specifies three slots (numbered 0, 1, and 2):
- 0,1,2,0-4999,5000-9999,10000-16,383.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-slots
@@ -27806,7 +31407,7 @@ export namespace AWS.ElasticBeanstalk.Application {
          */
         Description?: C.CFString;
         /**
-         *                             Type: Elastic Beanstalk Application ApplicationResourceLifecycleConfig
+         *                             Type: ApplicationResourceLifecycleConfig
          *
          * Defines lifecycle settings for resources that belong to the application, and the service
  role that Elastic Beanstalk assumes in order to apply lifecycle settings.
@@ -27831,7 +31432,7 @@ export namespace AWS.ElasticBeanstalk.Application {
          */
         ServiceRole?: C.CFString;
         /**
-         *                             Type: Elastic Beanstalk Application ApplicationVersionLifecycleConfig
+         *                             Type: ApplicationVersionLifecycleConfig
          *
          * Defines lifecycle settings for application versions.
          *
@@ -27844,7 +31445,7 @@ export namespace AWS.ElasticBeanstalk.Application {
 export namespace AWS.ElasticBeanstalk.Application {
     export interface ApplicationVersionLifecycleConfig {
         /**
-         *                             Type: Elastic Beanstalk Application MaxAgeRule
+         *                             Type: MaxAgeRule
          *
          * Specifies a max age rule to restrict the length of time that application versions
  are retained for an application.
@@ -27855,7 +31456,7 @@ export namespace AWS.ElasticBeanstalk.Application {
          */
         MaxAgeRule?: AWS.ElasticBeanstalk.Application.MaxAgeRule;
         /**
-         *                             Type: Elastic Beanstalk Application MaxCountRule
+         *                             Type: MaxCountRule
          *
          * Specifies a max count rule to restrict the number of application versions that are
  retained for an application.
@@ -27870,33 +31471,27 @@ export namespace AWS.ElasticBeanstalk.Application {
 export namespace AWS.ElasticBeanstalk.Application {
     export interface MaxAgeRule {
         /**
-         *                             Type: Boolean
-
          *
-         * Set to true to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes
- the application version.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxagerule.html#cfn-elasticbeanstalk-application-maxagerule-deletesourcefroms3
          */
         DeleteSourceFromS3?: C.CFBoolean;
         /**
-         *                             Type: Boolean
-
          *
-         * Specify true to apply the rule, or false to disable it.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxagerule.html#cfn-elasticbeanstalk-application-maxagerule-enabled
          */
         Enabled?: C.CFBoolean;
         /**
-         *                             Type: Integer
-
          *
-         * Specify the number of days to retain an application versions.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-application-maxagerule.html#cfn-elasticbeanstalk-application-maxagerule-maxageindays
@@ -28249,7 +31844,7 @@ export namespace AWS.ElasticBeanstalk.Environment {
          */
         EnvironmentName?: C.CFString;
         /**
-         * List of Elastic Beanstalk Environment OptionSetting
+         * List of OptionSetting
          *
          * Key-value pairs defining configuration options for this environment, such as
  the instance type. These options override the values that are defined in the
@@ -28290,7 +31885,7 @@ export namespace AWS.ElasticBeanstalk.Environment {
          */
         SolutionStackName?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this environment.
          *
@@ -28309,8 +31904,8 @@ export namespace AWS.ElasticBeanstalk.Environment {
          */
         TemplateName?: C.CFString;
         /**
-         * Elastic Beanstalk Environment Tier Property
-    Type
+         * Elastic Beanstalk Environment
+    EnvironmentTier
          *
          * Specifies the tier to use in creating this environment. The environment tier
  that you choose determines whether Elastic Beanstalk provisions resources to support
@@ -28558,7 +32153,7 @@ export namespace AWS.ElasticLoadBalancing.LoadBalancer {
          */
         LBCookieStickinessPolicy?: C.CFList<AWS.ElasticLoadBalancing.LoadBalancer.LBCookieStickinessPolicy>;
         /**
-         * A list of ElasticLoadBalancing Listener Property Type objects.
+         * A list of ElasticLoadBalancing Listener objects.
 
          *
          * One or more listeners for this load balancer. Each listener must be registered
@@ -28635,7 +32230,7 @@ export namespace AWS.ElasticLoadBalancing.LoadBalancer {
          */
         Subnets?: C.CFList<C.CFString>;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key-value pairs) for this load balancer.
          *
@@ -28698,22 +32293,18 @@ export namespace AWS.ElasticLoadBalancing.LoadBalancer {
 export namespace AWS.ElasticLoadBalancing.LoadBalancer {
     export interface AppCookieStickinessPolicy {
         /**
-         * String
-
          *
-         * Name of the application cookie used for stickiness.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-AppCookieStickinessPolicy.html#cfn-elb-appcookiestickinesspolicy-cookiename
          */
         CookieName: C.CFString;
         /**
-         * String
-
          *
-         * The name of the policy being created. The name must be unique within the set of
- policies for this Load Balancer.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-AppCookieStickinessPolicy.html#cfn-elb-appcookiestickinesspolicy-policyname
@@ -28944,57 +32535,45 @@ export namespace AWS.ElasticLoadBalancing.LoadBalancer {
 export namespace AWS.ElasticLoadBalancing.LoadBalancer {
     export interface Policies {
         /**
-         * List of JSON name-value pairs.
-
          *
-         * A list of arbitrary attributes for this policy. If you don't need to specify
- any policy attributes, specify an empty list ([]).
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-attributes
          */
         Attributes: C.CFList<C.CFJson>;
         /**
-         * List of String values
-
          *
-         * A list of instance ports for the policy. These are the ports associated with the back-end
- server.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-instanceports
          */
         InstancePorts?: C.CFList<C.CFString>;
         /**
-         * List of String values
-
          *
-         * A list of external load balancer ports for the policy.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-loadbalancerports
          */
         LoadBalancerPorts?: C.CFList<C.CFString>;
         /**
-         * String
-
          *
-         * A name for this policy that is unique to the load balancer.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policyname
          */
         PolicyName: C.CFString;
         /**
-         * String
-
          *
-         * The name of the policy type for this policy. This must be one of the types reported
- by the Elastic Load Balancing
- DescribeLoadBalancerPolicyTypes action.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policytype
@@ -29099,6 +32678,63 @@ export namespace AWS.ElasticLoadBalancingV2.Listener {
 export namespace AWS.ElasticLoadBalancingV2.Listener {
     export interface Action {
         /**
+         * AuthenticateCognitoConfig
+         *
+         * [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify
+ only when Type is authenticate-cognito.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-authenticatecognitoconfig
+         */
+        AuthenticateCognitoConfig?: AWS.ElasticLoadBalancingV2.Listener.AuthenticateCognitoConfig;
+        /**
+         * AuthenticateOidcConfig
+         *
+         * [HTTPS listener] Information about an identity provider that is compliant with OpenID
+ Connect (OIDC). Specify only when Type is authenticate-oidc.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-authenticateoidcconfig
+         */
+        AuthenticateOidcConfig?: AWS.ElasticLoadBalancingV2.Listener.AuthenticateOidcConfig;
+        /**
+         * FixedResponseConfig
+         *
+         * [Application Load Balancer] Information for creating an action that returns a custom
+ HTTP response. Specify only when Type is fixed-response.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-fixedresponseconfig
+         */
+        FixedResponseConfig?: AWS.ElasticLoadBalancingV2.Listener.FixedResponseConfig;
+        /**
+         * Integer
+
+         *
+         * The order for the action. This value is required for rules with multiple actions.
+ The action with the lowest value for order is performed first. The final action to
+ be performed must be a forward or a fixed-response action.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-order
+         */
+        Order?: C.CFInteger;
+        /**
+         * RedirectConfig
+         *
+         * [Application Load Balancer] Information for creating a redirect action. Specify only
+ when Type is redirect.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-action-redirectconfig
+         */
+        RedirectConfig?: AWS.ElasticLoadBalancingV2.Listener.RedirectConfig;
+        /**
          * String
 
          *
@@ -29109,20 +32745,235 @@ export namespace AWS.ElasticLoadBalancingV2.Listener {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-targetgrouparn
          */
-        TargetGroupArn: C.CFString;
+        TargetGroupArn?: C.CFString;
         /**
          * String
 
          *
-         * The type of action. For valid values, see the Type contents for the
- Action data type in the
- Elastic Load Balancing API Reference version 2015-12-01.
-
+         * The type of action.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-type
          */
         Type: C.CFString;
+    }
+}
+export namespace AWS.ElasticLoadBalancingV2.Listener {
+    export interface AuthenticateCognitoConfig {
+        /**
+         *                             Type: Type: String to String map
+
+         *
+         * The query parameters (up to 10) to include in the redirect request to the authorization
+ endpoint.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-authenticationrequestextraparams
+         */
+        AuthenticationRequestExtraParams?: C.CFMap<C.CFString>;
+        /**
+         *                             Type: String
+
+         *
+         * The behavior if the user is not authenticated. The following are possible values:
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-onunauthenticatedrequest
+         */
+        OnUnauthenticatedRequest?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The set of user claims to be requested from the IdP. The default is openid.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-scope
+         */
+        Scope?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessioncookiename
+         */
+        SessionCookieName?: C.CFString;
+        /**
+         *                             Type: Type: Number
+
+         *
+         * The maximum duration of the authentication session, in seconds. The default is 604800
+ seconds (7 days).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-sessiontimeout
+         */
+        SessionTimeout?: C.CFLong;
+        /**
+         *                             Type: String
+
+         *
+         * The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolarn
+         */
+        UserPoolArn: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the Amazon Cognito user pool client.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpoolclientid
+         */
+        UserPoolClientId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listener-authenticatecognitoconfig-userpooldomain
+         */
+        UserPoolDomain: C.CFString;
+    }
+}
+export namespace AWS.ElasticLoadBalancingV2.Listener {
+    export interface AuthenticateOidcConfig {
+        /**
+         *                             Type: Map of string-to-string values
+
+         *
+         * The query parameters (up to 10) to include in the redirect request to the authorization
+ endpoint.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-authenticationrequestextraparams
+         */
+        AuthenticationRequestExtraParams?: C.CFMap<C.CFString>;
+        /**
+         *                             Type: String
+
+         *
+         * The authorization endpoint of the IdP. This must be a full URL, including the HTTPS
+ protocol, the domain, and the path.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-authorizationendpoint
+         */
+        AuthorizationEndpoint: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The OAuth 2.0 client identifier.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-clientid
+         */
+        ClientId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The OAuth 2.0 client secret.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-clientsecret
+         */
+        ClientSecret: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS
+ protocol, the domain, and the path.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-issuer
+         */
+        Issuer: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The behavior if the user is not authenticated. The following are possible values:
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-onunauthenticatedrequest
+         */
+        OnUnauthenticatedRequest?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The set of user claims to be requested from the IdP. The default is openid.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-scope
+         */
+        Scope?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessioncookiename
+         */
+        SessionCookieName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The maximum duration of the authentication session, in seconds. The default is 604800
+ seconds (7 days).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-sessiontimeout
+         */
+        SessionTimeout?: C.CFLong;
+        /**
+         *                             Type: String
+
+         *
+         * The maximum duration of the authentication session, in seconds. The default is 604800
+ seconds (7 days).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-tokenendpoint
+         */
+        TokenEndpoint: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The maximum duration of the authentication session, in seconds. The default is 604800
+ seconds (7 days).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listener-authenticateoidcconfig-userinfoendpoint
+         */
+        UserInfoEndpoint: C.CFString;
     }
 }
 export namespace AWS.ElasticLoadBalancingV2.Listener {
@@ -29137,6 +32988,113 @@ export namespace AWS.ElasticLoadBalancingV2.Listener {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
          */
         CertificateArn?: C.CFString;
+    }
+}
+export namespace AWS.ElasticLoadBalancingV2.Listener {
+    export interface FixedResponseConfig {
+        /**
+         *                             Type: String
+
+         *
+         * The content type.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-contenttype
+         */
+        ContentType?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The message.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-messagebody
+         */
+        MessageBody?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The HTTP response code (2XX, 4XX, or 5XX).
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listener-fixedresponseconfig-statuscode
+         */
+        StatusCode: C.CFString;
+    }
+}
+export namespace AWS.ElasticLoadBalancingV2.Listener {
+    export interface RedirectConfig {
+        /**
+         *                             Type: String
+
+         *
+         * The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-host
+         */
+        Host?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The absolute path, starting with the leading "/". This component is not percent-encoded.
+ The path can contain #{host}, #{path}, and #{port}.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-path
+         */
+        Path?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The port. You can specify a value from 1 to 65535 or #{port}.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-port
+         */
+        Port?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to
+ HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-protocol
+         */
+        Protocol?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not
+ include the leading "?", as it is automatically added. You can specify any of the
+ reserved keywords.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-query
+         */
+        Query?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP
+ 302).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-redirectconfig.html#cfn-elasticloadbalancingv2-listener-redirectconfig-statuscode
+         */
+        StatusCode: C.CFString;
     }
 }
 export namespace AWS.ElasticLoadBalancingV2 {
@@ -29167,7 +33125,7 @@ export namespace AWS.ElasticLoadBalancingV2 {
 export namespace AWS.ElasticLoadBalancingV2.ListenerCertificate {
     export interface Properties {
         /**
-         *                             Type: List of Elastic Load Balancing ListenerCertificate Certificate
+         *                             Type: List of Certificate
          *
          * Certificates specified for the listener. Duplicates not allowed.
          *
@@ -29272,6 +33230,63 @@ export namespace AWS.ElasticLoadBalancingV2.ListenerRule {
 export namespace AWS.ElasticLoadBalancingV2.ListenerRule {
     export interface Action {
         /**
+         * AuthenticateCognitoConfig
+         *
+         * [HTTPS listener] Information for using Amazon Cognito to authenticate users. Specify
+ only when Type is authenticate-cognito.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticatecognitoconfig
+         */
+        AuthenticateCognitoConfig?: AWS.ElasticLoadBalancingV2.ListenerRule.AuthenticateCognitoConfig;
+        /**
+         * AuthenticateOidcConfig
+         *
+         * [HTTPS listener] Information about an identity provider that is compliant with OpenID
+ Connect (OIDC). Specify only when Type is authenticate-oidc.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-authenticateoidcconfig
+         */
+        AuthenticateOidcConfig?: AWS.ElasticLoadBalancingV2.ListenerRule.AuthenticateOidcConfig;
+        /**
+         * FixedResponseConfig
+         *
+         * [Application Load Balancer] Information for creating an action that returns a custom
+ HTTP response. Specify only when Type is fixed-response.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-fixedresponseconfig
+         */
+        FixedResponseConfig?: AWS.ElasticLoadBalancingV2.ListenerRule.FixedResponseConfig;
+        /**
+         * Integer
+
+         *
+         * The order for the action. This value is required for rules with multiple actions.
+ The action with the lowest value for order is performed first. The final action to
+ be performed must be a forward or a fixed-response action.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-order
+         */
+        Order?: C.CFInteger;
+        /**
+         * RedirectConfig
+         *
+         * [Application Load Balancer] Information for creating a redirect action. Specify only
+ when Type is redirect.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listenerrule-action-redirectconfig
+         */
+        RedirectConfig?: AWS.ElasticLoadBalancingV2.ListenerRule.RedirectConfig;
+        /**
          * String
 
          *
@@ -29282,20 +33297,342 @@ export namespace AWS.ElasticLoadBalancingV2.ListenerRule {
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-targetgrouparn
          */
-        TargetGroupArn: C.CFString;
+        TargetGroupArn?: C.CFString;
         /**
          * String
 
          *
-         * The type of action. For valid values, see the Type contents for the
- Action data type in the
- Elastic Load Balancing API Reference version 2015-12-01.
-
+         * The type of action.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-type
          */
         Type: C.CFString;
+    }
+}
+export namespace AWS.ElasticLoadBalancingV2.ListenerRule {
+    export interface AuthenticateCognitoConfig {
+        /**
+         *                             Type: Type: String to String map
+
+         *
+         * The query parameters (up to 10) to include in the redirect request to the authorization
+ endpoint.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-authenticationrequestextraparams
+         */
+        AuthenticationRequestExtraParams?: C.CFMap<C.CFString>;
+        /**
+         *                             Type: String
+
+         *
+         * The behavior if the user is not authenticated. The following are possible values:
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-onunauthenticatedrequest
+         */
+        OnUnauthenticatedRequest?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The set of user claims to be requested from the IdP. The default is openid.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-scope
+         */
+        Scope?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-sessioncookiename
+         */
+        SessionCookieName?: C.CFString;
+        /**
+         *                             Type: Type: Number
+
+         *
+         * The maximum duration of the authentication session, in seconds. The default is 604800
+ seconds (7 days).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-sessiontimeout
+         */
+        SessionTimeout?: C.CFLong;
+        /**
+         *                             Type: String
+
+         *
+         * The Amazon Resource Name (ARN) of the Amazon Cognito user pool.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpoolarn
+         */
+        UserPoolArn: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the Amazon Cognito user pool client.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpoolclientid
+         */
+        UserPoolClientId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticatecognitoconfig-userpooldomain
+         */
+        UserPoolDomain: C.CFString;
+    }
+}
+export namespace AWS.ElasticLoadBalancingV2.ListenerRule {
+    export interface AuthenticateOidcConfig {
+        /**
+         *                             Type: Map of string-to-string values
+
+         *
+         * The query parameters (up to 10) to include in the redirect request to the authorization
+ endpoint.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-authenticationrequestextraparams
+         */
+        AuthenticationRequestExtraParams?: C.CFMap<C.CFString>;
+        /**
+         *                             Type: String
+
+         *
+         * The authorization endpoint of the IdP. This must be a full URL, including the HTTPS
+ protocol, the domain, and the path.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-authorizationendpoint
+         */
+        AuthorizationEndpoint: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The OAuth 2.0 client identifier.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-clientid
+         */
+        ClientId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The OAuth 2.0 client secret.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-clientsecret
+         */
+        ClientSecret: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The OIDC issuer identifier of the IdP. This must be a full URL, including the HTTPS
+ protocol, the domain, and the path.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-issuer
+         */
+        Issuer: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The behavior if the user is not authenticated. The following are possible values:
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-onunauthenticatedrequest
+         */
+        OnUnauthenticatedRequest?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The set of user claims to be requested from the IdP. The default is openid.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-scope
+         */
+        Scope?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the cookie used to maintain session information. The default is AWSELBAuthSessionCookie.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessioncookiename
+         */
+        SessionCookieName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The maximum duration of the authentication session, in seconds. The default is 604800
+ seconds (7 days).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-sessiontimeout
+         */
+        SessionTimeout?: C.CFLong;
+        /**
+         *                             Type: String
+
+         *
+         * The maximum duration of the authentication session, in seconds. The default is 604800
+ seconds (7 days).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-tokenendpoint
+         */
+        TokenEndpoint: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The maximum duration of the authentication session, in seconds. The default is 604800
+ seconds (7 days).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-authenticateoidcconfig.html#cfn-elasticloadbalancingv2-listenerrule-authenticateoidcconfig-userinfoendpoint
+         */
+        UserInfoEndpoint: C.CFString;
+    }
+}
+export namespace AWS.ElasticLoadBalancingV2.ListenerRule {
+    export interface FixedResponseConfig {
+        /**
+         *                             Type: String
+
+         *
+         * The content type.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listenerrule-fixedresponseconfig-contenttype
+         */
+        ContentType?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The message.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listenerrule-fixedresponseconfig-messagebody
+         */
+        MessageBody?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The HTTP response code (2XX, 4XX, or 5XX).
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-fixedresponseconfig.html#cfn-elasticloadbalancingv2-listenerrule-fixedresponseconfig-statuscode
+         */
+        StatusCode: C.CFString;
+    }
+}
+export namespace AWS.ElasticLoadBalancingV2.ListenerRule {
+    export interface RedirectConfig {
+        /**
+         *                             Type: String
+
+         *
+         * The hostname. This component is not percent-encoded. The hostname can contain #{host}.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-host
+         */
+        Host?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The absolute path, starting with the leading "/". This component is not percent-encoded.
+ The path can contain #{host}, #{path}, and #{port}.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-path
+         */
+        Path?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The port. You can specify a value from 1 to 65535 or #{port}.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-port
+         */
+        Port?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to
+ HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-protocol
+         */
+        Protocol?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The query parameters, URL-encoded when necessary, but not percent-encoded. Do not
+ include the leading "?", as it is automatically added. You can specify any of the
+ reserved keywords.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-query
+         */
+        Query?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP
+ 302).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-redirectconfig.html#cfn-elasticloadbalancingv2-listenerrule-redirectconfig-statuscode
+         */
+        StatusCode: C.CFString;
     }
 }
 export namespace AWS.ElasticLoadBalancingV2.ListenerRule {
@@ -29435,7 +33772,7 @@ export namespace AWS.ElasticLoadBalancingV2.LoadBalancer {
          */
         Subnets?: C.CFList<C.CFString>;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  load balancer. Use tags to manage your resources.
@@ -29551,7 +33888,10 @@ export namespace AWS.ElasticLoadBalancingV2.TargetGroup {
          * String
 
          *
-         * The ping path destination where Elastic Load Balancing sends health check requests.
+         * [HTTP/HTTPS health checks] The ping path destination where Elastic Load Balancing
+ sends health
+ check requests. The default is /.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckpath
@@ -29584,7 +33924,11 @@ export namespace AWS.ElasticLoadBalancingV2.TargetGroup {
 
          *
          * The number of seconds to wait for a response before considering that a health check
- has failed.
+ has failed. For Application Load Balancers, the range is 2–60 seconds and the default
+ is 5 seconds. For
+ Network Load Balancers, this value is 10 seconds for TCP and HTTPS health checks and
+ 6 seconds for HTTP
+ health checks.
 
          *
          * UpdateType: Mutable
@@ -29606,9 +33950,8 @@ export namespace AWS.ElasticLoadBalancingV2.TargetGroup {
         /**
          * Elastic Load Balancing TargetGroup Matcher
          *
-         * The HTTP codes that a healthy target uses when responding to a health check. If you
- specify TCP for the Protocol property, you must specify the range 200-399
- for the Matcher property.
+         * [HTTP/HTTPS health checks] The HTTP codes that a healthy target uses when responding
+ to a health check.
 
          *
          * UpdateType: Mutable
@@ -29646,7 +33989,7 @@ export namespace AWS.ElasticLoadBalancingV2.TargetGroup {
          */
         Protocol: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for the target group. Use tags to help
  manage resources.
@@ -29788,10 +34131,7 @@ export namespace AWS.ElasticLoadBalancingV2.TargetGroup {
 }
 export namespace AWS.Elasticsearch {
     /**
-     * The AWS::Elasticsearch::Domain resource creates an Amazon Elasticsearch Service (Amazon ES) domain
-    that encapsulates the Amazon ES engine instances. For more information, see CreateElasticsearchDomain in the
-    Amazon Elasticsearch Service Developer Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
      */
@@ -29800,10 +34140,7 @@ export namespace AWS.Elasticsearch {
         Properties: AWS.Elasticsearch.Domain.Properties;
     }
     /**
-     * The AWS::Elasticsearch::Domain resource creates an Amazon Elasticsearch Service (Amazon ES) domain
-    that encapsulates the Amazon ES engine instances. For more information, see CreateElasticsearchDomain in the
-    Amazon Elasticsearch Service Developer Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
      */
@@ -29814,119 +34151,90 @@ export namespace AWS.Elasticsearch {
 export namespace AWS.Elasticsearch.Domain {
     export interface Properties {
         /**
-         * JSON object
-
          *
-         * An AWS Identity and Access Management (IAM) policy document that specifies who can
- access the Amazon ES
- domain and their permissions. For more information, see Configuring Access Policies in the
- Amazon Elasticsearch Service Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-accesspolicies
          */
         AccessPolicies?: C.CFJson;
         /**
-         * A JSON object that consists of a string key-value pair, such as:
-
          *
-         * Additional options to specify for the Amazon ES domain. For more information, see
- Configuring Advanced Options in the
- Amazon Elasticsearch Service Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedoptions
          */
         AdvancedOptions?: C.CFMap<C.CFString>;
         /**
-         * String
-
          *
-         * A name for the Amazon ES domain. For valid values, see the DomainName data type in the Amazon Elasticsearch Service Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname
          */
         DomainName?: C.CFString;
         /**
-         * Amazon ES Domain EBSOptions
          *
-         * The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached
- to data nodes in
- the Amazon ES domain. For more information, see Configuring EBS-based Storage in the
- Amazon Elasticsearch Service Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-ebsoptions
          */
         EBSOptions?: AWS.Elasticsearch.Domain.EBSOptions;
         /**
-         * Amazon ES Domain ElasticsearchClusterConfig
          *
-         * The cluster configuration for the  Amazon ES domain. You can specify options such
- as
- the instance type and the number of instances. For more information, see Configuring Amazon ES Domains in the
- Amazon Elasticsearch Service Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchclusterconfig
          */
         ElasticsearchClusterConfig?: AWS.Elasticsearch.Domain.ElasticsearchClusterConfig;
         /**
-         * String
-
          *
-         * The version of Elasticsearch to use, such as 2.3. For information about the versions that Amazon ES supports, see the Elasticsearch-Version parameter for the CreateElasticsearchDomain action in the Amazon Elasticsearch Service Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchversion
          */
         ElasticsearchVersion?: C.CFString;
         /**
-         *                             Type: Amazon ES  Domain EncryptionAtRestOptions
          *
-         * Whether the domain should encrypt data at rest, and if so, the AWS Key Management
- Service (KMS) key to use. Can only be used to create a new domain, not update an
- existing one.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-encryptionatrestoptions
          */
         EncryptionAtRestOptions?: AWS.Elasticsearch.Domain.EncryptionAtRestOptions;
         /**
-         * Amazon ES Domain SnapshotOptions
          *
-         * The automated snapshot configuration for the Amazon ES domain indices.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-snapshotoptions
          */
         SnapshotOptions?: AWS.Elasticsearch.Domain.SnapshotOptions;
         /**
-         * AWS CloudFormation Resource Tags
          *
-         * An arbitrary set of tags (key–value pairs) to associate with the Amazon ES
- domain.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-tags
          */
         Tags?: C.CFList<Tag>;
         /**
-         *                             Type: Amazon ES Domain VPCOptions
          *
-         * The virtual private cloud (VPC) configuration for the Amazon ES domain. For more
- information, see VPC Support for Amazon Elasticsearch Service
-    Domains in the Amazon Elasticsearch Service Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-vpcoptions
@@ -29937,51 +34245,36 @@ export namespace AWS.Elasticsearch.Domain {
 export namespace AWS.Elasticsearch.Domain {
     export interface EBSOptions {
         /**
-         * Boolean
-
          *
-         * Specifies whether Amazon EBS volumes are attached to data nodes in the Amazon ES
- domain.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-ebsenabled
          */
         EBSEnabled?: C.CFBoolean;
         /**
-         * Integer
-
          *
-         * The number of I/O operations per second (IOPS) that the volume supports. This
- property applies only to the Provisioned IOPS (SSD) EBS volume type.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-iops
          */
         Iops?: C.CFInteger;
         /**
-         * Integer
-
          *
-         * The size of the EBS volume for each data node. The minimum and maximum size of an
- EBS volume depends on the EBS volume type and the instance type to which it is attached.
- For more information, see Configuring EBS-based Storage in the
- Amazon Elasticsearch Service Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-volumesize
          */
         VolumeSize?: C.CFInteger;
         /**
-         * String
-
          *
-         * The EBS volume type to use with the Amazon ES domain, such as standard,
- gp2, or io1. For more information about each type, see
- Amazon EBS Volume Types in the Amazon EC2 User Guide for Linux Instances.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-volumetype
@@ -30076,22 +34369,18 @@ export namespace AWS.Elasticsearch.Domain {
 export namespace AWS.Elasticsearch.Domain {
     export interface EncryptionAtRestOptions {
         /**
-         *                             Type: Boolean
-
          *
-         * Specify true to enable encryption at rest.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-encryptionatrestoptions.html#cfn-elasticsearch-domain-encryptionatrestoptions-enabled
          */
         Enabled?: C.CFBoolean;
         /**
-         *                             Type: String
-
          *
-         * The KMS key ID. Takes the form 1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-encryptionatrestoptions.html#cfn-elasticsearch-domain-encryptionatrestoptions-kmskeyid
@@ -30155,11 +34444,133 @@ export namespace AWS.Elasticsearch.Domain {
 }
 export namespace AWS.Events {
     /**
-     * The AWS::Events::Rule resource creates a rule that matches incoming Amazon CloudWatch Events (CloudWatch
-    Events) events and routes them to one or more targets for processing. For more information,
-    see
-    Using CloudWatch Events in the Amazon CloudWatch User Guide.
+     * The
+    AWS::Events::EventBusPolicy resource creates an event bus policy for Amazon CloudWatch Events. An event bus
+    policy enables your account to receive events from other AWS accounts. These events
+    can trigger CloudWatch Events rules created
+    in your account. For more information, see
+    Sending and Receiving Events
+       Between AWS Accounts in the Amazon CloudWatch Events User Guide.
+    
  
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html
+     */
+    export interface EventBusPolicy extends C.CommonResourceProps {
+        Type: 'AWS::Events::EventBusPolicy';
+        Properties: AWS.Events.EventBusPolicy.Properties;
+    }
+    /**
+     * The
+    AWS::Events::EventBusPolicy resource creates an event bus policy for Amazon CloudWatch Events. An event bus
+    policy enables your account to receive events from other AWS accounts. These events
+    can trigger CloudWatch Events rules created
+    in your account. For more information, see
+    Sending and Receiving Events
+       Between AWS Accounts in the Amazon CloudWatch Events User Guide.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html
+     */
+    export function EventBusPolicy(props: C.Omit<EventBusPolicy, 'Type'>): EventBusPolicy {
+        return { Type: 'AWS::Events::EventBusPolicy', ...props };
+    }
+}
+export namespace AWS.Events.EventBusPolicy {
+    export interface Properties {
+        /**
+         *                             Type: Condition
+         *
+         * A JSON string which you can use to limit the event bus permissions you are granting
+ to only accounts that fulfill the
+ condition. Currently, the only supported condition is membership in a certain AWS
+ organization. The string
+ must contain Type, Key, and Value fields.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
+         */
+        Condition?: AWS.Events.EventBusPolicy.Condition;
+        /**
+         *                             Type: String
+
+         *
+         * The action that you are enabling the other account to perform. Currently, this must
+ be events:PutEvents.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-action
+         */
+        Action: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * An identifier string for the external account to which you are granting permissions.
+ 
+ To later revoke the permission for this external account, you need to know this string.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-statementid
+         */
+        StatementId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The 12-digit AWS account ID that you are permitting to put events to your default
+ 
+ event bus. Specify * to permit any account to put events to your default event bus, or
+ if you are specifying an organization ID in the Condition object.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
+         */
+        Principal: C.CFString;
+    }
+}
+export namespace AWS.Events.EventBusPolicy {
+    export interface Condition {
+        /**
+         *                             Type: String
+
+         *
+         * Currently, Type must be StringEquals
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-type
+         */
+        Type?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * Specifies the ID of the AWS organization to which you want to grant permission.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-value
+         */
+        Value?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * Currently, Key must be aws:PrincipalOrgID
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbuspolicy-condition.html#cfn-events-eventbuspolicy-condition-key
+         */
+        Key?: C.CFString;
+    }
+}
+export namespace AWS.Events {
+    /**
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
      */
@@ -30168,11 +34579,7 @@ export namespace AWS.Events {
         Properties: AWS.Events.Rule.Properties;
     }
     /**
-     * The AWS::Events::Rule resource creates a rule that matches incoming Amazon CloudWatch Events (CloudWatch
-    Events) events and routes them to one or more targets for processing. For more information,
-    see
-    Using CloudWatch Events in the Amazon CloudWatch User Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
      */
@@ -30183,34 +34590,27 @@ export namespace AWS.Events {
 export namespace AWS.Events.Rule {
     export interface Properties {
         /**
-         * String
-
          *
-         * A description of the rule's purpose.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-description
          */
         Description?: C.CFString;
         /**
-         * JSON object
-
          *
-         * Describes which events CloudWatch Events routes to the specified target. These routed
- events are matched events. For more information, see Events and Event Patterns in the Amazon CloudWatch User Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern
          */
         EventPattern?: C.CFJson;
         /**
-         * String
-
          *
-         * A name for the rule. If you don't specify a name, AWS CloudFormation generates a unique
- physical ID and uses that ID for the rule name. For more information, see Name Type.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-name
@@ -30226,37 +34626,27 @@ export namespace AWS.Events.Rule {
          */
         RoleArn?: C.CFString;
         /**
-         * String
-
          *
-         * The schedule or rate (frequency) that determines when CloudWatch Events runs the rule.
- For more information, see Schedule Expression Syntax for Rules in the Amazon CloudWatch User Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-scheduleexpression
          */
         ScheduleExpression?: C.CFString;
         /**
-         * String
-
          *
-         * Indicates whether the rule is enabled. For valid values, see the State parameter for the PutRule action in the Amazon CloudWatch Events API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state
          */
         State?: C.CFString;
         /**
-         * List of Amazon CloudWatch Events Rule Target
          *
-         * The resources, such as Lambda functions or Kinesis streams, that CloudWatch Events
- routes events to
- and invokes when the rule is triggered. For information about valid targets, see the
- PutTargets action in the
- Amazon CloudWatch Events API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets
@@ -30339,7 +34729,7 @@ export namespace AWS.Events.Rule {
 export namespace AWS.Events.Rule {
     export interface RunCommandParameters {
         /**
-         *                             Type: List of CloudWatch Events Rule RunCommandTarget
+         *                             Type: List of RunCommandTarget
          *
          * The criteria (either InstanceIds or a tag) that specifies which EC2
  instances the command is sent to.
@@ -30377,6 +34767,19 @@ export namespace AWS.Events.Rule {
     }
 }
 export namespace AWS.Events.Rule {
+    export interface SqsParameters {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html#cfn-events-rule-sqsparameters-messagegroupid
+         */
+        MessageGroupId: C.CFString;
+    }
+}
+export namespace AWS.Events.Rule {
     export interface Target {
         /**
          * String
@@ -30389,7 +34792,7 @@ export namespace AWS.Events.Rule {
          */
         Arn: C.CFString;
         /**
-         *                             Type: CloudWatch Events Rule EcsParameters
+         *                             Type: EcsParameters
          *
          * The Amazon ECS task definition and task count to use, if the event target is an Amazon
  ECS task.
@@ -30437,7 +34840,7 @@ export namespace AWS.Events.Rule {
          */
         InputPath?: C.CFString;
         /**
-         *                             Type: CloudWatch Events Rule InputTransformer
+         *                             Type: InputTransformer
          *
          * Settings that provide custom input to a target based on certain event data. You can
  extract one or more key-value pairs
@@ -30449,7 +34852,7 @@ export namespace AWS.Events.Rule {
          */
         InputTransformer?: AWS.Events.Rule.InputTransformer;
         /**
-         *                             Type: CloudWatch Events Rule KinesisParameters
+         *                             Type: KinesisParameters
          *
          * Settings that control shard assignment, when the target is a Kinesis stream. If
  you don't include this parameter, eventId is used as the partition
@@ -30475,7 +34878,7 @@ export namespace AWS.Events.Rule {
          */
         RoleArn?: C.CFString;
         /**
-         *                             Type: CloudWatch Events Rule RunCommandParameters
+         *                             Type: RunCommandParameters
          *
          * Parameters used when the rule invokes the AWS Systems Manager Run Command.
          *
@@ -30483,6 +34886,15 @@ export namespace AWS.Events.Rule {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters
          */
         RunCommandParameters?: AWS.Events.Rule.RunCommandParameters;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sqsparameters
+         */
+        SqsParameters?: AWS.Events.Rule.SqsParameters;
     }
 }
 export namespace AWS.GameLift {
@@ -30943,7 +35355,7 @@ export namespace AWS.Glue {
 export namespace AWS.Glue.Classifier {
     export interface Properties {
         /**
-         *                             Type: AWS Glue Classifier XMLClassifier
+         *                             Type: XMLClassifier
          *
          * A classifier for XML content.
          *
@@ -30952,7 +35364,7 @@ export namespace AWS.Glue.Classifier {
          */
         XMLClassifier?: AWS.Glue.Classifier.XMLClassifier;
         /**
-         *                             Type: AWS Glue Classifier JsonClassifier
+         *                             Type: JsonClassifier
          *
          * A classifier for JSON content.
          *
@@ -30961,7 +35373,7 @@ export namespace AWS.Glue.Classifier {
          */
         JsonClassifier?: AWS.Glue.Classifier.JsonClassifier;
         /**
-         *                             Type: AWS Glue Classifier GrokClassifier
+         *                             Type: GrokClassifier
          *
          * A classifier that uses grok.
 
@@ -31121,7 +35533,7 @@ export namespace AWS.Glue {
 export namespace AWS.Glue.Connection {
     export interface Properties {
         /**
-         *                             Type: AWS Glue Connection ConnectionInput
+         *                             Type: ConnectionInput
          *
          * The connection that you want to create.
          *
@@ -31179,7 +35591,7 @@ export namespace AWS.Glue.Connection {
          */
         MatchCriteria?: C.CFList<C.CFString>;
         /**
-         *                             Type: AWS Glue Connection PhysicalConnectionRequirements
+         *                             Type: PhysicalConnectionRequirements
          *
          * A map of physical connection requirements that are needed to make the connection,
  such as VPC and SecurityGroup.
@@ -31316,7 +35728,7 @@ export namespace AWS.Glue.Crawler {
          */
         Description?: C.CFString;
         /**
-         *                             Type: AWS Glue Crawler SchemaChangePolicy
+         *                             Type: SchemaChangePolicy
          *
          * The policy that specifies update and delete behaviors for the crawler.
          *
@@ -31338,7 +35750,7 @@ export namespace AWS.Glue.Crawler {
          */
         Configuration?: C.CFString;
         /**
-         *                             Type: AWS Glue Crawler Schedule
+         *                             Type: Schedule
          *
          * The schedule for the crawler.
          *
@@ -31357,7 +35769,7 @@ export namespace AWS.Glue.Crawler {
          */
         DatabaseName: C.CFString;
         /**
-         *                             Type: AWS Glue Crawler Targets
+         *                             Type: Targets
          *
          * The crawler targets.
          *
@@ -31470,22 +35882,18 @@ export namespace AWS.Glue.Crawler {
 export namespace AWS.Glue.Crawler {
     export interface SchemaChangePolicy {
         /**
-         *                             Type: String
-
          *
-         * The update behavior. Valid values are LOG or UPDATE_IN_DATABASE.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-updatebehavior
          */
         UpdateBehavior?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The deletion behavior. Valid values are LOG, DELETE_FROM_DATABASE, or DEPRECATE_IN_DATABASE.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-schemachangepolicy.html#cfn-glue-crawler-schemachangepolicy-deletebehavior
@@ -31496,7 +35904,7 @@ export namespace AWS.Glue.Crawler {
 export namespace AWS.Glue.Crawler {
     export interface Targets {
         /**
-         *                             Type: List of AWS Glue Crawler S3Target
+         *                             Type: List of S3Target
          *
          * The Amazon S3 crawler targets.
          *
@@ -31505,7 +35913,7 @@ export namespace AWS.Glue.Crawler {
          */
         S3Targets?: C.CFList<AWS.Glue.Crawler.S3Target>;
         /**
-         *                             Type: List of AWS Glue Crawler JdbcTarget
+         *                             Type: List of JdbcTarget
          *
          * The JDBC crawler targets.
          *
@@ -31545,7 +35953,7 @@ export namespace AWS.Glue {
 export namespace AWS.Glue.Database {
     export interface Properties {
         /**
-         *                             Type: AWS Glue Database DatabaseInput
+         *                             Type: DatabaseInput
          *
          * The metadata of the database.
          *
@@ -31792,7 +36200,7 @@ export namespace AWS.Glue.Job {
          */
         DefaultArguments?: C.CFJson;
         /**
-         *                             Type: AWS Glue Job ConnectionsList
+         *                             Type: ConnectionsList
          *
          * The connections that are used by the job.
          *
@@ -31831,7 +36239,7 @@ export namespace AWS.Glue.Job {
          */
         LogUri?: C.CFString;
         /**
-         *                             Type: AWS Glue Job JobCommand
+         *                             Type: JobCommand
          *
          * The code that executes a job.
          *
@@ -31850,7 +36258,7 @@ export namespace AWS.Glue.Job {
          */
         AllocatedCapacity?: C.CFDouble;
         /**
-         *                             Type: AWS Glue Job ExecutionProperty
+         *                             Type: ExecutionProperty
          *
          * The execution property of the job, which specifies the maximum number of
  concurrent runs that are allowed for the job.
@@ -31985,7 +36393,7 @@ export namespace AWS.Glue.Partition {
          */
         CatalogId: C.CFString;
         /**
-         *                             Type: AWS Glue Partition PartitionInput
+         *                             Type: PartitionInput
          *
          * The metadata of the partition.
          *
@@ -32061,29 +36469,27 @@ export namespace AWS.Glue.Partition {
 export namespace AWS.Glue.Partition {
     export interface PartitionInput {
         /**
-         *                             Type: JSON object
-
          *
-         * UTF-8 string–to–UTF-8 string key-value pairs that specify the parameters for the partition.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-parameters
          */
         Parameters?: C.CFJson;
         /**
-         *                             Type: AWS Glue Partition StorageDescriptor
          *
-         * Information about the physical storage of the partition.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-storagedescriptor
          */
         StorageDescriptor?: AWS.Glue.Partition.StorageDescriptor;
         /**
-         *                             Type: List of String values
-
          *
-         * A list of UTF-8 strings that specify the values of the partition.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-partition-partitioninput.html#cfn-glue-partition-partitioninput-values
@@ -32204,7 +36610,7 @@ export namespace AWS.Glue.Partition {
          */
         BucketColumns?: C.CFList<C.CFString>;
         /**
-         *                             Type: AWS Glue Partition SkewedInfo
+         *                             Type: SkewedInfo
          *
          * Information about values that appear very frequently in a column (skewed values).
          *
@@ -32248,7 +36654,7 @@ export namespace AWS.Glue.Partition {
          */
         OutputFormat?: C.CFString;
         /**
-         *                             Type: List of AWS Glue Partition Column
+         *                             Type: List of Column
          *
          * The columns in the partition.
          *
@@ -32257,7 +36663,7 @@ export namespace AWS.Glue.Partition {
          */
         Columns?: C.CFList<AWS.Glue.Partition.Column>;
         /**
-         *                             Type: AWS Glue Partition SerdeInfo
+         *                             Type: SerdeInfo
          *
          * Information about a serialization/deserialization program (SerDe), which serves as
  an extractor and loader.
@@ -32268,7 +36674,7 @@ export namespace AWS.Glue.Partition {
          */
         SerdeInfo?: AWS.Glue.Partition.SerdeInfo;
         /**
-         *                             Type: List of AWS Glue Partition Order
+         *                             Type: List of Order
          *
          * The sort order of each bucket in the partition.
          *
@@ -32334,7 +36740,7 @@ export namespace AWS.Glue {
 export namespace AWS.Glue.Table {
     export interface Properties {
         /**
-         *                             Type: AWS Glue Table TableInput
+         *                             Type: TableInput
          *
          * The metadata of the table.
          *
@@ -32371,33 +36777,27 @@ export namespace AWS.Glue.Table {
 export namespace AWS.Glue.Table {
     export interface Column {
         /**
-         *                             Type: String
-
          *
-         * A free-form text comment. It must match the single-line string pattern:
- [\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-comment
          */
         Comment?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The data type of the column data. It must match the single-line string
- pattern: [\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-type
          */
         Type?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The name of the column. It must match the single-line string pattern:
- [\u0020-\uD7FF\uE000-\uFFFD\uD800\uDC00-\uDBFF\uDFFF\t]*
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-column.html#cfn-glue-table-column-name
@@ -32551,7 +36951,7 @@ export namespace AWS.Glue.Table {
          */
         BucketColumns?: C.CFList<C.CFString>;
         /**
-         *                             Type: AWS Glue Table SkewedInfo
+         *                             Type: SkewedInfo
          *
          * Information about values that appear very frequently in a column (skewed values).
          *
@@ -32595,7 +36995,7 @@ export namespace AWS.Glue.Table {
          */
         OutputFormat?: C.CFString;
         /**
-         *                             Type: List of AWS Glue Table Column
+         *                             Type: List of Column
          *
          * The columns in the table.
          *
@@ -32604,7 +37004,7 @@ export namespace AWS.Glue.Table {
          */
         Columns?: C.CFList<AWS.Glue.Table.Column>;
         /**
-         *                             Type: AWS Glue Table SerdeInfo
+         *                             Type: SerdeInfo
          *
          * Information about a serialization/deserialization program (SerDe), which serves as
  an extractor and loader.
@@ -32615,7 +37015,7 @@ export namespace AWS.Glue.Table {
          */
         SerdeInfo?: AWS.Glue.Table.SerdeInfo;
         /**
-         *                             Type: List of AWS Glue Table Order
+         *                             Type: List of Order
          *
          * The sort order of each bucket in the table.
          *
@@ -32722,7 +37122,7 @@ export namespace AWS.Glue.Table {
          */
         ViewExpandedText?: C.CFString;
         /**
-         *                             Type: AWS Glue Table StorageDescriptor
+         *                             Type: StorageDescriptor
          *
          * Information about the physical storage of the table.
          *
@@ -32731,7 +37131,7 @@ export namespace AWS.Glue.Table {
          */
         StorageDescriptor?: AWS.Glue.Table.StorageDescriptor;
         /**
-         *                             Type: List of AWS Glue Table Column
+         *                             Type: List of Column
          *
          * The columns in the table.
          *
@@ -32813,7 +37213,7 @@ export namespace AWS.Glue.Trigger {
          */
         Description?: C.CFString;
         /**
-         *                             Type: List of AWS Glue Trigger Action
+         *                             Type: List of Action
          *
          * The actions that the job trigger initiates when it fires.
          *
@@ -32843,7 +37243,7 @@ export namespace AWS.Glue.Trigger {
          */
         Name?: C.CFString;
         /**
-         *                             Type: AWS Glue Trigger Predicate
+         *                             Type: Predicate
          *
          * The predicate of the job trigger, which determines when the trigger fires.
          *
@@ -32926,7 +37326,7 @@ export namespace AWS.Glue.Trigger {
          */
         Logical?: C.CFString;
         /**
-         *                             Type: List of AWS Glue Trigger Condition
+         *                             Type: List of Condition
          *
          * The conditions that determine when the trigger fires.
          *
@@ -32938,10 +37338,10 @@ export namespace AWS.Glue.Trigger {
 }
 export namespace AWS.GuardDuty {
     /**
-     * The AWS::GuardDuty::Detector resource creates a single Amazon GuardDuty detector.
-    A detector is an object that represents the GuardDuty service. You must create a detector
-    for
-    GuardDuty to become operational.
+     * The AWS::GuardDuty::Detector resource creates a single Amazon GuardDuty
+    detector. A detector is an object that represents the GuardDuty service. You must
+    create a
+    detector for GuardDuty to become operational.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
@@ -32951,10 +37351,10 @@ export namespace AWS.GuardDuty {
         Properties: AWS.GuardDuty.Detector.Properties;
     }
     /**
-     * The AWS::GuardDuty::Detector resource creates a single Amazon GuardDuty detector.
-    A detector is an object that represents the GuardDuty service. You must create a detector
-    for
-    GuardDuty to become operational.
+     * The AWS::GuardDuty::Detector resource creates a single Amazon GuardDuty
+    detector. A detector is an object that represents the GuardDuty service. You must
+    create a
+    detector for GuardDuty to become operational.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
@@ -32965,6 +37365,19 @@ export namespace AWS.GuardDuty {
 }
 export namespace AWS.GuardDuty.Detector {
     export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * Specifies the frequency of notifications sent about the subsequent finding
+ occurrences. Valid values include only the following: FIFTEEN_MINUTES, ONE_HOUR,
+ SIX_HOURS.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
+         */
+        FindingPublishingFrequency?: C.CFString;
         /**
          *                             Type: Boolean
 
@@ -33037,8 +37450,7 @@ export namespace AWS.GuardDuty.Filter {
          */
         DetectorId: C.CFString;
         /**
-         *                             Type: GuardDuty Filter
-    FindingCriteria
+         *                             Type: FindingCriteria
          *
          * Represents the criteria to be used in the filter for querying findings.
          *
@@ -33150,8 +37562,7 @@ export namespace AWS.GuardDuty.Filter {
          */
         Criterion?: C.CFJson;
         /**
-         *                             Type: GuardDuty Filter
-    Condition
+         *                             Type: Condition
          *
          * Specifies the condition to be applied to a single field when filtering through
  findings.
@@ -33332,13 +37743,13 @@ export namespace AWS.GuardDuty {
     /**
      * You can use the AWS::GuardDuty::Member resource to add an AWS account as a
     GuardDuty member account to the current GuardDuty master account. If the value of
-    the Status
-    property is not provided or set to CREATED, a member account is only created. If the
-    value of
-    the Status property is set to INVITED, a member account is created and invited.
-    AWS::GuardDuty::Member resource has to be created with the Status property set to
-    INVITED before the AWS::GuardDuty::Master resource can be created in a GuardDuty
-    member account.
+    the
+    Status property is not provided or is set to Created, a member
+    account is only created. If the value of the Status property is set to
+    Invited, a member account is created and invited.
+    AWS::GuardDuty::Member resource has to be created with the Status
+    property set to Invited before the AWS::GuardDuty::Master resource can
+    be created in a GuardDuty member account.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html
@@ -33350,13 +37761,13 @@ export namespace AWS.GuardDuty {
     /**
      * You can use the AWS::GuardDuty::Member resource to add an AWS account as a
     GuardDuty member account to the current GuardDuty master account. If the value of
-    the Status
-    property is not provided or set to CREATED, a member account is only created. If the
-    value of
-    the Status property is set to INVITED, a member account is created and invited.
-    AWS::GuardDuty::Member resource has to be created with the Status property set to
-    INVITED before the AWS::GuardDuty::Master resource can be created in a GuardDuty
-    member account.
+    the
+    Status property is not provided or is set to Created, a member
+    account is only created. If the value of the Status property is set to
+    Invited, a member account is created and invited.
+    AWS::GuardDuty::Member resource has to be created with the Status
+    property set to Invited before the AWS::GuardDuty::Master resource can
+    be created in a GuardDuty member account.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html
@@ -33372,12 +37783,12 @@ export namespace AWS.GuardDuty.Member {
 
          *
          * You can use this property to update the status of the relationship between the
- member account and its master account. Valid values are CREATED | INVITED | DISABLED
+ member account and its master account. Valid values are Created | Invited | Disabled
  |
- ENABLED | REMOVED | RESIGNED. If the value for this property is not provided or set
+ Enabled | Removed | Resigned. If the value for this property is not provided or set
  to
- CREATED, a member account is only created. If the value of this property is set to
- INVITED, a member account is created and invited.
+ Created, a member account is only created. If the value of this property is set to
+ Invited, a member account is created and invited.
 
          *
          * UpdateType: Mutable
@@ -33599,8 +38010,7 @@ export namespace AWS.IAM.AccessKey {
 }
 export namespace AWS.IAM {
     /**
-     * The AWS::IAM::Group resource creates an AWS Identity and Access Management (IAM) group.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
      */
@@ -33609,8 +38019,7 @@ export namespace AWS.IAM {
         Properties: AWS.IAM.Group.Properties;
     }
     /**
-     * The AWS::IAM::Group resource creates an AWS Identity and Access Management (IAM) group.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
      */
@@ -33621,43 +38030,36 @@ export namespace AWS.IAM {
 export namespace AWS.IAM.Group {
     export interface Properties {
         /**
-         * String
-
          *
-         * A name for the IAM group. For valid values, see the GroupName parameter for the CreateGroup action in the IAM API Reference. If you don't specify a name, AWS CloudFormation generates a unique physical ID and
- uses that ID for the group name.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-groupname
          */
         GroupName?: C.CFString;
         /**
-         * List of String values
-
          *
-         * One or more managed policy ARNs to attach to this group.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-managepolicyarns
          */
         ManagedPolicyArns?: C.CFList<C.CFString>;
         /**
-         * String
-
          *
-         * The path to the group. For more information about paths, see IAM Identifiers in the IAM User Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-path
          */
         Path?: C.CFString;
         /**
-         * List of IAM Policies
          *
-         * The policies to associate with this group. For information about policies, see Overview of IAM Policies in the IAM User Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-policies
@@ -34031,6 +38433,18 @@ export namespace AWS.IAM.Role {
          */
         Path?: C.CFString;
         /**
+         * String
+
+         *
+         * The ARN of the policy that is used to set the permissions boundary for the role. Minimum
+ length of 20. Maximum length of 2048.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-permissionsboundary
+         */
+        PermissionsBoundary?: C.CFString;
+        /**
          * List of IAM Policies
          *
          * The policies to associate with this role. For sample templates, see Template Examples.
@@ -34226,6 +38640,18 @@ export namespace AWS.IAM.User {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path
          */
         Path?: C.CFString;
+        /**
+         * String
+
+         *
+         * The ARN of the policy that is used to set the permissions boundary for the user. Minimum
+ length of 20. Maximum length of 2048.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-permissionsboundary
+         */
+        PermissionsBoundary?: C.CFString;
         /**
          * List of IAM Policies
          *
@@ -34473,7 +38899,7 @@ export namespace AWS.Inspector.AssessmentTemplate {
          */
         RulesPackageArns: C.CFList<C.CFString>;
         /**
-         *                             Type: List of AWS CloudFormation Resource Tags
+         *                             Type: List of Resource Tag
          *
          * The user-defined attributes that are assigned to every generated finding from the
  assessment run that uses this assessment template.
@@ -34515,7 +38941,7 @@ export namespace AWS.Inspector {
 export namespace AWS.Inspector.ResourceGroup {
     export interface Properties {
         /**
-         *                             Type: List of AWS CloudFormation Resource Tags
+         *                             Type: List of Resource Tag
          *
          * The tags (key and value pairs) of the resource group.
          *
@@ -34523,6 +38949,242 @@ export namespace AWS.Inspector.ResourceGroup {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags
          */
         ResourceGroupTags: C.CFList<Tag>;
+    }
+}
+export namespace AWS.IoT1Click {
+    /**
+     * The AWS::IoT1Click::Device resource controls the enabled state of an AWS IoT 1-Click
+    compatible device. For more information, see Device in the AWS IoT 1-Click Devices API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html
+     */
+    export interface Device extends C.CommonResourceProps {
+        Type: 'AWS::IoT1Click::Device';
+        Properties: AWS.IoT1Click.Device.Properties;
+    }
+    /**
+     * The AWS::IoT1Click::Device resource controls the enabled state of an AWS IoT 1-Click
+    compatible device. For more information, see Device in the AWS IoT 1-Click Devices API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html
+     */
+    export function Device(props: C.Omit<Device, 'Type'>): Device {
+        return { Type: 'AWS::IoT1Click::Device', ...props };
+    }
+}
+export namespace AWS.IoT1Click.Device {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The unique identifier of the device.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-deviceid
+         */
+        DeviceId: C.CFString;
+        /**
+         *                             Type: Boolean
+
+         *
+         * A Boolean value indicating whether the device is enabled (true) or not
+ (false).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html#cfn-iot1click-device-enabled
+         */
+        Enabled: C.CFBoolean;
+    }
+}
+export namespace AWS.IoT1Click {
+    /**
+     * The AWS::IoT1Click::Placement resource creates a placement to be associated
+    with an AWS IoT 1-Click project. For more information, see Projects, Templates,
+       and Placements in the AWS IoT 1-Click Developer Guide.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html
+     */
+    export interface Placement extends C.CommonResourceProps {
+        Type: 'AWS::IoT1Click::Placement';
+        Properties: AWS.IoT1Click.Placement.Properties;
+    }
+    /**
+     * The AWS::IoT1Click::Placement resource creates a placement to be associated
+    with an AWS IoT 1-Click project. For more information, see Projects, Templates,
+       and Placements in the AWS IoT 1-Click Developer Guide.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html
+     */
+    export function Placement(props: C.Omit<Placement, 'Type'>): Placement {
+        return { Type: 'AWS::IoT1Click::Placement', ...props };
+    }
+}
+export namespace AWS.IoT1Click.Placement {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The name of this placement.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-placementname
+         */
+        PlacementName?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the project that will contain this placement.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-projectname
+         */
+        ProjectName: C.CFString;
+        /**
+         *                             Type: Json
+
+         *
+         * The device(s) to associate with the placement, as defined by a mapping of zero or
+ more key/value
+ pairs wherein the key is a template name and the
+ value is a device ID.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-associateddevices
+         */
+        AssociatedDevices?: C.CFJson;
+        /**
+         *                             Type: Json
+
+         *
+         * User specified attribute(s) in the form of key/value pairs.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-attributes
+         */
+        Attributes?: C.CFJson;
+    }
+}
+export namespace AWS.IoT1Click {
+    /**
+     * The AWS::IoT1Click::Project resource creates an empty project with a placement
+    template. A project contains zero or more placements that adhere to the placement
+    template
+    defined in the project. For more information, see CreateProject in the AWS IoT 1-Click Projects API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html
+     */
+    export interface Project extends C.CommonResourceProps {
+        Type: 'AWS::IoT1Click::Project';
+        Properties: AWS.IoT1Click.Project.Properties;
+    }
+    /**
+     * The AWS::IoT1Click::Project resource creates an empty project with a placement
+    template. A project contains zero or more placements that adhere to the placement
+    template
+    defined in the project. For more information, see CreateProject in the AWS IoT 1-Click Projects API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html
+     */
+    export function Project(props: C.Omit<Project, 'Type'>): Project {
+        return { Type: 'AWS::IoT1Click::Project', ...props };
+    }
+}
+export namespace AWS.IoT1Click.Project {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * An optional description for the project.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-description
+         */
+        Description?: C.CFString;
+        /**
+         *                             Type: PlacementTemplate
+         *
+         * The template defining the placement to be created. A placement template defines
+ placement default attributes and device templates. You cannot add or remove device
+ templates after the project has been created. However, you can update
+ callbackOverrides for the device templates using the
+ UpdateProject API.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-placementtemplate
+         */
+        PlacementTemplate: AWS.IoT1Click.Project.PlacementTemplate;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the project to create.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html#cfn-iot1click-project-projectname
+         */
+        ProjectName?: C.CFString;
+    }
+}
+export namespace AWS.IoT1Click.Project {
+    export interface DeviceTemplate {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-devicetemplate.html#cfn-iot1click-project-devicetemplate-devicetype
+         */
+        DeviceType?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-devicetemplate.html#cfn-iot1click-project-devicetemplate-callbackoverrides
+         */
+        CallbackOverrides?: C.CFJson;
+    }
+}
+export namespace AWS.IoT1Click.Project {
+    export interface PlacementTemplate {
+        /**
+         *                             Type: Json
+
+         *
+         * An object specifying the DeviceTemplate for all placements using this (PlacementTemplate) template.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-placementtemplate.html#cfn-iot1click-project-placementtemplate-devicetemplates
+         */
+        DeviceTemplates?: C.CFJson;
+        /**
+         *                             Type: Json
+
+         *
+         * The attributes (key/value pairs) to be applied to all placements using this
+ template.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot1click-project-placementtemplate.html#cfn-iot1click-project-placementtemplate-defaultattributes
+         */
+        DefaultAttributes?: C.CFJson;
     }
 }
 export namespace AWS.IoT {
@@ -34875,6 +39537,15 @@ export namespace AWS.IoT.TopicRule {
          */
         Firehose?: AWS.IoT.TopicRule.FirehoseAction;
         /**
+         * AWS IoT TopicRule IotAnalyticsAction
+         *
+         * Sends message data to an AWS IoT Analytics channel.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
+         */
+        IotAnalytics?: AWS.IoT.TopicRule.IotAnalyticsAction;
+        /**
          * AWS IoT TopicRule KinesisAction
          *
          * Writes data to an Kinesis stream.
@@ -34930,6 +39601,16 @@ export namespace AWS.IoT.TopicRule {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
          */
         Sqs?: AWS.IoT.TopicRule.SqsAction;
+        /**
+         * AWS IoT TopicRule
+    StepFunctionsAction
+         *
+         * Starts execution of a Step Functions state machine.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
+         */
+        StepFunctions?: AWS.IoT.TopicRule.StepFunctionsAction;
     }
 }
 export namespace AWS.IoT.TopicRule {
@@ -35148,7 +39829,7 @@ export namespace AWS.IoT.TopicRule {
 export namespace AWS.IoT.TopicRule {
     export interface DynamoDBv2Action {
         /**
-         *                             Type: AWS IoT TopicRule PutItemInput
+         *                             Type: PutItemInput
          *
          * Specifies the database table to which to write the item for an AWS IoT topic rule.
          *
@@ -35261,6 +39942,32 @@ export namespace AWS.IoT.TopicRule {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-separator
          */
         Separator?: C.CFString;
+    }
+}
+export namespace AWS.IoT.TopicRule {
+    export interface IotAnalyticsAction {
+        /**
+         *                             Type: String
+
+         *
+         * The name of the AWS IoT Analytics channel to which message data will be sent.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-channelname
+         */
+        ChannelName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ARN of the role which has a policy that grants AWS IoT Analytics permission to
+ send message data via AWS IoT Analytics (iotanalytics:BatchPutMessage).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotanalyticsaction.html#cfn-iot-topicrule-iotanalyticsaction-rolearn
+         */
+        RoleArn: C.CFString;
     }
 }
 export namespace AWS.IoT.TopicRule {
@@ -35459,6 +40166,45 @@ export namespace AWS.IoT.TopicRule {
     }
 }
 export namespace AWS.IoT.TopicRule {
+    export interface StepFunctionsAction {
+        /**
+         *                             Type: String
+
+         *
+         * A name will be given to the state machine execution consisting of this prefix followed
+ by a UUID. Step Functions automatically creates a unique name for each state machine
+ execution if one is not provided.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-executionnameprefix
+         */
+        ExecutionNamePrefix?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ARN of the role that grants IoT permission to start execution of a state machine
+ ("Action":"states:StartExecution").
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-rolearn
+         */
+        RoleArn: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the Step Functions state machine whose execution will be started.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-stepfunctionsaction.html#cfn-iot-topicrule-stepfunctionsaction-statemachinename
+         */
+        StateMachineName: C.CFString;
+    }
+}
+export namespace AWS.IoT.TopicRule {
     export interface TopicRulePayload {
         /**
          * Array of Action objects
@@ -35490,6 +40236,15 @@ export namespace AWS.IoT.TopicRule {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
          */
         Description?: C.CFString;
+        /**
+         * Action
+         *
+         * The action to take when an error occurs.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
+         */
+        ErrorAction?: AWS.IoT.TopicRule.Action;
         /**
          * Boolean
 
@@ -35651,16 +40406,29 @@ export namespace AWS.KMS.Key {
          */
         KeyPolicy: C.CFJson;
         /**
+         * String
+
          *
-         *
-         *
+         * The intended use of the key. You can use CMKs only for symmetric encryption and decryption.
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
          */
         KeyUsage?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Integer
+
+         *
+         * The waiting period, specified in number of days. After the waiting period ends, AWS
+ KMS deletes the customer master key (CMK).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
+         */
+        PendingWindowInDays?: C.CFInteger;
+        /**
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  key. Use tags to manage your resources.
@@ -35674,11 +40442,7 @@ export namespace AWS.KMS.Key {
 }
 export namespace AWS.Kinesis {
     /**
-     * Creates an Kinesis stream that captures and transports data records that are emitted
-    from data
-    sources. For information about creating streams, see CreateStream in the
-    Amazon Kinesis API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
      */
@@ -35687,11 +40451,7 @@ export namespace AWS.Kinesis {
         Properties: AWS.Kinesis.Stream.Properties;
     }
     /**
-     * Creates an Kinesis stream that captures and transports data records that are emitted
-    from data
-    sources. For information about creating streams, see CreateStream in the
-    Amazon Kinesis API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
      */
@@ -35702,40 +40462,27 @@ export namespace AWS.Kinesis {
 export namespace AWS.Kinesis.Stream {
     export interface Properties {
         /**
-         * String
-
          *
-         * The name of the Kinesis stream. If you don't specify a name, AWS CloudFormation generates
- a unique physical
- ID and uses that ID for the stream name. For more information, see
- Name Type.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
          */
         Name?: C.CFString;
         /**
-         * Integer
-
          *
-         * The number of hours for the data records that are stored in shards to remain accessible.
- The default value is 24. For more
- information about the stream retention period, see Changing
-    the Data Retention Period in the Amazon Kinesis Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
          */
         RetentionPeriodHours?: C.CFInteger;
         /**
-         * Integer
-
          *
-         * The number of shards that the stream uses. For greater provisioned throughput,
- increase the number of shards.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
@@ -35744,19 +40491,16 @@ export namespace AWS.Kinesis.Stream {
         /**
          *
          *
-         * Enables or updates server-side encryption using an AWS KMS key for a specified stream.
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
          */
         StreamEncryption?: AWS.Kinesis.Stream.StreamEncryption;
         /**
-         * AWS CloudFormation Resource Tags
          *
-         * An arbitrary set of tags (key–value pairs) to associate with the Kinesis
- stream. For information about constraints for this property, see Tag Restrictions in the
- Amazon Kinesis Developer Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
@@ -35791,6 +40535,63 @@ export namespace AWS.Kinesis.Stream {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
          */
         KeyId: C.CFString;
+    }
+}
+export namespace AWS.Kinesis {
+    /**
+     * Use the AWS CloudFormation AWS::Kinesis::StreamConsumer resource to register a
+    consumer with a Kinesis data stream. The consumer you register can then call SubscribeToShard to receive data from the stream using enhanced fan-out, at a
+    rate of up to 2 MiB per second for every shard you subscribe to. This rate is unaffected
+    by
+    the total number of consumers that read from the same stream.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
+     */
+    export interface StreamConsumer extends C.CommonResourceProps {
+        Type: 'AWS::Kinesis::StreamConsumer';
+        Properties: AWS.Kinesis.StreamConsumer.Properties;
+    }
+    /**
+     * Use the AWS CloudFormation AWS::Kinesis::StreamConsumer resource to register a
+    consumer with a Kinesis data stream. The consumer you register can then call SubscribeToShard to receive data from the stream using enhanced fan-out, at a
+    rate of up to 2 MiB per second for every shard you subscribe to. This rate is unaffected
+    by
+    the total number of consumers that read from the same stream.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
+     */
+    export function StreamConsumer(props: C.Omit<StreamConsumer, 'Type'>): StreamConsumer {
+        return { Type: 'AWS::Kinesis::StreamConsumer', ...props };
+    }
+}
+export namespace AWS.Kinesis.StreamConsumer {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The name of the consumer is something you choose when you register the
+ consumer.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-consumername
+         */
+        ConsumerName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ARN of the Kinesis data stream that you want to register the consumer
+ with.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html#cfn-kinesis-streamconsumer-streamarn
+         */
+        StreamARN: C.CFString;
     }
 }
 export namespace AWS.KinesisAnalytics {
@@ -35829,8 +40630,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         ApplicationName?: C.CFString;
         /**
-         *                             Type: List of Kinesis Data Analytics
-    Application Input
+         *                             Type: List of Input
          *
          * Use this parameter to configure the application input.
          *
@@ -35903,8 +40703,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         NamePrefix: C.CFString;
         /**
-         *                             Type: Kinesis Data Analytics
-    Application InputSchema
+         *                             Type: InputSchema
          *
          * Describes the format of the data in the streaming source, and how each data element
  maps to corresponding columns in the in-application stream that is being created.
@@ -35915,7 +40714,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         InputSchema: AWS.KinesisAnalytics.Application.InputSchema;
         /**
-         *                             Type: Kinesis Data Analytics Application KinesisStreamsInput
+         *                             Type: KinesisStreamsInput
          *
          * If the streaming source is an Amazon Kinesis stream, identifies the stream's ARN
  and an IAM role that enables Kinesis Data Analytics to access the stream on your behalf.
@@ -35927,7 +40726,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         KinesisStreamsInput?: AWS.KinesisAnalytics.Application.KinesisStreamsInput;
         /**
-         *                             Type: Kinesis Data Analytics Application KinesisFirehoseInput
+         *                             Type: KinesisFirehoseInput
          *
          * If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies
  the
@@ -35941,7 +40740,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         KinesisFirehoseInput?: AWS.KinesisAnalytics.Application.KinesisFirehoseInput;
         /**
-         *                             Type: Kinesis Data Analytics Application InputProcessingConfiguration
+         *                             Type: InputProcessingConfiguration
          *
          * The input processing configuration for the input. An input processor transforms records
  as they are received from the stream, before the application's SQL code executes.
@@ -35954,8 +40753,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         InputProcessingConfiguration?: AWS.KinesisAnalytics.Application.InputProcessingConfiguration;
         /**
-         *                             Type: Kinesis Data Analytics
-    Application InputParallelism
+         *                             Type: InputParallelism
          *
          * Describes the number of in-application streams to create.
          *
@@ -36006,7 +40804,7 @@ export namespace AWS.KinesisAnalytics.Application {
 export namespace AWS.KinesisAnalytics.Application {
     export interface InputProcessingConfiguration {
         /**
-         *                             Type: Kinesis Data Analytics Application InputLambdaProcessor
+         *                             Type: InputLambdaProcessor
          *
          * The InputLambdaProcessor that is used to preprocess the records in the stream before
  they are processed by your application code.
@@ -36033,8 +40831,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         RecordEncoding?: C.CFString;
         /**
-         *                             Type: List of Kinesis Data Analytics
-    Application RecordColumn
+         *                             Type: List of RecordColumn
          *
          * A list of RecordColumn objects.
 
@@ -36044,8 +40841,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         RecordColumns: C.CFList<AWS.KinesisAnalytics.Application.RecordColumn>;
         /**
-         *                             Type: Kinesis Data Analytics
-    Application RecordFormat
+         *                             Type: RecordFormat
          *
          * Specifies the format of the records on the streaming source.
          *
@@ -36128,7 +40924,7 @@ export namespace AWS.KinesisAnalytics.Application {
 export namespace AWS.KinesisAnalytics.Application {
     export interface MappingParameters {
         /**
-         *                             Type: Kinesis Data Analytics Application JSONMappingParameters
+         *                             Type: JSONMappingParameters
          *
          * Provides additional mapping information when JSON is the record format on the streaming
  source.
@@ -36139,7 +40935,7 @@ export namespace AWS.KinesisAnalytics.Application {
          */
         JSONMappingParameters?: AWS.KinesisAnalytics.Application.JSONMappingParameters;
         /**
-         *                             Type: Kinesis Data Analytics Application CSVMappingParameters
+         *                             Type: CSVMappingParameters
          *
          * Provides additional mapping information when the record format uses delimiters (for
  example, CSV).
@@ -36192,7 +40988,7 @@ export namespace AWS.KinesisAnalytics.Application {
 export namespace AWS.KinesisAnalytics.Application {
     export interface RecordFormat {
         /**
-         *                             Type: Kinesis Data Analytics Application MappingParameters
+         *                             Type: MappingParameters
          *
          * When configuring application input at the time of creating or updating an
  application, provides additional mapping information specific to the record format
@@ -36265,8 +41061,7 @@ export namespace AWS.KinesisAnalytics.ApplicationOutput {
          */
         ApplicationName: C.CFString;
         /**
-         *                             Type: Kinesis Data Analytics
-    ApplicationOutput Output
+         *                             Type: Output
          *
          * An array of objects, each describing one output configuration.
          *
@@ -36279,10 +41074,9 @@ export namespace AWS.KinesisAnalytics.ApplicationOutput {
 export namespace AWS.KinesisAnalytics.ApplicationOutput {
     export interface DestinationSchema {
         /**
-         *                             Type: String
-
          *
-         * Specifies the format of the records on the output stream.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-destinationschema.html#cfn-kinesisanalytics-applicationoutput-destinationschema-recordformattype
@@ -36378,8 +41172,7 @@ export namespace AWS.KinesisAnalytics.ApplicationOutput {
 export namespace AWS.KinesisAnalytics.ApplicationOutput {
     export interface Output {
         /**
-         *                             Type: Kinesis Data Analytics
-    ApplicationOutput DestinationSchema
+         *                             Type: DestinationSchema
          *
          * The data format when records are written to the destination.
          *
@@ -36388,8 +41181,7 @@ export namespace AWS.KinesisAnalytics.ApplicationOutput {
          */
         DestinationSchema: AWS.KinesisAnalytics.ApplicationOutput.DestinationSchema;
         /**
-         *                             Type: Kinesis Data Analytics
-    ApplicationOutput LambdaOutput
+         *                             Type: LambdaOutput
          *
          * Identifies a Lambda function as the destination.
          *
@@ -36398,8 +41190,7 @@ export namespace AWS.KinesisAnalytics.ApplicationOutput {
          */
         LambdaOutput?: AWS.KinesisAnalytics.ApplicationOutput.LambdaOutput;
         /**
-         *                             Type: Kinesis Data Analytics
-    ApplicationOutput KinesisFirehoseOutput
+         *                             Type: KinesisFirehoseOutput
          *
          * Identifies an Amazon Kinesis Data Firehose delivery stream as the destination.
          *
@@ -36408,8 +41199,7 @@ export namespace AWS.KinesisAnalytics.ApplicationOutput {
          */
         KinesisFirehoseOutput?: AWS.KinesisAnalytics.ApplicationOutput.KinesisFirehoseOutput;
         /**
-         *                             Type: Kinesis Data Analytics
-    ApplicationOutput KinesisStreamsOutput
+         *                             Type: KinesisStreamsOutput
          *
          * Identifies an Amazon Kinesis stream as the destination.
          *
@@ -36473,7 +41263,7 @@ export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
          */
         ApplicationName: C.CFString;
         /**
-         *                             Type: Kinesis Data Analytics ApplicationReferenceDataSource ReferenceDataSource
+         *                             Type: ReferenceDataSource
          *
          * The reference data source, which is an object in your
  Amazon Simple Storage Service
@@ -36531,7 +41321,7 @@ export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
 export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
     export interface MappingParameters {
         /**
-         *                             Type: Kinesis Data Analytics ApplicationReferenceDataSource JSONMappingParameters
+         *                             Type: JSONMappingParameters
          *
          * Provides additional mapping information when JSON is the record format on the streaming
  source.
@@ -36542,7 +41332,7 @@ export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
          */
         JSONMappingParameters?: AWS.KinesisAnalytics.ApplicationReferenceDataSource.JSONMappingParameters;
         /**
-         *                             Type: Kinesis Data Analytics ApplicationReferenceDataSource CSVMappingParameters
+         *                             Type: CSVMappingParameters
          *
          * Provides additional mapping information when the record format uses delimiters (for
  example, CSV).
@@ -36593,7 +41383,7 @@ export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
 export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
     export interface RecordFormat {
         /**
-         *                             Type: Kinesis Data Analytics ApplicationReferenceDataSource MappingParameters
+         *                             Type: MappingParameters
          *
          * When configuring application input at the time of creating or updating an application,
  provides additional mapping information specific to the record format (such as JSON,
@@ -36619,7 +41409,7 @@ export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
 export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
     export interface ReferenceDataSource {
         /**
-         *                             Type: Kinesis Data Analytics ApplicationReferenceDataSource ReferenceSchema
+         *                             Type: ReferenceSchema
          *
          * Describes the format of the data in the streaming source, and how each data
  element maps to corresponding columns
@@ -36645,7 +41435,7 @@ export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
          */
         TableName?: C.CFString;
         /**
-         *                             Type: Kinesis Data Analytics ApplicationReferenceDataSource S3ReferenceDataSource
+         *                             Type: S3ReferenceDataSource
          *
          * Identifies the
  Amazon S3
@@ -36677,7 +41467,7 @@ export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
          */
         RecordEncoding?: C.CFString;
         /**
-         *                             Type: List of Kinesis Data Analytics ApplicationReferenceDataSource RecordColumn
+         *                             Type: List of RecordColumn
          *
          * A list of Amazon Kinesis Data Analytics ApplicationReferenceDataSource RecordColumn objects.
 
@@ -36687,7 +41477,7 @@ export namespace AWS.KinesisAnalytics.ApplicationReferenceDataSource {
          */
         RecordColumns: C.CFList<AWS.KinesisAnalytics.ApplicationReferenceDataSource.RecordColumn>;
         /**
-         *                             Type: Kinesis Data Analytics ApplicationReferenceDataSource RecordFormat
+         *                             Type: RecordFormat
          *
          * Specifies the format of the records on the streaming source.
          *
@@ -36783,7 +41573,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         DeliveryStreamType?: C.CFString;
         /**
-         * Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration
+         * ElasticsearchDestinationConfiguration
          *
          * An Amazon ES destination for the delivery stream.
          *
@@ -36792,7 +41582,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         ElasticsearchDestinationConfiguration?: AWS.KinesisFirehose.DeliveryStream.ElasticsearchDestinationConfiguration;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream ExtendedS3DestinationConfiguration
+         *                             Type: ExtendedS3DestinationConfiguration
          *
          * An Amazon S3 destination for the delivery stream.
          *
@@ -36801,9 +41591,9 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         ExtendedS3DestinationConfiguration?: AWS.KinesisFirehose.DeliveryStream.ExtendedS3DestinationConfiguration;
         /**
-         * Kinesis Data Firehose DeliveryStream KinesisStreamSourceConfiguration
+         * KinesisStreamSourceConfiguration
          *
-         * When a Kinesis stream is used as the source for the delivery stream, a Kinesis Data Firehose DeliveryStream KinesisStreamSourceConfiguration containing the Kinesis stream ARN and the role ARN for the source stream.
+         * When a Kinesis stream is used as the source for the delivery stream, a KinesisStreamSourceConfiguration containing the Kinesis stream ARN and the role ARN for the source stream.
 
          *
          * UpdateType: Mutable
@@ -36811,7 +41601,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         KinesisStreamSourceConfiguration?: AWS.KinesisFirehose.DeliveryStream.KinesisStreamSourceConfiguration;
         /**
-         * Kinesis Data Firehose DeliveryStream RedshiftDestinationConfiguration
+         * RedshiftDestinationConfiguration
          *
          * An Amazon Redshift destination for the delivery stream.
          *
@@ -36820,7 +41610,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         RedshiftDestinationConfiguration?: AWS.KinesisFirehose.DeliveryStream.RedshiftDestinationConfiguration;
         /**
-         * Kinesis Data Firehose DeliveryStream S3DestinationConfiguration
+         * S3DestinationConfiguration
          *
          * An Amazon S3 destination for the delivery stream.
          *
@@ -36829,7 +41619,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         S3DestinationConfiguration?: AWS.KinesisFirehose.DeliveryStream.S3DestinationConfiguration;
         /**
-         * Kinesis Data Firehose DeliveryStream SplunkDestinationConfiguration
+         * SplunkDestinationConfiguration
          *
          * The configuration of a destination in Splunk for the delivery stream.
          *
@@ -36973,7 +41763,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
 export namespace AWS.KinesisFirehose.DeliveryStream {
     export interface ElasticsearchDestinationConfiguration {
         /**
-         * Kinesis Data Firehose DeliveryStream ElasticsearchBufferingHints
+         * ElasticsearchBufferingHints
          *
          * Configures how Kinesis Data Firehose buffers incoming data while delivering it to
  the Amazon ES domain.
@@ -36984,7 +41774,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         BufferingHints: AWS.KinesisFirehose.DeliveryStream.ElasticsearchBufferingHints;
         /**
-         * Kinesis Data Firehose DeliveryStream CloudWatchLoggingOptions
+         * CloudWatchLoggingOptions
          *
          * The Amazon CloudWatch Logs logging options for the delivery stream.
          *
@@ -37028,7 +41818,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         IndexRotationPeriod: C.CFString;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream ProcessingConfiguration
+         *                             Type: ProcessingConfiguration
          *
          * The data processing configuration for the Kinesis Data Firehose delivery stream.
          *
@@ -37037,7 +41827,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         ProcessingConfiguration?: AWS.KinesisFirehose.DeliveryStream.ProcessingConfiguration;
         /**
-         * Kinesis Data Firehose DeliveryStream ElasticsearchRetryOptions
+         * ElasticsearchRetryOptions
          *
          * The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon
  ES.
@@ -37075,7 +41865,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         S3BackupMode: C.CFString;
         /**
-         * Kinesis Data Firehose DeliveryStream S3DestinationConfiguration
+         * S3DestinationConfiguration
          *
          * The S3 bucket where Kinesis Data Firehose backs up incoming data.
          *
@@ -37142,109 +41932,90 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
 export namespace AWS.KinesisFirehose.DeliveryStream {
     export interface ExtendedS3DestinationConfiguration {
         /**
-         * String
-
          *
-         * The Amazon Resource Name (ARN) of the Amazon S3 bucket. For constraints, see ExtendedS3DestinationConfiguration
- in the Amazon Kinesis Data Firehose API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bucketarn
          */
         BucketARN: C.CFString;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream BufferingHints
          *
-         * The buffering option.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bufferinghints
          */
         BufferingHints: AWS.KinesisFirehose.DeliveryStream.BufferingHints;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream CloudWatchLoggingOptions
          *
-         * The CloudWatch logging options for the Kinesis Data Firehose delivery stream.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions
          */
         CloudWatchLoggingOptions?: AWS.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptions;
         /**
-         * String
-
          *
-         * The compression format for the Kinesis Data Firehose delivery stream. The default
- value is UNCOMPRESSED. For valid values, see ExtendedS3DestinationConfiguration
- in the Amazon Kinesis Data Firehose API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat
          */
         CompressionFormat: C.CFString;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream EncryptionConfiguration
          *
-         * The encryption configuration for the Kinesis Data Firehose delivery stream. The default
- value is NoEncryption.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
          */
         EncryptionConfiguration?: AWS.KinesisFirehose.DeliveryStream.EncryptionConfiguration;
         /**
-         * String
-
          *
-         * The YYYY/MM/DD/HH time format prefix is automatically used for delivered Amazon S3 files. For more
- information, see ExtendedS3DestinationConfiguration
- in the Amazon Kinesis Data Firehose API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-prefix
          */
         Prefix: C.CFString;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream ProcessingConfiguration
          *
-         * The data processing configuration for the Kinesis Data Firehose delivery stream.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-processingconfiguration
          */
         ProcessingConfiguration?: AWS.KinesisFirehose.DeliveryStream.ProcessingConfiguration;
         /**
-         * String
-
          *
-         * The ARN of the AWS credentials. For constraints, see ExtendedS3DestinationConfiguration
- in the Amazon Kinesis Data Firehose API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-rolearn
          */
         RoleARN: C.CFString;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream S3DestinationConfiguration
          *
-         * The configuration for backup in Amazon S3.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupconfiguration
          */
         S3BackupConfiguration?: AWS.KinesisFirehose.DeliveryStream.S3DestinationConfiguration;
         /**
-         * String
-
          *
-         * The Amazon S3 backup mode. For valid values, see ExtendedS3DestinationConfiguration
- in the Amazon Kinesis Data Firehose API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupmode
@@ -37309,7 +42080,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         Enabled?: C.CFBoolean;
         /**
-         *                             Type: List of Kinesis Data Firehose DeliveryStream Processor
+         *                             Type: List of Processor
          *
          * The data processors.
          *
@@ -37370,88 +42141,72 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
 export namespace AWS.KinesisFirehose.DeliveryStream {
     export interface RedshiftDestinationConfiguration {
         /**
-         * Kinesis Data Firehose DeliveryStream CloudWatchLoggingOptions
          *
-         * The Amazon CloudWatch Logs logging options for the delivery stream.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-cloudwatchloggingoptions
          */
         CloudWatchLoggingOptions?: AWS.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptions;
         /**
-         * String
-
          *
-         * The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift
- cluster.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-clusterjdbcurl
          */
         ClusterJDBCURL: C.CFString;
         /**
-         * Kinesis Data Firehose DeliveryStream CopyCommand
          *
-         * Configures the Amazon Redshift COPY command that Kinesis Data Firehose uses to load data into the cluster from the Amazon
- S3 bucket.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-copycommand
          */
         CopyCommand: AWS.KinesisFirehose.DeliveryStream.CopyCommand;
         /**
-         * String
-
          *
-         * The password for the Amazon Redshift user that you specified in the Username property.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-password
          */
         Password: C.CFString;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream ProcessingConfiguration
          *
-         * The data processing configuration for the Kinesis Data Firehose delivery stream.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-processingconfiguration
          */
         ProcessingConfiguration?: AWS.KinesisFirehose.DeliveryStream.ProcessingConfiguration;
         /**
-         * String
-
          *
-         * The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data
- Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption).
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-rolearn
          */
         RoleARN: C.CFString;
         /**
-         * Kinesis Data Firehose DeliveryStream S3DestinationConfiguration
          *
-         * The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in
- the bucket, Kinesis Data Firehose uses the COPY command to load the data into the Amazon Redshift cluster.
- For the Amazon S3 bucket's compression format, don't specify SNAPPY or ZIP because the Amazon Redshift COPY command doesn't support them.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3configuration
          */
         S3Configuration: AWS.KinesisFirehose.DeliveryStream.S3DestinationConfiguration;
         /**
-         * String
-
          *
-         * The Amazon Redshift user that has permission to access the Amazon Redshift cluster.
- This user must have INSERT privileges for copying data from the Amazon S3 bucket to the cluster.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-username
@@ -37472,7 +42227,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         BucketARN: C.CFString;
         /**
-         * Kinesis Data Firehose DeliveryStream BufferingHints
+         * BufferingHints
          *
          * Configures how Kinesis Data Firehose buffers incoming data while delivering it to
  the Amazon S3 bucket.
@@ -37545,7 +42300,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
 export namespace AWS.KinesisFirehose.DeliveryStream {
     export interface SplunkDestinationConfiguration {
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream CloudWatchLoggingOptions
+         *                             Type: CloudWatchLoggingOptions
          *
          * The CloudWatch logging options for your delivery stream.
          *
@@ -37601,7 +42356,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         HECToken: C.CFString;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream ProcessingConfiguration
+         *                             Type: ProcessingConfiguration
          *
          * The data processing configuration.
          *
@@ -37610,7 +42365,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         ProcessingConfiguration?: AWS.KinesisFirehose.DeliveryStream.ProcessingConfiguration;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream SplunkRetryOptions
+         *                             Type: SplunkRetryOptions
          *
          * The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk,
  or if it doesn't receive an acknowledgment of receipt from Splunk.
@@ -37634,7 +42389,7 @@ export namespace AWS.KinesisFirehose.DeliveryStream {
          */
         S3BackupMode?: C.CFString;
         /**
-         *                             Type: Kinesis Data Firehose DeliveryStream S3DestinationConfiguration
+         *                             Type: S3DestinationConfiguration
          *
          * The configuration for the backup Amazon S3 location.
          *
@@ -37740,7 +42495,7 @@ export namespace AWS.Lambda.Alias {
          */
         Name: C.CFString;
         /**
-         *                             Type: AWS Lambda Alias AliasRoutingConfiguration
+         *                             Type: AliasRoutingConfiguration
          *
          * Use this parameter to point your alias to two different function versions,
  allowing you to dictate what percentage of traffic will invoke each version. For
@@ -37758,7 +42513,7 @@ export namespace AWS.Lambda.Alias {
 export namespace AWS.Lambda.Alias {
     export interface AliasRoutingConfiguration {
         /**
-         *                             Type: List of AWS Lambda Alias VersionWeight
+         *                             Type: List of VersionWeight
          *
          * The percentage of traffic that will invoke the updated function version.
          *
@@ -37771,20 +42526,18 @@ export namespace AWS.Lambda.Alias {
 export namespace AWS.Lambda.Alias {
     export interface VersionWeight {
         /**
-         *                             Type: String
-
          *
-         * Function version to which the alias points.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionversion
          */
         FunctionVersion: C.CFString;
         /**
-         *                             Type: Double
-
          *
-         * The percentage of traffic that will invoke the function version.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionweight
@@ -37794,11 +42547,10 @@ export namespace AWS.Lambda.Alias {
 }
 export namespace AWS.Lambda {
     /**
-     * The AWS::Lambda::EventSourceMapping resource specifies a stream as an event
-    source for an AWS Lambda (Lambda) function. Lambda invokes the associated function
-    when records
-    are posted to the stream. For more information, see CreateEventSourceMapping in
-    the AWS Lambda Developer Guide.
+     * The AWS::Lambda::EventSourceMapping resource creates a mapping between an
+    event source and an AWS Lambda function. Lambda reads items from the event source
+    and triggers
+    the function. For more information, see AWS Lambda Event Source Mapping in the AWS Lambda Developer Guide.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
@@ -37808,11 +42560,10 @@ export namespace AWS.Lambda {
         Properties: AWS.Lambda.EventSourceMapping.Properties;
     }
     /**
-     * The AWS::Lambda::EventSourceMapping resource specifies a stream as an event
-    source for an AWS Lambda (Lambda) function. Lambda invokes the associated function
-    when records
-    are posted to the stream. For more information, see CreateEventSourceMapping in
-    the AWS Lambda Developer Guide.
+     * The AWS::Lambda::EventSourceMapping resource creates a mapping between an
+    event source and an AWS Lambda function. Lambda reads items from the event source
+    and triggers
+    the function. For more information, see AWS Lambda Event Source Mapping in the AWS Lambda Developer Guide.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
@@ -37827,11 +42578,7 @@ export namespace AWS.Lambda.EventSourceMapping {
          * Integer
 
          *
-         * The largest number of records that Lambda retrieves from your event source when
- invoking your function. Your function receives an event with all the retrieved
- records. For the default and valid values, see CreateEventSourceMapping in the
- AWS Lambda Developer Guide.
-
+         * The maximum number of items to retrieve in a single batch.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
@@ -37841,7 +42588,7 @@ export namespace AWS.Lambda.EventSourceMapping {
          * Boolean
 
          *
-         * Indicates whether Lambda begins polling the event source.
+         * Disables the event source mapping to pause polling and invocation.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
@@ -37851,10 +42598,7 @@ export namespace AWS.Lambda.EventSourceMapping {
          * String
 
          *
-         * The Amazon Resource Name (ARN) of the event source. Any record added to this
- stream can invoke the Lambda function. For more information, see CreateEventSourceMapping in the
- AWS Lambda Developer Guide.
-
+         * The Amazon Resource Name (ARN) of the event source.
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
@@ -37864,9 +42608,7 @@ export namespace AWS.Lambda.EventSourceMapping {
          * String
 
          *
-         * The name or ARN of a Lambda function to invoke when Lambda detects an event on
- the stream.
-
+         * The name of the Lambda function.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
@@ -37876,8 +42618,9 @@ export namespace AWS.Lambda.EventSourceMapping {
          * String
 
          *
-         * The position in a DynamoDB or Kinesis stream  where Lambda starts reading. Not required
- is you set an Amazon SQS queue as the event source. The AT_TIMESTAMP value is supported only for Kinesis streams. For valid values, see CreateEventSourceMapping in the AWS Lambda Developer Guide.
+         * The position in a stream from which to start reading. Required for Amazon Kinesis
+ and
+ Amazon DynamoDB Streams sources. AT_TIMESTAMP is only supported for Kinesis streams.
 
          *
          * UpdateType: Immutable
@@ -37926,8 +42669,7 @@ export namespace AWS.Lambda.Function {
          */
         Code: AWS.Lambda.Function.Code;
         /**
-         * AWS Lambda Function
-    DeadLetterConfig
+         * AWS Lambda Function DeadLetterConfig
          *
          * Configures how Lambda handles events that it can't process. If you don't specify
  a Dead Letter Queue (DLQ) configuration, Lambda discards events after the maximum
@@ -37950,8 +42692,7 @@ export namespace AWS.Lambda.Function {
          */
         Description?: C.CFString;
         /**
-         * AWS Lambda Function
-    Environment
+         * AWS Lambda Function Environment
          *
          * Key-value pairs that Lambda caches and makes available for your Lambda functions.
  Use environment variables to apply configuration changes, such as test and
@@ -38002,6 +42743,20 @@ export namespace AWS.Lambda.Function {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
          */
         KmsKeyArn?: C.CFString;
+        /**
+         * List of String values
+
+         *
+         * A list of Amazon Resource Names (ARNs) for the function layers to add to the function's
+ execution environment. You can configure your Lambda function to pull in additional
+ code during intitialization in the form of layers. Layers are packages of libraries
+ or other dependencies that can be used by multiple functions.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
+         */
+        Layers?: C.CFList<C.CFString>;
         /**
          * Integer
 
@@ -38055,7 +42810,7 @@ export namespace AWS.Lambda.Function {
          */
         Runtime: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this Lambda function.
          *
@@ -38504,11 +43259,7 @@ export namespace AWS.Logs.Destination {
 }
 export namespace AWS.Logs {
     /**
-     * The AWS::Logs::LogGroup resource creates an Amazon CloudWatch Logs log group that defines
-    common properties for log streams, such as their retention and access control rules.
-    Each log
-    stream must belong to one log group.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
      */
@@ -38517,11 +43268,7 @@ export namespace AWS.Logs {
         Properties: AWS.Logs.LogGroup.Properties;
     }
     /**
-     * The AWS::Logs::LogGroup resource creates an Amazon CloudWatch Logs log group that defines
-    common properties for log streams, such as their retention and access control rules.
-    Each log
-    stream must belong to one log group.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
      */
@@ -38532,26 +43279,18 @@ export namespace AWS.Logs {
 export namespace AWS.Logs.LogGroup {
     export interface Properties {
         /**
-         * String
-
          *
-         * A name for the log group. If you don't specify a name, AWS CloudFormation generates
- a unique
- physical ID and uses that ID for the log group. For more information, see Name Type.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-loggroupname
          */
         LogGroupName?: C.CFString;
         /**
-         * Integer
-
          *
-         * The number of days log events are kept in CloudWatch Logs. When a log event expires,
- CloudWatch Logs automatically deletes it. For valid values, see PutRetentionPolicy in
- the Amazon CloudWatch Logs API Reference.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
@@ -38679,8 +43418,7 @@ export namespace AWS.Logs.MetricFilter {
          */
         LogGroupName: C.CFString;
         /**
-         * A list of CloudWatch Logs MetricFilter
-    MetricTransformation Property
+         * A list of CloudWatch Logs MetricFilter MetricTransformation Property
          *
          * Describes how to transform data from a log into a CloudWatch metric.
          *
@@ -39235,17 +43973,14 @@ export namespace AWS.Neptune.DBInstance {
          * String
 
          *
-         * The name or Amazon Resource Name (ARN) of the DB snapshot that's used to
- restore the DB instance. If you're restoring from a shared manual DB snapshot, you
- must specify the ARN of the snapshot.
-
+         * This parameter is not supported.
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html#cfn-neptune-dbinstance-dbsnapshotidentifier
          */
         DBSnapshotIdentifier?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this DB instance.
          *
@@ -39522,8 +44257,7 @@ export namespace AWS.OpsWorks.App {
          */
         Shortname?: C.CFString;
         /**
-         * AWS OpsWorks SslConfiguration
-    Type
+         * AWS OpsWorks SslConfiguration Type
          *
          * The SSL configuration
          *
@@ -39891,8 +44625,7 @@ export namespace AWS.OpsWorks.Instance {
          */
         AvailabilityZone?: C.CFString;
         /**
-         * List of AWS OpsWorks Instance
-    BlockDeviceMapping
+         * List of AWS OpsWorks Instance BlockDeviceMapping
          *
          * A list of block devices that are mapped to the AWS OpsWorks instance. For more
  information, see the BlockDeviceMappings parameter for the CreateInstance action in the
@@ -40045,8 +44778,7 @@ export namespace AWS.OpsWorks.Instance {
          */
         Tenancy?: C.CFString;
         /**
-         * AWS OpsWorks
-    TimeBasedAutoScaling Type
+         * AWS OpsWorks TimeBasedAutoScaling Type
          *
          * The time-based scaling configuration for the instance.
          *
@@ -40098,8 +44830,7 @@ export namespace AWS.OpsWorks.Instance {
          */
         DeviceName?: C.CFString;
         /**
-         * AWS OpsWorks
-    Instance BlockDeviceMapping EbsBlockDevice
+         * AWS OpsWorks Instance BlockDeviceMapping EbsBlockDevice
          *
          * Configuration information about the Amazon Elastic Block Store (Amazon EBS) volume.
          *
@@ -40209,70 +44940,63 @@ export namespace AWS.OpsWorks.Instance {
 export namespace AWS.OpsWorks.Instance {
     export interface TimeBasedAutoScaling {
         /**
-         * String to string map
-
          *
-         * The schedule for Friday.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-friday
          */
         Friday?: C.CFMap<C.CFString>;
         /**
-         * String to string map
-
          *
-         * The schedule for Monday.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-monday
          */
         Monday?: C.CFMap<C.CFString>;
         /**
-         * String to string map
-
          *
-         * The schedule for Saturday.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-saturday
          */
         Saturday?: C.CFMap<C.CFString>;
         /**
-         * String to string map
-
          *
-         * The schedule for Sunday.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-sunday
          */
         Sunday?: C.CFMap<C.CFString>;
         /**
-         * String to string map
-
          *
-         * The schedule for Thursday.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-thursday
          */
         Thursday?: C.CFMap<C.CFString>;
         /**
-         * String to string map
-
          *
-         * The schedule for Tuesday.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-tuesday
          */
         Tuesday?: C.CFMap<C.CFString>;
         /**
-         * String to string map
-
          *
-         * The schedule for Wednesday.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html#cfn-opsworks-instance-timebasedautoscaling-wednesday
@@ -40415,8 +45139,7 @@ export namespace AWS.OpsWorks.Layer {
          */
         InstallUpdatesOnBoot?: C.CFBoolean;
         /**
-         * AWS OpsWorks Layer
-    LifeCycleConfiguration
+         * AWS OpsWorks Layer LifeCycleConfiguration
          *
          * The lifecycle events for the AWS OpsWorks layer.
          *
@@ -40425,8 +45148,7 @@ export namespace AWS.OpsWorks.Layer {
          */
         LifecycleEventConfiguration?: AWS.OpsWorks.Layer.LifecycleEventConfiguration;
         /**
-         * AWS OpsWorks LoadBasedAutoScaling
-    Type
+         * AWS OpsWorks LoadBasedAutoScaling Type
          *
          * The load-based scaling configuration for the AWS OpsWorks layer.
          *
@@ -40478,7 +45200,7 @@ export namespace AWS.OpsWorks.Layer {
          */
         StackId: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  AWS OpsWorks layer. Use tags to manage your resources.
@@ -40513,7 +45235,6 @@ export namespace AWS.OpsWorks.Layer {
         UseEbsOptimizedInstances?: C.CFBoolean;
         /**
          * A list of AWS OpsWorks VolumeConfiguration
-    Type
          *
          * Describes the Amazon EBS volumes for this layer.
          *
@@ -40616,8 +45337,7 @@ export namespace AWS.OpsWorks.Layer {
 export namespace AWS.OpsWorks.Layer {
     export interface LoadBasedAutoScaling {
         /**
-         * AWS OpsWorks
-    AutoScalingThresholds Type
+         * AWS OpsWorks AutoScalingThresholds Type
          *
          * The threshold below which the instances are scaled down (stopped). If the load
  falls below this threshold for a specified amount of time, AWS OpsWorks stops a specified
@@ -40639,8 +45359,7 @@ export namespace AWS.OpsWorks.Layer {
          */
         Enable?: C.CFBoolean;
         /**
-         * AWS OpsWorks
-    AutoScalingThresholds Type
+         * AWS OpsWorks AutoScalingThresholds Type
          *
          * The threshold above which the instances are scaled up (added). If the load
  exceeds this thresholds for a specified amount of time, AWS OpsWorks starts a specified
@@ -40752,6 +45471,16 @@ export namespace AWS.OpsWorks.Layer {
 }
 export namespace AWS.OpsWorks.Layer {
     export interface VolumeConfiguration {
+        /**
+         * Boolean
+
+         *
+         * Specifies whether an Amazon EBS volume is encrypted.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volumeconfiguration-encrypted
+         */
+        Encrypted?: C.CFBoolean;
         /**
          * Integer
 
@@ -40877,8 +45606,7 @@ export namespace AWS.OpsWorks.Stack {
          */
         Attributes?: C.CFMap<C.CFString>;
         /**
-         * AWS OpsWorks ChefConfiguration
-    Type
+         * AWS OpsWorks ChefConfiguration Type
          *
          * Describes the Chef configuration. For more information, see the CreateStack ChefConfiguration parameter in the
  AWS OpsWorks Stacks API Reference.
@@ -40914,8 +45642,7 @@ export namespace AWS.OpsWorks.Stack {
          */
         ClonePermissions?: C.CFBoolean;
         /**
-         * AWS OpsWorks
-    StackConfigurationManager Type
+         * AWS OpsWorks StackConfigurationManager Type
          *
          * Describes the configuration manager. When you create a stack, you use the
  configuration manager to specify the Chef version. For supported Chef versions,
@@ -41110,7 +45837,7 @@ export namespace AWS.OpsWorks.Stack {
          */
         SourceStackId?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  AWS OpsWorks stack. Use tags to manage your resources.
@@ -41184,20 +45911,18 @@ export namespace AWS.OpsWorks.Stack {
 export namespace AWS.OpsWorks.Stack {
     export interface ElasticIp {
         /**
-         * String
-
          *
-         * The Elastic IP address.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html#cfn-opsworks-stack-elasticip-ip
          */
         Ip: C.CFString;
         /**
-         * String
-
          *
-         * A name for the Elastic IP address.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html#cfn-opsworks-stack-elasticip-name
@@ -41516,7 +46241,7 @@ export namespace AWS.RDS {
 export namespace AWS.RDS.DBCluster {
     export interface Properties {
         /**
-         * String
+         * List of String values
 
          *
          * A list of Availability Zones (AZs) in which DB instances in the cluster can be
@@ -41527,6 +46252,17 @@ export namespace AWS.RDS.DBCluster {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
          */
         AvailabilityZones?: C.CFList<C.CFString>;
+        /**
+         * Long
+
+         *
+         * The target backtrack window, in seconds. To disable backtracking, specify 0. If specified, this property must be set to a number from 0 to 259,200 (72 hours).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
+         */
+        BacktrackWindow?: C.CFLong;
         /**
          * Integer
 
@@ -41584,6 +46320,45 @@ export namespace AWS.RDS.DBCluster {
          */
         DatabaseName?: C.CFString;
         /**
+         * Boolean
+
+         *
+         * Indicates whether the DB cluster should have deletion protection enabled. The
+ database can't be deleted when this value is set to true. If you want to
+ delete a stack with a protected cluster, update this value to false before
+ you delete the stack.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deletionprotection
+         */
+        DeletionProtection?: C.CFBoolean;
+        /**
+         * List of String values
+
+         *
+         * The list of log types that need to be enabled for exporting to CloudWatch Logs.
+ The values in the list depend on the DB engine being used. Log types that are excluded
+ or removed from this list during updates are disabled. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
+         */
+        EnableCloudwatchLogsExports?: C.CFList<C.CFString>;
+        /**
+         * Boolean
+
+         *
+         * If set to true, enables mapping of AWS Identity and Access Management (IAM) accounts to
+ database accounts.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
+         */
+        EnableIAMDatabaseAuthentication?: C.CFBoolean;
+        /**
          * String
 
          *
@@ -41595,6 +46370,17 @@ export namespace AWS.RDS.DBCluster {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
          */
         Engine: C.CFString;
+        /**
+         * String
+
+         *
+         * The DB engine mode of the DB cluster. Valid values include provisioned or serverless.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginemode
+         */
+        EngineMode?: C.CFString;
         /**
          * String
 
@@ -41658,7 +46444,7 @@ export namespace AWS.RDS.DBCluster {
          * String
 
          *
-         * if automated backups are enabled (see the BackupRetentionPeriod
+         * If automated backups are enabled (see the BackupRetentionPeriod
  property), the daily time range in UTC during which you want to create automated
  backups.
 
@@ -41693,6 +46479,16 @@ export namespace AWS.RDS.DBCluster {
          */
         ReplicationSourceIdentifier?: C.CFString;
         /**
+         * ScalingConfiguration
+         *
+         * For DB clusters in serverless DB engine mode, the scaling properties of the DB cluster.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-scalingconfiguration
+         */
+        ScalingConfiguration?: AWS.RDS.DBCluster.ScalingConfiguration;
+        /**
          * String
 
          *
@@ -41715,7 +46511,8 @@ export namespace AWS.RDS.DBCluster {
          */
         StorageEncrypted?: C.CFBoolean;
         /**
-         * A list of resource tags
+         * List of Resource Tag property types
+
          *
          * The tags that you want to attach to this DB cluster.
          *
@@ -41733,6 +46530,54 @@ export namespace AWS.RDS.DBCluster {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids
          */
         VpcSecurityGroupIds?: C.CFList<C.CFString>;
+    }
+}
+export namespace AWS.RDS.DBCluster {
+    export interface ScalingConfiguration {
+        /**
+         * Boolean
+
+         *
+         * A value that specifies whether to allow or disallow automatic pause for an Aurora
+ DB cluster in serverless DB engine mode. A DB cluster can be paused only when it's
+ idle (it has no connections).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
+         */
+        AutoPause?: C.CFBoolean;
+        /**
+         * Integer
+
+         *
+         * The maximum capacity for an Aurora DB cluster in serverless DB engine mode.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-maxcapacity
+         */
+        MaxCapacity?: C.CFInteger;
+        /**
+         * Integer
+
+         *
+         * The minimum capacity for an Aurora DB cluster in serverless DB engine mode.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-mincapacity
+         */
+        MinCapacity?: C.CFInteger;
+        /**
+         * Integer
+
+         *
+         * The time, in seconds, before an Aurora DB cluster in serverless mode is paused.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
+         */
+        SecondsUntilAutoPause?: C.CFInteger;
     }
 }
 export namespace AWS.RDS {
@@ -42033,6 +46878,33 @@ export namespace AWS.RDS.DBInstance {
          */
         DBSubnetGroupName?: C.CFString;
         /**
+         * Boolean
+
+         *
+         * Indicates whether automated backups should be deleted (true) or
+ retained (false) when you delete a DB instance. The default is
+ true.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-deleteautomatedbackups
+         */
+        DeleteAutomatedBackups?: C.CFBoolean;
+        /**
+         * Boolean
+
+         *
+         * Indicates whether the DB instance should have deletion protection enabled. The
+ database can't be deleted when this value is set to true. If you want
+ to delete a stack with a protected instance, update this value to
+ false before you delete the stack.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-deletionprotection
+         */
+        DeletionProtection?: C.CFBoolean;
+        /**
          * String
 
          *
@@ -42064,6 +46936,43 @@ export namespace AWS.RDS.DBInstance {
          * String
 
          *
+         * The list of log types that need to be enabled for exporting to CloudWatch Logs. The
+ values in the list depend on the DB engine being used. Log types that are excluded
+ or removed from this list during updates are disabled. For more information, see
+ Publishing Database Logs to Amazon CloudWatch Logs  in the Amazon Relational Database Service User Guide.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enablecloudwatchlogsexports
+         */
+        EnableCloudwatchLogsExports?: C.CFList<C.CFString>;
+        /**
+         * Boolean
+
+         *
+         * If set to true, enables mapping of AWS Identity and Access Management (IAM) accounts to database
+ accounts.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableiamdatabaseauthentication
+         */
+        EnableIAMDatabaseAuthentication?: C.CFBoolean;
+        /**
+         * Boolean
+
+         *
+         * If set to true, enables Performance Insights for the DB instance.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights
+         */
+        EnablePerformanceInsights?: C.CFBoolean;
+        /**
+         * String
+
+         *
          * The database engine that the DB instance uses. This property is optional when
  you specify the DBSnapshotIdentifier property to create DB
  instances.
@@ -42086,7 +46995,7 @@ export namespace AWS.RDS.DBInstance {
          */
         EngineVersion?: C.CFString;
         /**
-         * Number
+         * Integer
 
          *
          * The number of I/O operations per second (IOPS) that the database provisions.
@@ -42204,6 +47113,31 @@ export namespace AWS.RDS.DBInstance {
          * String
 
          *
+         * The AWS KMS key identifier for encryption of Performance Insights data. The AWS KMS
+ key ID is the Amazon Resource Name (ARN), AWS KMS key identifier, or the AWS KMS key
+ alias for the AWS KMS encryption key.
+
+         *
+         * UpdateType: Conditional
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-performanceinsightskmskeyid
+         */
+        PerformanceInsightsKMSKeyId?: C.CFString;
+        /**
+         * Integer
+
+         *
+         * The amount of time, in days, to retain Performance Insights data. Valid values
+ are 7 or 731 (2 years).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-performanceinsightsretentionperiod
+         */
+        PerformanceInsightsRetentionPeriod?: C.CFInteger;
+        /**
+         * String
+
+         *
          * The port for the instance.
          *
          * UpdateType: Immutable
@@ -42237,6 +47171,32 @@ export namespace AWS.RDS.DBInstance {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredmaintenancewindow
          */
         PreferredMaintenanceWindow?: C.CFString;
+        /**
+         * List of ProcessorFeature property types
+
+         *
+         * The number of CPU cores and the number of threads per core for the DB instance
+ class of the DB instance.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-processorfeatures
+         */
+        ProcessorFeatures?: C.CFList<AWS.RDS.DBInstance.ProcessorFeature>;
+        /**
+         * Integer
+
+         *
+         * A value that specifies the order in which an Aurora Replica is
+ promoted to the primary instance after a failure of the existing primary
+ instance. For more information, see Fault Tolerance for an Aurora DB Cluster in the Amazon Aurora User Guide.
+ 
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-promotiontier
+         */
+        PromotionTier?: C.CFInteger;
         /**
          * Boolean
 
@@ -42296,7 +47256,8 @@ export namespace AWS.RDS.DBInstance {
          */
         StorageType?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * List of Resource Tag property types
+
          *
          * An arbitrary set of tags (key–value pairs) for this DB instance.
          *
@@ -42332,6 +47293,33 @@ export namespace AWS.RDS.DBInstance {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups
          */
         VPCSecurityGroups?: C.CFList<C.CFString>;
+    }
+}
+export namespace AWS.RDS.DBInstance {
+    export interface ProcessorFeature {
+        /**
+         *                             Type: String
+
+         *
+         * The name of the processor feature. Valid values are coreCount
+ to specify the number of CPU cores and threadsPerCore to
+ specify the number of threads per core.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-name
+         */
+        Name?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The value of a processor feature name.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html#cfn-rds-dbinstance-processorfeature-value
+         */
+        Value?: C.CFString;
     }
 }
 export namespace AWS.RDS {
@@ -42524,15 +47512,7 @@ export namespace AWS.RDS.DBSecurityGroup {
 }
 export namespace AWS.RDS {
     /**
-     * The AWS::RDS::DBSecurityGroupIngress type enables ingress to a DBSecurityGroup using
-    one of two forms of
-    authorization. First, EC2 or VPC security groups can be added to the DBSecurityGroup
-    if the application using the
-    database is running on EC2 or VPC instances. Second, IP ranges are available if the
-    application accessing your
-    database is running on the Internet. For more information about DB security groups,
-    see Working
-       with DB security groups
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html
      */
@@ -42541,15 +47521,7 @@ export namespace AWS.RDS {
         Properties: AWS.RDS.DBSecurityGroupIngress.Properties;
     }
     /**
-     * The AWS::RDS::DBSecurityGroupIngress type enables ingress to a DBSecurityGroup using
-    one of two forms of
-    authorization. First, EC2 or VPC security groups can be added to the DBSecurityGroup
-    if the application using the
-    database is running on EC2 or VPC instances. Second, IP ranges are available if the
-    application accessing your
-    database is running on the Internet. For more information about DB security groups,
-    see Working
-       with DB security groups
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html
      */
@@ -42560,54 +47532,45 @@ export namespace AWS.RDS {
 export namespace AWS.RDS.DBSecurityGroupIngress {
     export interface Properties {
         /**
-         * String
-
          *
-         * The IP range to authorize.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-cidrip
          */
         CIDRIP?: C.CFString;
         /**
-         * String
-
          *
-         * The name (ARN) of the AWS::RDS::DBSecurityGroup to which this ingress
- will be added.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-dbsecuritygroupname
          */
         DBSecurityGroupName: C.CFString;
         /**
-         * String
-
          *
-         * The ID of the VPC or EC2 security group to authorize.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupid
          */
         EC2SecurityGroupId?: C.CFString;
         /**
-         * String
-
          *
-         * The name of the EC2 security group to authorize.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupname
          */
         EC2SecurityGroupName?: C.CFString;
         /**
-         * String
-
          *
-         * The AWS Account Number of the owner of the EC2 security group specified in the EC2SecurityGroupName
- parameter. The AWS Access Key ID is not an acceptable value.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupownerid
@@ -42832,8 +47795,7 @@ export namespace AWS.RDS.OptionGroup {
          */
         MajorEngineVersion: C.CFString;
         /**
-         * List of Amazon RDS OptionGroup
-    OptionConfiguration
+         * List of OptionConfiguration
          *
          * The configurations for this option group.
          *
@@ -42852,7 +47814,7 @@ export namespace AWS.RDS.OptionGroup {
          */
         OptionGroupDescription: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key–value pairs) for this option group.
          *
@@ -42865,71 +47827,54 @@ export namespace AWS.RDS.OptionGroup {
 export namespace AWS.RDS.OptionGroup {
     export interface OptionConfiguration {
         /**
-         * List of String values
-
          *
-         * A list of database security group names for this option. If the option requires
- access to a port, the security groups must allow access to that port. If you specify
- this property, don't specify the VPCSecurityGroupMemberships
- property.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-dbsecuritygroupmemberships
          */
         DBSecurityGroupMemberships?: C.CFList<C.CFString>;
         /**
-         * String
-
          *
-         * The name of the option. For more information about options, see Working with Option
-    Groups in the Amazon Relational Database Service User
-    Guide.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionname
          */
         OptionName: C.CFString;
         /**
-         * List of Amazon RDS
-    OptionGroup OptionSetting
          *
-         * The settings for this option.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionsettings
          */
-        OptionSettings?: AWS.RDS.OptionGroup.OptionSetting;
+        OptionSettings?: C.CFList<AWS.RDS.OptionGroup.OptionSetting>;
         /**
-         * String
-
          *
-         * The version for the option.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfiguration-optionversion
          */
         OptionVersion?: C.CFString;
         /**
-         * Integer
-
          *
-         * The port number that this option uses.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-port
          */
         Port?: C.CFInteger;
         /**
-         * List of String values
-
          *
-         * A list of VPC security group IDs for this option. If the option requires access to
- a
- port, the security groups must allow access to that port. If you specify this property,
- don't specify the DBSecurityGroupMemberships property.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships
@@ -42940,20 +47885,18 @@ export namespace AWS.RDS.OptionGroup {
 export namespace AWS.RDS.OptionGroup {
     export interface OptionSetting {
         /**
-         * String
-
          *
-         * The name of the option setting that you want to specify.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-name
          */
         Name?: C.CFString;
         /**
-         * String
-
          *
-         * The value of the option setting.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-value
@@ -43316,7 +48259,7 @@ export namespace AWS.Redshift.Cluster {
          */
         SnapshotIdentifier?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  cluster. Use tags to manage your resources.
@@ -43415,8 +48358,7 @@ export namespace AWS.Redshift.ClusterParameterGroup {
          */
         ParameterGroupFamily: C.CFString;
         /**
-         * Amazon Redshift Parameter
-    Type
+         * Amazon Redshift Parameter Type
          *
          * A list of parameter names and values that are allowed by the Amazon Redshift engine
  version that you specified in the ParameterGroupFamily property. For
@@ -43429,7 +48371,7 @@ export namespace AWS.Redshift.ClusterParameterGroup {
          */
         Parameters?: C.CFList<AWS.Redshift.ClusterParameterGroup.Parameter>;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  parameter group. Use tags to manage your resources.
@@ -43503,7 +48445,7 @@ export namespace AWS.Redshift.ClusterSecurityGroup {
          */
         Description: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  security group. Use tags to manage your resources.
@@ -43630,7 +48572,7 @@ export namespace AWS.Redshift.ClusterSubnetGroup {
          */
         SubnetIds: C.CFList<C.CFString>;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * Specifies an arbitrary set of tags (key–value pairs) to associate with this
  subnet group. Use tags to manage your resources.
@@ -43672,8 +48614,7 @@ export namespace AWS.Route53 {
 export namespace AWS.Route53.HealthCheck {
     export interface Properties {
         /**
-         * Route 53 HealthCheck
-    HealthCheckConfig
+         * Route 53 HealthCheck HealthCheckConfig
          *
          * An Amazon Route 53 health check.
          *
@@ -43682,8 +48623,7 @@ export namespace AWS.Route53.HealthCheck {
          */
         HealthCheckConfig: AWS.Route53.HealthCheck.HealthCheckConfig;
         /**
-         * A list of Amazon Route 53
-    HealthCheck HealthCheckTags
+         * A list of Amazon Route 53 HealthCheck HealthCheckTags
          *
          * An arbitrary set of tags (key–value pairs) for this health check.
          *
@@ -43987,8 +48927,7 @@ export namespace AWS.Route53 {
 export namespace AWS.Route53.HostedZone {
     export interface Properties {
         /**
-         * Route 53 HostedZoneConfig
-    Property
+         * Route 53 HostedZoneConfig Property
          *
          * A complex type that contains an optional comment about your hosted zone.
          *
@@ -43997,8 +48936,7 @@ export namespace AWS.Route53.HostedZone {
          */
         HostedZoneConfig?: AWS.Route53.HostedZone.HostedZoneConfig;
         /**
-         * List of Amazon Route 53
-    HostedZoneTags
+         * List of Amazon Route 53 HostedZoneTags
          *
          * An arbitrary set of tags (key–value pairs) for this hosted zone.
          *
@@ -44164,7 +49102,7 @@ export namespace AWS.Route53.RecordSet {
          * String
 
          *
-         * Any comments that you want to include about the hosted zone.
+         * Any comments that you want to include about the change batch.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-comment
@@ -44188,8 +49126,7 @@ export namespace AWS.Route53.RecordSet {
          */
         Failover?: C.CFString;
         /**
-         * Route 53 Record Set GeoLocation
-    Property
+         * Route 53 Record Set GeoLocation Property
          *
          * Describes how Route 53 responds to DNS queries based on the
  geographic origin of the query. This property is not
@@ -44236,6 +49173,18 @@ export namespace AWS.Route53.RecordSet {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzonename
          */
         HostedZoneName?: C.CFString;
+        /**
+         * Boolean
+
+         *
+         * Multivalue answer resource record sets only: To route traffic approximately randomly to multiple resources, such as web servers,
+ create one multivalue answer record for each resource and specify true for MultiValueAnswer.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-multivalueanswer
+         */
+        MultiValueAnswer?: C.CFBoolean;
         /**
          * String
 
@@ -44454,7 +49403,7 @@ export namespace AWS.Route53.RecordSetGroup {
          * String
 
          *
-         * Any comments you want to include about the hosted zone.
+         * Any comments you want to include about the change batch.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html#cfn-route53-recordsetgroup-comment
@@ -44601,7 +49550,7 @@ export namespace AWS.Route53.RecordSetGroup {
          * String
 
          *
-         * Any comments that you want to include about the hosted zone.
+         * Any comments that you want to include about the change batch.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-comment
@@ -44625,8 +49574,7 @@ export namespace AWS.Route53.RecordSetGroup {
          */
         Failover?: C.CFString;
         /**
-         * Route 53 Record Set GeoLocation
-    Property
+         * Route 53 Record Set GeoLocation Property
          *
          * Describes how Route 53 responds to DNS queries based on the
  geographic origin of the query. This property is not
@@ -44673,6 +49621,18 @@ export namespace AWS.Route53.RecordSetGroup {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzonename
          */
         HostedZoneName?: C.CFString;
+        /**
+         * Boolean
+
+         *
+         * Multivalue answer resource record sets only: To route traffic approximately randomly to multiple resources, such as web servers,
+ create one multivalue answer record for each resource and specify true for MultiValueAnswer.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-multivalueanswer
+         */
+        MultiValueAnswer?: C.CFBoolean;
         /**
          * String
 
@@ -44768,6 +49728,264 @@ export namespace AWS.Route53.RecordSetGroup {
         Weight?: C.CFInteger;
     }
 }
+export namespace AWS.Route53Resolver {
+    /**
+     * The
+        AWS::Route53Resolver::ResolverEndpoint resource includes settings for inbound or outbound endpoints for Amazon Route 53.
+    
+        For more information, see ResolverEndpoint in the
+        Amazon Route 53 API Reference.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html
+     */
+    export interface ResolverEndpoint extends C.CommonResourceProps {
+        Type: 'AWS::Route53Resolver::ResolverEndpoint';
+        Properties: AWS.Route53Resolver.ResolverEndpoint.Properties;
+    }
+    /**
+     * The
+        AWS::Route53Resolver::ResolverEndpoint resource includes settings for inbound or outbound endpoints for Amazon Route 53.
+    
+        For more information, see ResolverEndpoint in the
+        Amazon Route 53 API Reference.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html
+     */
+    export function ResolverEndpoint(props: C.Omit<ResolverEndpoint, 'Type'>): ResolverEndpoint {
+        return { Type: 'AWS::Route53Resolver::ResolverEndpoint', ...props };
+    }
+}
+export namespace AWS.Route53Resolver.ResolverEndpoint {
+    export interface Properties {
+        /**
+         *                             Type: List of IpAddressRequest property types
+
+         *
+         * The subnets and IP addresses in your VPC that you want DNS queries to pass through
+ on the way from your VPCs
+        to your network (for outbound endpoints) or on the way from your network to your
+ VPCs (for inbound resolver endpoints).
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-ipaddresses
+         */
+        IpAddresses: C.CFList<AWS.Route53Resolver.ResolverEndpoint.IpAddressRequest>;
+        /**
+         *                             Type: String
+
+         *
+         * Indicates whether the resolver endpoint allows inbound or outbound DNS
+ queries.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-direction
+         */
+        Direction: C.CFString;
+        /**
+         *                             Type: List of String values
+
+         *
+         * The ID of one or more security groups that you want to use to control access to this
+ VPC. The security group
+        that you specify must include one or more inbound rules (for inbound resolver endpoints)
+ or outbound rules
+        (for outbound resolver endpoints).
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-securitygroupids
+         */
+        SecurityGroupIds: C.CFList<C.CFString>;
+        /**
+         *                             Type: List of Resource Tag property types
+
+         *
+         * A list of the tag keys and values that you want to associate with the endpoint.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-tags
+         */
+        Tags?: C.CFList<Tag>;
+        /**
+         *                             Type: String
+
+         *
+         * A friendly name that lets you easily find a configuration in the Resolver dashboard
+ in the Route 53 console.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html#cfn-route53resolver-resolverendpoint-name
+         */
+        Name?: C.CFString;
+    }
+}
+export namespace AWS.Route53Resolver.ResolverEndpoint {
+    export interface IpAddressRequest {
+        /**
+         *                             Type: String
+
+         *
+         * The IP address that you want to use for DNS queries.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-ip
+         */
+        Ip?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The subnet that contains the IP address.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverendpoint-ipaddressrequest.html#cfn-route53resolver-resolverendpoint-ipaddressrequest-subnetid
+         */
+        SubnetId: C.CFString;
+    }
+}
+export namespace AWS.Route53Resolver {
+    /**
+     * The
+        AWS::Route53Resolver::ResolverRule resource provides detailed information about a resolver rule, which specifies
+        how to route DNS queries out of a VPC for Amazon Route 53 Resolver. For more information,
+    see
+        ResolverRule in the Amazon Route 53 API Reference.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html
+     */
+    export interface ResolverRule extends C.CommonResourceProps {
+        Type: 'AWS::Route53Resolver::ResolverRule';
+        Properties: AWS.Route53Resolver.ResolverRule.Properties;
+    }
+    /**
+     * The
+        AWS::Route53Resolver::ResolverRule resource provides detailed information about a resolver rule, which specifies
+        how to route DNS queries out of a VPC for Amazon Route 53 Resolver. For more information,
+    see
+        ResolverRule in the Amazon Route 53 API Reference.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html
+     */
+    export function ResolverRule(props: C.Omit<ResolverRule, 'Type'>): ResolverRule {
+        return { Type: 'AWS::Route53Resolver::ResolverRule', ...props };
+    }
+}
+export namespace AWS.Route53Resolver.ResolverRule {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The ID of the outbound endpoint that the rule is associated with.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-resolverendpointid
+         */
+        ResolverEndpointId?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * DNS queries for this domain name are forwarded to the IP addresses that are specified
+ in TargetIps.
+        If a query matches multiple resolver rules (example.com and www.example.com), the
+ query is routed
+        using the resolver rule that contains the most specific domain name (www.example.com).
+ 
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-domainname
+         */
+        DomainName: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * When you want to forward DNS queries for specified domain name to resolvers on your
+ network, specify FORWARD.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-ruletype
+         */
+        RuleType: C.CFString;
+        /**
+         *                             Type: List of TargetAddress property types
+
+         *
+         * When a DNS query matches the name that you specify in DomainName, the outbound endpoint forwards the query
+        to the IP addresses that you specify here, typically the IP addresses for DNS resolvers
+ on your network.
+        Specify IPv4 addresses. IPv6 is not supported.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-targetips
+         */
+        TargetIps?: C.CFList<AWS.Route53Resolver.ResolverRule.TargetAddress>;
+        /**
+         *                             Type: List of Resource Tag property types
+
+         *
+         * A list of the tag keys and values that you want to associate with the rule.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-tags
+         */
+        Tags?: C.CFList<Tag>;
+        /**
+         *                             Type: String
+
+         *
+         * A friendly name that lets you easily find a rule in the Resolver dashboard in the
+ Route 53 console.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html#cfn-route53resolver-resolverrule-name
+         */
+        Name?: C.CFString;
+    }
+}
+export namespace AWS.Route53Resolver.ResolverRule {
+    export interface TargetAddress {
+        /**
+         *                             Type: String
+
+         *
+         * One IP address that you want to forward DNS queries to. You can specify only IPv4
+ addresses.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-ip
+         */
+        Ip: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The port at Ip that you want to forward DNS queries to.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-resolverrule-targetaddress.html#cfn-route53resolver-resolverrule-targetaddress-port
+         */
+        Port: C.CFString;
+    }
+}
 export namespace AWS.S3 {
     /**
      * The AWS::S3::Bucket resource creates an Amazon Simple Storage Service (Amazon S3) bucket in the same
@@ -44796,7 +50014,7 @@ export namespace AWS.S3 {
 export namespace AWS.S3.Bucket {
     export interface Properties {
         /**
-         * Amazon S3 Bucket AccelerateConfiguration
+         * AccelerateConfiguration
          *
          * Configuration for the transfer acceleration state.
  For more information, see Amazon S3 Transfer Acceleration in the
@@ -44822,7 +50040,7 @@ export namespace AWS.S3.Bucket {
          */
         AccessControl?: C.CFString;
         /**
-         *                             Type: List of Amazon S3 Bucket AnalyticsConfiguration
+         *                             Type: List of AnalyticsConfiguration
          *
          * The configuration and any analyses for the analytics filter of an Amazon S3 bucket.
  Duplicates not allowed.
@@ -44872,7 +50090,7 @@ export namespace AWS.S3.Bucket {
          */
         CorsConfiguration?: AWS.S3.Bucket.CorsConfiguration;
         /**
-         *                             Type: List of Amazon S3 Bucket InventoryConfiguration
+         *                             Type: List of InventoryConfiguration
          *
          * The inventory configuration for an Amazon S3 bucket. Duplicates not allowed.
          *
@@ -44903,10 +50121,12 @@ export namespace AWS.S3.Bucket {
          */
         LoggingConfiguration?: AWS.S3.Bucket.LoggingConfiguration;
         /**
-         *                             Type: List of Amazon S3 Bucket MetricsConfiguration
+         *                             Type: List of MetricsConfiguration
          *
          * Settings that define a metrics configuration for the CloudWatch request metrics from
- the bucket.
+ the
+ bucket. For a list of request metrics, see Amazon S3 CloudWatch
+    Request Metrics in the Amazon Simple Storage Service Developer Guide.
 
          *
          * UpdateType: Mutable
@@ -44923,6 +50143,15 @@ export namespace AWS.S3.Bucket {
          */
         NotificationConfiguration?: AWS.S3.Bucket.NotificationConfiguration;
         /**
+         * PublicAccessBlockConfiguration
+         *
+         * Configuration that defines how Amazon S3 handles public access.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
+         */
+        PublicAccessBlockConfiguration?: AWS.S3.Bucket.PublicAccessBlockConfiguration;
+        /**
          * Amazon S3 Bucket ReplicationConfiguration
          *
          * Configuration for replicating objects in an S3 bucket. To enable replication, you
@@ -44934,7 +50163,7 @@ export namespace AWS.S3.Bucket {
          */
         ReplicationConfiguration?: AWS.S3.Bucket.ReplicationConfiguration;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * An arbitrary set of tags (key-value pairs) for this S3 bucket.
          *
@@ -45004,7 +50233,9 @@ export namespace AWS.S3.Bucket {
          *                             Type: String
 
          *
-         * Specifies the replica ownership.
+         * Specifies the replica ownership. For default and valid values, see PUT bucket
+    replication in the Amazon Simple Storage Service API Reference.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner
@@ -45162,7 +50393,7 @@ export namespace AWS.S3.Bucket {
 export namespace AWS.S3.Bucket {
     export interface DataExport {
         /**
-         *                             Type: Amazon S3 Bucket Destination
+         *                             Type: Destination
          *
          * Information about where to publish the analytics results.
          *
@@ -45282,7 +50513,7 @@ export namespace AWS.S3.Bucket {
 export namespace AWS.S3.Bucket {
     export interface InventoryConfiguration {
         /**
-         *                             Type: Amazon S3 Bucket Destination
+         *                             Type: Destination
          *
          * Information about where to publish the inventory results.
          *
@@ -45468,7 +50699,7 @@ export namespace AWS.S3.Bucket {
          */
         Prefix?: C.CFString;
         /**
-         *                             Type: List of Amazon S3  Bucket TagFilter
+         *                             Type: List of TagFilter
          *
          * Specifies a list of tag filters to use as a metrics configuration filter. The metrics
  configuration includes only objects that meet the filter's criteria.
@@ -45515,7 +50746,7 @@ export namespace AWS.S3.Bucket {
 export namespace AWS.S3.Bucket {
     export interface NotificationConfiguration {
         /**
-         * Amazon S3 Bucket LambdaConfiguration
+         * LambdaConfiguration
          *
          * The AWS Lambda functions to invoke and the events for which to invoke the
  functions.
@@ -45526,7 +50757,7 @@ export namespace AWS.S3.Bucket {
          */
         LambdaConfigurations?: C.CFList<AWS.S3.Bucket.LambdaConfiguration>;
         /**
-         * Amazon S3 Bucket QueueConfiguration
+         * QueueConfiguration
          *
          * The Amazon Simple Queue Service queues to publish messages to and the events for which
  to publish
@@ -45538,7 +50769,7 @@ export namespace AWS.S3.Bucket {
          */
         QueueConfigurations?: C.CFList<AWS.S3.Bucket.QueueConfiguration>;
         /**
-         * Amazon S3 Bucket TopicConfiguration
+         * TopicConfiguration
          *
          * The topic to which notifications are sent and the events for which notification
  are generated.
@@ -45563,6 +50794,46 @@ export namespace AWS.S3.Bucket {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key
          */
         S3Key: AWS.S3.Bucket.S3KeyFilter;
+    }
+}
+export namespace AWS.S3.Bucket {
+    export interface PublicAccessBlockConfiguration {
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicacls
+         */
+        BlockPublicAcls?: C.CFBoolean;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-blockpublicpolicy
+         */
+        BlockPublicPolicy?: C.CFBoolean;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-ignorepublicacls
+         */
+        IgnorePublicAcls?: C.CFBoolean;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-publicaccessblockconfiguration.html#cfn-s3-bucket-publicaccessblockconfiguration-restrictpublicbuckets
+         */
+        RestrictPublicBuckets?: C.CFBoolean;
     }
 }
 export namespace AWS.S3.Bucket {
@@ -46029,7 +51300,7 @@ export namespace AWS.S3.Bucket {
          */
         Status: C.CFString;
         /**
-         *                             Type: List of Amazon S3  Bucket TagFilter
+         *                             Type: List of TagFilter
          *
          * Tags to use to identify a subset of objects to which the lifecycle rule applies.
          *
@@ -46501,7 +51772,7 @@ export namespace AWS.SES.ConfigurationSetEventDestination {
          */
         ConfigurationSetName: C.CFString;
         /**
-         *                             Type: Amazon SES ConfigurationSetEventDestination EventDestination
+         *                             Type: EventDestination
          *
          * The AWS service that email sending event information will be published to.
          *
@@ -46514,7 +51785,7 @@ export namespace AWS.SES.ConfigurationSetEventDestination {
 export namespace AWS.SES.ConfigurationSetEventDestination {
     export interface CloudWatchDestination {
         /**
-         *                             Type: List of Amazon SES ConfigurationSetEventDestination DimensionConfiguration
+         *                             Type: List of DimensionConfiguration
          *
          * A list of dimensions upon which to categorize your emails when you publish email sending
  events to CloudWatch.
@@ -46569,7 +51840,7 @@ export namespace AWS.SES.ConfigurationSetEventDestination {
 export namespace AWS.SES.ConfigurationSetEventDestination {
     export interface EventDestination {
         /**
-         *                             Type: Amazon SES ConfigurationSetEventDestination CloudWatchDestination
+         *                             Type: CloudWatchDestination
          *
          * The names, default values, and sources of the dimensions associated with an CloudWatch
  event destination.
@@ -46612,7 +51883,7 @@ export namespace AWS.SES.ConfigurationSetEventDestination {
          */
         Name?: C.CFString;
         /**
-         *                             Type: Amazon SES ConfigurationSetEventDestination KinesisFirehoseDestination
+         *                             Type: KinesisFirehoseDestination
          *
          * Contains the delivery stream ARN and the IAM role ARN associated with an Kinesis Data
  Firehose event destination.
@@ -46684,7 +51955,7 @@ export namespace AWS.SES {
 export namespace AWS.SES.ReceiptFilter {
     export interface Properties {
         /**
-         *                             Type: Amazon SES ReceiptFilter Filter
+         *                             Type: Filter
          *
          * The IP addresses to block or allow, and whether to block or allow incoming mail from
  them.
@@ -46699,7 +51970,7 @@ export namespace AWS.SES.ReceiptFilter {
 export namespace AWS.SES.ReceiptFilter {
     export interface Filter {
         /**
-         *                             Type: Amazon SES ReceiptFilter IpFilter
+         *                             Type: IpFilter
          *
          * The IP addresses to block or allow, and whether to block or allow incoming mail from
  them.
@@ -46724,24 +51995,18 @@ export namespace AWS.SES.ReceiptFilter {
 export namespace AWS.SES.ReceiptFilter {
     export interface IpFilter {
         /**
-         *                             Type: String
-
          *
-         * Indicates whether to block or allow incoming mail from the specified IP addresses.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-policy
          */
         Policy: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * A single IP address or a range of IP addresses that you want to block or allow, specified
- in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address
- is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information
- about CIDR notation, see RFC 2317.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html#cfn-ses-receiptfilter-ipfilter-cidr
@@ -46791,7 +52056,7 @@ export namespace AWS.SES.ReceiptRule {
          */
         After?: C.CFString;
         /**
-         *                             Type: Amazon SES ReceiptRule Rule
+         *                             Type: Rule
          *
          * The specified rule's name, actions, recipients, domains, enabled status, scan status,
  and TLS policy.
@@ -46816,7 +52081,7 @@ export namespace AWS.SES.ReceiptRule {
 export namespace AWS.SES.ReceiptRule {
     export interface Action {
         /**
-         *                             Type: Amazon SES ReceiptRule BounceAction
+         *                             Type: BounceAction
          *
          * Rejects the received email by returning a bounce response to the sender and, optionally,
  publishes a notification to Amazon SNS.
@@ -46827,7 +52092,7 @@ export namespace AWS.SES.ReceiptRule {
          */
         BounceAction?: AWS.SES.ReceiptRule.BounceAction;
         /**
-         *                             Type: Amazon SES ReceiptRule S3Action
+         *                             Type: S3Action
          *
          * Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification
  to Amazon SNS.
@@ -46838,7 +52103,7 @@ export namespace AWS.SES.ReceiptRule {
          */
         S3Action?: AWS.SES.ReceiptRule.S3Action;
         /**
-         *                             Type: Amazon SES ReceiptRule StopAction
+         *                             Type: StopAction
          *
          * Terminates the evaluation of the receipt rule set and optionally publishes a notification
  to Amazon SNS.
@@ -46849,7 +52114,7 @@ export namespace AWS.SES.ReceiptRule {
          */
         StopAction?: AWS.SES.ReceiptRule.StopAction;
         /**
-         *                             Type: Amazon SES ReceiptRule SNSAction
+         *                             Type: SNSAction
          *
          * Publishes the email content within a notification to Amazon SNS.
          *
@@ -46858,7 +52123,7 @@ export namespace AWS.SES.ReceiptRule {
          */
         SNSAction?: AWS.SES.ReceiptRule.SNSAction;
         /**
-         *                             Type: Amazon SES ReceiptRule WorkmailAction
+         *                             Type: WorkmailAction
          *
          * Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
          *
@@ -46867,7 +52132,7 @@ export namespace AWS.SES.ReceiptRule {
          */
         WorkmailAction?: AWS.SES.ReceiptRule.WorkmailAction;
         /**
-         *                             Type: Amazon SES ReceiptRule AddHeaderAction
+         *                             Type: AddHeaderAction
          *
          * Adds a header to the received email.
          *
@@ -46876,7 +52141,7 @@ export namespace AWS.SES.ReceiptRule {
          */
         AddHeaderAction?: AWS.SES.ReceiptRule.AddHeaderAction;
         /**
-         *                             Type: Amazon SES ReceiptRule LambdaAction
+         *                             Type: LambdaAction
          *
          * Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
          *
@@ -47041,7 +52306,7 @@ export namespace AWS.SES.ReceiptRule {
          */
         Recipients?: C.CFList<C.CFString>;
         /**
-         *                             Type: List of Amazon SES ReceiptRule Action
+         *                             Type: List of Action
          *
          * An ordered list of actions to perform on messages that match at least one of the recipient
  email addresses or domains specified in the receipt rule.
@@ -47291,7 +52556,7 @@ export namespace AWS.SES {
 export namespace AWS.SES.Template {
     export interface Properties {
         /**
-         *                             Type: Amazon SES Template Template
+         *                             Type: Template
          *
          * The content of the email, composed of a subject line, an HTML part, and a text-only
  part.
@@ -47502,6 +52767,16 @@ export namespace AWS.SNS.Topic {
          */
         DisplayName?: C.CFString;
         /**
+         * String
+
+         *
+         * An AWS KMS key identifier. This can be a key ID, key ARN, or key alias.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-kmsmasterkeyid
+         */
+        KmsMasterKeyId?: C.CFString;
+        /**
          * List of SNS
     Subscriptions
          *
@@ -47665,7 +52940,8 @@ export namespace AWS.SQS.Queue {
          * Boolean
 
          *
-         * Indicates whether this queue is a FIFO queue. For more information, see FIFO (First-In-First-Out) Queues in the
+         * If set to true, creates a FIFO queue. If you don't specify this property, Amazon SQS
+ creates a standard queue. For more information, see FIFO (First-In-First-Out) Queues in the
  Amazon Simple Queue Service Developer Guide.
 
          *
@@ -47910,8 +53186,7 @@ export namespace AWS.SSM.Association {
          */
         Name: C.CFString;
         /**
-         * Systems Manager
-    Association InstanceAssociationOutputLocation
+         * InstanceAssociationOutputLocation
          *
          * An Amazon S3 bucket where you want to store the results of this request.
          *
@@ -47955,8 +53230,7 @@ export namespace AWS.SSM.Association {
 export namespace AWS.SSM.Association {
     export interface InstanceAssociationOutputLocation {
         /**
-         * Systems Manager
-    Association S3OutputLocation
+         * S3OutputLocation
          *
          * An Amazon S3 bucket where you want to store the results of this request.
          *
@@ -48092,7 +53366,7 @@ export namespace AWS.SSM.Document {
          */
         DocumentType?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * AWS CloudFormation resource tags to apply to the document, which can help you identify
  and
@@ -48103,6 +53377,161 @@ export namespace AWS.SSM.Document {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
          */
         Tags?: C.CFList<Tag>;
+    }
+}
+export namespace AWS.SSM {
+    /**
+     * The AWS::SSM::MaintenanceWindow resource represents general information about a
+    Maintenance Window for AWS Systems Manager. Maintenance Windows let you define a schedule
+    for when to
+    perform potentially disruptive actions on your instances—such as patching an operating
+    system (OS), updating drivers, or installing software. Each Maintenance Window has
+    a schedule, a
+    duration, a set of registered targets, and a set of registered tasks. For more information,
+    see
+     Systems Manager Maintenance
+       Windows in the AWS Systems Manager User Guide and
+       CreateMaintenanceWindow in the AWS Systems Manager API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html
+     */
+    export interface MaintenanceWindow extends C.CommonResourceProps {
+        Type: 'AWS::SSM::MaintenanceWindow';
+        Properties: AWS.SSM.MaintenanceWindow.Properties;
+    }
+    /**
+     * The AWS::SSM::MaintenanceWindow resource represents general information about a
+    Maintenance Window for AWS Systems Manager. Maintenance Windows let you define a schedule
+    for when to
+    perform potentially disruptive actions on your instances—such as patching an operating
+    system (OS), updating drivers, or installing software. Each Maintenance Window has
+    a schedule, a
+    duration, a set of registered targets, and a set of registered tasks. For more information,
+    see
+     Systems Manager Maintenance
+       Windows in the AWS Systems Manager User Guide and
+       CreateMaintenanceWindow in the AWS Systems Manager API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html
+     */
+    export function MaintenanceWindow(props: C.Omit<MaintenanceWindow, 'Type'>): MaintenanceWindow {
+        return { Type: 'AWS::SSM::MaintenanceWindow', ...props };
+    }
+}
+export namespace AWS.SSM.MaintenanceWindow {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The date and time, in ISO-8601 Extended format, for when you want the Maintenance
+ Window to become active. StartDate allows you to delay activation of the Maintenance
+ Window until the specified future date.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-startdate
+         */
+        StartDate?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * A description of the Maintenance Window.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-description
+         */
+        Description?: C.CFString;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Enables a Maintenance Window task to execute on managed instances, even if you
+ haven't registered those instances as targets. If this is enabled, then you must specify
+ the unregistered instances (by instance ID) when you register a task with the
+ Maintenance Window.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-allowunassociatedtargets
+         */
+        AllowUnassociatedTargets: C.CFBoolean;
+        /**
+         *                             Type: Integer
+
+         *
+         * The number of hours before the end of the Maintenance Window that Systems Manager
+ stops
+ scheduling new tasks for execution.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-cutoff
+         */
+        Cutoff: C.CFInteger;
+        /**
+         *                             Type: String
+
+         *
+         * The schedule of the Maintenance Window in the form of a cron or rate
+ expression.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-schedule
+         */
+        Schedule: C.CFString;
+        /**
+         *                             Type: Integer
+
+         *
+         * The duration of the Maintenance Window in hours.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-duration
+         */
+        Duration: C.CFInteger;
+        /**
+         *                             Type: String
+
+         *
+         * The date and time, in ISO-8601 Extended format, for when you want the Maintenance
+ Window to become inactive. EndDate allows you to set a date and time in the future
+ when
+ the Maintenance Window will no longer run.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-enddate
+         */
+        EndDate?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the Maintenance Window.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-name
+         */
+        Name: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The time zone that the scheduled Maintenance Window executions are based on, in
+ Internet Assigned Numbers Authority (IANA) format. For example: "America/Los_Angeles",
+ "etc/UTC", or "Asia/Seoul". For more information, see the Time Zone Database on the IANA
+ website.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-scheduletimezone
+         */
+        ScheduleTimezone?: C.CFString;
     }
 }
 export namespace AWS.SSM {
@@ -48185,8 +53614,7 @@ export namespace AWS.SSM.MaintenanceWindowTask {
          */
         MaxConcurrency: C.CFString;
         /**
-         *                             Type: List of Systems Manager
-    MaintenanceWindowTask Target
+         *                             Type: List of Target
          *
          * The targets, either instances or tags.
          *
@@ -48215,7 +53643,7 @@ export namespace AWS.SSM.MaintenanceWindowTask {
          */
         TaskArn: C.CFString;
         /**
-         *                             Type: Systems Manager MaintenanceWindowTask TaskInvocationParameters
+         *                             Type: TaskInvocationParameters
          *
          * The parameters for task execution.
          *
@@ -48256,8 +53684,7 @@ export namespace AWS.SSM.MaintenanceWindowTask {
          */
         TaskType: C.CFString;
         /**
-         *                             Type: Systems Manager
-    MaintenanceWindowTask LoggingInfo
+         *                             Type: LoggingInfo
          *
          * Information about an Amazon S3 bucket to write task-level logs to.
          *
@@ -48370,97 +53797,81 @@ export namespace AWS.SSM.MaintenanceWindowTask {
 export namespace AWS.SSM.MaintenanceWindowTask {
     export interface MaintenanceWindowRunCommandParameters {
         /**
-         *                             Type: Integer
-
          *
-         * If this time is reached and the command hasn't already started executing, it doesn't
- execute.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
          */
         TimeoutSeconds?: C.CFInteger;
         /**
-         *                             Type: String
-
          *
-         * Information about the command or commands to execute.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
          */
         Comment?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The Amazon S3 bucket subfolder.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
          */
         OutputS3KeyPrefix?: C.CFString;
         /**
-         *                             Type: JSON object
-
          *
-         * The parameters for the RUN_COMMAND task execution.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
          */
         Parameters?: C.CFJson;
         /**
-         *                             Type: String
-
          *
-         * The SHA-256 or SHA-1 hash type. SHA-1 hashes are deprecated.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
          */
         DocumentHashType?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The IAM service role that's used during task execution.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
          */
         ServiceRoleArn?: C.CFString;
         /**
-         *                             Type: Systems Manager
-    MaintenanceWindowTask NotificationConfig
          *
-         * Configurations for sending notifications about command status changes on a
- per-instance basis.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
          */
         NotificationConfig?: AWS.SSM.MaintenanceWindowTask.NotificationConfig;
         /**
-         *                             Type: String
-
          *
-         * The name of the Amazon S3 bucket.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
          */
         OutputS3BucketName?: C.CFString;
         /**
-         *                             Type: String
-
          *
-         * The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1
- hashes are deprecated.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
@@ -48559,7 +53970,7 @@ export namespace AWS.SSM.MaintenanceWindowTask {
          *
          * User-defined criteria for sending commands that target instances that meet the
  criteria. Key can be tag:Amazon EC2
-          tagor InstanceIds. For more information about how to
+          tag or InstanceIds. For more information about how to
  send commands that target instances by using Key,Value parameters, see
   Sending Commands to a
     Fleet in the AWS Systems Manager User Guide.
@@ -48574,7 +53985,7 @@ export namespace AWS.SSM.MaintenanceWindowTask {
 export namespace AWS.SSM.MaintenanceWindowTask {
     export interface TaskInvocationParameters {
         /**
-         *                             Type: Systems Manager MaintenanceWindowTask MaintenanceWindowRunCommandParameters
+         *                             Type: MaintenanceWindowRunCommandParameters
          *
          * The parameters for a RUN_COMMAND task type.
 
@@ -48584,7 +53995,7 @@ export namespace AWS.SSM.MaintenanceWindowTask {
          */
         MaintenanceWindowRunCommandParameters?: AWS.SSM.MaintenanceWindowTask.MaintenanceWindowRunCommandParameters;
         /**
-         *                             Type: Systems Manager MaintenanceWindowTask MaintenanceWindowAutomationParameters
+         *                             Type: MaintenanceWindowAutomationParameters
          *
          * The parameters for an AUTOMATION task type.
 
@@ -48594,7 +54005,7 @@ export namespace AWS.SSM.MaintenanceWindowTask {
          */
         MaintenanceWindowAutomationParameters?: AWS.SSM.MaintenanceWindowTask.MaintenanceWindowAutomationParameters;
         /**
-         *                             Type: Systems Manager MaintenanceWindowTask MaintenanceWindowStepFunctionsParameters
+         *                             Type: MaintenanceWindowStepFunctionsParameters
          *
          * The parameters for a STEP_FUNCTION task type.
 
@@ -48604,7 +54015,7 @@ export namespace AWS.SSM.MaintenanceWindowTask {
          */
         MaintenanceWindowStepFunctionsParameters?: AWS.SSM.MaintenanceWindowTask.MaintenanceWindowStepFunctionsParameters;
         /**
-         *                             Type: Systems Manager MaintenanceWindowTask MaintenanceWindowLambdaParameters
+         *                             Type: MaintenanceWindowLambdaParameters
          *
          * The parameters for a LAMBDA task type.
 
@@ -48728,13 +54139,14 @@ export namespace AWS.SSM {
 export namespace AWS.SSM.PatchBaseline {
     export interface Properties {
         /**
-         *                             Type: String
+         * String
 
          *
-         * Defines
- the operating system that the patch baseline applies to. Supported operating systems
- include WINDOWS, AMAZON_LINUX, AMAZON_LINUX_2, UBUNTU, REDHAT_ENTERPRISE_LINUX, SUSE, and CENTOS. The default value is
- WINDOWS.
+         * Defines the operating system that the patch baseline applies to. Supported operating
+ systems include WINDOWS, AMAZON_LINUX,
+ AMAZON_LINUX_2, UBUNTU,
+ REDHAT_ENTERPRISE_LINUX, SUSE, and CENTOS. The
+ default value is WINDOWS.
 
          *
          * UpdateType: Immutable
@@ -48742,7 +54154,7 @@ export namespace AWS.SSM.PatchBaseline {
          */
         OperatingSystem?: C.CFString;
         /**
-         *                             Type: List of String values
+         * List of String values
 
          *
          * A list of explicitly approved patches for the baseline.
@@ -48752,7 +54164,19 @@ export namespace AWS.SSM.PatchBaseline {
          */
         ApprovedPatches?: C.CFList<C.CFString>;
         /**
-         *                             Type: List of String values
+         * List of String values
+
+         *
+         * The action for Patch Manager to take on patches included in the RejectedPackages
+ list.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatchesaction
+         */
+        RejectedPatchesAction?: C.CFString;
+        /**
+         * List of String values
 
          *
          * The names of the patch groups to register with the patch baseline.
@@ -48762,7 +54186,7 @@ export namespace AWS.SSM.PatchBaseline {
          */
         PatchGroups?: C.CFList<C.CFString>;
         /**
-         *                             Type: String
+         * String
 
          *
          * A description of the patch baseline.
@@ -48772,7 +54196,7 @@ export namespace AWS.SSM.PatchBaseline {
          */
         Description?: C.CFString;
         /**
-         *                             Type: String
+         * String
 
          *
          * The compliance level for approved patches. This means that if an approved patch is
@@ -48787,17 +54211,20 @@ export namespace AWS.SSM.PatchBaseline {
          */
         ApprovedPatchesComplianceLevel?: C.CFString;
         /**
+         * Boolean
+
          *
-         *
-         *
+         * Indicates whether the list of approved patches includes non-security updates that
+ should be applied to the instances. The default value is 'false'. Applies to Linux
+ instances only.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchesenablenonsecurity
          */
         ApprovedPatchesEnableNonSecurity?: C.CFBoolean;
         /**
-         *                             Type: Systems Manager PatchBaseline
-    RuleGroup
+         *                             Type: RuleGroup
          *
          * A set of rules that are used to include patches in the baseline.
          *
@@ -48806,8 +54233,7 @@ export namespace AWS.SSM.PatchBaseline {
          */
         ApprovalRules?: AWS.SSM.PatchBaseline.RuleGroup;
         /**
-         *                             Type: Systems Manager
-    PatchBaseline PatchFilterGroup
+         *                             Type: PatchFilterGroup
          *
          * A set of global filters that are used to exclude patches from the baseline.
          *
@@ -48816,16 +54242,19 @@ export namespace AWS.SSM.PatchBaseline {
          */
         GlobalFilters?: AWS.SSM.PatchBaseline.PatchFilterGroup;
         /**
+         *                             Type: Array of PatchSource objects
+
          *
-         *
-         *
+         * Information about the patches to use to update the instances, including target
+ operating systems and source repositories. Applies to Linux instances only.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
          */
         Sources?: C.CFList<AWS.SSM.PatchBaseline.PatchSource>;
         /**
-         *                             Type: String
+         * String
 
          *
          * The name of the patch baseline.
@@ -48835,7 +54264,7 @@ export namespace AWS.SSM.PatchBaseline {
          */
         Name: C.CFString;
         /**
-         *                             Type: List of String values
+         * List of String values
 
          *
          * A list of explicitly rejected patches for the baseline.
@@ -48874,8 +54303,7 @@ export namespace AWS.SSM.PatchBaseline {
 export namespace AWS.SSM.PatchBaseline {
     export interface PatchFilterGroup {
         /**
-         *                             Type: List of Systems Manager PatchBaseline
-    PatchFilter
+         *                             Type: List of PatchFilter
          *
          * The set of patch filters that make up the group.
          *
@@ -48888,27 +54316,34 @@ export namespace AWS.SSM.PatchBaseline {
 export namespace AWS.SSM.PatchBaseline {
     export interface PatchSource {
         /**
+         * String to String map
+
          *
-         *
-         *
+         * The specific operating system versions a patch repository applies to, such as
+ "Ubuntu16.04", "AmazonLinux2016.09", "RedhatEnterpriseLinux7.2" or "Suse12.7". For
+ lists
+ of supported product values, see PatchFilter in the AWS Systems Manager API Reference.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-products
          */
         Products?: C.CFList<C.CFString>;
         /**
+         * String
+
          *
-         *
-         *
+         * The value of the yum repo configuration.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-configuration
          */
         Configuration?: C.CFString;
         /**
+         * String
+
          *
-         *
-         *
+         * The name specified to identify the patch source.
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-name
@@ -48933,8 +54368,7 @@ export namespace AWS.SSM.PatchBaseline {
          */
         EnableNonSecurity?: C.CFBoolean;
         /**
-         *                             Type: Systems Manager
-    PatchBaseline PatchFilterGroup
+         *                             Type: PatchFilterGroup
          *
          * The patch filter group that defines the criteria for the rule.
          *
@@ -48961,9 +54395,9 @@ export namespace AWS.SSM.PatchBaseline {
 
          *
          * A compliance severity level for all approved patches in a patch baseline. Valid
- compliance severity levels include the following: Unspecified,
- Critical, High, Medium, Low, and
- Informational.
+ compliance severity levels include the following: UNSPECIFIED,
+ CRITICAL, HIGH, MEDIUM, LOW, and
+ INFORMATIONAL.
 
          *
          * UpdateType: Mutable
@@ -48975,8 +54409,7 @@ export namespace AWS.SSM.PatchBaseline {
 export namespace AWS.SSM.PatchBaseline {
     export interface RuleGroup {
         /**
-         *                             Type: List of Systems Manager PatchBaseline
-    Rule
+         *                             Type: List of Rule
          *
          * The rules that make up the rule group.
          *
@@ -49152,7 +54585,7 @@ export namespace AWS.SageMaker.Endpoint {
          */
         EndpointConfigName: C.CFString;
         /**
-         *                             Type: List of Amazon SageMaker Endpoint Tag
+         *                             Type: List of Resource Tag
          *
          * An array of key-value pairs. For more information, see Using
     Cost Allocation Tags in the AWS Billing and Cost Management User
@@ -49237,8 +54670,7 @@ export namespace AWS.SageMaker.EndpointConfig {
          */
         EndpointConfigName?: C.CFString;
         /**
-         *                             Type: List of Amazon SageMaker EndpointConfig
-    Tag
+         *                             Type: List of Resource Tag
          *
          * An array of key-value pairs. For more information, see Using
     Cost Allocation Tags in the AWS Billing and Cost Management User
@@ -49394,8 +54826,7 @@ export namespace AWS.SageMaker.Model {
          */
         VpcConfig?: AWS.SageMaker.Model.VpcConfig;
         /**
-         *                             Type: List of Amazon SageMaker Model
-    Tag
+         *                             Type: List of Resource Tag
          *
          * An array of key-value pairs. For more information, see Using
     Cost Allocation Tags in the AWS Billing and Cost Management User
@@ -49423,7 +54854,7 @@ export namespace AWS.SageMaker.Model {
          */
         ContainerHostname?: C.CFString;
         /**
-         *                             Type: JSON
+         *                             Type: JSON object
 
          *
          * The environment variables to set in the Docker container. Each key and
@@ -49536,6 +54967,15 @@ export namespace AWS.SageMaker.NotebookInstance {
          */
         KmsKeyId?: C.CFString;
         /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-volumesizeingb
+         */
+        VolumeSizeInGB?: C.CFInteger;
+        /**
          *                             Type: String
 
          *
@@ -49595,7 +55035,7 @@ export namespace AWS.SageMaker.NotebookInstance {
     Developer Guide.
 
          *
-         * UpdateType: Immutable
+         * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-lifecycleconfigname
          */
         LifecycleConfigName?: C.CFString;
@@ -49628,8 +55068,7 @@ export namespace AWS.SageMaker.NotebookInstance {
          */
         RoleArn: C.CFString;
         /**
-         *                             Type: List of Amazon SageMaker NotebookInstance
-    Tag
+         *                             Type: List of Resource Tag
          *
          * A list of tags to associate with the notebook instance.
          *
@@ -49720,6 +55159,499 @@ export namespace AWS.SageMaker.NotebookInstanceLifecycleConfig {
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook-content
          */
         Content?: C.CFString;
+    }
+}
+export namespace AWS.SecretsManager {
+    /**
+     * The AWS::SecretsManager::ResourcePolicy resource lets you define a
+    resource-based policy and attach it to a secret that's stored in Secrets Manager.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html
+     */
+    export interface ResourcePolicy extends C.CommonResourceProps {
+        Type: 'AWS::SecretsManager::ResourcePolicy';
+        Properties: AWS.SecretsManager.ResourcePolicy.Properties;
+    }
+    /**
+     * The AWS::SecretsManager::ResourcePolicy resource lets you define a
+    resource-based policy and attach it to a secret that's stored in Secrets Manager.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html
+     */
+    export function ResourcePolicy(props: C.Omit<ResourcePolicy, 'Type'>): ResourcePolicy {
+        return { Type: 'AWS::SecretsManager::ResourcePolicy', ...props };
+    }
+}
+export namespace AWS.SecretsManager.ResourcePolicy {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * Specifies the Amazon Resource Name (ARN) or the friendly name of the secret that you
+ want to attach a resource-based permissions policy to. To reference a secret that's
+ also
+ created in this template, use the Ref function with the secret's logical ID.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-secretid
+         */
+        SecretId: C.CFString;
+        /**
+         *                             Type: JSON object
+
+         *
+         * Specifies a JSON object that's constructed according to the grammar and
+ syntax for an AWSresource-based policy. The policy identifies who can
+ access or manage this secret and its versions. For information on how to format a
+ JSON
+ object as a parameter for this resource type, see
+ Using Resource-based Policies
+    for Secrets Manager in the AWS Secrets Manager User Guide.
+ Those same rules apply here.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html#cfn-secretsmanager-resourcepolicy-resourcepolicy
+         */
+        ResourcePolicy: C.CFJson;
+    }
+}
+export namespace AWS.SecretsManager {
+    /**
+     * The AWS::SecretsManager::RotationSchedule resource configures rotation for a
+    secret. The secret must already be configured with the details of the database or
+    service. If
+    you define both the secret and the database or service in a AWS CloudFormation template,
+    then define the
+    AWS::SecretsManager::SecretTargetAttachment resource to populate the
+    secret with the connection details of the database or service before you attempt to
+    configure
+    rotation.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
+     */
+    export interface RotationSchedule extends C.CommonResourceProps {
+        Type: 'AWS::SecretsManager::RotationSchedule';
+        Properties: AWS.SecretsManager.RotationSchedule.Properties;
+    }
+    /**
+     * The AWS::SecretsManager::RotationSchedule resource configures rotation for a
+    secret. The secret must already be configured with the details of the database or
+    service. If
+    you define both the secret and the database or service in a AWS CloudFormation template,
+    then define the
+    AWS::SecretsManager::SecretTargetAttachment resource to populate the
+    secret with the connection details of the database or service before you attempt to
+    configure
+    rotation.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
+     */
+    export function RotationSchedule(props: C.Omit<RotationSchedule, 'Type'>): RotationSchedule {
+        return { Type: 'AWS::SecretsManager::RotationSchedule', ...props };
+    }
+}
+export namespace AWS.SecretsManager.RotationSchedule {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * Specifies the Amazon Resource Name (ARN) or the friendly name of the secret that you
+ want to rotate. To reference a secret also that's created in this template, use the
+ Ref function with the secret's
+ logical ID.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-secretid
+         */
+        SecretId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * Specifies the ARN of the Lambda function that can rotate the secret. If you don't
+ specify this parameter, then the secret must already have the ARN of a Lambda function
+ configured. To reference a Lambda function that's also created in this template, use
+ the
+ Ref function with the
+ function's logical ID.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationlambdaarn
+         */
+        RotationLambdaARN?: C.CFString;
+        /**
+         *                             Type: Secrets Manager RotationSchedule RotationRules
+         *
+         * Specifies a structure that defines the rotation schedule for this secret.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html#cfn-secretsmanager-rotationschedule-rotationrules
+         */
+        RotationRules?: AWS.SecretsManager.RotationSchedule.RotationRules;
+    }
+}
+export namespace AWS.SecretsManager.RotationSchedule {
+    export interface RotationRules {
+        /**
+         *                             Type: Integer
+
+         *
+         * Specifies the number of days after the previous rotation before Secrets Manager triggers
+ the
+ next automatic rotation.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-rotationschedule-rotationrules.html#cfn-secretsmanager-rotationschedule-rotationrules-automaticallyafterdays
+         */
+        AutomaticallyAfterDays?: C.CFInteger;
+    }
+}
+export namespace AWS.SecretsManager {
+    /**
+     * The AWS::SecretsManager::Secret resource creates a secret and stores it in
+    Secrets Manager. For more information, see Secret in the AWS Secrets Manager User Guide, and the CreateSecret API in the AWS Secrets Manager API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
+     */
+    export interface Secret extends C.CommonResourceProps {
+        Type: 'AWS::SecretsManager::Secret';
+        Properties: AWS.SecretsManager.Secret.Properties;
+    }
+    /**
+     * The AWS::SecretsManager::Secret resource creates a secret and stores it in
+    Secrets Manager. For more information, see Secret in the AWS Secrets Manager User Guide, and the CreateSecret API in the AWS Secrets Manager API Reference.
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
+     */
+    export function Secret(props: C.Omit<Secret, 'Type'>): Secret {
+        return { Type: 'AWS::SecretsManager::Secret', ...props };
+    }
+}
+export namespace AWS.SecretsManager.Secret {
+    export interface Properties {
+        /**
+         * String
+
+         *
+         *  Specifies a user-provided description of the secret.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-description
+         */
+        Description?: C.CFString;
+        /**
+         * String
+
+         *
+         * Specifies the ARN, Key ID, or alias of the AWS KMS customer master key (CMK) that's
+ used to encrypt the secret values for versions of this secret. If you don't specify
+ this
+ value, then Secrets Manager defaults to the AWS account's default CMK (the one named
+ aws/secretsmanager). If an AWS KMS CMK with that name doesn't yet exist,
+ Secrets Manager creates it for you automatically the first time it needs to encrypt
+ a version's
+ secret value fields.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-kmskeyid
+         */
+        KmsKeyId?: C.CFString;
+        /**
+         * String
+
+         *
+         * Specifies a literal string to use as the secret value in the initial version of this
+ secret. You can specify any text you like, but remember that Lambda rotation functions
+ require a specific JSON structure to be present in this field.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-secretstring
+         */
+        SecretString?: C.CFString;
+        /**
+         * Secrets Manager Secret GenerateSecretString
+         *
+         * A structure that specifies how to generate a random password by using the
+ functionality of the GetRandomPassword API. You can return that string directly to use as the
+ secret value, or you can alternatively also specify both the
+ SecretStringTemplate and the GenerateSecretKey parameters.
+ Secrets Manager uses the value in GenerateSecretKey as the key name and combines it
+ with the randomly generated password to make a JSON key-value pair. It then inserts
+ that
+ pair into the JSON structure that's specified in the SecretStringTemplate
+ parameter. Secrets Manager stores the completed string as the secret value in the
+ initial version
+ of the secret. For more information about how to use this property, see Secrets Manager Secret GenerateSecretString and
+ the first example in
+ the following Examples section.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-generatesecretstring
+         */
+        GenerateSecretString?: AWS.SecretsManager.Secret.GenerateSecretString;
+        /**
+         * List of Resource Tag
+ property types
+
+         *
+         * Specifies an arbitrary set of tags (key–value pairs) to associate with this
+ secret. Use tags to manage your AWS resources.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-tags
+         */
+        Tags?: C.CFList<Tag>;
+        /**
+         * String
+
+         *
+         * Specifies the friendly name of the new secret. If a Name parameter
+ isn't specified, then Secrets Manager generates a name based on the logical resource
+ ID of the
+ secret in the AWS CloudFormation template.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html#cfn-secretsmanager-secret-name
+         */
+        Name?: C.CFString;
+    }
+}
+export namespace AWS.SecretsManager.Secret {
+    export interface GenerateSecretString {
+        /**
+         *                             Type: Boolean
+
+         *
+         * Specifies that the generated password shouldn't include uppercase letters. The
+ default if you don't include this switch parameter is False, and the
+ generated password can include uppercase letters.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludeuppercase
+         */
+        ExcludeUppercase?: C.CFBoolean;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Specifies whether the generated password must include at least one of every allowed
+ character type. The default if you don't include this switch is True, and the generated
+ password includes at least one of every character type.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-requireeachincludedtype
+         */
+        RequireEachIncludedType?: C.CFBoolean;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Specifies that the generated password can include the space character. The default
+ if you don't include this switch parameter is False, and the generated password doesn't
+ include any space characters.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-includespace
+         */
+        IncludeSpace?: C.CFBoolean;
+        /**
+         *                             Type: String
+
+         *
+         * A string that includes characters that shouldn't be included in the generated
+ password. The default if you don't include this parameter is that all characters from
+ the included sets are candidates for inclusion in the generated password. The string
+ can
+ be a minimum length of 0 characters and a maximum length of 4096 characters.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludecharacters
+         */
+        ExcludeCharacters?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The JSON key name that's used to add the generated password to the JSON structure
+ specified by the SecretStringTemplate parameter. If you specify this
+ parameter, then you must also specify SecretStringTemplate.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-generatestringkey
+         */
+        GenerateStringKey?: C.CFString;
+        /**
+         *                             Type: Integer
+
+         *
+         * The desired length of the generated password. The default value if you don't include
+ this parameter is 32 characters.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-passwordlength
+         */
+        PasswordLength?: C.CFInteger;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Specifies that the generated password shouldn't include punctuation characters. The
+ default if you don't include this switch parameter is False, and the
+ generated password can include punctuation characters.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludepunctuation
+         */
+        ExcludePunctuation?: C.CFBoolean;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Specifies that the generated password shouldn't include lowercase letters. The
+ default if you don't include this switch parameter is False, and the
+ generated password can include lowercase letters.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludelowercase
+         */
+        ExcludeLowercase?: C.CFBoolean;
+        /**
+         *                             Type: String
+
+         *
+         * A properly structured JSON string that the generated password can be added to. If
+ you specify this parameter, then you must also specify GenerateStringKey.
+ That key is combined with the generated random string and inserted into the JSON
+ structure that's specified by this parameter. The merged JSON string is returned as
+ the
+ completed SecretString of the secret. The default if you don't include this
+ parameter is that the generated random password string is returned by itself, and
+ isn't
+ embedded in a JSON structure.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-secretstringtemplate
+         */
+        SecretStringTemplate?: C.CFString;
+        /**
+         *                             Type: Boolean
+
+         *
+         * Specifies that the generated password shouldn't include digits. The default if you
+ don't include this switch parameter is False, and the generated password
+ can include digits.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-secretsmanager-secret-generatesecretstring.html#cfn-secretsmanager-secret-generatesecretstring-excludenumbers
+         */
+        ExcludeNumbers?: C.CFBoolean;
+    }
+}
+export namespace AWS.SecretsManager {
+    /**
+     * The AWS::SecretsManager::SecretTargetAttachment resource completes the final
+    link between a Secrets Manager secret and its associated database. This is required
+    because each has
+    a dependency on the other. No matter which one you create first, the other doesn't
+    exist yet. To
+    resolve this, you must create the resources in the following order:
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
+     */
+    export interface SecretTargetAttachment extends C.CommonResourceProps {
+        Type: 'AWS::SecretsManager::SecretTargetAttachment';
+        Properties: AWS.SecretsManager.SecretTargetAttachment.Properties;
+    }
+    /**
+     * The AWS::SecretsManager::SecretTargetAttachment resource completes the final
+    link between a Secrets Manager secret and its associated database. This is required
+    because each has
+    a dependency on the other. No matter which one you create first, the other doesn't
+    exist yet. To
+    resolve this, you must create the resources in the following order:
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
+     */
+    export function SecretTargetAttachment(props: C.Omit<SecretTargetAttachment, 'Type'>): SecretTargetAttachment {
+        return { Type: 'AWS::SecretsManager::SecretTargetAttachment', ...props };
+    }
+}
+export namespace AWS.SecretsManager.SecretTargetAttachment {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * The Amazon Resource Name (ARN) or the friendly name of the secret that contains the
+ credentials that you want to use with the specified service or database. To reference
+ a
+ secret that's also created in this template, use the Ref function with the secret's
+ logical ID.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-secretid
+         */
+        SecretId: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * A string that defines the type of service or database that's being associated with
+ the secret. This value instructs Secrets Manager how to update the secret with the
+ details of the
+ service or database. This value must be one of the following:
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-targettype
+         */
+        TargetType: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The ARN of the service or database whose credentials are stored in the specified
+ secret. To reference a service or database that's also created in this template, use
+ the
+ Ref function with the service
+ or database's logical ID.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html#cfn-secretsmanager-secrettargetattachment-targetid
+         */
+        TargetId: C.CFString;
     }
 }
 export namespace AWS.ServiceCatalog {
@@ -49887,7 +55819,7 @@ export namespace AWS.ServiceCatalog.CloudFormationProduct {
          */
         Name: C.CFString;
         /**
-         * List of AWS Service Catalog CloudFormationProduct ProvisioningArtifactProperties property types
+         * List of ProvisioningArtifactProperties property types
 
          *
          * The configuration of the provisioning artifact (also known as a version) for a
@@ -49974,7 +55906,7 @@ export namespace AWS.ServiceCatalog.CloudFormationProvisionedProduct {
          */
         PathId?: C.CFString;
         /**
-         *                             Type: List of AWS Service Catalog CloudFormationProvisionedProduct ProvisioningParameter property types
+         *                             Type: List of ProvisioningParameter property types
 
          *
          * Parameters specified by the administrator that are required for provisioning the product.
@@ -50042,7 +55974,7 @@ export namespace AWS.ServiceCatalog.CloudFormationProvisionedProduct {
          */
         ProductId?: C.CFString;
         /**
-         *                             Type: List of  property types
+         *                             Type: List of Resource Tag property types
 
          *
          * One or more tags.
@@ -50396,7 +56328,7 @@ export namespace AWS.ServiceCatalog.Portfolio {
          */
         AcceptLanguage?: C.CFString;
         /**
-         * AWS CloudFormation Resource Tags
+         * Resource Tag
          *
          * One or more tags.
          *
@@ -50551,10 +56483,7 @@ export namespace AWS.ServiceCatalog.PortfolioProductAssociation {
 }
 export namespace AWS.ServiceCatalog {
     /**
-     * Shares the specified portfolio for AWS Service Catalog with the specified account.
-    For more information, see
-    CreatePortfolioShare in the AWS Service Catalog Developer Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html
      */
@@ -50563,10 +56492,7 @@ export namespace AWS.ServiceCatalog {
         Properties: AWS.ServiceCatalog.PortfolioShare.Properties;
     }
     /**
-     * Shares the specified portfolio for AWS Service Catalog with the specified account.
-    For more information, see
-    CreatePortfolioShare in the AWS Service Catalog Developer Guide.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html
      */
@@ -50577,30 +56503,27 @@ export namespace AWS.ServiceCatalog {
 export namespace AWS.ServiceCatalog.PortfolioShare {
     export interface Properties {
         /**
-         * String
-
          *
-         * The AWS account ID.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html#cfn-servicecatalog-portfolioshare-accountid
          */
         AccountId: C.CFString;
         /**
-         * String
-
          *
-         * The language code.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html#cfn-servicecatalog-portfolioshare-acceptlanguage
          */
         AcceptLanguage?: C.CFString;
         /**
-         * String
-
          *
-         * The portfolio identifier.
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioshare.html#cfn-servicecatalog-portfolioshare-portfolioid
@@ -50718,9 +56641,63 @@ export namespace AWS.ServiceCatalog.TagOptionAssociation {
 }
 export namespace AWS.ServiceDiscovery {
     /**
-     * The AWS::ServiceDiscovery::Instance resource specifies information about an instance that
-            Amazon Route 53 creates. For more information, see
-            Instance in the Amazon Route 53 API Reference.
+     * The
+    AWS::ServiceDiscovery::HttpNamespace resource specifies values for an AWS Cloud Map HTTP namespace.
+        For more information, see CreateHttpNamespace
+        in the AWS Cloud Map API Reference.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html
+     */
+    export interface HttpNamespace extends C.CommonResourceProps {
+        Type: 'AWS::ServiceDiscovery::HttpNamespace';
+        Properties: AWS.ServiceDiscovery.HttpNamespace.Properties;
+    }
+    /**
+     * The
+    AWS::ServiceDiscovery::HttpNamespace resource specifies values for an AWS Cloud Map HTTP namespace.
+        For more information, see CreateHttpNamespace
+        in the AWS Cloud Map API Reference.
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html
+     */
+    export function HttpNamespace(props: C.Omit<HttpNamespace, 'Type'>): HttpNamespace {
+        return { Type: 'AWS::ServiceDiscovery::HttpNamespace', ...props };
+    }
+}
+export namespace AWS.ServiceDiscovery.HttpNamespace {
+    export interface Properties {
+        /**
+         *                             Type: String
+
+         *
+         * A description of the namespace.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html#cfn-servicediscovery-httpnamespace-description
+         */
+        Description?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * A name for the namespace.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html#cfn-servicediscovery-httpnamespace-name
+         */
+        Name: C.CFString;
+    }
+}
+export namespace AWS.ServiceDiscovery {
+    /**
+     * The AWS::ServiceDiscovery::Instance resource specifies information about a service instance that
+            AWS Cloud Map creates. For more information, see
+            Instance
+            in the AWS Cloud Map API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html
@@ -50730,9 +56707,10 @@ export namespace AWS.ServiceDiscovery {
         Properties: AWS.ServiceDiscovery.Instance.Properties;
     }
     /**
-     * The AWS::ServiceDiscovery::Instance resource specifies information about an instance that
-            Amazon Route 53 creates. For more information, see
-            Instance in the Amazon Route 53 API Reference.
+     * The AWS::ServiceDiscovery::Instance resource specifies information about a service instance that
+            AWS Cloud Map creates. For more information, see
+            Instance
+            in the AWS Cloud Map API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html
@@ -50769,8 +56747,8 @@ export namespace AWS.ServiceDiscovery.Instance {
          * String
 
          *
-         * The ID of the service that you want to use for settings for the resource record sets
- and health check that Route 53 will create.
+         * The ID of the service that you want to use for settings when you register an instance.
+ 
 
          *
          * UpdateType: Immutable
@@ -50782,10 +56760,10 @@ export namespace AWS.ServiceDiscovery.Instance {
 export namespace AWS.ServiceDiscovery {
     /**
      * The AWS::ServiceDiscovery::PrivateDnsNamespace resource specifies information about
-            a private namespace for Amazon Route 53. Use a private namespace when you want to
+            a private namespace for AWS Cloud Map. Use a private namespace when you want to
     route traffic inside an Amazon VPC.
             For more information, see CreatePrivateDnsNamespace
-            in the Amazon Route 53 API Reference.
+            in the AWS Cloud Map API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html
@@ -50796,10 +56774,10 @@ export namespace AWS.ServiceDiscovery {
     }
     /**
      * The AWS::ServiceDiscovery::PrivateDnsNamespace resource specifies information about
-            a private namespace for Amazon Route 53. Use a private namespace when you want to
+            a private namespace for AWS Cloud Map. Use a private namespace when you want to
     route traffic inside an Amazon VPC.
             For more information, see CreatePrivateDnsNamespace
-            in the Amazon Route 53 API Reference.
+            in the AWS Cloud Map API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html
@@ -50834,8 +56812,8 @@ export namespace AWS.ServiceDiscovery.PrivateDnsNamespace {
          * String
 
          *
-         * The name that you want to assign to this namespace. When you create a namespace, Route 53
- automatically creates a
+         * The name that you want to assign to this namespace. When you create a namespace, AWS
+ Cloud Map automatically creates a
                         hosted zone that has the same name as the namespace.
 
          *
@@ -50848,10 +56826,10 @@ export namespace AWS.ServiceDiscovery.PrivateDnsNamespace {
 export namespace AWS.ServiceDiscovery {
     /**
      * The AWS::ServiceDiscovery::PublicDnsNamespace resource specifies information about
-            a public namespace for Amazon Route 53. Use a public namespace when you want to
-    route internet traffic to your resources.
+            a public namespace for AWS Cloud Map. Use a public namespace when you want to route
+    internet traffic to your resources.
             For more information, see CreatePublicDnsNamespace
-            in the Amazon Route 53 API Reference.
+            in the AWS Cloud Map API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html
@@ -50862,10 +56840,10 @@ export namespace AWS.ServiceDiscovery {
     }
     /**
      * The AWS::ServiceDiscovery::PublicDnsNamespace resource specifies information about
-            a public namespace for Amazon Route 53. Use a public namespace when you want to
-    route internet traffic to your resources.
+            a public namespace for AWS Cloud Map. Use a public namespace when you want to route
+    internet traffic to your resources.
             For more information, see CreatePublicDnsNamespace
-            in the Amazon Route 53 API Reference.
+            in the AWS Cloud Map API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html
@@ -50890,8 +56868,8 @@ export namespace AWS.ServiceDiscovery.PublicDnsNamespace {
          * String
 
          *
-         * The name that you want to assign to this namespace. When you create a namespace, Route 53
- automatically creates a
+         * The name that you want to assign to this namespace. When you create a namespace, AWS
+ Cloud Map automatically creates a
                         hosted zone that has the same name as the namespace.
 
          *
@@ -50903,11 +56881,10 @@ export namespace AWS.ServiceDiscovery.PublicDnsNamespace {
 }
 export namespace AWS.ServiceDiscovery {
     /**
-     * The AWS::ServiceDiscovery::Service resource defines a template for up to five records and an
-            optional health check that you want Amazon Route 53 to create when you register
-    an instance. For more information, see
-            CreateService
-            in the Amazon Route 53 API Reference.
+     * The AWS::ServiceDiscovery::Service resource defines a template that your application uses to register service instances.
+    
+            For more information, see CreateService
+            in the AWS Cloud Map API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html
@@ -50917,11 +56894,10 @@ export namespace AWS.ServiceDiscovery {
         Properties: AWS.ServiceDiscovery.Service.Properties;
     }
     /**
-     * The AWS::ServiceDiscovery::Service resource defines a template for up to five records and an
-            optional health check that you want Amazon Route 53 to create when you register
-    an instance. For more information, see
-            CreateService
-            in the Amazon Route 53 API Reference.
+     * The AWS::ServiceDiscovery::Service resource defines a template that your application uses to register service instances.
+    
+            For more information, see CreateService
+            in the AWS Cloud Map API Reference.
  
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html
@@ -50943,7 +56919,7 @@ export namespace AWS.ServiceDiscovery.Service {
          */
         Description?: C.CFString;
         /**
-         * Route 53 ServiceDiscovery Service HealthCheckCustomConfig
+         * HealthCheckCustomConfig
          *
          * Specifies information about an optional custom health check.
          *
@@ -50952,24 +56928,34 @@ export namespace AWS.ServiceDiscovery.Service {
          */
         HealthCheckCustomConfig?: AWS.ServiceDiscovery.Service.HealthCheckCustomConfig;
         /**
-         * Amazon Route 53 ServiceDiscovery DnsConfig
+         * DnsConfig
          *
-         * A complex type that contains information about the resource record sets that you want
- Route 53 to create
+         * An optional complex type that contains information about the DNS records that you
+ want AWS Cloud Map to create
                         when you register an instance.
 
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-dnsconfig
          */
-        DnsConfig: AWS.ServiceDiscovery.Service.DnsConfig;
+        DnsConfig?: AWS.ServiceDiscovery.Service.DnsConfig;
         /**
-         * Amazon Route 53 ServiceDiscovery HealthCheckConfig
+         *                             						Type: String
+
          *
-         * A complex type that contains settings for an optional health check. If you specify
- settings for a health check,
-                        Route 53 associates the health check with all the resource record sets that
- you specify in DnsConfig.
+         * The ID of the namespace that you want to use to create the service.
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-namespaceid
+         */
+        NamespaceId?: C.CFString;
+        /**
+         * HealthCheckConfig
+         *
+         * A complex type that contains settings for an optional Route 53 health check. If you
+ specify settings for a health check,
+                        AWS Cloud Map associates the health check with all the records that you specify
+ in DnsConfig.
 
          *
          * UpdateType: Mutable
@@ -50992,9 +56978,10 @@ export namespace AWS.ServiceDiscovery.Service {
     export interface DnsConfig {
         /**
          * List of
-                        Amazon Route 53 ServiceDiscovery DnsRecord
+                        DnsRecord
          *
-         * Contains one DnsRecord element for each DNS record that you want Route 53 to create when you register
+         * Contains one DnsRecord element for each DNS record that you want AWS Cloud Map to create when you register
+ 
                         an instance.
 
          *
@@ -51003,9 +56990,13 @@ export namespace AWS.ServiceDiscovery.Service {
          */
         DnsRecords: C.CFList<AWS.ServiceDiscovery.Service.DnsRecord>;
         /**
+         *                             						Type: String
+
          *
-         *
-         *
+         * The routing policy that you want to apply to all DNS records that AWS Cloud Map creates
+ when you register an instance and
+                        specify this service.
+
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-routingpolicy
@@ -51020,7 +57011,7 @@ export namespace AWS.ServiceDiscovery.Service {
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid
          */
-        NamespaceId: C.CFString;
+        NamespaceId?: C.CFString;
     }
 }
 export namespace AWS.ServiceDiscovery.Service {
@@ -51029,8 +57020,8 @@ export namespace AWS.ServiceDiscovery.Service {
          * String
 
          *
-         * The DNS type of the record that you want Route 53 to create. Supported record types
- include A,
+         * The DNS type of the record that you want AWS Cloud Map to create. Supported record
+ types include A,
                         AAAA, and SRV.
 
          *
@@ -51091,7 +57082,7 @@ export namespace AWS.ServiceDiscovery.Service {
  to change the current status
                         of the endpoint from unhealthy to healthy or vice versa. For more information,
  see
-                        How Route 53 Determines Whether an Endpoint Is Healthy
+                        How Route 53 Determines Whether a Health Check Is Healthy
                         in the Amazon Route 53 Developer Guide
          *
          * UpdateType: Mutable
@@ -51378,11 +57369,7 @@ export namespace AWS.WAF.ByteMatchSet {
 }
 export namespace AWS.WAF {
     /**
-     * The AWS::WAF::IPSet resource creates an AWS WAF IPSet that
-    specifies which web requests to permit or block based on the IP addresses from which
-    the
-    requests originate. For more information, see CreateIPSet in the AWS WAF API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html
      */
@@ -51391,11 +57378,7 @@ export namespace AWS.WAF {
         Properties: AWS.WAF.IPSet.Properties;
     }
     /**
-     * The AWS::WAF::IPSet resource creates an AWS WAF IPSet that
-    specifies which web requests to permit or block based on the IP addresses from which
-    the
-    requests originate. For more information, see CreateIPSet in the AWS WAF API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html
      */
@@ -51406,25 +57389,18 @@ export namespace AWS.WAF {
 export namespace AWS.WAF.IPSet {
     export interface Properties {
         /**
-         * List of AWS WAF IPSet IPSetDescriptors
          *
-         * The IP address type and IP address range (in CIDR notation) from which web
- requests originate. If you associate the IPSet with a web ACL that is associated with a Amazon CloudFront
- (CloudFront) distribution, this descriptor is the value of one of the following fields
- in the
- CloudFront access logs:
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html#cfn-waf-ipset-ipsetdescriptors
          */
         IPSetDescriptors?: C.CFList<AWS.WAF.IPSet.IPSetDescriptor>;
         /**
-         * String
-
          *
-         * A friendly name or description of the IPSet.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html#cfn-waf-ipset-name
@@ -52355,9 +58331,7 @@ export namespace AWS.WAFRegional.Rule {
 }
 export namespace AWS.WAFRegional {
     /**
-     * The AWS::WAFRegional::SizeConstraintSet resource specifies a size constraint that AWS WAF uses to check the size of a web
-    request and which parts of the request to check. For more information, see CreateSizeConstraintSet in the AWS WAF Regional API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html
      */
@@ -52366,9 +58340,7 @@ export namespace AWS.WAFRegional {
         Properties: AWS.WAFRegional.SizeConstraintSet.Properties;
     }
     /**
-     * The AWS::WAFRegional::SizeConstraintSet resource specifies a size constraint that AWS WAF uses to check the size of a web
-    request and which parts of the request to check. For more information, see CreateSizeConstraintSet in the AWS WAF Regional API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html
      */
@@ -52379,20 +58351,18 @@ export namespace AWS.WAFRegional {
 export namespace AWS.WAFRegional.SizeConstraintSet {
     export interface Properties {
         /**
-         * List of AWS WAF Regional SizeConstraintSet SizeConstraint
          *
-         * The size constraint and the part of the web request to check.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-sizeconstraints
          */
         SizeConstraints?: C.CFList<AWS.WAFRegional.SizeConstraintSet.SizeConstraint>;
         /**
-         * String
-
          *
-         * A friendly name or description for the SizeConstraintSet.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html#cfn-wafregional-sizeconstraintset-name
@@ -52479,12 +58449,7 @@ export namespace AWS.WAFRegional.SizeConstraintSet {
 }
 export namespace AWS.WAFRegional {
     /**
-     * The AWS::WAFRegional::SqlInjectionMatchSet resource creates an AWS WAF Regional
-    SqlInjectionMatchSet, which you use to allow, block, or count requests that
-    contain malicious SQL code in a specific part of web requests. For more information,
-    see CreateSqlInjectionMatchSet in
-    the AWS WAF Regional API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html
      */
@@ -52493,12 +58458,7 @@ export namespace AWS.WAFRegional {
         Properties: AWS.WAFRegional.SqlInjectionMatchSet.Properties;
     }
     /**
-     * The AWS::WAFRegional::SqlInjectionMatchSet resource creates an AWS WAF Regional
-    SqlInjectionMatchSet, which you use to allow, block, or count requests that
-    contain malicious SQL code in a specific part of web requests. For more information,
-    see CreateSqlInjectionMatchSet in
-    the AWS WAF Regional API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html
      */
@@ -52509,23 +58469,18 @@ export namespace AWS.WAFRegional {
 export namespace AWS.WAFRegional.SqlInjectionMatchSet {
     export interface Properties {
         /**
-         * List of AWS WAF Regional
-    SqlInjectionMatchSet SqlInjectionMatchTuples
          *
-         * The parts of web requests that you want AWS WAF to inspect for malicious SQL code
- and, if you want AWS WAF to inspect a header, the name of the header.
-
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html#cfn-wafregional-sqlinjectionmatchset-sqlinjectionmatchtuples
          */
         SqlInjectionMatchTuples?: C.CFList<AWS.WAFRegional.SqlInjectionMatchSet.SqlInjectionMatchTuple>;
         /**
-         * String
-
          *
-         * A friendly name or description of the SqlInjectionMatchSet.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html#cfn-wafregional-sqlinjectionmatchset-name
@@ -52750,10 +58705,7 @@ export namespace AWS.WAFRegional.WebACLAssociation {
 }
 export namespace AWS.WAFRegional {
     /**
-     * The AWS::WAFRegional::XssMatchSet resource specifies the parts of web requests that you want AWS WAF to inspect for
-    cross-site scripting attacks and the name of the header to inspect. For more information,
-    see XssMatchSet in the AWS WAF Regional API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html
      */
@@ -52762,10 +58714,7 @@ export namespace AWS.WAFRegional {
         Properties: AWS.WAFRegional.XssMatchSet.Properties;
     }
     /**
-     * The AWS::WAFRegional::XssMatchSet resource specifies the parts of web requests that you want AWS WAF to inspect for
-    cross-site scripting attacks and the name of the header to inspect. For more information,
-    see XssMatchSet in the AWS WAF Regional API Reference.
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html
      */
@@ -52776,20 +58725,18 @@ export namespace AWS.WAFRegional {
 export namespace AWS.WAFRegional.XssMatchSet {
     export interface Properties {
         /**
-         * List of AWS WAF Regional XssMatchSet XssMatchTuple
          *
-         * The parts of web requests that you want to inspect for cross-site scripting attacks.
+         *
+         *
          *
          * UpdateType: Mutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-xssmatchtuples
          */
         XssMatchTuples?: C.CFList<AWS.WAFRegional.XssMatchSet.XssMatchTuple>;
         /**
-         * String
-
          *
-         * A friendly name or description for the XssMatchSet.
-
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html#cfn-wafregional-xssmatchset-name
@@ -52849,12 +58796,7 @@ export namespace AWS.WAFRegional.XssMatchSet {
 }
 export namespace AWS.WorkSpaces {
     /**
-     * The AWS::WorkSpaces::Workspace resource creates an Amazon WorkSpaces workspace, which is a
-    cloud-based desktop experience for end users. Before creating a Workspace
-    in CloudFormation, you must register a Directory Service directory with
-    Workspaces. This process is documented at Register a Directory with Amazon WorkSpaces. For more information, see the Amazon WorkSpaces Administration Guide.
-    
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
      */
@@ -52863,12 +58805,7 @@ export namespace AWS.WorkSpaces {
         Properties: AWS.WorkSpaces.Workspace.Properties;
     }
     /**
-     * The AWS::WorkSpaces::Workspace resource creates an Amazon WorkSpaces workspace, which is a
-    cloud-based desktop experience for end users. Before creating a Workspace
-    in CloudFormation, you must register a Directory Service directory with
-    Workspaces. This process is documented at Register a Directory with Amazon WorkSpaces. For more information, see the Amazon WorkSpaces Administration Guide.
-    
- 
+     *
      *
      * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
      */
@@ -52879,83 +58816,323 @@ export namespace AWS.WorkSpaces {
 export namespace AWS.WorkSpaces.Workspace {
     export interface Properties {
         /**
-         * String
-
          *
-         * The identifier of the bundle from which you want to create the workspace. A
- bundle specifies the details of the workspace, such as the installed applications
- and the size of CPU, memory, and storage. Use the DescribeWorkspaceBundles action to list the bundles that AWS
- offers.
-
+         *
+         *
          *
          * UpdateType: Conditional
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-bundleid
          */
         BundleId: C.CFString;
         /**
-         * String
-
          *
-         * The identifier of the AWS Directory Service directory in which you want to create
- the
- workspace. The directory must already be registered with Amazon WorkSpaces. Use the
- DescribeWorkspaceDirectories action to list the directories that are
- available.
-
+         *
+         *
          *
          * UpdateType: Conditional
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-directoryid
          */
         DirectoryId: C.CFString;
         /**
-         * Boolean
-
          *
-         * Indicates whether Amazon WorkSpaces encrypts data stored on the root volume
- (C: drive).
-
+         *
+         *
          *
          * UpdateType: Conditional
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-rootvolumeencryptionenabled
          */
         RootVolumeEncryptionEnabled?: C.CFBoolean;
         /**
-         * String
-
          *
-         * The name of the user to which the workspace is assigned. This user name must
- exist in the specified AWS Directory Service directory.
-
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-tags
+         */
+        Tags?: C.CFList<Tag>;
+        /**
+         *
+         *
+         *
          *
          * UpdateType: Immutable
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username
          */
         UserName: C.CFString;
         /**
-         * Boolean
-
          *
-         * Indicates whether Amazon WorkSpaces encrypts data stored on the user volume
- (D: drive).
-
+         *
+         *
          *
          * UpdateType: Conditional
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-uservolumeencryptionenabled
          */
         UserVolumeEncryptionEnabled?: C.CFBoolean;
         /**
-         * String
-
          *
-         * The AWS Key Management Service (AWS KMS) key ID that Amazon WorkSpaces uses to encrypt
- data stored on your
- workspace.
-
+         *
+         *
          *
          * UpdateType: Conditional
          * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey
          */
         VolumeEncryptionKey?: C.CFString;
+        /**
+         *
+         *
+         *
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-workspaceproperties
+         */
+        WorkspaceProperties?: AWS.WorkSpaces.Workspace.WorkspaceProperties;
+    }
+}
+export namespace AWS.WorkSpaces.Workspace {
+    export interface WorkspaceProperties {
+        /**
+         * String
+
+         *
+         * The compute type. For more information, see Amazon WorkSpaces Bundles.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-computetypename
+         */
+        ComputeTypeName?: C.CFString;
+        /**
+         * Integer
+
+         *
+         * The size of the root volume.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-rootvolumesizegib
+         */
+        RootVolumeSizeGib?: C.CFInteger;
+        /**
+         * String
+
+         *
+         * The running mode. For more information, see Manage the WorkSpace Running Mode.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmode
+         */
+        RunningMode?: C.CFString;
+        /**
+         * Integer
+
+         *
+         * The time after a user logs off when WorkSpaces are automatically stopped.
+ Configured in 60 minute intervals.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-runningmodeautostoptimeoutinminutes
+         */
+        RunningModeAutoStopTimeoutInMinutes?: C.CFInteger;
+        /**
+         * Integer
+
+         *
+         * The size of the user storage.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspaces-workspace-workspaceproperties.html#cfn-workspaces-workspace-workspaceproperties-uservolumesizegib
+         */
+        UserVolumeSizeGib?: C.CFInteger;
+    }
+}
+export namespace Alexa.ASK {
+    /**
+     * The Alexa::ASK::Skill resource creates an Alexa skill that enables customers to access
+    new abilities. For more information on developing a skill, see the Build Skills with the Alexa
+       Skills Kit developer documentation.
+    
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html
+     */
+    export interface Skill extends C.CommonResourceProps {
+        Type: 'Alexa::ASK::Skill';
+        Properties: Alexa.ASK.Skill.Properties;
+    }
+    /**
+     * The Alexa::ASK::Skill resource creates an Alexa skill that enables customers to access
+    new abilities. For more information on developing a skill, see the Build Skills with the Alexa
+       Skills Kit developer documentation.
+    
+    
+ 
+     *
+     * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html
+     */
+    export function Skill(props: C.Omit<Skill, 'Type'>): Skill {
+        return { Type: 'Alexa::ASK::Skill', ...props };
+    }
+}
+export namespace Alexa.ASK.Skill {
+    export interface Properties {
+        /**
+         *                             Type: AuthenticationConfiguration
+         *
+         *  Login with Amazon (LWA) configuration used to authenticate with the Alexa service.
+ Only Login with Amazon clients created through the Amazon Developer
+    Console are supported. The Client ID, Client Secret, and Refresh Token are
+ required.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-authenticationconfiguration
+         */
+        AuthenticationConfiguration: Alexa.ASK.Skill.AuthenticationConfiguration;
+        /**
+         *                             Type: String
+
+         *
+         * The vendor ID associated with the Amazon developer account that will host the skill.
+ Details for retrieving the vendor ID are in How to
+    get your vendor ID. The provided LWA credentials must be linked to the
+ developer account associated with this vendor ID.
+
+         *
+         * UpdateType: Immutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-vendorid
+         */
+        VendorId: C.CFString;
+        /**
+         *                             Type: SkillPackage
+         *
+         * Configuration for the skill package that contains the components of the Alexa Skill.
+ Skill packages are retrieved from an Amazon S3 bucket and key and used to create and
+ update the skill. More details about the skill package format are located in the Skill Package API Reference.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html#cfn-ask-skill-skillpackage
+         */
+        SkillPackage: Alexa.ASK.Skill.SkillPackage;
+    }
+}
+export namespace Alexa.ASK.Skill {
+    export interface AuthenticationConfiguration {
+        /**
+         *                             Type: String
+
+         *
+         * Refresh Token from Login with Amazon (LWA).
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-refreshtoken
+         */
+        RefreshToken: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * Client Secret from Login with Amazon (LWA).
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-clientsecret
+         */
+        ClientSecret: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * Client ID from Login with Amazon (LWA).
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-authenticationconfiguration.html#cfn-ask-skill-authenticationconfiguration-clientid
+         */
+        ClientId: C.CFString;
+    }
+}
+export namespace Alexa.ASK.Skill {
+    export interface Overrides {
+        /**
+         *                             Type: JSON object
+
+         *
+         * Overrides to apply to the skill manifest inside of the skill package. The skill
+ manifest contains metadata about the skill. For more information, see Skill Manifest
+    Schemas.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-overrides.html#cfn-ask-skill-overrides-manifest
+         */
+        Manifest?: C.CFJson;
+    }
+}
+export namespace Alexa.ASK.Skill {
+    export interface SkillPackage {
+        /**
+         *                             Type: String
+
+         *
+         * ARN of the role that grants the Alexa service permission to access the bucket and
+ retrieve the
+ skill package. This role is optional, and if not provided the bucket must be configured
+ with a policy allowing this access, or be publicly accessible, in order for
+ AWS CloudFormation to create the skill.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-s3bucketrole
+         */
+        S3BucketRole?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * If you have S3 versioning enabled, the version ID of the skill package.zip file.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-s3objectversion
+         */
+        S3ObjectVersion?: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The name of the Amazon S3 bucket where the .zip file that contains the skill package
+ is stored.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-s3bucket
+         */
+        S3Bucket: C.CFString;
+        /**
+         *                             Type: String
+
+         *
+         * The location and name of the skill package .zip file.
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-s3key
+         */
+        S3Key: C.CFString;
+        /**
+         *                             Type: Overrides
+         *
+         * Overrides to the skill package to apply when creating or updating the skill. Values
+ provided here do not modify the contents of the original skill package. Currently,
+ only
+ overriding values inside of the skill manifest component of the package is
+ supported.
+
+         *
+         * UpdateType: Mutable
+         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ask-skill-skillpackage.html#cfn-ask-skill-skillpackage-overrides
+         */
+        Overrides?: Alexa.ASK.Skill.Overrides;
     }
 }
 export interface Tag {
@@ -52986,667 +59163,4 @@ whitespace, _, ., /, =, +, and -.
      */
     Value: C.CFString;
 }
-/* already emitted AWS.ApiGateway.Account */
-/* already emitted AWS.ApiGateway.ApiKey */
-/* already emitted AWS.ApiGateway.ApiKey.StageKey */
-/* already emitted AWS.ApiGateway.Authorizer */
-/* already emitted AWS.ApiGateway.BasePathMapping */
-/* already emitted AWS.ApiGateway.ClientCertificate */
-/* already emitted AWS.ApiGateway.Deployment */
-/* already emitted AWS.ApiGateway.Deployment.MethodSetting */
-/* already emitted AWS.ApiGateway.Deployment.StageDescription */
-/* already emitted AWS.ApiGateway.DocumentationPart */
-/* already emitted AWS.ApiGateway.DocumentationPart.Location */
-/* already emitted AWS.ApiGateway.DocumentationVersion */
-/* already emitted AWS.ApiGateway.DomainName */
-/* already emitted AWS.ApiGateway.GatewayResponse */
-/* already emitted AWS.ApiGateway.Method */
-/* already emitted AWS.ApiGateway.Method.Integration */
-/* already emitted AWS.ApiGateway.Method.IntegrationResponse */
-/* already emitted AWS.ApiGateway.Method.MethodResponse */
-/* already emitted AWS.ApiGateway.Model */
-/* already emitted AWS.ApiGateway.RequestValidator */
-/* already emitted AWS.ApiGateway.Resource */
-/* already emitted AWS.ApiGateway.RestApi */
-/* already emitted AWS.ApiGateway.RestApi.S3Location */
-/* already emitted AWS.ApiGateway.Stage */
-/* already emitted AWS.ApiGateway.Stage.MethodSetting */
-/* already emitted AWS.ApiGateway.UsagePlan */
-/* already emitted AWS.ApiGateway.UsagePlan.ApiStage */
-/* already emitted AWS.ApiGateway.UsagePlan.QuotaSettings */
-/* already emitted AWS.ApiGateway.UsagePlan.ThrottleSettings */
-/* already emitted AWS.ApiGateway.UsagePlanKey */
-/* already emitted AWS.ApplicationAutoScaling.ScalableTarget */
-/* already emitted AWS.ApplicationAutoScaling.ScalingPolicy */
-/* already emitted AWS.ApplicationAutoScaling.ScalingPolicy.CustomizedMetricSpecification */
-/* already emitted AWS.ApplicationAutoScaling.ScalingPolicy.MetricDimension */
-/* already emitted AWS.ApplicationAutoScaling.ScalingPolicy.PredefinedMetricSpecification */
-/* already emitted AWS.ApplicationAutoScaling.ScalingPolicy.StepAdjustment */
-/* already emitted AWS.ApplicationAutoScaling.ScalingPolicy.StepScalingPolicyConfiguration */
-/* already emitted AWS.ApplicationAutoScaling.ScalingPolicy.TargetTrackingScalingPolicyConfiguration */
-/* already emitted AWS.AutoScaling.AutoScalingGroup */
-/* already emitted AWS.AutoScaling.AutoScalingGroup.MetricsCollection */
-/* already emitted AWS.AutoScaling.AutoScalingGroup.NotificationConfiguration */
-/* already emitted AWS.AutoScaling.AutoScalingGroup.TagProperty */
-/* already emitted AWS.AutoScaling.LaunchConfiguration */
-/* already emitted AWS.AutoScaling.LaunchConfiguration.BlockDevice */
-/* already emitted AWS.AutoScaling.LaunchConfiguration.BlockDeviceMapping */
-/* already emitted AWS.AutoScaling.LifecycleHook */
-/* already emitted AWS.AutoScaling.ScalingPolicy */
-/* already emitted AWS.AutoScaling.ScalingPolicy.CustomizedMetricSpecification */
-/* already emitted AWS.AutoScaling.ScalingPolicy.MetricDimension */
-/* already emitted AWS.AutoScaling.ScalingPolicy.PredefinedMetricSpecification */
-/* already emitted AWS.AutoScaling.ScalingPolicy.StepAdjustment */
-/* already emitted AWS.AutoScaling.ScalingPolicy.TargetTrackingConfiguration */
-/* already emitted AWS.AutoScaling.ScheduledAction */
-/* already emitted AWS.Batch.ComputeEnvironment */
-/* already emitted AWS.Batch.ComputeEnvironment.ComputeResources */
-/* already emitted AWS.Batch.JobDefinition */
-/* already emitted AWS.Batch.JobDefinition.ContainerProperties */
-/* already emitted AWS.Batch.JobDefinition.Environment */
-/* already emitted AWS.Batch.JobDefinition.MountPoints */
-/* already emitted AWS.Batch.JobDefinition.RetryStrategy */
-/* already emitted AWS.Batch.JobDefinition.Ulimit */
-/* already emitted AWS.Batch.JobDefinition.Volumes */
-/* already emitted AWS.Batch.JobDefinition.VolumesHost */
-/* already emitted AWS.Batch.JobQueue */
-/* already emitted AWS.Batch.JobQueue.ComputeEnvironmentOrder */
-/* already emitted AWS.CertificateManager.Certificate */
-/* already emitted AWS.CertificateManager.Certificate.DomainValidationOption */
-/* already emitted AWS.CloudFormation.CustomResource */
-/* already emitted AWS.CloudFormation.Stack */
-/* already emitted AWS.CloudFormation.WaitCondition */
-/* already emitted AWS.CloudFormation.WaitConditionHandle */
-/* already emitted AWS.CloudFront.Distribution */
-/* already emitted AWS.CloudFront.Distribution.CacheBehavior */
-/* already emitted AWS.CloudFront.Distribution.Cookies */
-/* already emitted AWS.CloudFront.Distribution.CustomErrorResponse */
-/* already emitted AWS.CloudFront.Distribution.CustomOriginConfig */
-/* already emitted AWS.CloudFront.Distribution.DefaultCacheBehavior */
-/* already emitted AWS.CloudFront.Distribution.DistributionConfig */
-/* already emitted AWS.CloudFront.Distribution.ForwardedValues */
-/* already emitted AWS.CloudFront.Distribution.GeoRestriction */
-/* already emitted AWS.CloudFront.Distribution.Logging */
-/* already emitted AWS.CloudFront.Distribution.Origin */
-/* already emitted AWS.CloudFront.Distribution.OriginCustomHeader */
-/* already emitted AWS.CloudFront.Distribution.Restrictions */
-/* already emitted AWS.CloudFront.Distribution.S3OriginConfig */
-/* already emitted AWS.CloudFront.Distribution.ViewerCertificate */
-/* already emitted AWS.CloudTrail.Trail */
-/* already emitted AWS.CloudTrail.Trail.DataResource */
-/* already emitted AWS.CloudTrail.Trail.EventSelector */
-/* already emitted AWS.CloudWatch.Alarm */
-/* already emitted AWS.CloudWatch.Alarm.Dimension */
-/* already emitted AWS.CloudWatch.Dashboard */
-/* already emitted AWS.CodeBuild.Project */
-/* already emitted AWS.CodeBuild.Project.Artifacts */
-/* already emitted AWS.CodeBuild.Project.Environment */
-/* already emitted AWS.CodeBuild.Project.EnvironmentVariable */
-/* already emitted AWS.CodeBuild.Project.Source */
-/* already emitted AWS.CodeBuild.Project.SourceAuth */
-/* already emitted AWS.CodeCommit.Repository */
-/* already emitted AWS.CodeCommit.Repository.RepositoryTrigger */
-/* already emitted AWS.CodeDeploy.Application */
-/* already emitted AWS.CodeDeploy.DeploymentConfig */
-/* already emitted AWS.CodeDeploy.DeploymentConfig.MinimumHealthyHosts */
-/* already emitted AWS.CodeDeploy.DeploymentGroup */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.Alarm */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.AlarmConfiguration */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.AutoRollbackConfiguration */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.Deployment */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.DeploymentStyle */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.EC2TagFilter */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.ELBInfo */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.GitHubLocation */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.LoadBalancerInfo */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.RevisionLocation */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.S3Location */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.TagFilter */
-/* already emitted AWS.CodeDeploy.DeploymentGroup.TriggerConfig */
-/* already emitted AWS.CodePipeline.CustomActionType */
-/* already emitted AWS.CodePipeline.CustomActionType.ArtifactDetails */
-/* already emitted AWS.CodePipeline.CustomActionType.ConfigurationProperties */
-/* already emitted AWS.CodePipeline.CustomActionType.Settings */
-/* already emitted AWS.CodePipeline.Pipeline */
-/* already emitted AWS.CodePipeline.Pipeline.ActionDeclaration */
-/* already emitted AWS.CodePipeline.Pipeline.ActionTypeId */
-/* already emitted AWS.CodePipeline.Pipeline.ArtifactStore */
-/* already emitted AWS.CodePipeline.Pipeline.BlockerDeclaration */
-/* already emitted AWS.CodePipeline.Pipeline.EncryptionKey */
-/* already emitted AWS.CodePipeline.Pipeline.InputArtifact */
-/* already emitted AWS.CodePipeline.Pipeline.OutputArtifact */
-/* already emitted AWS.CodePipeline.Pipeline.StageDeclaration */
-/* already emitted AWS.CodePipeline.Pipeline.StageTransition */
-/* already emitted AWS.Cognito.IdentityPool */
-/* already emitted AWS.Cognito.IdentityPool.CognitoIdentityProvider */
-/* already emitted AWS.Cognito.IdentityPool.CognitoStreams */
-/* already emitted AWS.Cognito.IdentityPool.PushSync */
-/* already emitted AWS.Cognito.IdentityPoolRoleAttachment */
-/* already emitted AWS.Cognito.IdentityPoolRoleAttachment.MappingRule */
-/* already emitted AWS.Cognito.IdentityPoolRoleAttachment.RoleMapping */
-/* already emitted AWS.Cognito.IdentityPoolRoleAttachment.RulesConfigurationType */
-/* already emitted AWS.Cognito.UserPool */
-/* already emitted AWS.Cognito.UserPool.AdminCreateUserConfig */
-/* already emitted AWS.Cognito.UserPool.DeviceConfiguration */
-/* already emitted AWS.Cognito.UserPool.EmailConfiguration */
-/* already emitted AWS.Cognito.UserPool.InviteMessageTemplate */
-/* already emitted AWS.Cognito.UserPool.LambdaConfig */
-/* already emitted AWS.Cognito.UserPool.NumberAttributeConstraints */
-/* already emitted AWS.Cognito.UserPool.PasswordPolicy */
-/* already emitted AWS.Cognito.UserPool.Policies */
-/* already emitted AWS.Cognito.UserPool.SchemaAttribute */
-/* already emitted AWS.Cognito.UserPool.SmsConfiguration */
-/* already emitted AWS.Cognito.UserPool.StringAttributeConstraints */
-/* already emitted AWS.Cognito.UserPoolClient */
-/* already emitted AWS.Cognito.UserPoolGroup */
-/* already emitted AWS.Cognito.UserPoolUser */
-/* already emitted AWS.Cognito.UserPoolUser.AttributeType */
-/* already emitted AWS.Cognito.UserPoolUserToGroupAttachment */
-/* already emitted AWS.Config.ConfigRule */
-/* already emitted AWS.Config.ConfigRule.Scope */
-/* already emitted AWS.Config.ConfigRule.Source */
-/* already emitted AWS.Config.ConfigRule.SourceDetail */
-/* already emitted AWS.Config.ConfigurationRecorder */
-/* already emitted AWS.Config.ConfigurationRecorder.RecordingGroup */
-/* already emitted AWS.Config.DeliveryChannel */
-/* already emitted AWS.Config.DeliveryChannel.ConfigSnapshotDeliveryProperties */
-/* already emitted AWS.DAX.Cluster */
-/* already emitted AWS.DAX.ParameterGroup */
-/* already emitted AWS.DAX.SubnetGroup */
-/* already emitted AWS.DMS.Certificate */
-/* already emitted AWS.DMS.Endpoint */
-/* already emitted AWS.DMS.Endpoint.DynamoDbSettings */
-/* already emitted AWS.DMS.Endpoint.MongoDbSettings */
-/* already emitted AWS.DMS.Endpoint.S3Settings */
-/* already emitted AWS.DMS.EventSubscription */
-/* already emitted AWS.DMS.ReplicationInstance */
-/* already emitted AWS.DMS.ReplicationSubnetGroup */
-/* already emitted AWS.DMS.ReplicationTask */
-/* already emitted AWS.DataPipeline.Pipeline */
-/* already emitted AWS.DataPipeline.Pipeline.Field */
-/* already emitted AWS.DataPipeline.Pipeline.ParameterAttribute */
-/* already emitted AWS.DataPipeline.Pipeline.ParameterObject */
-/* already emitted AWS.DataPipeline.Pipeline.ParameterValue */
-/* already emitted AWS.DataPipeline.Pipeline.PipelineObject */
-/* already emitted AWS.DataPipeline.Pipeline.PipelineTag */
-/* already emitted AWS.DirectoryService.MicrosoftAD */
-/* already emitted AWS.DirectoryService.MicrosoftAD.VpcSettings */
-/* already emitted AWS.DirectoryService.SimpleAD */
-/* already emitted AWS.DirectoryService.SimpleAD.VpcSettings */
-/* already emitted AWS.DynamoDB.Table */
-/* already emitted AWS.DynamoDB.Table.AttributeDefinition */
-/* already emitted AWS.DynamoDB.Table.GlobalSecondaryIndex */
-/* already emitted AWS.DynamoDB.Table.KeySchema */
-/* already emitted AWS.DynamoDB.Table.LocalSecondaryIndex */
-/* already emitted AWS.DynamoDB.Table.Projection */
-/* already emitted AWS.DynamoDB.Table.ProvisionedThroughput */
-/* already emitted AWS.DynamoDB.Table.StreamSpecification */
-/* already emitted AWS.DynamoDB.Table.TimeToLiveSpecification */
-/* already emitted AWS.EC2.CustomerGateway */
-/* already emitted AWS.EC2.DHCPOptions */
-/* already emitted AWS.EC2.EIP */
-/* already emitted AWS.EC2.EIPAssociation */
-/* already emitted AWS.EC2.EgressOnlyInternetGateway */
-/* already emitted AWS.EC2.FlowLog */
-/* already emitted AWS.EC2.Host */
-/* already emitted AWS.EC2.Instance */
-/* already emitted AWS.EC2.Instance.AssociationParameter */
-/* already emitted AWS.EC2.Instance.BlockDeviceMapping */
-/* already emitted AWS.EC2.Instance.Ebs */
-/* already emitted AWS.EC2.Instance.InstanceIpv6Address */
-/* already emitted AWS.EC2.Instance.NetworkInterface */
-/* already emitted AWS.EC2.Instance.NoDevice */
-/* already emitted AWS.EC2.Instance.PrivateIpAddressSpecification */
-/* already emitted AWS.EC2.Instance.SsmAssociation */
-/* already emitted AWS.EC2.Instance.Volume */
-/* already emitted AWS.EC2.InternetGateway */
-/* already emitted AWS.EC2.NatGateway */
-/* already emitted AWS.EC2.NetworkAcl */
-/* already emitted AWS.EC2.NetworkAclEntry */
-/* already emitted AWS.EC2.NetworkAclEntry.Icmp */
-/* already emitted AWS.EC2.NetworkAclEntry.PortRange */
-/* already emitted AWS.EC2.NetworkInterface */
-/* already emitted AWS.EC2.NetworkInterface.InstanceIpv6Address */
-/* already emitted AWS.EC2.NetworkInterface.PrivateIpAddressSpecification */
-/* already emitted AWS.EC2.NetworkInterfaceAttachment */
-/* already emitted AWS.EC2.NetworkInterfacePermission */
-/* already emitted AWS.EC2.PlacementGroup */
-/* already emitted AWS.EC2.Route */
-/* already emitted AWS.EC2.RouteTable */
-/* already emitted AWS.EC2.SecurityGroup */
-/* already emitted AWS.EC2.SecurityGroup.Egress */
-/* already emitted AWS.EC2.SecurityGroup.Ingress */
-/* already emitted AWS.EC2.SecurityGroupEgress */
-/* already emitted AWS.EC2.SecurityGroupIngress */
-/* already emitted AWS.EC2.SpotFleet */
-/* already emitted AWS.EC2.SpotFleet.BlockDeviceMapping */
-/* already emitted AWS.EC2.SpotFleet.EbsBlockDevice */
-/* already emitted AWS.EC2.SpotFleet.GroupIdentifier */
-/* already emitted AWS.EC2.SpotFleet.IamInstanceProfileSpecification */
-/* already emitted AWS.EC2.SpotFleet.InstanceIpv6Address */
-/* already emitted AWS.EC2.SpotFleet.InstanceNetworkInterfaceSpecification */
-/* already emitted AWS.EC2.SpotFleet.PrivateIpAddressSpecification */
-/* already emitted AWS.EC2.SpotFleet.SpotFleetLaunchSpecification */
-/* already emitted AWS.EC2.SpotFleet.SpotFleetMonitoring */
-/* already emitted AWS.EC2.SpotFleet.SpotFleetRequestConfigData */
-/* already emitted AWS.EC2.SpotFleet.SpotPlacement */
-/* already emitted AWS.EC2.Subnet */
-/* already emitted AWS.EC2.SubnetCidrBlock */
-/* already emitted AWS.EC2.SubnetNetworkAclAssociation */
-/* already emitted AWS.EC2.SubnetRouteTableAssociation */
-/* already emitted AWS.EC2.TrunkInterfaceAssociation */
-/* already emitted AWS.EC2.VPC */
-/* already emitted AWS.EC2.VPCCidrBlock */
-/* already emitted AWS.EC2.VPCDHCPOptionsAssociation */
-/* already emitted AWS.EC2.VPCEndpoint */
-/* already emitted AWS.EC2.VPCGatewayAttachment */
-/* already emitted AWS.EC2.VPCPeeringConnection */
-/* already emitted AWS.EC2.VPNConnection */
-/* already emitted AWS.EC2.VPNConnectionRoute */
-/* already emitted AWS.EC2.VPNGateway */
-/* already emitted AWS.EC2.VPNGatewayRoutePropagation */
-/* already emitted AWS.EC2.Volume */
-/* already emitted AWS.EC2.VolumeAttachment */
-/* already emitted AWS.ECR.Repository */
-/* already emitted AWS.ECS.Cluster */
-/* already emitted AWS.ECS.Service */
-/* already emitted AWS.ECS.Service.DeploymentConfiguration */
-/* already emitted AWS.ECS.Service.LoadBalancer */
-/* already emitted AWS.ECS.Service.PlacementConstraint */
-/* already emitted AWS.ECS.Service.PlacementStrategy */
-/* already emitted AWS.ECS.TaskDefinition */
-/* already emitted AWS.ECS.TaskDefinition.ContainerDefinition */
-/* already emitted AWS.ECS.TaskDefinition.HostEntry */
-/* already emitted AWS.ECS.TaskDefinition.HostVolumeProperties */
-/* already emitted AWS.ECS.TaskDefinition.KeyValuePair */
-/* already emitted AWS.ECS.TaskDefinition.LogConfiguration */
-/* already emitted AWS.ECS.TaskDefinition.MountPoint */
-/* already emitted AWS.ECS.TaskDefinition.PortMapping */
-/* already emitted AWS.ECS.TaskDefinition.TaskDefinitionPlacementConstraint */
-/* already emitted AWS.ECS.TaskDefinition.Ulimit */
-/* already emitted AWS.ECS.TaskDefinition.Volume */
-/* already emitted AWS.ECS.TaskDefinition.VolumeFrom */
-/* already emitted AWS.EFS.FileSystem */
-/* already emitted AWS.EFS.FileSystem.ElasticFileSystemTag */
-/* already emitted AWS.EFS.MountTarget */
-/* already emitted AWS.EMR.Cluster */
-/* already emitted AWS.EMR.Cluster.Application */
-/* already emitted AWS.EMR.Cluster.AutoScalingPolicy */
-/* already emitted AWS.EMR.Cluster.BootstrapActionConfig */
-/* already emitted AWS.EMR.Cluster.CloudWatchAlarmDefinition */
-/* already emitted AWS.EMR.Cluster.Configuration */
-/* already emitted AWS.EMR.Cluster.EbsBlockDeviceConfig */
-/* already emitted AWS.EMR.Cluster.EbsConfiguration */
-/* already emitted AWS.EMR.Cluster.InstanceFleetConfig */
-/* already emitted AWS.EMR.Cluster.InstanceFleetProvisioningSpecifications */
-/* already emitted AWS.EMR.Cluster.InstanceGroupConfig */
-/* already emitted AWS.EMR.Cluster.InstanceTypeConfig */
-/* already emitted AWS.EMR.Cluster.JobFlowInstancesConfig */
-/* already emitted AWS.EMR.Cluster.MetricDimension */
-/* already emitted AWS.EMR.Cluster.PlacementType */
-/* already emitted AWS.EMR.Cluster.ScalingAction */
-/* already emitted AWS.EMR.Cluster.ScalingConstraints */
-/* already emitted AWS.EMR.Cluster.ScalingRule */
-/* already emitted AWS.EMR.Cluster.ScalingTrigger */
-/* already emitted AWS.EMR.Cluster.ScriptBootstrapActionConfig */
-/* already emitted AWS.EMR.Cluster.SimpleScalingPolicyConfiguration */
-/* already emitted AWS.EMR.Cluster.SpotProvisioningSpecification */
-/* already emitted AWS.EMR.Cluster.VolumeSpecification */
-/* already emitted AWS.EMR.InstanceFleetConfig */
-/* already emitted AWS.EMR.InstanceFleetConfig.Configuration */
-/* already emitted AWS.EMR.InstanceFleetConfig.EbsBlockDeviceConfig */
-/* already emitted AWS.EMR.InstanceFleetConfig.EbsConfiguration */
-/* already emitted AWS.EMR.InstanceFleetConfig.InstanceFleetProvisioningSpecifications */
-/* already emitted AWS.EMR.InstanceFleetConfig.InstanceTypeConfig */
-/* already emitted AWS.EMR.InstanceFleetConfig.SpotProvisioningSpecification */
-/* already emitted AWS.EMR.InstanceFleetConfig.VolumeSpecification */
-/* already emitted AWS.EMR.InstanceGroupConfig */
-/* already emitted AWS.EMR.InstanceGroupConfig.AutoScalingPolicy */
-/* already emitted AWS.EMR.InstanceGroupConfig.CloudWatchAlarmDefinition */
-/* already emitted AWS.EMR.InstanceGroupConfig.Configuration */
-/* already emitted AWS.EMR.InstanceGroupConfig.EbsBlockDeviceConfig */
-/* already emitted AWS.EMR.InstanceGroupConfig.EbsConfiguration */
-/* already emitted AWS.EMR.InstanceGroupConfig.MetricDimension */
-/* already emitted AWS.EMR.InstanceGroupConfig.ScalingAction */
-/* already emitted AWS.EMR.InstanceGroupConfig.ScalingConstraints */
-/* already emitted AWS.EMR.InstanceGroupConfig.ScalingRule */
-/* already emitted AWS.EMR.InstanceGroupConfig.ScalingTrigger */
-/* already emitted AWS.EMR.InstanceGroupConfig.SimpleScalingPolicyConfiguration */
-/* already emitted AWS.EMR.InstanceGroupConfig.VolumeSpecification */
-/* already emitted AWS.EMR.SecurityConfiguration */
-/* already emitted AWS.EMR.Step */
-/* already emitted AWS.EMR.Step.HadoopJarStepConfig */
-/* already emitted AWS.EMR.Step.KeyValue */
-/* already emitted AWS.ElastiCache.CacheCluster */
-/* already emitted AWS.ElastiCache.ParameterGroup */
-/* already emitted AWS.ElastiCache.ReplicationGroup */
-/* already emitted AWS.ElastiCache.ReplicationGroup.NodeGroupConfiguration */
-/* already emitted AWS.ElastiCache.SecurityGroup */
-/* already emitted AWS.ElastiCache.SecurityGroupIngress */
-/* already emitted AWS.ElastiCache.SubnetGroup */
-/* already emitted AWS.ElasticBeanstalk.Application */
-/* already emitted AWS.ElasticBeanstalk.ApplicationVersion */
-/* already emitted AWS.ElasticBeanstalk.ApplicationVersion.SourceBundle */
-/* already emitted AWS.ElasticBeanstalk.ConfigurationTemplate */
-/* already emitted AWS.ElasticBeanstalk.ConfigurationTemplate.ConfigurationOptionSetting */
-/* already emitted AWS.ElasticBeanstalk.ConfigurationTemplate.SourceConfiguration */
-/* already emitted AWS.ElasticBeanstalk.Environment */
-export namespace AWS.ElasticBeanstalk.Environment {
-    export interface OptionSettings {
-        /**
-         * String
-
-         *
-         * A unique namespace that identifies the option's associated AWS resource. For a list
- of namespaces that you can use, see Configuration Options
- in the AWS Elastic Beanstalk Developer Guide.
-
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-namespace
-         */
-        Namespace: C.CFString;
-        /**
-         * String
-
-         *
-         * The name of the configuration option. For a list of options that you can use,
- see Configuration Options
- in the AWS Elastic Beanstalk Developer Guide.
-
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-optionname
-         */
-        OptionName: C.CFString;
-        /**
-         * String
-
-         *
-         * The current value for the configuration option.
-         *
-         * UpdateType: Mutable
-         * Documentation: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-value
-         */
-        Value: C.CFString;
-    }
-}
-/* already emitted AWS.ElasticBeanstalk.Environment.Tier */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer.AccessLoggingPolicy */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer.AppCookieStickinessPolicy */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer.ConnectionDrainingPolicy */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer.ConnectionSettings */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer.HealthCheck */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer.LBCookieStickinessPolicy */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer.Listeners */
-/* already emitted AWS.ElasticLoadBalancing.LoadBalancer.Policies */
-/* already emitted AWS.ElasticLoadBalancingV2.Listener */
-/* already emitted AWS.ElasticLoadBalancingV2.Listener.Action */
-/* already emitted AWS.ElasticLoadBalancingV2.Listener.Certificate */
-/* already emitted AWS.ElasticLoadBalancingV2.ListenerCertificate */
-/* already emitted AWS.ElasticLoadBalancingV2.ListenerCertificate.Certificate */
-/* already emitted AWS.ElasticLoadBalancingV2.ListenerRule */
-/* already emitted AWS.ElasticLoadBalancingV2.ListenerRule.Action */
-/* already emitted AWS.ElasticLoadBalancingV2.ListenerRule.RuleCondition */
-/* already emitted AWS.ElasticLoadBalancingV2.LoadBalancer */
-/* already emitted AWS.ElasticLoadBalancingV2.LoadBalancer.LoadBalancerAttribute */
-/* already emitted AWS.ElasticLoadBalancingV2.LoadBalancer.SubnetMapping */
-/* already emitted AWS.ElasticLoadBalancingV2.TargetGroup */
-/* already emitted AWS.ElasticLoadBalancingV2.TargetGroup.Matcher */
-/* already emitted AWS.ElasticLoadBalancingV2.TargetGroup.TargetDescription */
-/* already emitted AWS.ElasticLoadBalancingV2.TargetGroup.TargetGroupAttribute */
-/* already emitted AWS.Elasticsearch.Domain */
-/* already emitted AWS.Elasticsearch.Domain.EBSOptions */
-/* already emitted AWS.Elasticsearch.Domain.ElasticsearchClusterConfig */
-/* already emitted AWS.Elasticsearch.Domain.SnapshotOptions */
-/* already emitted AWS.Events.Rule */
-/* already emitted AWS.Events.Rule.EcsParameters */
-/* already emitted AWS.Events.Rule.InputTransformer */
-/* already emitted AWS.Events.Rule.KinesisParameters */
-/* already emitted AWS.Events.Rule.RunCommandParameters */
-/* already emitted AWS.Events.Rule.RunCommandTarget */
-/* already emitted AWS.Events.Rule.Target */
-/* already emitted AWS.GameLift.Alias */
-/* already emitted AWS.GameLift.Alias.RoutingStrategy */
-/* already emitted AWS.GameLift.Build */
-/* already emitted AWS.GameLift.Build.S3Location */
-/* already emitted AWS.GameLift.Fleet */
-/* already emitted AWS.GameLift.Fleet.IpPermission */
-/* already emitted AWS.IAM.AccessKey */
-/* already emitted AWS.IAM.Group */
-/* already emitted AWS.IAM.Group.Policy */
-/* already emitted AWS.IAM.InstanceProfile */
-/* already emitted AWS.IAM.ManagedPolicy */
-/* already emitted AWS.IAM.Policy */
-/* already emitted AWS.IAM.Role */
-/* already emitted AWS.IAM.Role.Policy */
-/* already emitted AWS.IAM.User */
-/* already emitted AWS.IAM.User.LoginProfile */
-/* already emitted AWS.IAM.User.Policy */
-/* already emitted AWS.IAM.UserToGroupAddition */
-/* already emitted AWS.IoT.Certificate */
-/* already emitted AWS.IoT.Policy */
-/* already emitted AWS.IoT.PolicyPrincipalAttachment */
-/* already emitted AWS.IoT.Thing */
-/* already emitted AWS.IoT.Thing.AttributePayload */
-/* already emitted AWS.IoT.ThingPrincipalAttachment */
-/* already emitted AWS.IoT.TopicRule */
-/* already emitted AWS.IoT.TopicRule.Action */
-/* already emitted AWS.IoT.TopicRule.CloudwatchAlarmAction */
-/* already emitted AWS.IoT.TopicRule.CloudwatchMetricAction */
-/* already emitted AWS.IoT.TopicRule.DynamoDBAction */
-/* already emitted AWS.IoT.TopicRule.DynamoDBv2Action */
-/* already emitted AWS.IoT.TopicRule.ElasticsearchAction */
-/* already emitted AWS.IoT.TopicRule.FirehoseAction */
-/* already emitted AWS.IoT.TopicRule.KinesisAction */
-/* already emitted AWS.IoT.TopicRule.LambdaAction */
-/* already emitted AWS.IoT.TopicRule.PutItemInput */
-/* already emitted AWS.IoT.TopicRule.RepublishAction */
-/* already emitted AWS.IoT.TopicRule.S3Action */
-/* already emitted AWS.IoT.TopicRule.SnsAction */
-/* already emitted AWS.IoT.TopicRule.SqsAction */
-/* already emitted AWS.IoT.TopicRule.TopicRulePayload */
-/* already emitted AWS.KMS.Alias */
-/* already emitted AWS.KMS.Key */
-/* already emitted AWS.Kinesis.Stream */
-/* already emitted AWS.KinesisAnalytics.Application */
-/* already emitted AWS.KinesisAnalytics.Application.CSVMappingParameters */
-/* already emitted AWS.KinesisAnalytics.Application.Input */
-/* already emitted AWS.KinesisAnalytics.Application.InputParallelism */
-/* already emitted AWS.KinesisAnalytics.Application.InputSchema */
-/* already emitted AWS.KinesisAnalytics.Application.JSONMappingParameters */
-/* already emitted AWS.KinesisAnalytics.Application.KinesisFirehoseInput */
-/* already emitted AWS.KinesisAnalytics.Application.KinesisStreamsInput */
-/* already emitted AWS.KinesisAnalytics.Application.MappingParameters */
-/* already emitted AWS.KinesisAnalytics.Application.RecordColumn */
-/* already emitted AWS.KinesisAnalytics.Application.RecordFormat */
-/* already emitted AWS.KinesisAnalytics.ApplicationOutput */
-/* already emitted AWS.KinesisAnalytics.ApplicationOutput.DestinationSchema */
-/* already emitted AWS.KinesisAnalytics.ApplicationOutput.KinesisFirehoseOutput */
-/* already emitted AWS.KinesisAnalytics.ApplicationOutput.KinesisStreamsOutput */
-/* already emitted AWS.KinesisAnalytics.ApplicationOutput.Output */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource.CSVMappingParameters */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource.JSONMappingParameters */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource.MappingParameters */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource.RecordColumn */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource.RecordFormat */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource.ReferenceDataSource */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource.ReferenceSchema */
-/* already emitted AWS.KinesisAnalytics.ApplicationReferenceDataSource.S3ReferenceDataSource */
-/* already emitted AWS.KinesisFirehose.DeliveryStream */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.BufferingHints */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptions */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.CopyCommand */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.ElasticsearchBufferingHints */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.ElasticsearchDestinationConfiguration */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.ElasticsearchRetryOptions */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.EncryptionConfiguration */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.ExtendedS3DestinationConfiguration */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.KMSEncryptionConfig */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.ProcessingConfiguration */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.Processor */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.ProcessorParameter */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.RedshiftDestinationConfiguration */
-/* already emitted AWS.KinesisFirehose.DeliveryStream.S3DestinationConfiguration */
-/* already emitted AWS.Lambda.Alias */
-/* already emitted AWS.Lambda.EventSourceMapping */
-/* already emitted AWS.Lambda.Function */
-/* already emitted AWS.Lambda.Function.Code */
-/* already emitted AWS.Lambda.Function.DeadLetterConfig */
-/* already emitted AWS.Lambda.Function.Environment */
-/* already emitted AWS.Lambda.Function.TracingConfig */
-/* already emitted AWS.Lambda.Function.VpcConfig */
-/* already emitted AWS.Lambda.Permission */
-/* already emitted AWS.Lambda.Version */
-/* already emitted AWS.Logs.Destination */
-/* already emitted AWS.Logs.LogGroup */
-/* already emitted AWS.Logs.LogStream */
-/* already emitted AWS.Logs.MetricFilter */
-/* already emitted AWS.Logs.MetricFilter.MetricTransformation */
-/* already emitted AWS.Logs.SubscriptionFilter */
-/* already emitted AWS.OpsWorks.App */
-/* already emitted AWS.OpsWorks.App.DataSource */
-/* already emitted AWS.OpsWorks.App.EnvironmentVariable */
-/* already emitted AWS.OpsWorks.App.Source */
-/* already emitted AWS.OpsWorks.App.SslConfiguration */
-/* already emitted AWS.OpsWorks.ElasticLoadBalancerAttachment */
-/* already emitted AWS.OpsWorks.Instance */
-/* already emitted AWS.OpsWorks.Instance.BlockDeviceMapping */
-/* already emitted AWS.OpsWorks.Instance.EbsBlockDevice */
-/* already emitted AWS.OpsWorks.Instance.TimeBasedAutoScaling */
-/* already emitted AWS.OpsWorks.Layer */
-/* already emitted AWS.OpsWorks.Layer.AutoScalingThresholds */
-/* already emitted AWS.OpsWorks.Layer.LifecycleEventConfiguration */
-/* already emitted AWS.OpsWorks.Layer.LoadBasedAutoScaling */
-/* already emitted AWS.OpsWorks.Layer.Recipes */
-/* already emitted AWS.OpsWorks.Layer.ShutdownEventConfiguration */
-/* already emitted AWS.OpsWorks.Layer.VolumeConfiguration */
-/* already emitted AWS.OpsWorks.Stack */
-/* already emitted AWS.OpsWorks.Stack.ChefConfiguration */
-/* already emitted AWS.OpsWorks.Stack.ElasticIp */
-/* already emitted AWS.OpsWorks.Stack.RdsDbInstance */
-/* already emitted AWS.OpsWorks.Stack.Source */
-/* already emitted AWS.OpsWorks.Stack.StackConfigurationManager */
-/* already emitted AWS.OpsWorks.UserProfile */
-/* already emitted AWS.OpsWorks.Volume */
-/* already emitted AWS.RDS.DBCluster */
-/* already emitted AWS.RDS.DBClusterParameterGroup */
-/* already emitted AWS.RDS.DBInstance */
-/* already emitted AWS.RDS.DBParameterGroup */
-/* already emitted AWS.RDS.DBSecurityGroup */
-/* already emitted AWS.RDS.DBSecurityGroup.Ingress */
-/* already emitted AWS.RDS.DBSecurityGroupIngress */
-/* already emitted AWS.RDS.DBSubnetGroup */
-/* already emitted AWS.RDS.EventSubscription */
-/* already emitted AWS.RDS.OptionGroup */
-/* already emitted AWS.RDS.OptionGroup.OptionConfiguration */
-/* already emitted AWS.RDS.OptionGroup.OptionSetting */
-/* already emitted AWS.Redshift.Cluster */
-/* already emitted AWS.Redshift.Cluster.LoggingProperties */
-/* already emitted AWS.Redshift.ClusterParameterGroup */
-/* already emitted AWS.Redshift.ClusterParameterGroup.Parameter */
-/* already emitted AWS.Redshift.ClusterSecurityGroup */
-/* already emitted AWS.Redshift.ClusterSecurityGroupIngress */
-/* already emitted AWS.Redshift.ClusterSubnetGroup */
-/* already emitted AWS.Route53.HealthCheck */
-/* already emitted AWS.Route53.HealthCheck.AlarmIdentifier */
-/* already emitted AWS.Route53.HealthCheck.HealthCheckConfig */
-/* already emitted AWS.Route53.HealthCheck.HealthCheckTag */
-/* already emitted AWS.Route53.HostedZone */
-/* already emitted AWS.Route53.HostedZone.HostedZoneConfig */
-/* already emitted AWS.Route53.HostedZone.HostedZoneTag */
-/* already emitted AWS.Route53.HostedZone.VPC */
-/* already emitted AWS.Route53.RecordSet */
-/* already emitted AWS.Route53.RecordSet.AliasTarget */
-/* already emitted AWS.Route53.RecordSet.GeoLocation */
-/* already emitted AWS.Route53.RecordSetGroup */
-/* already emitted AWS.Route53.RecordSetGroup.AliasTarget */
-/* already emitted AWS.Route53.RecordSetGroup.GeoLocation */
-/* already emitted AWS.Route53.RecordSetGroup.RecordSet */
-/* already emitted AWS.S3.Bucket */
-/* already emitted AWS.S3.Bucket.AbortIncompleteMultipartUpload */
-/* already emitted AWS.S3.Bucket.AccelerateConfiguration */
-/* already emitted AWS.S3.Bucket.CorsConfiguration */
-/* already emitted AWS.S3.Bucket.CorsRule */
-/* already emitted AWS.S3.Bucket.FilterRule */
-/* already emitted AWS.S3.Bucket.LambdaConfiguration */
-/* already emitted AWS.S3.Bucket.LifecycleConfiguration */
-/* already emitted AWS.S3.Bucket.LoggingConfiguration */
-/* already emitted AWS.S3.Bucket.MetricsConfiguration */
-/* already emitted AWS.S3.Bucket.NoncurrentVersionTransition */
-/* already emitted AWS.S3.Bucket.NotificationConfiguration */
-/* already emitted AWS.S3.Bucket.NotificationFilter */
-/* already emitted AWS.S3.Bucket.QueueConfiguration */
-/* already emitted AWS.S3.Bucket.RedirectAllRequestsTo */
-/* already emitted AWS.S3.Bucket.RedirectRule */
-/* already emitted AWS.S3.Bucket.ReplicationConfiguration */
-/* already emitted AWS.S3.Bucket.ReplicationDestination */
-/* already emitted AWS.S3.Bucket.ReplicationRule */
-/* already emitted AWS.S3.Bucket.RoutingRule */
-/* already emitted AWS.S3.Bucket.RoutingRuleCondition */
-/* already emitted AWS.S3.Bucket.Rule */
-/* already emitted AWS.S3.Bucket.S3KeyFilter */
-/* already emitted AWS.S3.Bucket.TagFilter */
-/* already emitted AWS.S3.Bucket.TopicConfiguration */
-/* already emitted AWS.S3.Bucket.Transition */
-/* already emitted AWS.S3.Bucket.VersioningConfiguration */
-/* already emitted AWS.S3.Bucket.WebsiteConfiguration */
-/* already emitted AWS.S3.BucketPolicy */
-/* already emitted AWS.SDB.Domain */
-/* already emitted AWS.SNS.Subscription */
-/* already emitted AWS.SNS.Topic */
-/* already emitted AWS.SNS.Topic.Subscription */
-/* already emitted AWS.SNS.TopicPolicy */
-/* already emitted AWS.SQS.Queue */
-/* already emitted AWS.SQS.QueuePolicy */
-/* already emitted AWS.SSM.Association */
-/* already emitted AWS.SSM.Association.ParameterValues */
-/* already emitted AWS.SSM.Association.Target */
-/* already emitted AWS.SSM.Document */
-/* already emitted AWS.SSM.Parameter */
-/* already emitted AWS.StepFunctions.Activity */
-/* already emitted AWS.StepFunctions.StateMachine */
-/* already emitted AWS.WAF.ByteMatchSet */
-/* already emitted AWS.WAF.ByteMatchSet.ByteMatchTuple */
-/* already emitted AWS.WAF.ByteMatchSet.FieldToMatch */
-/* already emitted AWS.WAF.IPSet */
-/* already emitted AWS.WAF.IPSet.IPSetDescriptor */
-/* already emitted AWS.WAF.Rule */
-/* already emitted AWS.WAF.Rule.Predicate */
-/* already emitted AWS.WAF.SizeConstraintSet */
-/* already emitted AWS.WAF.SizeConstraintSet.FieldToMatch */
-/* already emitted AWS.WAF.SizeConstraintSet.SizeConstraint */
-/* already emitted AWS.WAF.SqlInjectionMatchSet */
-/* already emitted AWS.WAF.SqlInjectionMatchSet.FieldToMatch */
-/* already emitted AWS.WAF.SqlInjectionMatchSet.SqlInjectionMatchTuple */
-/* already emitted AWS.WAF.WebACL */
-/* already emitted AWS.WAF.WebACL.ActivatedRule */
-/* already emitted AWS.WAF.WebACL.WafAction */
-/* already emitted AWS.WAF.XssMatchSet */
-/* already emitted AWS.WAF.XssMatchSet.FieldToMatch */
-/* already emitted AWS.WAF.XssMatchSet.XssMatchTuple */
-/* already emitted AWS.WAFRegional.ByteMatchSet */
-/* already emitted AWS.WAFRegional.ByteMatchSet.ByteMatchTuple */
-/* already emitted AWS.WAFRegional.ByteMatchSet.FieldToMatch */
-/* already emitted AWS.WAFRegional.IPSet */
-/* already emitted AWS.WAFRegional.IPSet.IPSetDescriptor */
-/* already emitted AWS.WAFRegional.Rule */
-/* already emitted AWS.WAFRegional.Rule.Predicate */
-/* already emitted AWS.WAFRegional.SizeConstraintSet */
-/* already emitted AWS.WAFRegional.SizeConstraintSet.FieldToMatch */
-/* already emitted AWS.WAFRegional.SizeConstraintSet.SizeConstraint */
-/* already emitted AWS.WAFRegional.SqlInjectionMatchSet */
-/* already emitted AWS.WAFRegional.SqlInjectionMatchSet.FieldToMatch */
-/* already emitted AWS.WAFRegional.SqlInjectionMatchSet.SqlInjectionMatchTuple */
-/* already emitted AWS.WAFRegional.WebACL */
-/* already emitted AWS.WAFRegional.WebACL.Action */
-/* already emitted AWS.WAFRegional.WebACL.Rule */
-/* already emitted AWS.WAFRegional.WebACLAssociation */
-/* already emitted AWS.WAFRegional.XssMatchSet */
-/* already emitted AWS.WAFRegional.XssMatchSet.FieldToMatch */
-/* already emitted AWS.WAFRegional.XssMatchSet.XssMatchTuple */
-/* already emitted AWS.WorkSpaces.Workspace */
-/* already emitted Tag */
-export type Resource = AWS.AmazonMQ.Broker | AWS.AmazonMQ.Configuration | AWS.ApiGateway.Account | AWS.ApiGateway.ApiKey | AWS.ApiGateway.Authorizer | AWS.ApiGateway.BasePathMapping | AWS.ApiGateway.ClientCertificate | AWS.ApiGateway.Deployment | AWS.ApiGateway.DocumentationPart | AWS.ApiGateway.DocumentationVersion | AWS.ApiGateway.DomainName | AWS.ApiGateway.GatewayResponse | AWS.ApiGateway.Method | AWS.ApiGateway.Model | AWS.ApiGateway.RequestValidator | AWS.ApiGateway.Resource | AWS.ApiGateway.RestApi | AWS.ApiGateway.Stage | AWS.ApiGateway.UsagePlan | AWS.ApiGateway.UsagePlanKey | AWS.ApiGateway.VpcLink | AWS.AppSync.ApiKey | AWS.AppSync.DataSource | AWS.AppSync.GraphQLApi | AWS.AppSync.GraphQLSchema | AWS.AppSync.Resolver | AWS.ApplicationAutoScaling.ScalableTarget | AWS.ApplicationAutoScaling.ScalingPolicy | AWS.Athena.NamedQuery | AWS.AutoScaling.AutoScalingGroup | AWS.AutoScaling.LaunchConfiguration | AWS.AutoScaling.LifecycleHook | AWS.AutoScaling.ScalingPolicy | AWS.AutoScaling.ScheduledAction | AWS.AutoScalingPlans.ScalingPlan | AWS.Batch.ComputeEnvironment | AWS.Batch.JobDefinition | AWS.Batch.JobQueue | AWS.Budgets.Budget | AWS.CertificateManager.Certificate | AWS.Cloud9.EnvironmentEC2 | AWS.CloudFormation.CustomResource | AWS.CloudFormation.Stack | AWS.CloudFormation.WaitCondition | AWS.CloudFormation.WaitConditionHandle | AWS.CloudFront.CloudFrontOriginAccessIdentity | AWS.CloudFront.Distribution | AWS.CloudFront.StreamingDistribution | AWS.CloudTrail.Trail | AWS.CloudWatch.Alarm | AWS.CloudWatch.Dashboard | AWS.CodeBuild.Project | AWS.CodeCommit.Repository | AWS.CodeDeploy.Application | AWS.CodeDeploy.DeploymentConfig | AWS.CodeDeploy.DeploymentGroup | AWS.CodePipeline.CustomActionType | AWS.CodePipeline.Pipeline | AWS.CodePipeline.Webhook | AWS.Cognito.IdentityPool | AWS.Cognito.IdentityPoolRoleAttachment | AWS.Cognito.UserPool | AWS.Cognito.UserPoolClient | AWS.Cognito.UserPoolGroup | AWS.Cognito.UserPoolUser | AWS.Cognito.UserPoolUserToGroupAttachment | AWS.Config.AggregationAuthorization | AWS.Config.ConfigRule | AWS.Config.ConfigurationAggregator | AWS.Config.ConfigurationRecorder | AWS.Config.DeliveryChannel | AWS.DAX.Cluster | AWS.DAX.ParameterGroup | AWS.DAX.SubnetGroup | AWS.DMS.Certificate | AWS.DMS.Endpoint | AWS.DMS.EventSubscription | AWS.DMS.ReplicationInstance | AWS.DMS.ReplicationSubnetGroup | AWS.DMS.ReplicationTask | AWS.DataPipeline.Pipeline | AWS.DirectoryService.MicrosoftAD | AWS.DirectoryService.SimpleAD | AWS.DynamoDB.Table | AWS.EC2.CustomerGateway | AWS.EC2.DHCPOptions | AWS.EC2.EIP | AWS.EC2.EIPAssociation | AWS.EC2.EgressOnlyInternetGateway | AWS.EC2.FlowLog | AWS.EC2.Host | AWS.EC2.Instance | AWS.EC2.InternetGateway | AWS.EC2.LaunchTemplate | AWS.EC2.NatGateway | AWS.EC2.NetworkAcl | AWS.EC2.NetworkAclEntry | AWS.EC2.NetworkInterface | AWS.EC2.NetworkInterfaceAttachment | AWS.EC2.NetworkInterfacePermission | AWS.EC2.PlacementGroup | AWS.EC2.Route | AWS.EC2.RouteTable | AWS.EC2.SecurityGroup | AWS.EC2.SecurityGroupEgress | AWS.EC2.SecurityGroupIngress | AWS.EC2.SpotFleet | AWS.EC2.Subnet | AWS.EC2.SubnetCidrBlock | AWS.EC2.SubnetNetworkAclAssociation | AWS.EC2.SubnetRouteTableAssociation | AWS.EC2.TrunkInterfaceAssociation | AWS.EC2.VPC | AWS.EC2.VPCCidrBlock | AWS.EC2.VPCDHCPOptionsAssociation | AWS.EC2.VPCEndpoint | AWS.EC2.VPCEndpointConnectionNotification | AWS.EC2.VPCEndpointServicePermissions | AWS.EC2.VPCGatewayAttachment | AWS.EC2.VPCPeeringConnection | AWS.EC2.VPNConnection | AWS.EC2.VPNConnectionRoute | AWS.EC2.VPNGateway | AWS.EC2.VPNGatewayRoutePropagation | AWS.EC2.Volume | AWS.EC2.VolumeAttachment | AWS.ECR.Repository | AWS.ECS.Cluster | AWS.ECS.Service | AWS.ECS.TaskDefinition | AWS.EFS.FileSystem | AWS.EFS.MountTarget | AWS.EKS.Cluster | AWS.EMR.Cluster | AWS.EMR.InstanceFleetConfig | AWS.EMR.InstanceGroupConfig | AWS.EMR.SecurityConfiguration | AWS.EMR.Step | AWS.ElastiCache.CacheCluster | AWS.ElastiCache.ParameterGroup | AWS.ElastiCache.ReplicationGroup | AWS.ElastiCache.SecurityGroup | AWS.ElastiCache.SecurityGroupIngress | AWS.ElastiCache.SubnetGroup | AWS.ElasticBeanstalk.Application | AWS.ElasticBeanstalk.ApplicationVersion | AWS.ElasticBeanstalk.ConfigurationTemplate | AWS.ElasticBeanstalk.Environment | AWS.ElasticLoadBalancing.LoadBalancer | AWS.ElasticLoadBalancingV2.Listener | AWS.ElasticLoadBalancingV2.ListenerCertificate | AWS.ElasticLoadBalancingV2.ListenerRule | AWS.ElasticLoadBalancingV2.LoadBalancer | AWS.ElasticLoadBalancingV2.TargetGroup | AWS.Elasticsearch.Domain | AWS.Events.Rule | AWS.GameLift.Alias | AWS.GameLift.Build | AWS.GameLift.Fleet | AWS.Glue.Classifier | AWS.Glue.Connection | AWS.Glue.Crawler | AWS.Glue.Database | AWS.Glue.DevEndpoint | AWS.Glue.Job | AWS.Glue.Partition | AWS.Glue.Table | AWS.Glue.Trigger | AWS.GuardDuty.Detector | AWS.GuardDuty.Filter | AWS.GuardDuty.IPSet | AWS.GuardDuty.Master | AWS.GuardDuty.Member | AWS.GuardDuty.ThreatIntelSet | AWS.IAM.AccessKey | AWS.IAM.Group | AWS.IAM.InstanceProfile | AWS.IAM.ManagedPolicy | AWS.IAM.Policy | AWS.IAM.Role | AWS.IAM.ServiceLinkedRole | AWS.IAM.User | AWS.IAM.UserToGroupAddition | AWS.Inspector.AssessmentTarget | AWS.Inspector.AssessmentTemplate | AWS.Inspector.ResourceGroup | AWS.IoT.Certificate | AWS.IoT.Policy | AWS.IoT.PolicyPrincipalAttachment | AWS.IoT.Thing | AWS.IoT.ThingPrincipalAttachment | AWS.IoT.TopicRule | AWS.KMS.Alias | AWS.KMS.Key | AWS.Kinesis.Stream | AWS.KinesisAnalytics.Application | AWS.KinesisAnalytics.ApplicationOutput | AWS.KinesisAnalytics.ApplicationReferenceDataSource | AWS.KinesisFirehose.DeliveryStream | AWS.Lambda.Alias | AWS.Lambda.EventSourceMapping | AWS.Lambda.Function | AWS.Lambda.Permission | AWS.Lambda.Version | AWS.Logs.Destination | AWS.Logs.LogGroup | AWS.Logs.LogStream | AWS.Logs.MetricFilter | AWS.Logs.SubscriptionFilter | AWS.Neptune.DBCluster | AWS.Neptune.DBClusterParameterGroup | AWS.Neptune.DBInstance | AWS.Neptune.DBParameterGroup | AWS.Neptune.DBSubnetGroup | AWS.OpsWorks.App | AWS.OpsWorks.ElasticLoadBalancerAttachment | AWS.OpsWorks.Instance | AWS.OpsWorks.Layer | AWS.OpsWorks.Stack | AWS.OpsWorks.UserProfile | AWS.OpsWorks.Volume | AWS.RDS.DBCluster | AWS.RDS.DBClusterParameterGroup | AWS.RDS.DBInstance | AWS.RDS.DBParameterGroup | AWS.RDS.DBSecurityGroup | AWS.RDS.DBSecurityGroupIngress | AWS.RDS.DBSubnetGroup | AWS.RDS.EventSubscription | AWS.RDS.OptionGroup | AWS.Redshift.Cluster | AWS.Redshift.ClusterParameterGroup | AWS.Redshift.ClusterSecurityGroup | AWS.Redshift.ClusterSecurityGroupIngress | AWS.Redshift.ClusterSubnetGroup | AWS.Route53.HealthCheck | AWS.Route53.HostedZone | AWS.Route53.RecordSet | AWS.Route53.RecordSetGroup | AWS.S3.Bucket | AWS.S3.BucketPolicy | AWS.SDB.Domain | AWS.SES.ConfigurationSet | AWS.SES.ConfigurationSetEventDestination | AWS.SES.ReceiptFilter | AWS.SES.ReceiptRule | AWS.SES.ReceiptRuleSet | AWS.SES.Template | AWS.SNS.Subscription | AWS.SNS.Topic | AWS.SNS.TopicPolicy | AWS.SQS.Queue | AWS.SQS.QueuePolicy | AWS.SSM.Association | AWS.SSM.Document | AWS.SSM.MaintenanceWindowTask | AWS.SSM.Parameter | AWS.SSM.PatchBaseline | AWS.SSM.ResourceDataSync | AWS.SageMaker.Endpoint | AWS.SageMaker.EndpointConfig | AWS.SageMaker.Model | AWS.SageMaker.NotebookInstance | AWS.SageMaker.NotebookInstanceLifecycleConfig | AWS.ServiceCatalog.AcceptedPortfolioShare | AWS.ServiceCatalog.CloudFormationProduct | AWS.ServiceCatalog.CloudFormationProvisionedProduct | AWS.ServiceCatalog.LaunchNotificationConstraint | AWS.ServiceCatalog.LaunchRoleConstraint | AWS.ServiceCatalog.LaunchTemplateConstraint | AWS.ServiceCatalog.Portfolio | AWS.ServiceCatalog.PortfolioPrincipalAssociation | AWS.ServiceCatalog.PortfolioProductAssociation | AWS.ServiceCatalog.PortfolioShare | AWS.ServiceCatalog.TagOption | AWS.ServiceCatalog.TagOptionAssociation | AWS.ServiceDiscovery.Instance | AWS.ServiceDiscovery.PrivateDnsNamespace | AWS.ServiceDiscovery.PublicDnsNamespace | AWS.ServiceDiscovery.Service | AWS.StepFunctions.Activity | AWS.StepFunctions.StateMachine | AWS.WAF.ByteMatchSet | AWS.WAF.IPSet | AWS.WAF.Rule | AWS.WAF.SizeConstraintSet | AWS.WAF.SqlInjectionMatchSet | AWS.WAF.WebACL | AWS.WAF.XssMatchSet | AWS.WAFRegional.ByteMatchSet | AWS.WAFRegional.IPSet | AWS.WAFRegional.Rule | AWS.WAFRegional.SizeConstraintSet | AWS.WAFRegional.SqlInjectionMatchSet | AWS.WAFRegional.WebACL | AWS.WAFRegional.WebACLAssociation | AWS.WAFRegional.XssMatchSet | AWS.WorkSpaces.Workspace;
+export type Resource = AWS.AmazonMQ.Broker | AWS.AmazonMQ.Configuration | AWS.ApiGateway.Account | AWS.ApiGateway.ApiKey | AWS.ApiGateway.Authorizer | AWS.ApiGateway.BasePathMapping | AWS.ApiGateway.ClientCertificate | AWS.ApiGateway.Deployment | AWS.ApiGateway.DocumentationPart | AWS.ApiGateway.DocumentationVersion | AWS.ApiGateway.DomainName | AWS.ApiGateway.GatewayResponse | AWS.ApiGateway.Method | AWS.ApiGateway.Model | AWS.ApiGateway.RequestValidator | AWS.ApiGateway.Resource | AWS.ApiGateway.RestApi | AWS.ApiGateway.Stage | AWS.ApiGateway.UsagePlan | AWS.ApiGateway.UsagePlanKey | AWS.ApiGateway.VpcLink | AWS.AppStream.DirectoryConfig | AWS.AppStream.Fleet | AWS.AppStream.ImageBuilder | AWS.AppStream.Stack | AWS.AppStream.StackFleetAssociation | AWS.AppStream.StackUserAssociation | AWS.AppStream.User | AWS.AppSync.ApiKey | AWS.AppSync.DataSource | AWS.AppSync.FunctionConfiguration | AWS.AppSync.GraphQLApi | AWS.AppSync.GraphQLSchema | AWS.AppSync.Resolver | AWS.ApplicationAutoScaling.ScalableTarget | AWS.ApplicationAutoScaling.ScalingPolicy | AWS.Athena.NamedQuery | AWS.AutoScaling.AutoScalingGroup | AWS.AutoScaling.LaunchConfiguration | AWS.AutoScaling.LifecycleHook | AWS.AutoScaling.ScalingPolicy | AWS.AutoScaling.ScheduledAction | AWS.AutoScalingPlans.ScalingPlan | AWS.Batch.ComputeEnvironment | AWS.Batch.JobDefinition | AWS.Batch.JobQueue | AWS.Budgets.Budget | AWS.CertificateManager.Certificate | AWS.Cloud9.EnvironmentEC2 | AWS.CloudFormation.CustomResource | AWS.CloudFormation.Macro | AWS.CloudFormation.Stack | AWS.CloudFormation.WaitCondition | AWS.CloudFormation.WaitConditionHandle | AWS.CloudFront.CloudFrontOriginAccessIdentity | AWS.CloudFront.Distribution | AWS.CloudFront.StreamingDistribution | AWS.CloudTrail.Trail | AWS.CloudWatch.Alarm | AWS.CloudWatch.Dashboard | AWS.CodeBuild.Project | AWS.CodeCommit.Repository | AWS.CodeDeploy.Application | AWS.CodeDeploy.DeploymentConfig | AWS.CodeDeploy.DeploymentGroup | AWS.CodePipeline.CustomActionType | AWS.CodePipeline.Pipeline | AWS.CodePipeline.Webhook | AWS.Cognito.IdentityPool | AWS.Cognito.IdentityPoolRoleAttachment | AWS.Cognito.UserPool | AWS.Cognito.UserPoolClient | AWS.Cognito.UserPoolGroup | AWS.Cognito.UserPoolUser | AWS.Cognito.UserPoolUserToGroupAttachment | AWS.Config.AggregationAuthorization | AWS.Config.ConfigRule | AWS.Config.ConfigurationAggregator | AWS.Config.ConfigurationRecorder | AWS.Config.DeliveryChannel | AWS.DAX.Cluster | AWS.DAX.ParameterGroup | AWS.DAX.SubnetGroup | AWS.DLM.LifecyclePolicy | AWS.DMS.Certificate | AWS.DMS.Endpoint | AWS.DMS.EventSubscription | AWS.DMS.ReplicationInstance | AWS.DMS.ReplicationSubnetGroup | AWS.DMS.ReplicationTask | AWS.DataPipeline.Pipeline | AWS.DirectoryService.MicrosoftAD | AWS.DirectoryService.SimpleAD | AWS.DynamoDB.Table | AWS.EC2.CustomerGateway | AWS.EC2.DHCPOptions | AWS.EC2.EC2Fleet | AWS.EC2.EIP | AWS.EC2.EIPAssociation | AWS.EC2.EgressOnlyInternetGateway | AWS.EC2.FlowLog | AWS.EC2.Host | AWS.EC2.Instance | AWS.EC2.InternetGateway | AWS.EC2.LaunchTemplate | AWS.EC2.NatGateway | AWS.EC2.NetworkAcl | AWS.EC2.NetworkAclEntry | AWS.EC2.NetworkInterface | AWS.EC2.NetworkInterfaceAttachment | AWS.EC2.NetworkInterfacePermission | AWS.EC2.PlacementGroup | AWS.EC2.Route | AWS.EC2.RouteTable | AWS.EC2.SecurityGroup | AWS.EC2.SecurityGroupEgress | AWS.EC2.SecurityGroupIngress | AWS.EC2.SpotFleet | AWS.EC2.Subnet | AWS.EC2.SubnetCidrBlock | AWS.EC2.SubnetNetworkAclAssociation | AWS.EC2.SubnetRouteTableAssociation | AWS.EC2.TransitGateway | AWS.EC2.TransitGatewayAttachment | AWS.EC2.TransitGatewayRoute | AWS.EC2.TransitGatewayRouteTable | AWS.EC2.TransitGatewayRouteTableAssociation | AWS.EC2.TransitGatewayRouteTablePropagation | AWS.EC2.TrunkInterfaceAssociation | AWS.EC2.VPC | AWS.EC2.VPCCidrBlock | AWS.EC2.VPCDHCPOptionsAssociation | AWS.EC2.VPCEndpoint | AWS.EC2.VPCEndpointConnectionNotification | AWS.EC2.VPCEndpointServicePermissions | AWS.EC2.VPCGatewayAttachment | AWS.EC2.VPCPeeringConnection | AWS.EC2.VPNConnection | AWS.EC2.VPNConnectionRoute | AWS.EC2.VPNGateway | AWS.EC2.VPNGatewayRoutePropagation | AWS.EC2.Volume | AWS.EC2.VolumeAttachment | AWS.ECR.Repository | AWS.ECS.Cluster | AWS.ECS.Service | AWS.ECS.TaskDefinition | AWS.EFS.FileSystem | AWS.EFS.MountTarget | AWS.EKS.Cluster | AWS.EMR.Cluster | AWS.EMR.InstanceFleetConfig | AWS.EMR.InstanceGroupConfig | AWS.EMR.SecurityConfiguration | AWS.EMR.Step | AWS.ElastiCache.CacheCluster | AWS.ElastiCache.ParameterGroup | AWS.ElastiCache.ReplicationGroup | AWS.ElastiCache.SecurityGroup | AWS.ElastiCache.SecurityGroupIngress | AWS.ElastiCache.SubnetGroup | AWS.ElasticBeanstalk.Application | AWS.ElasticBeanstalk.ApplicationVersion | AWS.ElasticBeanstalk.ConfigurationTemplate | AWS.ElasticBeanstalk.Environment | AWS.ElasticLoadBalancing.LoadBalancer | AWS.ElasticLoadBalancingV2.Listener | AWS.ElasticLoadBalancingV2.ListenerCertificate | AWS.ElasticLoadBalancingV2.ListenerRule | AWS.ElasticLoadBalancingV2.LoadBalancer | AWS.ElasticLoadBalancingV2.TargetGroup | AWS.Elasticsearch.Domain | AWS.Events.EventBusPolicy | AWS.Events.Rule | AWS.GameLift.Alias | AWS.GameLift.Build | AWS.GameLift.Fleet | AWS.Glue.Classifier | AWS.Glue.Connection | AWS.Glue.Crawler | AWS.Glue.Database | AWS.Glue.DevEndpoint | AWS.Glue.Job | AWS.Glue.Partition | AWS.Glue.Table | AWS.Glue.Trigger | AWS.GuardDuty.Detector | AWS.GuardDuty.Filter | AWS.GuardDuty.IPSet | AWS.GuardDuty.Master | AWS.GuardDuty.Member | AWS.GuardDuty.ThreatIntelSet | AWS.IAM.AccessKey | AWS.IAM.Group | AWS.IAM.InstanceProfile | AWS.IAM.ManagedPolicy | AWS.IAM.Policy | AWS.IAM.Role | AWS.IAM.ServiceLinkedRole | AWS.IAM.User | AWS.IAM.UserToGroupAddition | AWS.Inspector.AssessmentTarget | AWS.Inspector.AssessmentTemplate | AWS.Inspector.ResourceGroup | AWS.IoT1Click.Device | AWS.IoT1Click.Placement | AWS.IoT1Click.Project | AWS.IoT.Certificate | AWS.IoT.Policy | AWS.IoT.PolicyPrincipalAttachment | AWS.IoT.Thing | AWS.IoT.ThingPrincipalAttachment | AWS.IoT.TopicRule | AWS.KMS.Alias | AWS.KMS.Key | AWS.Kinesis.Stream | AWS.Kinesis.StreamConsumer | AWS.KinesisAnalytics.Application | AWS.KinesisAnalytics.ApplicationOutput | AWS.KinesisAnalytics.ApplicationReferenceDataSource | AWS.KinesisFirehose.DeliveryStream | AWS.Lambda.Alias | AWS.Lambda.EventSourceMapping | AWS.Lambda.Function | AWS.Lambda.Permission | AWS.Lambda.Version | AWS.Logs.Destination | AWS.Logs.LogGroup | AWS.Logs.LogStream | AWS.Logs.MetricFilter | AWS.Logs.SubscriptionFilter | AWS.Neptune.DBCluster | AWS.Neptune.DBClusterParameterGroup | AWS.Neptune.DBInstance | AWS.Neptune.DBParameterGroup | AWS.Neptune.DBSubnetGroup | AWS.OpsWorks.App | AWS.OpsWorks.ElasticLoadBalancerAttachment | AWS.OpsWorks.Instance | AWS.OpsWorks.Layer | AWS.OpsWorks.Stack | AWS.OpsWorks.UserProfile | AWS.OpsWorks.Volume | AWS.RDS.DBCluster | AWS.RDS.DBClusterParameterGroup | AWS.RDS.DBInstance | AWS.RDS.DBParameterGroup | AWS.RDS.DBSecurityGroup | AWS.RDS.DBSecurityGroupIngress | AWS.RDS.DBSubnetGroup | AWS.RDS.EventSubscription | AWS.RDS.OptionGroup | AWS.Redshift.Cluster | AWS.Redshift.ClusterParameterGroup | AWS.Redshift.ClusterSecurityGroup | AWS.Redshift.ClusterSecurityGroupIngress | AWS.Redshift.ClusterSubnetGroup | AWS.Route53.HealthCheck | AWS.Route53.HostedZone | AWS.Route53.RecordSet | AWS.Route53.RecordSetGroup | AWS.Route53Resolver.ResolverEndpoint | AWS.Route53Resolver.ResolverRule | AWS.S3.Bucket | AWS.S3.BucketPolicy | AWS.SDB.Domain | AWS.SES.ConfigurationSet | AWS.SES.ConfigurationSetEventDestination | AWS.SES.ReceiptFilter | AWS.SES.ReceiptRule | AWS.SES.ReceiptRuleSet | AWS.SES.Template | AWS.SNS.Subscription | AWS.SNS.Topic | AWS.SNS.TopicPolicy | AWS.SQS.Queue | AWS.SQS.QueuePolicy | AWS.SSM.Association | AWS.SSM.Document | AWS.SSM.MaintenanceWindow | AWS.SSM.MaintenanceWindowTask | AWS.SSM.Parameter | AWS.SSM.PatchBaseline | AWS.SSM.ResourceDataSync | AWS.SageMaker.Endpoint | AWS.SageMaker.EndpointConfig | AWS.SageMaker.Model | AWS.SageMaker.NotebookInstance | AWS.SageMaker.NotebookInstanceLifecycleConfig | AWS.SecretsManager.ResourcePolicy | AWS.SecretsManager.RotationSchedule | AWS.SecretsManager.Secret | AWS.SecretsManager.SecretTargetAttachment | AWS.ServiceCatalog.AcceptedPortfolioShare | AWS.ServiceCatalog.CloudFormationProduct | AWS.ServiceCatalog.CloudFormationProvisionedProduct | AWS.ServiceCatalog.LaunchNotificationConstraint | AWS.ServiceCatalog.LaunchRoleConstraint | AWS.ServiceCatalog.LaunchTemplateConstraint | AWS.ServiceCatalog.Portfolio | AWS.ServiceCatalog.PortfolioPrincipalAssociation | AWS.ServiceCatalog.PortfolioProductAssociation | AWS.ServiceCatalog.PortfolioShare | AWS.ServiceCatalog.TagOption | AWS.ServiceCatalog.TagOptionAssociation | AWS.ServiceDiscovery.HttpNamespace | AWS.ServiceDiscovery.Instance | AWS.ServiceDiscovery.PrivateDnsNamespace | AWS.ServiceDiscovery.PublicDnsNamespace | AWS.ServiceDiscovery.Service | AWS.StepFunctions.Activity | AWS.StepFunctions.StateMachine | AWS.WAF.ByteMatchSet | AWS.WAF.IPSet | AWS.WAF.Rule | AWS.WAF.SizeConstraintSet | AWS.WAF.SqlInjectionMatchSet | AWS.WAF.WebACL | AWS.WAF.XssMatchSet | AWS.WAFRegional.ByteMatchSet | AWS.WAFRegional.IPSet | AWS.WAFRegional.Rule | AWS.WAFRegional.SizeConstraintSet | AWS.WAFRegional.SqlInjectionMatchSet | AWS.WAFRegional.WebACL | AWS.WAFRegional.WebACLAssociation | AWS.WAFRegional.XssMatchSet | AWS.WorkSpaces.Workspace | Alexa.ASK.Skill;

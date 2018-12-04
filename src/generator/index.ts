@@ -7,6 +7,13 @@ import { normalizeUrl, template as t, prettyPrintTs, log, Cache, JQueryFactory, 
 import {each as asyncEach} from 'bluebird';
 import { JSDOM } from 'jsdom';
 import { SpecFile, SpecType, SpecProperty } from './spec-file';
+import has = Reflect.has;
+import {readFile} from "fs-extra";
+import {isNullOrUndefined} from "util";
+
+import {createHash} from "crypto";
+
+import {existsSync, readFileSync} from "fs";
 
 const paths = {
     generatedDeclaration: 'src/declarations/generated/cloudformation-types.ts',
@@ -43,7 +50,7 @@ async function main() {
     globSync('**.json', {cwd: paths.specificationsDirectory}).map(path => {
         specs[path] = readJsonFile(`specifications/${ path }`);
     });
-
+    
     try {
         await asyncEach(toPairs(specs), async ([path, spec]) => {
             await asyncEach([
@@ -65,8 +72,22 @@ async function main() {
                 if(typeof docs[actualUrl] === 'string') {
                     return;
                 }
-                console.log(`Downloading ${ url }`);
-                docs[actualUrl] = await request(actualUrl);
+                
+                let hash = createHash('md5').update(url).digest('hex');
+                let fileHashPath = "cache/" + hash;
+                
+                let fileString;
+                if(existsSync(fileHashPath)) {
+                    console.log(`found ${ url } in cache`);
+                    fileString = readFileSync(fileHashPath, {encoding: "UTF-8"});
+                }
+                else{
+                    fileString = await request(actualUrl);
+                    writeFile(fileHashPath, fileString)
+                    console.log(`Downloading ${ url }`);
+                }
+
+                docs[actualUrl] = fileString;
             }
         });
     } finally {
