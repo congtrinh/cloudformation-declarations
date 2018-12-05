@@ -1,5 +1,4 @@
 node_modules
-out
 
 # Exceeds GitHub's filesize limit
 cache/html-docs.json
